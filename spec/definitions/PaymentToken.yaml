@@ -1,0 +1,28 @@
+type: object
+required:
+  - method
+  - paymentInstrument
+properties:
+  id:
+    description: The token identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  method:
+    $ref: "#/definitions/Method"
+  paymentInstrument:
+    $ref: "#/definitions/PaymentTokenInstrument"
+  fingerprint:
+    description: Device fingerprint hash
+    type: string
+  billingAddress:
+    description: The Address. Required if bank account is not created from Token
+    allOf:
+      - $ref: "#/definitions/ContactObject"
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"

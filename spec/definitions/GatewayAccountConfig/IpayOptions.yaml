@@ -1,0 +1,23 @@
+description: Ipay Options config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        description: Ipay Options credentials object
+        properties:
+          sid:
+            type: string
+            description: Ipay Options website ID
+          rcode:
+            type: string
+            description: Ipay Options rcode
+            format: password
+        required:
+          - "sid"
+          - "rcode"

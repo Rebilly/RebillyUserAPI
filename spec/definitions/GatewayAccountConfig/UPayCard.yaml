@@ -1,0 +1,27 @@
+description: UPayCard Gateway config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        properties:
+          receiver_account:
+            type: string
+            description: merchant receiver account
+          key:
+            type: string
+            description: merchant key
+            format: password
+          secret:
+            type: string
+            description: merchant secret
+            format: password
+        required:
+          - "receiver_account"
+          - "key"
+          - "secret"

@@ -1,0 +1,73 @@
+type: object
+required:
+  - name
+description: |
+  Your product includes digital goods, services, and physical goods.
+  Products appear on invoice line items. If you set a tax category identifier,
+  taxes will be calculated upon invoice generation.
+example: |
+  {
+    "id": "stringid",
+    "name": "Widget",
+    "description": "Fantastic widget",
+    "taxCategoryId": null,
+    "requiresShipping": true,
+    "accountingCode": "100",
+    "customFields": [],
+    "createdTime": "2015-08-27 13:45:12",
+    "updatedTime": "2015-08-27 13:45:12",
+    "_links": [
+        {
+          "rel": "self",
+          "href": "https://api.rebilly.com/v2.1/products/stringid"
+        }
+    ]
+  }
+properties:
+  id:
+    description: The product identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  name:
+    description: The product name
+    type: string
+    maxLength: 255
+  description:
+    description: The product description
+    type: string
+    maxLength: 512
+  taxCategoryId:
+    description: The product's tax category identifier string
+    type: string
+    enum:
+      - 99999
+      - 20010
+      - 40030
+      - 51020
+      - 51010
+      - 31000
+      - 30070
+  requiresShipping:
+    description: If the product requires shipping, shipping calculations will be applied
+    type: boolean
+  accountingCode:
+    description: The product accounting code
+    type: string
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"
+  createdTime:
+    description: The product created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The product updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"

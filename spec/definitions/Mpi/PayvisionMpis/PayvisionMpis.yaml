@@ -1,0 +1,13 @@
+description: Payvision Mpis
+discriminator: name
+type: object
+required:
+  - name
+properties:
+  name:
+    allOf:
+      - $ref: "#/definitions/MpiName"
+    enum:
+     - PayvisionMpi
+     - CardinalCommerce
+     - Other
