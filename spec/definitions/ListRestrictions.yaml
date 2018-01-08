@@ -1,0 +1,22 @@
+type: object
+required:
+  - type
+  - action
+  - listId
+properties:
+  type:
+      description: Restriction type
+      type: string
+      enum:
+        - country
+        - bin
+  action:
+      description: How to restrict the list items
+      type: string
+      enum:
+        - in
+        - not-in
+  listId:
+    description: The List ID
+    allOf:
+      - $ref: "#/definitions/ResourceId"
