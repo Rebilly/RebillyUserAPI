@@ -4,14 +4,11 @@ required:
   - action
   - listId
 properties:
-  type:
-      description: Restriction type
+  path:
+      description: What to restrict
       type: string
-      enum:
-        - country
-        - bin
   action:
-      description: How to restrict the list items
+      description: How to restrict
       type: string
       enum:
         - in
