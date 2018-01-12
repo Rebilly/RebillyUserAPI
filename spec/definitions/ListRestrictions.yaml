@@ -1,6 +1,6 @@
 type: object
 required:
-  - type
+  - path
   - action
   - listId
 properties:
