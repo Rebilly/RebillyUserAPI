@@ -1,0 +1,19 @@
+type: object
+required:
+  - path
+  - action
+  - listId
+properties:
+  path:
+      description: What to restrict
+      type: string
+  action:
+      description: How to restrict
+      type: string
+      enum:
+        - in
+        - not-in
+  listId:
+    description: The List ID
+    allOf:
+      - $ref: "#/definitions/ResourceId"
