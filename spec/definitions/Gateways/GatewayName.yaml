@@ -46,6 +46,7 @@ enum:
  - Redsys
  - RPN
  - Sagepay
+ - Skrill
  - SMSVoucher
  - StaticGateway
  - Stripe
