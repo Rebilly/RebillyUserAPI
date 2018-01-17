@@ -16,12 +16,20 @@ properties:
     type: string
   status:
     $ref: "#/definitions/OnOff"
-  receiverEmails:
+  notifications:
     type: array
     description: Emails from this notification will be sent to specified email addresses.
     items:
-      type: string
-      format: email
+      type: object
+      required:
+        - email
+        - status
+      properties:
+        email:
+          type: string
+          format: email
+        status:
+          $ref: "#/definitions/OnOff"
   createdTime:
     description: Notification created time
     allOf:
