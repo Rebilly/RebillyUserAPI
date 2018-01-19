@@ -26,7 +26,3 @@ get:
           $ref: "#/definitions/CustomerNotification"
     401:
       $ref: "#/responses/AccessForbidden"
-    422:
-      description: Invalid data was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
