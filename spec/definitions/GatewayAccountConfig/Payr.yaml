@@ -23,6 +23,7 @@ allOf:
           apiSecurityToken:
             type: string
             description: Hash of the password for the Alliance API (transaction reporting)
+            format: password
         required:
           - "clientId"
           - "secretWord"
