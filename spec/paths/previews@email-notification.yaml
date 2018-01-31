@@ -1,19 +1,19 @@
 post:
   tags:
     - Email Notifications
-  summary: Trigger a test Order Email Notification
+  summary: Trigger a test Email Notification
   description: |
-    Trigger a test Order Email Notification
+    Trigger a test Email Notification
   parameters:
     - name: body
       in: body
-      description: OrderNotification resource
+      description: EmailNotification resource
       required: true
       schema:
-        $ref: "#/definitions/OrderNotification"
+        $ref: "#/definitions/EmailNotification"
   responses:
     204:
-      description: Test Order Email Notification was triggered
+      description: Test Email Notification was triggered
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

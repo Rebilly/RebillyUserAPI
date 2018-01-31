@@ -23,6 +23,6 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/OrderNotification"
+          $ref: "#/definitions/EmailNotification"
     401:
       $ref: "#/responses/AccessForbidden"
