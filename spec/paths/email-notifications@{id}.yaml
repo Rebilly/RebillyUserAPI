@@ -1,25 +1,14 @@
 parameters:
-  - name: eventType
-    in: path
-    description: The event type
-    type: string
-    required: true
-    enum:
-      - subscription-trial-ended
-      - subscription-activated
-      - subscription-canceled
-      - subscription-renewed
-      - payment-card-expired
-      - todo
+  - $ref: "#/parameters/resourceId"
 get:
   tags:
     - Email Notifications
-  summary: Retrieve an order email notification settings
+  summary: Retrieve an email notification settings
   description: |
-    Retrieve an order email notification settings
+    Retrieve an email notification settings
   responses:
     200:
-      description: Order Email notification settings for specified event were retrieved successfully
+      description: Email notification settings for specified event were retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -28,7 +17,7 @@ get:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/OrderNotification"
+        $ref: "#/definitions/EmailNotification"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
@@ -36,19 +25,19 @@ get:
 put:
   tags:
     - Email Notifications
-  summary: Order Email notification settings for specified event were created or updated successfully
+  summary: Email notification settings for specified event were created or updated successfully
   description: |
-    Create or update Order Email notification settings for specified event
+    Create or update Email notification settings for specified event
   parameters:
     - name: body
       in: body
-      description: Order Email notification settings resource
+      description: Email notification settings resource
       required: true
       schema:
-        $ref: "#/definitions/OrderNotification"
+        $ref: "#/definitions/EmailNotification"
   responses:
     200:
-      description: Order Email notification settings were updated
+      description: Email notification settings were updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -57,9 +46,9 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/OrderNotification"
+        $ref: "#/definitions/EmailNotification"
     201:
-      description: Order Email notification settings were created
+      description: Email notification settings were created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -68,7 +57,7 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/OrderNotification"
+        $ref: "#/definitions/EmailNotification"
     401:
       $ref: "#/responses/AccessForbidden"
     422:

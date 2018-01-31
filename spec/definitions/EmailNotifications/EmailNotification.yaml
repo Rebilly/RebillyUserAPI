@@ -1,14 +1,29 @@
 type: object
 required:
+  - eventType
   - subject
   - body
   - notifications
 properties:
-  eventType:
-    description: The email notification event
+  id:
+    description: The email notification identifier string
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
+  eventType:
+    description: The email notification event
+    type: string
+    enum:
+      - subscription-trial-ended
+      - subscription-activated
+      - subscription-canceled
+      - subscription-renewed
+      - payment-card-expired
+      - todo
+  tags:
+    type: array
+    items:
+      type: string
   subject:
     description: The email template's subject
     type: string
@@ -30,6 +45,7 @@ properties:
         email:
           type: string
           format: email
+          description: Specified email or placeholder
         status:
           $ref: "#/definitions/OnOff"
   createdTime:
