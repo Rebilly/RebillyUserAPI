@@ -1,31 +1,24 @@
-get:
+post:
   tags:
     - Migrate payment cards
-  summary: Retrieve a list of payment cards ready for migration
+  summary: Migrate payment cards to another gateway account
   description: |
-    Retrieve a list of payment cards ready for migration
+    Migrate payment cards to another gateway account
   parameters:
-    - $ref: "#/parameters/collectionLimit"
-    - $ref: "#/parameters/collectionOffset"
-  responses:
-    200:
-      description: A list of payment cards was retrieved successfully
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-        Pagination-Total:
-          $ref: "#/headers/Pagination-Total"
-        Pagination-Limit:
-          $ref: "#/headers/Pagination-Limit"
-        Pagination-Offset:
-          $ref: "#/headers/Pagination-Offset"
+    - name: body
+      in: body
+      description: Payment card migration attributes
+      required: true
       schema:
-        type: array
-        items:
-          $ref: "#/definitions/PaymentCard"
+        $ref: "#/definitions/PaymentCardMigration"
+  responses:
+    201:
+      description: Migration command was accepted
+      schema:
+        $ref: "#/definitions/PaymentCardMigration"
     401:
       $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
