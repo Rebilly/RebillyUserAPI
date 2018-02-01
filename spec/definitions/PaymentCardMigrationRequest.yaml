@@ -19,3 +19,7 @@ properties:
       description: An array of payment card IDs
       allOf:
         - $ref: "#/definitions/ResourceId"
+  migratedCards:
+    type: integer
+    description: Amount of cards that were successfully migrated
+    readOnly: true
