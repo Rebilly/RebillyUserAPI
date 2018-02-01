@@ -10,12 +10,12 @@ post:
       description: Payment card migration attributes
       required: true
       schema:
-        $ref: "#/definitions/PaymentCardMigrationRequest"
+        $ref: "#/definitions/PaymentCardMigration"
   responses:
     201:
       description: Migration command was accepted
       schema:
-        $ref: "#/definitions/PaymentCardMigrationResponse"
+        $ref: "#/definitions/PaymentCardMigration"
     401:
       $ref: "#/responses/AccessForbidden"
     422:
