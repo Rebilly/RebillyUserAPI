@@ -6,6 +6,7 @@ allOf:
     type: "object"
     required:
      - "gatewayConfig"
+     - "settings"
     properties:
       gatewayConfig:
         type: object
@@ -26,3 +27,13 @@ allOf:
           - "x_login"
           - "x_tran_key"
           - "secret_key"
+      settings:
+        type: object
+        description: AstroPay Card settings object
+        properties:
+          extraStep:
+            type: boolean
+            description: Show extra step for user to enter their email and DNI number
+        required:
+          - "extraStep"
+
