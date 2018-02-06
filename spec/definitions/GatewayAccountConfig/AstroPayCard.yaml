@@ -29,7 +29,7 @@ allOf:
           - "secret_key"
       settings:
         type: object
-        description: AstroPay Card credentials object
+        description: AstroPay Card settings object
         properties:
           extraStep:
             type: boolean
