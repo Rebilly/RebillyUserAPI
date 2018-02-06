@@ -32,7 +32,7 @@ allOf:
         description: AstroPay Card credentials object
         properties:
           extraStep:
-            type: bool
+            type: boolean
             description: Show extra step for user to enter their email and DNI number
         required:
           - "extraStep"
