@@ -1,8 +1,7 @@
 type: object
 required:
   - content
-  - relatedType
-  - relatedId
+  - customerId
 properties:
   id:
     description: The note identifier string
@@ -19,17 +18,8 @@ properties:
   archived:
     description: Is the note archived (excluded from List method)
     type: boolean
-  relatedType:
-    description: The note's related resource type
-    type: string
-    enum:
-      - customer
-      - payment-card
-      - payment-gateway
-      - subscription
-      - transaction
-  relatedId:
-    description: The note's related resource ID
+  customerId:
+    description: The customer's ID note is related to.
     allOf:
       - $ref: "#/definitions/ResourceId"
   createdTime:
