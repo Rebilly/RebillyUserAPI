@@ -27,7 +27,7 @@ allOf:
           sftpUsername:
             type: string
             description: Wirecard sftp username.
-          sftpPassowrd:
+          sftpPassword:
             type: string
             description: Wirecard sftp password.
             format: password
