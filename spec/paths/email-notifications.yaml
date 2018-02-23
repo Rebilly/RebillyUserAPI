@@ -1,9 +1,9 @@
 get:
   tags:
     - Email Notifications
-  summary: Retrieve a list of email notifications
+  summary: Retrieve a list of email templates
   description: |
-    Retrieve a list of email notifications
+    Retrieve a list of email templates
   responses:
     200:
       description: A list of email notifications templates was retrieved successfully

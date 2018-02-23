@@ -3,12 +3,12 @@ parameters:
 get:
   tags:
     - Email Notifications
-  summary: Retrieve an email notification settings
+  summary: Retrieve an email notification templates
   description: |
     Retrieve an email notification settings
   responses:
     200:
-      description: Email notification settings for specified event were retrieved successfully
+      description: Email notification templates for specified event were retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -25,19 +25,19 @@ get:
 put:
   tags:
     - Email Notifications
-  summary: Email notification settings for specified event were created or updated successfully
+  summary: Email notification templates for specified event were created or updated successfully
   description: |
-    Create or update Email notification settings for specified event
+    Create or update Email notification templates for specified event
   parameters:
     - name: body
       in: body
-      description: Email notification settings resource
+      description: Email notification templates resource
       required: true
       schema:
         $ref: "#/definitions/EmailNotification"
   responses:
     200:
-      description: Email notification settings were updated
+      description: Email notification templates were updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -48,7 +48,7 @@ put:
       schema:
         $ref: "#/definitions/EmailNotification"
     201:
-      description: Email notification settings were created
+      description: Email notification templates were created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

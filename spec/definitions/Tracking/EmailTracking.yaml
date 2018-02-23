@@ -18,11 +18,28 @@ properties:
     description: The email address
     type: string
     format: email
+  responseCode:
+    type: integer
+    description: Response code received
+  responseBody:
+    type: string
+    description: Response body received
   createdTime:
     description: Email created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  initiatedTime:
+    description: Email initiated time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
   sentTime:
     description: Email sent time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"

@@ -14,12 +14,11 @@ properties:
     description: The email notification event
     type: string
     enum:
-      - subscription-trial-ended
+      - subscription-created
       - subscription-activated
       - subscription-canceled
-      - subscription-renewed
+      - payment-declined
       - payment-card-expired
-      - todo
   tags:
     type: array
     items:
@@ -44,7 +43,6 @@ properties:
       properties:
         email:
           type: string
-          format: email
           description: Specified email or placeholder
         status:
           $ref: "#/definitions/OnOff"
@@ -56,3 +54,10 @@ properties:
     description: Notification updated time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"
