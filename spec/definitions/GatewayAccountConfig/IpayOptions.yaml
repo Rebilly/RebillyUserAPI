@@ -6,6 +6,7 @@ allOf:
     type: "object"
     required:
      - "gatewayConfig"
+     - "settings"
     properties:
       gatewayConfig:
         type: object
@@ -21,3 +22,16 @@ allOf:
         required:
           - "sid"
           - "rcode"
+      settings:
+        type: object
+        description: Ipay Options settings object
+        properties:
+          extraStep:
+            type: boolean
+            description: Show extra step for user to enter their email and DNI number
+          forceMxnDcc:
+            type: boolean
+            description: Force dynamic currency conversion to MXN on each sale
+        required:
+          - "extraStep"
+          - "forceMxnDcc"
