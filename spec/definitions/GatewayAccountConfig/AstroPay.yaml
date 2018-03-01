@@ -22,7 +22,16 @@ allOf:
             type: string
             description: AstroPay secret key
             format: password
+          web_pay_login:
+            type: string
+            description: AstroPay web pay status login
+          web_pay_tran_key:
+            type: string
+            description: AstroPay web pay status password
+            format: password
         required:
           - "x_login"
           - "x_tran_key"
           - "secret_key"
+          - "web_pay_login"
+          - "web_pay_tran_key"
