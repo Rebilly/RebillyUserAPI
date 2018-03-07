@@ -1,0 +1,64 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Email Notifications
+  summary: Retrieve an email notification template
+  description: |
+    Retrieve an email notification template
+  responses:
+    200:
+      description: Email notification template for specified event were retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailNotification"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Email Notifications
+  summary: Email notification template for specified event was created or updated successfully
+  description: |
+    Create or update Email notification templates for specified event
+  parameters:
+    - name: body
+      in: body
+      description: Email notification template resource
+      required: true
+      schema:
+        $ref: "#/definitions/EmailNotification"
+  responses:
+    200:
+      description: Email notification template was updated
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailNotification"
+    201:
+      description: Email notification templates was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailNotification"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"
