@@ -1,9 +1,9 @@
 get:
   tags:
     - Email Notifications
-  summary: Retrieve a list of email templates
+  summary: Retrieve a list of email notification template
   description: |
-    Retrieve a list of email templates
+    Retrieve a list of email notification template
   responses:
     200:
       description: A list of email notifications templates was retrieved successfully
@@ -29,9 +29,9 @@ get:
 post:
   tags:
     - Email Notifications
-  summary: Create an email template
+  summary: Create an email notification template
   description: |
-    Create an email template
+    Create an email notification template
   parameters:
     - name: body
       in: body
@@ -41,7 +41,7 @@ post:
         $ref: "#/definitions/EmailNotification"
   responses:
     201:
-      description: Email template was created
+      description: Email notification template was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

@@ -1,9 +1,9 @@
 post:
   tags:
     - Email Notifications
-  summary: Trigger a test Email Notification
+  summary: Send a test Email Notification
   description: |
-    Trigger a test Email Notification
+    Send a test Email Notification
   parameters:
     - name: body
       in: body
@@ -13,7 +13,7 @@ post:
         $ref: "#/definitions/EmailNotification"
   responses:
     204:
-      description: Test Email Notification was triggered
+      description: Test Email Notification was sent
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
