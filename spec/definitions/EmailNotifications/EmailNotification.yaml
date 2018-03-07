@@ -6,12 +6,12 @@ required:
   - notifications
 properties:
   id:
-    description: The email notification template identifier string
+    description: The email notification template's identifier string
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
   eventType:
-    description: The email notification template event
+    description: The email notification template's event
     type: string
     enum:
       - subscription-created
@@ -24,16 +24,16 @@ properties:
     items:
       type: string
   subject:
-    description: The email template's subject
+    description: The email notification template's subject
     type: string
   body:
-    description: The email template's body
+    description: The email notification template's body
     type: string
   status:
     $ref: "#/definitions/OnOff"
   notifications:
     type: array
-    description: Emails from this email notification template will be sent to specified email addresses.
+    description: The list of email addresses to send the email notification template.
     minItems: 1
     items:
       type: object
