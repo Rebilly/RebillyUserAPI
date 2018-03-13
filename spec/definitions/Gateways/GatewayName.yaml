@@ -18,6 +18,7 @@ enum:
  - Dengi
  - eMerchantPay
  - Flexepin
+ - FinTecSystems
  - FundSend
  - Forte
  - GET

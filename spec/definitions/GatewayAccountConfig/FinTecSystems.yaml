@@ -1,0 +1,35 @@
+description: FinTecSystems config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        description: FinTecSystems credentials object
+        properties:
+          apiKey:
+            type: string
+            description: FinTecSystems api key
+            format: password
+          recipientHolder:
+            type: string
+            description: Account holder of the recipient account
+          recipientIBAN:
+            type: string
+            description: IBAN of the recipient account
+          recipientBIC:
+            type: string
+            description: BIC of the recipient account
+          recipientCountry:
+            type: string
+            description: Two letter country code
+        required:
+          - "apiKey"
+          - "recipientHolder"
+          - "recipientIBAN"
+          - "recipientBIC"
+          - "recipientCountry"
