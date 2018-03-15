@@ -1,0 +1,41 @@
+type: object
+description: Global Timeline events.
+readOnly: true
+properties:
+  type:
+    type: string
+    description: Event type
+    enum:
+      - transaction-was-approved
+      - transaction-was-declined
+      - dispute-was-created
+      - invoice-was-paid
+      - invoice-was-past-due
+      - payment-card-was-expired
+      - subscription-trial-was-ended
+      - subscription-was-activated
+      - subscription-was-canceled
+      - subscription-was-renewed
+      - subscription-was-upgraded
+      - subscription-was-downgraded
+  eventData:
+      type: object
+      example:
+        "transactionId": "test-transaction"
+        "amount": 10
+        "currency": "USD"
+  occurredTime:
+    description: The time when this event occurred
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/TransactionLink"
+      - $ref: "#/definitions/SubscriptionLink"
+      - $ref: "#/definitions/InvoiceLink"
+      - $ref: "#/definitions/CustomerLink"
+      - $ref: "#/definitions/DisputeLink"
