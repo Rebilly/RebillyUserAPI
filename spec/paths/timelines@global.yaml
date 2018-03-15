@@ -24,6 +24,6 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/Timelines/GlobalTimeline"
+          $ref: "#/definitions/GlobalTimeline"
     401:
       $ref: "#/responses/AccessForbidden"
