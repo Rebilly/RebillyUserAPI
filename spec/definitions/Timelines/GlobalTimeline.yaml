@@ -22,7 +22,7 @@ properties:
       type: object
       example:
         "transactionId": "test-transaction"
-        "amount": 10
+        "amount": 10.00
         "currency": "USD"
   occurredTime:
     description: The time when this event occurred
