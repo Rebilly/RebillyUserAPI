@@ -18,7 +18,7 @@ properties:
       - subscription-was-renewed
       - subscription-was-upgraded
       - subscription-was-downgraded
-  eventData:
+  data:
       type: object
       example:
         "transactionId": "test-transaction"
@@ -39,5 +39,3 @@ properties:
       - $ref: "#/definitions/InvoiceLink"
       - $ref: "#/definitions/CustomerLink"
       - $ref: "#/definitions/DisputeLink"
-      - $ref: "#/definitions/NotesLink"
-      - $ref: "#/definitions/AttachmentResourceLink"
