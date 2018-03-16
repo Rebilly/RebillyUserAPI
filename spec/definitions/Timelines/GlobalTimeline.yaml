@@ -39,3 +39,5 @@ properties:
       - $ref: "#/definitions/InvoiceLink"
       - $ref: "#/definitions/CustomerLink"
       - $ref: "#/definitions/DisputeLink"
+      - $ref: "#/definitions/NotesLink"
+      - $ref: "#/definitions/AttachmentResourceLink"
