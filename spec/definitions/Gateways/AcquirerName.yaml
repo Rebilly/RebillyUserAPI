@@ -3,6 +3,7 @@ type: string
 enum:
   - Alipay
   - AIB
+  - ApcoPay
   - AstroPay Card
   - Ipay Options
   - B+S
