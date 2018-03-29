@@ -9,6 +9,7 @@ allOf:
     properties:
       gatewayConfig:
         type: object
+        description: Ilixium credentials object
         properties:
           merchantId:
             type: string
@@ -24,5 +25,12 @@ allOf:
           - "merchantId"
           - "accountId"
           - "digestPassword"
+      settings:
+        type: object
+        description: Ilixium miscellaneous settings object
+        properties:
+          forceDcc:
+            type: string
+            description: Force dynamic currency conversion to the specified currency on each sale
       mpi:
         $ref: "#/definitions/IlixiumMpis"
