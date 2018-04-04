@@ -35,3 +35,12 @@ allOf:
           - "secret_key"
           - "web_pay_login"
           - "web_pay_tran_key"
+      settings:
+        type: object
+        description: AstroPay settings object
+        properties:
+          banks:
+            type: array
+            description: list of banks which will show on hook page
+            items:
+              - $ref: "#/definitions/AstroPayBanks"
