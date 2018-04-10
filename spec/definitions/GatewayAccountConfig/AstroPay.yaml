@@ -44,3 +44,6 @@ allOf:
             description: list of banks which will show on hook page
             items:
               - $ref: "#/definitions/AstroPayBanks"
+          skipStep:
+            type: boolean
+            description: Skip step for user to enter their personal information.
