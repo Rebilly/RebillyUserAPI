@@ -46,4 +46,4 @@ allOf:
               - $ref: "#/definitions/AstroPayBanks"
           skipStep:
             type: boolean
-            description:
+            description: Skip step for user to enter their personal information.
