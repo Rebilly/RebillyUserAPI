@@ -16,7 +16,6 @@ properties:
     enum:
       - subscription-activated
       - subscription-canceled
-      - payment-card-expired
   tags:
     type: array
     items:
