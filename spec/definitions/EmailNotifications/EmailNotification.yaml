@@ -14,10 +14,8 @@ properties:
     description: The email notification template's event
     type: string
     enum:
-      - subscription-created
       - subscription-activated
       - subscription-canceled
-      - payment-declined
       - payment-card-expired
   tags:
     type: array
