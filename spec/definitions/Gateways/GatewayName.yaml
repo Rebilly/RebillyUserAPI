@@ -12,7 +12,6 @@ enum:
  - Cashflows
  - Cayan
  - Chase
- - ChinaUnionPay
  - Credorax
  - Cryptonator
  - DataCash
@@ -33,6 +32,7 @@ enum:
  - JetPay
  - Jeton
  - Moneris
+ - MtaPay
  - NMI
  - OchaPay
  - Optimal
