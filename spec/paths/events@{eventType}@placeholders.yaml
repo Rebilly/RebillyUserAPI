@@ -18,5 +18,7 @@ get:
         type: array
         items:
           $ref: "#/definitions/Placeholder"
+    401:
+      $ref: "#/responses/AccessForbidden"
     404:
       $ref: "#/responses/NotFound"
