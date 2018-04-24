@@ -1,0 +1,16 @@
+type: object
+description: Placeholder
+properties:
+  name:
+    type: string
+  type:
+    type: string
+    description: Placeholder type
+    enum:
+      - array
+      - bool
+      - date-time
+      - float
+      - int
+      - object
+      - string
