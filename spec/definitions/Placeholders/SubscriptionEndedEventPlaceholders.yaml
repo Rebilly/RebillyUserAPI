@@ -1,0 +1,11 @@
+type: object
+properties:
+  subscription.id:
+    description: The Subscription identifier string
+    type: string
+  subscription.customerId:
+    description: Unique id for each customer
+    type: string
+  subscription.planId:
+    description: Unique id for each plan
+    type: string
