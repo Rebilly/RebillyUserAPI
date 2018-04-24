@@ -1,0 +1,22 @@
+parameters:
+  - $ref: "#/parameters/systemEventType"
+get:
+  tags:
+    - Email Notifications
+  summary: Retrieve a list of placeholders for an event
+  responses:
+    200:
+      description: Placeholders were retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Placeholder"
+    404:
+      $ref: "#/responses/NotFound"
