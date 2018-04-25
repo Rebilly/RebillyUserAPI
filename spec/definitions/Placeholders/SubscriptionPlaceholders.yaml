@@ -92,7 +92,7 @@ properties:
     type: string
   subscription.plan.recurringAmount:
     description: The amount that recurs according to the schedule
-    type: float
+    type: number
   subscription.plan.recurringPeriodUnit:
     description: The unit of time
     type: string
@@ -101,7 +101,7 @@ properties:
     type: integer
   subscription.plan.trialAmount:
     description: The amount of a trial - 0 is a valid value (for free)
-    type: float
+    type: number
   subscription.plan.trialPeriodUnit:
     description: The unit of time
     type: string
@@ -110,7 +110,7 @@ properties:
     type: integer
   subscription.plan.setupAmount:
     description: The amount of a setup - 0 is a valid value (for free)
-    type: float
+    type: number
   subscription.plan.expiredTime:
     description: Time when the plan is not longer valid
     type: string
@@ -287,10 +287,10 @@ properties:
     type: string
   subscription.riskMetadata.latitude:
     description: Latitude for specified ipAddress
-    type: float
+    type: number
   subscription.riskMetadata.longitude:
     description: Longitude for specified ipAddress
-    type: float
+    type: number
   subscription.riskMetadata.postalCode:
     description: Postal code for specified ipAddress
     type: string
@@ -299,7 +299,7 @@ properties:
     type: string
   subscription.riskMetadata.accuracyRadius:
     description: Accuracy radius for specified ipAddress (kilometers)
-    type: float
+    type: number
   subscription.riskMetadata.fingerprint:
     description: The fingerprint
     type: string
@@ -308,7 +308,7 @@ properties:
     type: array
   subscription.riskMetadata.distance:
     description: Distance between IP Address and Billing Address geolocation (kilometers)
-    type: float
+    type: number
   subscription.riskMetadata.score:
     description: Risk score computed per all the factors
     type: integer
