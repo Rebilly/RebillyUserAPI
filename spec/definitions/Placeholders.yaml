@@ -1,6 +1,6 @@
 type: object
 properties:
   subscription-canceled:
-    - $ref: "#/definitions/SubscriptionCanceledEventPlaceholders"
-  subscription-canceled:
-    - $ref: "#/definitions/SubscriptionEndedEventPlaceholders"
+    - $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-activated:
+    - $ref: "#/definitions/SubscriptionPlaceholders"
