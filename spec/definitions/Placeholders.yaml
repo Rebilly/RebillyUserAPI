@@ -4,3 +4,9 @@ properties:
     - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-activated:
     - $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-created:
+    - $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-trial-ended:
+    - $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-ended:
+    - $ref: "#/definitions/SubscriptionPlaceholders"

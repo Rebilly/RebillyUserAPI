@@ -23,10 +23,10 @@ properties:
     type: integer
   subscription.autopay:
     description: Autopay determines if a payment attempt will be automatic
-    type: bool
+    type: boolean
   subscription.inTrial:
     description: True if the subscription is currently in a trial period
-    type: bool
+    type: boolean
   subscription.rebillNumber:
     description: The current period number
     type: integer
