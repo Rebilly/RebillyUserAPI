@@ -135,9 +135,6 @@ properties:
   subscription.plan.updatedTime:
     description: Plan updated time
     type: string
-  subscription.plan.updatedTime:
-    description: Plan updated time
-    type: string
   subscription.website.id:
     description: The website identifier string
     type: string
