@@ -1,12 +1,19 @@
 type: object
 properties:
   subscription-canceled:
+    type: object
+    allOf:
     - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-activated:
+    type: object
+    allOf:
     - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-created:
+    allOf:
     - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-trial-ended:
+    allOf:
     - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-ended:
+    allOf:
     - $ref: "#/definitions/SubscriptionPlaceholders"

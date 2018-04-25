@@ -186,9 +186,13 @@ properties:
   subscription.billingAddress.phoneNumbers:
     description: The contact phone numbers
     type: array
+    items:
+      type: string
   subscription.billingAddress.emails:
     description: The contact emails
     type: array
+    items:
+      type: string
   subscription.deliveryAddress.firstName:
     description: The contact first name
     type: string
@@ -219,9 +223,13 @@ properties:
   subscription.deliveryAddress.phoneNumbers:
     description: The contact phone numbers
     type: array
+    items:
+      type: string
   subscription.deliveryAddress.emails:
     description: The contact emails
     type: array
+    items:
+      type: string
   subscription.customer.primaryAddress.firstName:
     description: The contact first name
     type: string
@@ -252,9 +260,13 @@ properties:
   subscription.customer.primaryAddress.phoneNumbers:
     description: The contact phone numbers
     type: array
+    items:
+      type: string
   subscription.customer.primaryAddress.emails:
     description: The contact emails
     type: array
+    items:
+      type: string
   subscription.customer.defaultPaymentInstrument.method:
     description: Default payment instrument method
     type: string
@@ -306,6 +318,8 @@ properties:
   subscription.riskMetadata.httpHeaders:
     description: HTTP headers
     type: array
+    items:
+      type: string
   subscription.riskMetadata.distance:
     description: Distance between IP Address and Billing Address geolocation (kilometers)
     type: number
