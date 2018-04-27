@@ -30,16 +30,7 @@ properties:
   subscription-renewed:
     allOf:
       - $ref: "#/definitions/SubscriptionPlaceholders"
-    properties:
-      invoice:
-        allOf:
-          - $ref: "#/definitions/Invoice"
-      invoice/website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      invoice/customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+      - $ref: "#/definitions/InvoicePlaceholders"
   transaction-processed:
     allOf:
       - $ref: "#/definitions/TransactionPlaceholders"
