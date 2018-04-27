@@ -213,3 +213,75 @@ properties:
       paymentCard:
         allOf:
           - $ref: "#/definitions/PaymentCard"
+  payment-declined:
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'transaction'
+      transaction:
+        allOf:
+          - $ref: "#/definitions/Transaction"
+      gatewayAccount:
+        allOf:
+          - $ref: "#/definitions/GatewayAccount"
+      bankAccount:
+        allOf:
+          - $ref: "#/definitions/BankAccount"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
+      paymentCard:
+        allOf:
+          - $ref: "#/definitions/PaymentCard"
+  transaction-process-requested:
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'transaction'
+      transaction:
+        allOf:
+          - $ref: "#/definitions/Transaction"
+      gatewayAccount:
+        allOf:
+          - $ref: "#/definitions/GatewayAccount"
+      bankAccount:
+        allOf:
+          - $ref: "#/definitions/BankAccount"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
+      paymentCard:
+        allOf:
+          - $ref: "#/definitions/PaymentCard"
+  risk-score-changed:
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'transaction'
+      transaction:
+        allOf:
+          - $ref: "#/definitions/Transaction"
+      gatewayAccount:
+        allOf:
+          - $ref: "#/definitions/GatewayAccount"
+      bankAccount:
+        allOf:
+          - $ref: "#/definitions/BankAccount"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
+      paymentCard:
+        allOf:
+          - $ref: "#/definitions/PaymentCard"
