@@ -1,4 +1,4 @@
-description: RealTime Gateway config
+description: Realtime Gateway config
 allOf:
   -
     $ref: "#/definitions/GatewayAccount"
@@ -12,10 +12,10 @@ allOf:
         properties:
           clientId:
             type: string
-            description: RealTime Gateway client ID
+            description: Realtime Gateway client ID
           secretWord:
             type: string
-            description: RealTime Gateway secret word
+            description: Realtime Gateway secret word
             format: password
         required:
           - "clientId"
