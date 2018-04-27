@@ -6,7 +6,3 @@ properties:
   paymentCard/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  paymentCard/customFields/CardID:
-    type: string
-  paymentCard/customer/customFields/DOB:
-    type: string

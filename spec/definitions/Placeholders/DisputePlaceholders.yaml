@@ -15,11 +15,3 @@ properties:
   dispute/transaction/paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
-  dispute/transaction/customFields/NotificationURL:
-    type: string
-  dispute/transaction/customer/customFields/DOB:
-    type: string
-  dispute/transaction/website/customFields/GSID:
-    type: string
-  dispute/transaction/paymentCard/customFields/CardID:
-    type: string

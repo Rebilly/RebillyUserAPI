@@ -12,11 +12,3 @@ properties:
   subscription/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  subscription/customFields/users:
-    type: array
-    items:
-      type: string
-  subscription/customer/customFields/DOB:
-    type: string
-  subscription/website/customFields/GSID:
-    type: string

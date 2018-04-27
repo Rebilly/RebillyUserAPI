@@ -9,7 +9,3 @@ properties:
   invoice/website:
     allOf:
       - $ref: "#/definitions/Website"
-  invoice/customer/customFields/DOB:
-    type: string
-  website/customFields/GSID:
-    type: string
