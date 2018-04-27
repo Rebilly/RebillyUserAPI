@@ -1,0 +1,14 @@
+type: object
+properties:
+  transaction:
+    $ref: "#/definitions/Transaction"
+  transaction/gatewayAccount:
+    $ref: "#/definitions/GatewayAccount"
+  transaction/bankAccount:
+    $ref: "#/definitions/BankAccount"
+  transaction/website:
+    $ref: "#/definitions/Website"
+  transaction/customer:
+    $ref: "#/definitions/Customer"
+  transaction/paymentCard:
+    $ref: "#/definitions/PaymentCard"

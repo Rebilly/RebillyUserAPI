@@ -1,0 +1,10 @@
+type: object
+properties:
+  subscription:
+    $ref: "#/definitions/Subscription"
+  subscription/plan:
+    $ref: "#/definitions/Plan"
+  subscription/website:
+    $ref: "#/definitions/Website"
+  subscription/customer:
+    $ref: "#/definitions/Customer"

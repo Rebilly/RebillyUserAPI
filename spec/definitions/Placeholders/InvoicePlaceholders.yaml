@@ -1,0 +1,8 @@
+type: object
+properties:
+  invoice:
+    $ref: "#/definitions/Invoice"
+  invoice/customer:
+    $ref: "#/definitions/Customer"
+  invoice/website:
+    $ref: "#/definitions/Website"
