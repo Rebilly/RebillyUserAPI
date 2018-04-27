@@ -1,17 +1,12 @@
 type: object
 properties:
   dispute:
-    allOf:
-      - $ref: "#/definitions/Dispute"
+    $ref: "#/definitions/Dispute"
   dispute/transaction:
-    allOf:
-      - $ref: "#/definitions/Transaction"
+    $ref: "#/definitions/Transaction"
   dispute/transaction/website:
-    allOf:
-      - $ref: "#/definitions/Website"
+    $ref: "#/definitions/Website"
   dispute/transaction/customer:
-    allOf:
-      - $ref: "#/definitions/Customer"
+    $ref: "#/definitions/Customer"
   dispute/transaction/paymentCard:
-    allOf:
-      - $ref: "#/definitions/PaymentCard"
+    $ref: "#/definitions/PaymentCard"

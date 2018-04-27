@@ -1,45 +1,32 @@
 type: object
 properties:
   subscription-canceled:
-    allOf:
-      - $ref: "#/definitions/SubscriptionPlaceholders"
+    $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-activated:
-    allOf:
-      - $ref: "#/definitions/SubscriptionPlaceholders"
+    $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-created:
-    allOf:
-      - $ref: "#/definitions/SubscriptionPlaceholders"
+    $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-trial-ended:
-    allOf:
-      - $ref: "#/definitions/SubscriptionPlaceholders"
+    $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-ended:
-    allOf:
-      - $ref: "#/definitions/SubscriptionPlaceholders"
+    $ref: "#/definitions/SubscriptionPlaceholders"
   dispute-created:
-    allOf:
-      - $ref: "#/definitions/DisputePlaceholders"
+    $ref: "#/definitions/DisputePlaceholders"
   gateway-account-requested:
-    allOf:
-      - $ref: "#/definitions/TransactionPlaceholders"
+    $ref: "#/definitions/TransactionPlaceholders"
   invoice-past-due:
-    allOf:
-      - $ref: "#/definitions/InvoicePlaceholders"
+    $ref: "#/definitions/InvoicePlaceholders"
   payment-card-expired:
-    allOf:
-      - $ref: "#/definitions/PaymentCardPlaceholders"
+    $ref: "#/definitions/PaymentCardPlaceholders"
   subscription-renewed:
     allOf:
       - $ref: "#/definitions/SubscriptionPlaceholders"
       - $ref: "#/definitions/InvoicePlaceholders"
   transaction-processed:
-    allOf:
-      - $ref: "#/definitions/TransactionPlaceholders"
+    $ref: "#/definitions/TransactionPlaceholders"
   payment-declined:
-    allOf:
-      - $ref: "#/definitions/TransactionPlaceholders"
+    $ref: "#/definitions/TransactionPlaceholders"
   transaction-process-requested:
-    allOf:
-      - $ref: "#/definitions/TransactionPlaceholders"
+    $ref: "#/definitions/TransactionPlaceholders"
   risk-score-changed:
-    allOf:
-      - $ref: "#/definitions/TransactionPlaceholders"
+    $ref: "#/definitions/TransactionPlaceholders"

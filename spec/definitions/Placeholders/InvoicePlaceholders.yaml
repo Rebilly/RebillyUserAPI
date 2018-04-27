@@ -1,11 +1,8 @@
 type: object
 properties:
   invoice:
-    allOf:
-      - $ref: "#/definitions/Invoice"
+    - $ref: "#/definitions/Invoice"
   invoice/customer:
-    allOf:
-      - $ref: "#/definitions/Customer"
+    - $ref: "#/definitions/Customer"
   invoice/website:
-    allOf:
-      - $ref: "#/definitions/Website"
+    - $ref: "#/definitions/Website"

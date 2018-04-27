@@ -1,20 +1,14 @@
 type: object
 properties:
   transaction:
-    allOf:
-      - $ref: "#/definitions/Transaction"
+    $ref: "#/definitions/Transaction"
   transaction/gatewayAccount:
-    allOf:
-      - $ref: "#/definitions/GatewayAccount"
+    $ref: "#/definitions/GatewayAccount"
   transaction/bankAccount:
-    allOf:
-      - $ref: "#/definitions/BankAccount"
+    $ref: "#/definitions/BankAccount"
   transaction/website:
-    allOf:
-      - $ref: "#/definitions/Website"
+    $ref: "#/definitions/Website"
   transaction/customer:
-    allOf:
-      - $ref: "#/definitions/Customer"
+    $ref: "#/definitions/Customer"
   transaction/paymentCard:
-    allOf:
-      - $ref: "#/definitions/PaymentCard"
+    $ref: "#/definitions/PaymentCard"

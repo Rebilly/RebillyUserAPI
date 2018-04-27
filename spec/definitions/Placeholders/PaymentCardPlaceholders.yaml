@@ -1,8 +1,6 @@
 type: object
 properties:
   paymentCard:
-    allOf:
-      - $ref: "#/definitions/PaymentCard"
+    $ref: "#/definitions/PaymentCard"
   paymentCard/customer:
-    allOf:
-      - $ref: "#/definitions/Customer"
+    $ref: "#/definitions/Customer"
