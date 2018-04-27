@@ -1,0 +1,12 @@
+type: object
+properties:
+  dispute:
+    $ref: "#/definitions/Dispute"
+  dispute/transaction:
+    $ref: "#/definitions/Transaction"
+  dispute/transaction/website:
+    $ref: "#/definitions/Website"
+  dispute/transaction/customer:
+    $ref: "#/definitions/Customer"
+  dispute/transaction/paymentCard:
+    $ref: "#/definitions/PaymentCard"
