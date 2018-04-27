@@ -17,6 +17,8 @@ properties:
       - $ref: "#/definitions/Customer"
   customFields.users:
     type: array
+    items:
+      type: string
   customer.customFields.DOB:
     type: string
   website.customFields.GSID:
