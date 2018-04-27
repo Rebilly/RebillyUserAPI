@@ -2,18 +2,91 @@ type: object
 properties:
   subscription-canceled:
     type: object
-    allOf:
-    - $ref: "#/definitions/SubscriptionPlaceholders"
+    properties:
+      root:
+        type: string
+        default: 'subscription'
+      subscription:
+        allOf:
+          - $ref: "#/definitions/Subscription"
+      plan:
+        allOf:
+          - $ref: "#/definitions/Plan"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
   subscription-activated:
     type: object
-    allOf:
-    - $ref: "#/definitions/SubscriptionPlaceholders"
+    properties:
+      root:
+        type: string
+        default: 'subscription'
+      subscription:
+        allOf:
+          - $ref: "#/definitions/Subscription"
+      plan:
+        allOf:
+          - $ref: "#/definitions/Plan"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
   subscription-created:
-    allOf:
-    - $ref: "#/definitions/SubscriptionPlaceholders"
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'subscription'
+      subscription:
+        allOf:
+          - $ref: "#/definitions/Subscription"
+      plan:
+        allOf:
+          - $ref: "#/definitions/Plan"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
   subscription-trial-ended:
-    allOf:
-    - $ref: "#/definitions/SubscriptionPlaceholders"
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'subscription'
+      subscription:
+        allOf:
+          - $ref: "#/definitions/Subscription"
+      plan:
+        allOf:
+          - $ref: "#/definitions/Plan"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
   subscription-ended:
-    allOf:
-    - $ref: "#/definitions/SubscriptionPlaceholders"
+    type: object
+    properties:
+      root:
+        type: string
+        default: 'subscription'
+      subscription:
+        allOf:
+          - $ref: "#/definitions/Subscription"
+      plan:
+        allOf:
+          - $ref: "#/definitions/Plan"
+      website:
+        allOf:
+          - $ref: "#/definitions/Website"
+      customer:
+        allOf:
+          - $ref: "#/definitions/Customer"
