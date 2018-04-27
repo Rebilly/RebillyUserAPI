@@ -21,3 +21,13 @@ properties:
   paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
+  customFields.NotificationURL:
+    type: string
+  customFields.gatewayAccount.NotificationURL:
+    type: string
+  customer.customFields.DOB:
+    type: string
+  website.customFields.GSID:
+    type: string
+  paymentCard.customFields.CardID:
+    type: string

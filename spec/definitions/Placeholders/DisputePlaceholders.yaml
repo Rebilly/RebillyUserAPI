@@ -18,3 +18,11 @@ properties:
   transaction.paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
+  transaction.customFields.NotificationURL:
+    type: string
+  transaction.customer.customFields.DOB:
+    type: string
+  transaction.website.customFields.GSID:
+    type: string
+  transaction.paymentCard.customFields.CardID:
+    type: string

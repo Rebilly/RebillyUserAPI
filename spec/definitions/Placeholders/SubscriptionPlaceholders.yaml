@@ -15,3 +15,9 @@ properties:
   customer:
     allOf:
       - $ref: "#/definitions/Customer"
+  customFields.users:
+    type: array
+  customer.customFields.DOB:
+    type: string
+  website.customFields.GSID:
+    type: string

@@ -40,6 +40,10 @@ properties:
       invoice.customer:
         allOf:
           - $ref: "#/definitions/Customer"
+      invoice.customer.customFields.DOB:
+        type: string
+      invoice.website.customFields.GSID:
+        type: string
   transaction-processed:
     allOf:
       - $ref: "#/definitions/TransactionPlaceholders"

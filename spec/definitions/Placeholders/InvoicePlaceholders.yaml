@@ -12,3 +12,7 @@ properties:
   website:
     allOf:
       - $ref: "#/definitions/Website"
+  customer.customFields.DOB:
+    type: string
+  website.customFields.GSID:
+    type: string

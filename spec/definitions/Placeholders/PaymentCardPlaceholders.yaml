@@ -9,3 +9,7 @@ properties:
   customer:
     allOf:
       - $ref: "#/definitions/Customer"
+  customFields.CardID:
+    type: string
+  customer.customFields.DOB:
+    type: string
