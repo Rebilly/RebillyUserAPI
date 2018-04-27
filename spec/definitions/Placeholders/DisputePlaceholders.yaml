@@ -1,28 +1,25 @@
 type: object
 properties:
-  root:
-    type: string
-    default: 'dispute'
   dispute:
     allOf:
       - $ref: "#/definitions/Dispute"
-  transaction:
+  dispute/transaction:
     allOf:
       - $ref: "#/definitions/Transaction"
-  transaction.website:
+  dispute/transaction/website:
     allOf:
       - $ref: "#/definitions/Website"
-  transaction.customer:
+  dispute/transaction/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  transaction.paymentCard:
+  dispute/transaction/paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
-  transaction.customFields.NotificationURL:
+  dispute/transaction/customFields/NotificationURL:
     type: string
-  transaction.customer.customFields.DOB:
+  dispute/transaction/customer/customFields/DOB:
     type: string
-  transaction.website.customFields.GSID:
+  dispute/transaction/website/customFields/GSID:
     type: string
-  transaction.paymentCard.customFields.CardID:
+  dispute/transaction/paymentCard/customFields/CardID:
     type: string

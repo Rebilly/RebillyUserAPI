@@ -34,15 +34,15 @@ properties:
       invoice:
         allOf:
           - $ref: "#/definitions/Invoice"
-      invoice.website:
+      invoice/website:
         allOf:
           - $ref: "#/definitions/Website"
-      invoice.customer:
+      invoice/customer:
         allOf:
           - $ref: "#/definitions/Customer"
-      invoice.customer.customFields.DOB:
+      invoice/customer/customFields/DOB:
         type: string
-      invoice.website.customFields.GSID:
+      invoice/website/customFields/GSID:
         type: string
   transaction-processed:
     allOf:

@@ -1,15 +1,12 @@
 type: object
 properties:
-  root:
-    type: string
-    default: 'paymentCard'
   paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
-  customer:
+  paymentCard/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  customFields.CardID:
+  paymentCard/customFields/CardID:
     type: string
-  customer.customFields.DOB:
+  paymentCard/customer/customFields/DOB:
     type: string

@@ -1,18 +1,15 @@
 type: object
 properties:
-  root:
-    type: string
-    default: 'invoice'
   invoice:
     allOf:
       - $ref: "#/definitions/Invoice"
-  customer:
+  invoice/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  website:
+  invoice/website:
     allOf:
       - $ref: "#/definitions/Website"
-  customer.customFields.DOB:
+  invoice/customer/customFields/DOB:
     type: string
-  website.customFields.GSID:
+  website/customFields/GSID:
     type: string

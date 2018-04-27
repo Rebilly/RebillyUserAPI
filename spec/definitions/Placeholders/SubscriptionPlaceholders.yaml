@@ -1,25 +1,22 @@
 type: object
 properties:
-  root:
-    type: string
-    default: 'subscription'
   subscription:
     allOf:
       - $ref: "#/definitions/Subscription"
-  plan:
+  subscription/plan:
     allOf:
       - $ref: "#/definitions/Plan"
-  website:
+  subscription/website:
     allOf:
       - $ref: "#/definitions/Website"
-  customer:
+  subscription/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  customFields.users:
+  subscription/customFields/users:
     type: array
     items:
       type: string
-  customer.customFields.DOB:
+  subscription/customer/customFields/DOB:
     type: string
-  website.customFields.GSID:
+  subscription/website/customFields/GSID:
     type: string

@@ -1,33 +1,30 @@
 type: object
 properties:
-  root:
-    type: string
-    default: 'transaction'
   transaction:
     allOf:
       - $ref: "#/definitions/Transaction"
-  gatewayAccount:
+  transaction/gatewayAccount:
     allOf:
       - $ref: "#/definitions/GatewayAccount"
-  bankAccount:
+  transaction/bankAccount:
     allOf:
       - $ref: "#/definitions/BankAccount"
-  website:
+  transaction/website:
     allOf:
       - $ref: "#/definitions/Website"
-  customer:
+  transaction/customer:
     allOf:
       - $ref: "#/definitions/Customer"
-  paymentCard:
+  transaction/paymentCard:
     allOf:
       - $ref: "#/definitions/PaymentCard"
-  customFields.NotificationURL:
+  transaction/customFields/NotificationURL:
     type: string
-  customFields.gatewayAccount.NotificationURL:
+  transaction/gatewayAccount/customFields/NotificationURL:
     type: string
-  customer.customFields.DOB:
+  transaction/customer/customFields/DOB:
     type: string
-  website.customFields.GSID:
+  transaction/website/customFields/GSID:
     type: string
-  paymentCard.customFields.CardID:
+  transaction/paymentCard/customFields/CardID:
     type: string
