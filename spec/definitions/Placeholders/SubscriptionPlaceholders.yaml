@@ -1,0 +1,17 @@
+type: object
+properties:
+  root:
+    type: string
+    default: 'subscription'
+  subscription:
+    allOf:
+      - $ref: "#/definitions/Subscription"
+  plan:
+    allOf:
+      - $ref: "#/definitions/Plan"
+  website:
+    allOf:
+      - $ref: "#/definitions/Website"
+  customer:
+    allOf:
+      - $ref: "#/definitions/Customer"

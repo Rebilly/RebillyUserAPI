@@ -1,0 +1,11 @@
+type: object
+properties:
+  root:
+    type: string
+    default: 'paymentCard'
+  paymentCard:
+    allOf:
+      - $ref: "#/definitions/PaymentCard"
+  customer:
+    allOf:
+      - $ref: "#/definitions/Customer"

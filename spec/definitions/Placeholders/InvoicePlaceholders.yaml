@@ -1,0 +1,14 @@
+type: object
+properties:
+  root:
+    type: string
+    default: 'invoice'
+  invoice:
+    allOf:
+      - $ref: "#/definitions/Invoice"
+  customer:
+    allOf:
+      - $ref: "#/definitions/Customer"
+  website:
+    allOf:
+      - $ref: "#/definitions/Website"

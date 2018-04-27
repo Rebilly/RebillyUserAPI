@@ -1,185 +1,36 @@
 type: object
 properties:
   subscription-canceled:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-activated:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-created:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-trial-ended:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
   subscription-ended:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
   dispute-created:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'dispute'
-      dispute:
-        allOf:
-          - $ref: "#/definitions/Dispute"
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      transaction.website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      transaction.customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      transaction.paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/DisputePlaceholders"
   gateway-account-requested:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'transaction'
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      gatewayAccount:
-        allOf:
-          - $ref: "#/definitions/GatewayAccount"
-      bankAccount:
-        allOf:
-          - $ref: "#/definitions/BankAccount"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/TransactionPlaceholders"
   invoice-past-due:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'invoice'
-      invoice:
-        allOf:
-          - $ref: "#/definitions/Invoice"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
+    allOf:
+      - $ref: "#/definitions/InvoicePlaceholders"
   payment-card-expired:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'paymentCard'
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
+    allOf:
+      - $ref: "#/definitions/PaymentCardPlaceholders"
   subscription-renewed:
-    type: object
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
     properties:
-      root:
-        type: string
-        default: 'subscription'
-      subscription:
-        allOf:
-          - $ref: "#/definitions/Subscription"
-      plan:
-        allOf:
-          - $ref: "#/definitions/Plan"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
       invoice:
         allOf:
           - $ref: "#/definitions/Invoice"
@@ -190,98 +41,14 @@ properties:
         allOf:
           - $ref: "#/definitions/Customer"
   transaction-processed:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'transaction'
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      gatewayAccount:
-        allOf:
-          - $ref: "#/definitions/GatewayAccount"
-      bankAccount:
-        allOf:
-          - $ref: "#/definitions/BankAccount"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/TransactionPlaceholders"
   payment-declined:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'transaction'
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      gatewayAccount:
-        allOf:
-          - $ref: "#/definitions/GatewayAccount"
-      bankAccount:
-        allOf:
-          - $ref: "#/definitions/BankAccount"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/TransactionPlaceholders"
   transaction-process-requested:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'transaction'
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      gatewayAccount:
-        allOf:
-          - $ref: "#/definitions/GatewayAccount"
-      bankAccount:
-        allOf:
-          - $ref: "#/definitions/BankAccount"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/TransactionPlaceholders"
   risk-score-changed:
-    type: object
-    properties:
-      root:
-        type: string
-        default: 'transaction'
-      transaction:
-        allOf:
-          - $ref: "#/definitions/Transaction"
-      gatewayAccount:
-        allOf:
-          - $ref: "#/definitions/GatewayAccount"
-      bankAccount:
-        allOf:
-          - $ref: "#/definitions/BankAccount"
-      website:
-        allOf:
-          - $ref: "#/definitions/Website"
-      customer:
-        allOf:
-          - $ref: "#/definitions/Customer"
-      paymentCard:
-        allOf:
-          - $ref: "#/definitions/PaymentCard"
+    allOf:
+      - $ref: "#/definitions/TransactionPlaceholders"
