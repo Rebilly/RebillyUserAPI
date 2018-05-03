@@ -12,7 +12,7 @@ post:
       schema:
         $ref: "#/definitions/EmailNotification"
   responses:
-    200:
+    201:
       description: The Email Notification preview
       headers:
         Rate-Limit-Limit:
