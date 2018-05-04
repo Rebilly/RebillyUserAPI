@@ -1,0 +1,18 @@
+description: Cardknox Gateway config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        properties:
+          xKey:
+            type: string
+            description: Cardknox xKey
+            format: password
+        required:
+          - "xKey"
