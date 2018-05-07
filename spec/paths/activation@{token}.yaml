@@ -10,8 +10,7 @@ post:
   summary: Sends a token to activate user account
   description: |
     Sends a token to activate user account
-  security:
-    - RebAuth: []
+  security: []
   responses:
     204:
       description: User account was activated

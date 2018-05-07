@@ -15,6 +15,13 @@ properties:
     enum:
       - mysql
       - iso8601
+  type:
+    description: Type of api key
+    type: string
+    default: secret
+    enum:
+      - secret
+      - publishable
   apiUser:
     description: API user name
     type: string
