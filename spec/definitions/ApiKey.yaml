@@ -16,7 +16,7 @@ properties:
       - mysql
       - iso8601
   type:
-    description: Type of api key
+    description: Type of API key
     type: string
     default: secret
     enum:
