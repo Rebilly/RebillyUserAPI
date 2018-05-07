@@ -1,0 +1,6 @@
+type: object
+properties:
+  paymentCard:
+    $ref: "#/definitions/PaymentCard"
+  paymentCard/customer:
+    $ref: "#/definitions/Customer"
