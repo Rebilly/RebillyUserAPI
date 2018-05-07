@@ -1,4 +1,4 @@
-description: RealTime Gateway config
+description: Cardknox Gateway config
 allOf:
   -
     $ref: "#/definitions/GatewayAccount"
@@ -10,13 +10,9 @@ allOf:
       gatewayConfig:
         type: object
         properties:
-          clientId:
+          xKey:
             type: string
-            description: RealTime Gateway client ID
-          secretWord:
-            type: string
-            description: RealTime Gateway secret word
+            description: Cardknox xKey
             format: password
         required:
-          - "clientId"
-          - "secretWord"
+          - "xKey"
