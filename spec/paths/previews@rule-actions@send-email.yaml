@@ -11,8 +11,6 @@ post:
       required: true
       schema:
         $ref: "#/definitions/SendTestEmail"
-  security:
-    - RebAuth: []
   responses:
     200:
       description: Test email was sent

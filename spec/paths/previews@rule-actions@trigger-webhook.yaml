@@ -11,8 +11,6 @@ post:
       required: true
       schema:
         $ref: "#/definitions/SendPreviewWebhook"
-  security:
-    - RebAuth: []
   responses:
     200:
       description: Test webhook was triggered
