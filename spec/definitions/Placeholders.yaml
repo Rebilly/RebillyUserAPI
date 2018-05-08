@@ -1,0 +1,32 @@
+type: object
+properties:
+  subscription-canceled:
+    $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-activated:
+    $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-created:
+    $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-trial-ended:
+    $ref: "#/definitions/SubscriptionPlaceholders"
+  subscription-ended:
+    $ref: "#/definitions/SubscriptionPlaceholders"
+  dispute-created:
+    $ref: "#/definitions/DisputePlaceholders"
+  gateway-account-requested:
+    $ref: "#/definitions/TransactionPlaceholders"
+  invoice-past-due:
+    $ref: "#/definitions/InvoicePlaceholders"
+  payment-card-expired:
+    $ref: "#/definitions/PaymentCardPlaceholders"
+  subscription-renewed:
+    allOf:
+      - $ref: "#/definitions/SubscriptionPlaceholders"
+      - $ref: "#/definitions/InvoicePlaceholders"
+  transaction-processed:
+    $ref: "#/definitions/TransactionPlaceholders"
+  payment-declined:
+    $ref: "#/definitions/TransactionPlaceholders"
+  transaction-process-requested:
+    $ref: "#/definitions/TransactionPlaceholders"
+  risk-score-changed:
+    $ref: "#/definitions/TransactionPlaceholders"

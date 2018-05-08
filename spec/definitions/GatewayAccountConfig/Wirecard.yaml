@@ -27,9 +27,9 @@ allOf:
           sftpUsername:
             type: string
             description: Wirecard sftp username.
-          sftpPassword:
+          sftpPrivateKey:
             type: string
-            description: Wirecard sftp password.
+            description: Wirecard sftp private key.
             format: password
         required:
           - "merchantUsername"
