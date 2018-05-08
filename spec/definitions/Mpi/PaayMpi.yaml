@@ -8,4 +8,24 @@ allOf:
   - $ref: "#/definitions/VantivLitleMpis"
   - $ref: "#/definitions/WalpayMpis"
   - $ref: "#/definitions/WorldpayMpis"
-
+  -
+    type: "object"
+    required:
+      - "apiKey"
+      - "secret"
+      - "mpiUrl"
+      - "sandboxMpiUrl"
+    properties:
+      apiKey:
+        type: string
+        description: Paay ApiKey
+      secret:
+        type: string
+        format: password
+        description: Paay secret
+      mpiUrl:
+        type: string
+        description: Paay MPI url
+      sandboxMpiUrl:
+        type: string
+        description: Paay sandbox MPI url
