@@ -32,8 +32,9 @@ properties:
     format: password
   permissions:
     description: The user's permissions. See the format in example
-    allOf:
-      - $ref: "#/definitions/UserPermissions"
+    type: array
+    items:
+      - $ref: "#/definitions/AclPermission"
   createdTime:
     description: The user created time
     allOf:
