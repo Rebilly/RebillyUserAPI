@@ -1,14 +1,19 @@
 type: array
-minItems: 1
 items:
   type: object
+  required:
+    - resourceName
+    - methods
   properties:
     resourceName:
+      description: The ACL resource name. Send `null` to match all resources.
       type: string
       enum:
         - 3dsecure
+        - activity-feed
         - api-keys
         - api-tracking
+        - attachments
         - authentication-options
         - authentication-tokens
         - bank-accounts
@@ -20,58 +25,62 @@ items:
         - credentials
         - custom-events
         - custom-fields
+        - customer-timeline
         - customers
+        - data-exports
         - disputes
+        - email-notifications
+        - email-notifications-tracking
         - events
+        - files
         - gateway-accounts
         - invoices
         - layouts
         - lead-sources
         - lists
+        - lists-tracking
         - matched-rules
         - notes
-        - oct-batch
         - organizations
         - password-tokens
-        - payments
         - payment-cards
         - payment-cards-migrations
+        - payments
         - paypal-accounts
         - plans
+        - products
+        - profiles
         - reports
         - reset-sandbox
         - rulesets
-        - sessions
-        - subscriptions
+        - send-preview-email
+        - send-preview-webhook
+        - shipping-zones
+        - smtp-credentials
         - subscription-tracking
+        - subscriptions
         - tokens
+        - transaction-timeline
         - transactions
         - users
-        - webhook
-        - webhook-tracking
+        - webhook-credentials
+        - webhooks
+        - webhooks-tracking
         - websites
+        - websites-webhook
     methods:
+      description: The HTTP methods allowed for this resource. Send `null` to match all methods.
       type: array
-      minItems: 1
       items:
         type: string
         enum:
-          - HEAD
           - GET
           - POST
           - PUT
-          - DELETE
           - PATCH
-    resourceIds:
-      type: array
-      items:
-        $ref: "#/definitions/ResourceId"
+          - DELETE
 example:
   - resourceName: 'plans'
-    methods: ['GET', 'POST', 'PUT', 'HEAD', 'DELETE']
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
   - resourceName: 'invoices'
-    methods: ['GET', 'HEAD']
-    resourceIds: ['4f6cf35x-2c4y-483z-a0a9-158621f77a21', '1586f35x-4f6c-483z-a0a9-2c4y21f77a21']
-  - resourceName: null
     methods: null
-    resourceIds: null
