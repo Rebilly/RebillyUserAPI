@@ -13,7 +13,7 @@ properties:
   permissions:
     description: The session's permissions. See the format in example
     allOf:
-      - $ref: "#/definitions/AclPermission"
+      - $ref: "#/definitions/AclPermissions"
   userId:
     description: The user identifier string
     readOnly: true

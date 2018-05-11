@@ -25,7 +25,7 @@ properties:
   permissions:
     description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
-      - $ref: "#/definitions/AclPermission"
+      - $ref: "#/definitions/AclPermissions"
   apiUser:
     description: API user name
     type: string
