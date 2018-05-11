@@ -24,8 +24,7 @@ properties:
       - publishable
   permissions:
     description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
-    type: array
-    items:
+    allOf:
       - $ref: "#/definitions/AclPermission"
   apiUser:
     description: API user name
