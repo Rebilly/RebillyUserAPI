@@ -1,7 +1,6 @@
 post:
   tags:
-    - Users
-    - Sessions
+    - JWT Session
   summary: Create a session with email and password
   description: |
     Create a session with email and password

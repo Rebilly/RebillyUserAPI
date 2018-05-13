@@ -1,6 +1,6 @@
 post:
   tags:
-    - Users
+    - Profile
   summary: Reset (renew) totpSecret
   description: |
     Reset (renew) totpSecret

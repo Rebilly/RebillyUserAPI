@@ -2,7 +2,7 @@ parameters:
   - $ref: "#/parameters/resourceId"
 get:
   tags:
-    - Custom Rules
+    - Custom Event Rules
   summary: Retrieve a list of rules for custom event
   responses:
     200:
@@ -22,8 +22,7 @@ get:
       $ref: "#/responses/NotFound"
 put:
   tags:
-    - Custom Rules
-    - Rules
+    - Custom Event Rules
   summary: Update the rules for custom event
   parameters:
     - name: body

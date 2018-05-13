@@ -1,7 +1,7 @@
 post:
   tags:
-    - Users
-  summary: Creates a new user and sends an email confirmation
+    - Profile
+  summary: Register and create new profile
   description: |
     Creates a new user and sends an email confirmation
   parameters:

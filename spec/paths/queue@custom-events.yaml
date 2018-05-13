@@ -1,6 +1,6 @@
 get:
   tags:
-    - Custom Rules
+    - Scheduled Custom Events
   summary: Retrieve a list of scheduled custom events
   description: |
     Retrieve a list of scheduled custom events

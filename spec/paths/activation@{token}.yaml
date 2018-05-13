@@ -6,8 +6,8 @@ parameters:
     required: true
 post:
   tags:
-    - Users
-  summary: Sends a token to activate user account
+    - Profile
+  summary: Activate
   description: |
     Sends a token to activate user account
   security: []
