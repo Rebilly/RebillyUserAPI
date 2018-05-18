@@ -23,8 +23,11 @@ properties:
   subject:
     description: The email notification template's subject
     type: string
-  body:
-    description: The email notification template's body
+  bodyText:
+    description: The email notification template's text body
+    type: string
+  bodyHtml:
+    description: The email notification template's html body
     type: string
   status:
     $ref: "#/definitions/OnOff"
