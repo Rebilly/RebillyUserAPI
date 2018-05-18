@@ -8,3 +8,5 @@ properties:
     $ref: "#/definitions/Website"
   subscription/customer:
     $ref: "#/definitions/Customer"
+  subscription/initialInvoice:
+    $ref: "#/definitions/Invoice"
