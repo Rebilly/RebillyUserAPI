@@ -60,6 +60,9 @@ put:
         $ref: "#/definitions/Organization"
     401:
       $ref: "#/responses/AccessForbidden"
+    409:
+      description: The similar organization already exists
+      $ref: "#/responses/Conflict"
     422:
       $ref: "#/responses/InvalidDataError"
 delete:
