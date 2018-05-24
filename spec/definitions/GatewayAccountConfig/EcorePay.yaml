@@ -1,0 +1,22 @@
+description: EcorePay Gateway config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        properties:
+          accountId:
+            type: string
+            description: EcorePay Account ID
+          accountAuth:
+            type: string
+            description: EcorePay Account Auth
+            format: password
+        required:
+          - "accountId"
+          - "accountAuth"
