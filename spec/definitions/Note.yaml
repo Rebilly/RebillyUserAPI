@@ -28,10 +28,6 @@ properties:
     type: string
     enum:
       - customer
-      - payment-card
-      - payment-gateway
-      - subscription
-      - transaction
   relatedId:
     description: The note's related resource ID
     allOf:
