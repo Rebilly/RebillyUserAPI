@@ -7,7 +7,6 @@ get:
     - $ref: "#/parameters/collectionOffset"
     - $ref: "#/parameters/collectionSort"
     - $ref: "#/parameters/collectionFilter"
-    - $ref: "#/parameters/collectionCriteria"
   responses:
     200:
       description: Tracking email notifications was retrieved successfully
