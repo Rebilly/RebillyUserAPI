@@ -32,6 +32,9 @@ properties:
     type: string
   status:
     $ref: "#/definitions/OnOff"
+  attachInvoice:
+    description: Whether attach the related invoice to the email or not in case it's available.
+    type: boolean
   notifications:
     type: array
     description: The list of email addresses to send the email notification template.
