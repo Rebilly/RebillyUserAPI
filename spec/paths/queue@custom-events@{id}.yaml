@@ -2,7 +2,7 @@ parameters:
   - $ref: "#/parameters/resourceId"
 get:
   tags:
-    - Custom Rules
+    - Scheduled Custom Events
   summary: Retrieve a scheduled custom event
   description: |
     Retrieve a scheduled custom event with predefined identifier string
@@ -35,7 +35,7 @@ get:
       $ref: "#/responses/NotFound"
 delete:
   tags:
-    - Custom Rules
+    - Scheduled Custom Events
   summary: Delete a scheduled custom event
   description: |
     Delete a scheduled custom event with predefined identifier string

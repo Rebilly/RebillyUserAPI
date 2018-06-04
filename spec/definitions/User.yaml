@@ -33,7 +33,7 @@ properties:
   permissions:
     description: The user's permissions. See the format in example
     allOf:
-      - $ref: "#/definitions/UserPermissions"
+      - $ref: "#/definitions/AclPermissions"
   createdTime:
     description: The user created time
     allOf:

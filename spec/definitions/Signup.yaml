@@ -14,7 +14,7 @@ properties:
     format: email
     maxLength: 100
   company:
-    description: The user's company name
+    description: The user company name
     type: string
   firstName:
     description: The user first name
@@ -30,16 +30,10 @@ properties:
     type: string
     format: password
   website:
-    description: The user's website address
+    description: The user website address
     type: string
-  currencies:
-    description: An array of currencies codes
-    type: array
-    default: ['USD']
-    items:
-      description: 3 letters ISO 4217 currency code
-      type: string
-  merchantCategoryCode:
-    description: Merchant category code. Defaults to "Computer Software Stores"
-    type: integer
-    default: 5734
+  country:
+    description: The user country (ISO Alpha-2 code)
+    type: string
+    pattern: "^[A-Z]{2}$"
+    default: US
