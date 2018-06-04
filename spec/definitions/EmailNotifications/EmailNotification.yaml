@@ -21,6 +21,10 @@ properties:
     type: array
     items:
       type: string
+  sender:
+    description: The email notification template's sender email.
+    type: string
+    format: email
   subject:
     description: The email notification template's subject
     type: string
