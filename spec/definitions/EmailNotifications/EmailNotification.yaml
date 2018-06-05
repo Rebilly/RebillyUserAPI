@@ -21,10 +21,6 @@ properties:
     type: array
     items:
       type: string
-  sender:
-    description: The email notification template's sender email.
-    type: string
-    format: email
   subject:
     description: The email notification template's subject
     type: string
@@ -49,6 +45,10 @@ properties:
         - email
         - status
       properties:
+        sender:
+          description: The notification's sender email address.
+          type: string
+          format: email
         email:
           type: string
           description: Specified email or placeholder
