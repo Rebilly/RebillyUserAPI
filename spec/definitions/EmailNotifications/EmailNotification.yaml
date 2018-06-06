@@ -45,6 +45,10 @@ properties:
         - email
         - status
       properties:
+        sender:
+          description: The notification's sender email address.
+          type: string
+          format: email
         email:
           type: string
           description: Specified email or placeholder
