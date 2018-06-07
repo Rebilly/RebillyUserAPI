@@ -42,16 +42,19 @@ properties:
     items:
       type: object
       required:
-        - email
+        - recipients
         - status
       properties:
         sender:
           description: The notification's sender email address.
           type: string
           format: email
-        email:
-          type: string
-          description: Specified email or placeholder
+        recipients:
+          type: array
+          description: The notification's list of recipient emails or placeholders.
+          minItems: 1
+          items:
+            type: string
         status:
           $ref: "#/definitions/OnOff"
   createdTime:
