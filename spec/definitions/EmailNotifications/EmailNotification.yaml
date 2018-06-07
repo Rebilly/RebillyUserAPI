@@ -52,6 +52,9 @@ properties:
         recipients:
           type: array
           description: The notification's list of recipient emails or placeholders.
+          minItems: 1
+          items:
+            type: string
         status:
           $ref: "#/definitions/OnOff"
   createdTime:
