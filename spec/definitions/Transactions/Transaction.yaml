@@ -65,6 +65,12 @@ properties:
     type: array
     items:
       - $ref: "#/definitions/ResourceId"
+  planIds:
+    description: The plan IDs related to transaction
+    readOnly: true
+    type: array
+    items:
+      - $ref: "#/definitions/ResourceId"
   subscriptionIds:
     description: The subscription IDs related to transaction
     readOnly: true
