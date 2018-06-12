@@ -33,6 +33,10 @@ properties:
     description: Gateway downtime created time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: Gateway downtime updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
   _links:
     type: array
     description: The links related to resource
