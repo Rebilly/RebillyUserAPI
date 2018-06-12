@@ -1,0 +1,46 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Gateway Accounts
+  summary: Retrieve a Gateway Downtime
+  description: |
+    Retrieve a Gateway Downtime with specified identifier string
+  responses:
+    200:
+      description: Gateway Downtime was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/GatewayDowntime"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+delete:
+  tags:
+    - Gateway Accounts
+  summary: Delete a Gateway Downtime
+  description: |
+    Delete a Gateway Downtime with predefined identifier string
+  responses:
+    204:
+      description: Gateway Downtime was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+    409:
+      $ref: "#/responses/Conflict"
