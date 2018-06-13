@@ -1,0 +1,23 @@
+description: Panamerican config
+allOf:
+  -
+    $ref: "#/definitions/GatewayAccount"
+  -
+    type: "object"
+    required:
+      - "gatewayConfig"
+    properties:
+      gatewayConfig:
+        type: object
+        description: Panamerican credentials object
+        properties:
+          key:
+            type: string
+            description: Panamerican's key
+          password:
+            type: string
+            description: Panamerican's Password
+            format: password
+        required:
+          - "key"
+          - "password"
