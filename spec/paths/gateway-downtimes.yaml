@@ -1,15 +1,15 @@
 get:
   tags:
     - Gateway Accounts
-  summary: Retrieve a list of gateway downtimes
+  summary: Retrieve a list of gateway account downtimes
   description: |
-    Retrieve a list of gateway downtimes
+    Retrieve a list of gateway account downtimes
   parameters:
     - $ref: "#/parameters/collectionLimit"
     - $ref: "#/parameters/collectionOffset"
   responses:
     200:
-      description: A list of Gateway downtimes was retrieved successfully
+      description: A list of Gateway Account downtimes was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -32,19 +32,19 @@ get:
 post:
   tags:
     - Gateway Accounts
-  summary: Create a Gateway Downtime
+  summary: Create a Gateway Account Downtime
   description: |
-    Create a Gateway Downtime
+    Create a Gateway Account Downtime
   parameters:
     - name: body
       in: body
-      description: Gateway Downtime resource
+      description: Gateway Account Downtime resource
       required: true
       schema:
         $ref: "#/definitions/GatewayDowntime"
   responses:
     201:
-      description: Gateway Downtime was created
+      description: Gateway Account Downtime was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

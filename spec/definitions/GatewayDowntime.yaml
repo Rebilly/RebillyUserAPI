@@ -5,7 +5,7 @@ required:
   - endTime
 properties:
   id:
-    description: The gateway downtime identifier string
+    description: The gateway account downtime identifier string
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
@@ -22,19 +22,19 @@ properties:
       - ongoing
       - finished
   startTime:
-    description: Gateway downtime start time
+    description: Gateway Account downtime start time
     type: string
     format: date-time
   endTime:
-    description: Gateway downtime end time
+    description: Gateway Account downtime end time
     type: string
     format: date-time
   createdTime:
-    description: Gateway downtime created time
+    description: Gateway Account downtime created time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
   updatedTime:
-    description: Gateway downtime updated time
+    description: Gateway Account downtime updated time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
   _links:
