@@ -17,7 +17,7 @@ get:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/GatewayDowntime"
+        $ref: "#/definitions/GatewayAccountDowntime"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
@@ -25,16 +25,16 @@ get:
 put:
   tags:
     - Gateway Accounts
-  summary: Create or update a Gateway Account downtime with predefined ID
+  summary: Update a Gateway Account downtime with predefined ID
   description: |
-    Create or update a Gateway Account downtime with predefined identifier string
+    Update a Gateway Account downtime with predefined identifier string
   parameters:
     - name: body
       in: body
       description: Gateway Account Downtime resource
       required: true
       schema:
-        $ref: "#/definitions/GatewayDowntime"
+        $ref: "#/definitions/GatewayAccountDowntime"
   responses:
     200:
       description: Gateway Account Downtime was updated
@@ -46,18 +46,7 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/GatewayDowntime"
-    201:
-      description: Gateway Account Downtime was created
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/GatewayDowntime"
+        $ref: "#/definitions/GatewayAccountDowntime"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
