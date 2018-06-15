@@ -21,3 +21,5 @@ allOf:
         required:
           - "key"
           - "password"
+      mpi:
+        $ref: "#/definitions/PanamericanMpis"
