@@ -23,3 +23,12 @@ allOf:
           - "password"
       mpi:
         $ref: "#/definitions/PanamericanMpis"
+      settings:
+        type: object
+        description: Panamerican settings object
+        properties:
+          extraStep:
+            type: boolean
+            description: Show extra step for user to enter their ID number
+        required:
+          - "extraStep"
