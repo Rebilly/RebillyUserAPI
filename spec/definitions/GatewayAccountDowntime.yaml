@@ -22,11 +22,11 @@ properties:
       - ongoing
       - finished
   startTime:
-    description: Gateway Account downtime start time
+    description: Gateway Account scheduled downtime start time.
     type: string
     format: date-time
   endTime:
-    description: Gateway Account downtime end time
+    description: Gateway Account scheduled downtime end time.
     type: string
     format: date-time
   createdTime:

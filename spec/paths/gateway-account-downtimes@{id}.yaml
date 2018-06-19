@@ -8,7 +8,7 @@ get:
     Retrieve a Gateway Account Downtime with specified identifier string
   responses:
     200:
-      description: Gateway Account Downtime was retrieved successfully
+      description: Gateway Account Downtime Schedule was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -25,9 +25,9 @@ get:
 put:
   tags:
     - Gateway Accounts
-  summary: Update a Gateway Account downtime with predefined ID
+  summary: Update a Gateway Account Downtime Schedule with predefined ID
   description: |
-    Update a Gateway Account downtime with predefined identifier string
+    Update a Gateway Account Downtime Schedule with predefined identifier string
   parameters:
     - name: body
       in: body
@@ -37,7 +37,7 @@ put:
         $ref: "#/definitions/GatewayAccountDowntime"
   responses:
     200:
-      description: Gateway Account Downtime was updated
+      description: Gateway Account Downtime Schedule was updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -60,12 +60,12 @@ put:
 delete:
   tags:
     - Gateway Accounts
-  summary: Delete a Gateway Account Downtime
+  summary: Delete a Gateway Account Downtime Schedule
   description: |
-    Delete a Gateway Account Downtime with predefined identifier string
+    Delete a Gateway Account Downtime Schedule with predefined identifier string
   responses:
     204:
-      description: Gateway Account Downtime was deleted
+      description: Gateway Account Downtime Schedule was deleted
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
