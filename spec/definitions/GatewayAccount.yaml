@@ -105,6 +105,10 @@ properties:
         - Switch
         - Laser
         - China Unionpay
+  isDown:
+    description: True if gateway is currently in downtime period.
+    type: boolean
+    readOnly: true
   amountRestrictions:
     description: Set restrictions on allowed amounts per currency
     type: array
