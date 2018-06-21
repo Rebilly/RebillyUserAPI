@@ -1,31 +1,15 @@
 parameters:
   - $ref: "#/parameters/resourceId"
-get:
-  tags:
-    - Gateway Accounts
-  summary: Retrieve a Gateway Account Downtime
-  description: |
-    Retrieve a Gateway Account Downtime with specified identifier string
-  responses:
-    200:
-      description: Gateway Account Downtime Schedule was retrieved successfully
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/GatewayAccountDowntime"
-    401:
-      $ref: "#/responses/AccessForbidden"
-    404:
-      $ref: "#/responses/NotFound"
+  -
+    name: downtimeId
+    in: path
+    description: The Gateway Account Downtime Schedule ID
+    type: string
+    required: true
 put:
   tags:
     - Gateway Accounts
-  summary: Update a Gateway Account Downtime Schedule with predefined ID
+  summary: Update a Gateway Account Downtime Schedule
   description: |
     Update a Gateway Account Downtime Schedule with predefined identifier string
   parameters:
@@ -34,7 +18,7 @@ put:
       description: Gateway Account Downtime resource
       required: true
       schema:
-        $ref: "#/definitions/GatewayAccountDowntime"
+        $ref: "#/definitions/GatewayAccountDowntimeSchedule"
   responses:
     200:
       description: Gateway Account Downtime Schedule was updated
@@ -46,7 +30,7 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/GatewayAccountDowntime"
+        $ref: "#/definitions/GatewayAccountDowntimeSchedule"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
@@ -62,7 +46,7 @@ delete:
     - Gateway Accounts
   summary: Delete a Gateway Account Downtime Schedule
   description: |
-    Delete a Gateway Account Downtime Schedule with predefined identifier string
+    Delete a Gateway Account Downtime Schedule
   responses:
     204:
       description: Gateway Account Downtime Schedule was deleted

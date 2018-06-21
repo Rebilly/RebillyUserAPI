@@ -26,7 +26,7 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/GatewayAccountDowntime"
+          $ref: "#/definitions/GatewayAccountDowntimeSchedule"
     401:
       $ref: "#/responses/AccessForbidden"
 post:
@@ -34,14 +34,14 @@ post:
     - Gateway Accounts
   summary: Create a Gateway Account Downtime Schedule.
   description: |
-    Create a Gateway Account Downtime
+    Create a Gateway Account Downtime Schedule
   parameters:
     - name: body
       in: body
-      description: Gateway Account Downtime resource
+      description: Gateway Account Downtime Schedule resource
       required: true
       schema:
-        $ref: "#/definitions/GatewayAccountDowntime"
+        $ref: "#/definitions/GatewayAccountDowntimeSchedule"
   responses:
     201:
       description: Gateway Account Downtime Schedule was created

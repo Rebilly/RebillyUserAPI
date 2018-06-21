@@ -1,16 +1,11 @@
 type: object
 required:
-  - gatewayAccountId
   - startTime
   - endTime
 properties:
   id:
     description: The gateway account downtime identifier string
     readOnly: true
-    allOf:
-      - $ref: "#/definitions/ResourceId"
-  gatewayAccountId:
-    description: Gateway Account identifier string
     allOf:
       - $ref: "#/definitions/ResourceId"
   status:
@@ -29,14 +24,6 @@ properties:
     description: Gateway Account scheduled downtime end time.
     type: string
     format: date-time
-  createdTime:
-    description: Gateway Account downtime created time
-    allOf:
-      - $ref: "#/definitions/ServerTimestamp"
-  updatedTime:
-    description: Gateway Account downtime updated time
-    allOf:
-      - $ref: "#/definitions/ServerTimestamp"
   _links:
     type: array
     description: The links related to resource
