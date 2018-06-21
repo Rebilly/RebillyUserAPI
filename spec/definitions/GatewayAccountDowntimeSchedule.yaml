@@ -4,12 +4,12 @@ required:
   - endTime
 properties:
   id:
-    description: The gateway account downtime identifier string
+    description: The Gateway Account downtime schedule identifier string
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
   status:
-    description: The gateway downtime status
+    description: The Gateway Account downtime schedule status
     readOnly: true
     type: string
     enum:
@@ -17,11 +17,11 @@ properties:
       - ongoing
       - finished
   startTime:
-    description: Gateway Account scheduled downtime start time.
+    description: The Gateway Account scheduled downtime start time.
     type: string
     format: date-time
   endTime:
-    description: Gateway Account scheduled downtime end time.
+    description: The Gateway Account scheduled downtime end time.
     type: string
     format: date-time
   _links:

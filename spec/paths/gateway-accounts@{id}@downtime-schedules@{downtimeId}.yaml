@@ -3,25 +3,25 @@ parameters:
   -
     name: downtimeId
     in: path
-    description: The Gateway Account Downtime Schedule ID
+    description: The Gateway Account downtime schedule ID
     type: string
     required: true
 put:
   tags:
     - Gateway Accounts
-  summary: Update a Gateway Account Downtime Schedule
+  summary: Update a Gateway Account downtime schedule
   description: |
-    Update a Gateway Account Downtime Schedule with predefined identifier string
+    Update a Gateway Account downtime schedule with predefined identifier string
   parameters:
     - name: body
       in: body
-      description: Gateway Account Downtime resource
+      description: Gateway Account downtime schedule resource
       required: true
       schema:
         $ref: "#/definitions/GatewayAccountDowntimeSchedule"
   responses:
     200:
-      description: Gateway Account Downtime Schedule was updated
+      description: Gateway Account downtime schedule was updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -44,12 +44,12 @@ put:
 delete:
   tags:
     - Gateway Accounts
-  summary: Delete a Gateway Account Downtime Schedule
+  summary: Delete a Gateway Account downtime schedule
   description: |
-    Delete a Gateway Account Downtime Schedule
+    Delete a Gateway Account downtime schedule
   responses:
     204:
-      description: Gateway Account Downtime Schedule was deleted
+      description: Gateway Account downtime schedule was deleted
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
