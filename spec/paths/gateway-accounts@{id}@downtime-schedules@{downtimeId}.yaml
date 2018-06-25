@@ -23,7 +23,7 @@ get:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/GatewayDowntime"
+        $ref: "#/definitions/GatewayAccountDowntimeSchedule"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
