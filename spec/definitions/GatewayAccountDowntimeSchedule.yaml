@@ -16,6 +16,12 @@ properties:
       - pending
       - ongoing
       - finished
+  reason:
+    description: The Gateway Account downtime schedule reason
+    readOnly: true
+    type: string
+    enum:
+      - scheduled-maintenance
   startTime:
     description: The Gateway Account scheduled downtime start time.
     type: string
