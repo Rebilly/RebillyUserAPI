@@ -1,0 +1,8 @@
+type: object
+required:
+  - "disabledStickyGateway"
+  description: Gateway account settings object
+  properties:
+    disabledStickyGateway:
+      type: boolean
+      description: Enabled/disabled sticky gateway account
