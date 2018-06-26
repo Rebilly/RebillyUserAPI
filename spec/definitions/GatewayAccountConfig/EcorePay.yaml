@@ -20,3 +20,12 @@ allOf:
         required:
           - "accountId"
           - "accountAuth"
+      settings:
+        type: object
+        description: EcorePay settings object
+        properties:
+          disabledStickyGateway:
+            type: boolean
+            description: Enabled/disabled sticky gateway account
+        required:
+          - "disabledStickyGateway"
