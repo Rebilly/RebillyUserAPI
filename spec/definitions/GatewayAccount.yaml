@@ -122,6 +122,13 @@ properties:
     description: Set restriction conditions on transaction
     allOf:
       - $ref: "#/definitions/Condition"
+  settings:
+    type: object
+    description: Gateway account settings object
+    properties:
+      disabledStickyGateway:
+        description: Enabled/disabled sticky gateway account
+        type: boolean
   createdTime:
     description: Gateway Account created time
     allOf:
