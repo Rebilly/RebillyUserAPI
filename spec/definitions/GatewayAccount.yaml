@@ -123,7 +123,7 @@ properties:
     allOf:
       - $ref: "#/definitions/Condition"
   sticky:
-    description: Card will stick to gateway account for future transactions when true.
+    description: Payment instrument will stick to gateway account for future transactions when true.
     type: boolean
     default: true
   createdTime:
