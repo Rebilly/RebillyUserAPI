@@ -20,5 +20,3 @@ allOf:
         required:
           - "accountId"
           - "accountAuth"
-      settings:
-        $ref: "#/definitions/GatewayAccountSettings"
