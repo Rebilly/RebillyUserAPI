@@ -122,13 +122,10 @@ properties:
     description: Set restriction conditions on transaction
     allOf:
       - $ref: "#/definitions/Condition"
-  settings:
-    type: object
-    description: Gateway account settings object
-    properties:
-      disabledStickyGateway:
-        description: Enabled/disabled sticky gateway account
-        type: boolean
+  sticky:
+    description: Payment instrument will stick to gateway account for future transactions when true.
+    type: boolean
+    default: true
   createdTime:
     description: Gateway Account created time
     allOf:
