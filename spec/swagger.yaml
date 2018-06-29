@@ -134,6 +134,8 @@ tags:
     description: |
       Lists contain sets of values and may be referenced within Rules criteria.
 
+      List order may not be maintained and duplicates may be removed.
+
       You may grant permissions to edit Lists to different people than those who can edit Rules.
       It may be useful if your workflow involves frequent updates to value sets used in criteria.
   - name: Migrate payment cards
