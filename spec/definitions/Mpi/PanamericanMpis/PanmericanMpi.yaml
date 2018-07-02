@@ -1,0 +1,4 @@
+description: Panmerican Integrated
+allOf:
+  -
+    $ref: "#/definitions/PanamericanMpis"
