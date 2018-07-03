@@ -32,13 +32,6 @@ properties:
           type: string
         value:
           description: The metadata value
-          oneOf:
-            - type: string
-            - type: integer
-            - type: number
-            - type: boolean
-            - type: array
-            - type: object
   from:
     description: The email message's sender address
     type: string
