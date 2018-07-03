@@ -1,0 +1,35 @@
+type: object
+required:
+  - subject
+  - text
+  - html
+properties:
+  id:
+    description: The email template's identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  subject:
+    description: The email template's subject
+    type: string
+  text:
+    description: The email template's text body
+    type: string
+  html:
+    description: The email template's html body
+    type: string
+  createdTime:
+    description: The email template's created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The email template's updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"
