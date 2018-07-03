@@ -1,0 +1,78 @@
+type: object
+required:
+  - sender
+  - recipients
+  - subject
+  - text
+  - html
+properties:
+  id:
+    description: The email message's identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  eventType:
+    description: The email notification's event
+    type: string
+    enum:
+      - subscription-activated
+      - subscription-canceled
+  sender:
+    description: The email message's sender address list
+    type: array
+    minItems: 1
+    items:
+      type: string
+  recipients:
+    description: The email message's recipients address list
+    type: array
+    minItems: 1
+    items:
+      type: string
+  subject:
+    description: The email message's subject
+    type: string
+  text:
+    description: The email message's text body
+    type: string
+  html:
+    description: The email message's html body
+    type: string
+  status:
+    type: string
+    enum:
+      - draft
+      - outbox
+      - sent
+      - fail
+  attachments:
+    description: The email message's attachemnts
+    type: array
+    items:
+      type: object
+      required:
+        - resource
+        - resourceId
+      properties:
+        resource:
+          description: The attachment's resource
+          type: string
+        resourceId:
+          description: The attachment's resource identifier string
+          allOf:
+            - $ref: "#/definitions/ResourceId"
+  createdTime:
+    description: The email message's created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The email message's updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"
