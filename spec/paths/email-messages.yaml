@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Email Messages
+  summary: Retrieve a list of email messages
+  description: |
+    Retrieve a list of email messages
+  responses:
+    200:
+      description: A list of email messages was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+        Pagination-Total:
+          $ref: "#/headers/Pagination-Total"
+        Pagination-Limit:
+          $ref: "#/headers/Pagination-Limit"
+        Pagination-Offset:
+          $ref: "#/headers/Pagination-Offset"
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/EmailMessage"
+    401:
+      $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+    - Email Messages
+  summary: Create an email message
+  description: |
+    Create an email message
+  parameters:
+    - name: body
+      in: body
+      description: Email message resource
+      required: true
+      schema:
+        $ref: "#/definitions/EmailMessage"
+  responses:
+    201:
+      description: Email message was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailNotification"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"
