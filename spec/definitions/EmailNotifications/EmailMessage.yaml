@@ -32,7 +32,7 @@ properties:
           type: string
         value:
           description: The metadata value
-          anyOf:
+          oneOf:
             - type: string
             - type: integer
             - type: number
