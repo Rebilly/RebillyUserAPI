@@ -1,0 +1,80 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+get:
+  tags:
+    - Email Templates
+  summary: Retrieve an email template
+  description: |
+    Retrieve an email template
+  responses:
+    200:
+      description: Email template was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailTemplate"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+put:
+  tags:
+    - Email Templates
+  summary: Create or update email template with predefined identifier
+  description: |
+    Create or update email template with predefined identifier
+  parameters:
+    - name: body
+      in: body
+      description: Email template resource
+      required: true
+      schema:
+        $ref: "#/definitions/EmailTemplate"
+  responses:
+    200:
+      description: Email template was updated
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailTemplate"
+    201:
+      description: Email template was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailTemplate"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"
+delete:
+  tags:
+    - Email Templates
+  summary: Delete an email template
+  description: |
+    Delete an email template
+  responses:
+    204:
+      description: Email template was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"

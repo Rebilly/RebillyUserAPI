@@ -1,0 +1,33 @@
+parameters:
+  - $ref: "#/parameters/resourceId"
+post:
+  tags:
+    - Email Templates
+  summary: Populate a specific email template with real data
+  description: |
+    Populate a specific email template with real data
+  parameters:
+    - name: body
+      in: body
+      description: The data context resource
+      required: true
+      schema:
+        type: object
+        required:
+          - data
+        properties:
+          data:
+            description: The data context
+            type: object
+  responses:
+    200:
+      description: Email template was populated
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailTemplate"

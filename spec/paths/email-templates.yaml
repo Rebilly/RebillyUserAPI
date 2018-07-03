@@ -1,12 +1,12 @@
 get:
   tags:
-    - Email Messages
-  summary: Retrieve a list of email messages
+    - Email Templates
+  summary: Retrieve a list of email templates
   description: |
-    Retrieve a list of email messages
+    Retrieve a list of email templates
   responses:
     200:
-      description: A list of email messages was retrieved successfully
+      description: A list of email templates was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -23,25 +23,25 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/EmailMessage"
+          $ref: "#/definitions/EmailTemplate"
     401:
       $ref: "#/responses/AccessForbidden"
 post:
   tags:
-    - Email Messages
-  summary: Create an email message
+    - Email Templates
+  summary: Create an email template
   description: |
-    Create an email message
+    Create an email template
   parameters:
     - name: body
       in: body
-      description: Email message resource
+      description: Email template resource
       required: true
       schema:
-        $ref: "#/definitions/EmailMessage"
+        $ref: "#/definitions/EmailTemplate"
   responses:
     201:
-      description: Email message was created
+      description: Email template was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -50,7 +50,7 @@ post:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/EmailMessage"
+        $ref: "#/definitions/EmailTemplate"
     401:
       $ref: "#/responses/AccessForbidden"
     422:
