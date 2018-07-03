@@ -32,6 +32,7 @@ properties:
           type: string
         value:
           description: The metadata value
+          nullable: true
   from:
     description: The email message's sender address
     type: string
