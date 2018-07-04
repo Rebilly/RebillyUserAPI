@@ -25,7 +25,7 @@ get:
 put:
   tags:
     - Email Messages
-  summary: Create or update email message for specified event
+  summary: Create or update an email message with predefined identifier
   description: |
     Create or update email message for specified event
   parameters:

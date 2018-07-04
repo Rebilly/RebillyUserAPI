@@ -3,9 +3,9 @@ parameters:
 post:
   tags:
     - Email Templates
-  summary: Populate a specific email template with real data
+  summary: Replace email template's placeholders with real data
   description: |
-    Populate a specific email template with real data
+    Replace email template's placeholders with real data
   parameters:
     - name: body
       in: body
@@ -21,7 +21,7 @@ post:
             type: object
   responses:
     200:
-      description: Email template was populated
+      description: Email template's placeholders was replaced
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

@@ -25,7 +25,7 @@ get:
 put:
   tags:
     - Email Templates
-  summary: Create or update email template with predefined identifier
+  summary: Create or update an email template with predefined identifier
   description: |
     Create or update email template with predefined identifier
   parameters:
