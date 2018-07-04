@@ -232,6 +232,8 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Email Templates
+      - Email Messages
       - Email Notifications
   - name: Rules
     tags:
