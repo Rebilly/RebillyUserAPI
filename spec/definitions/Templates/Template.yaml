@@ -1,0 +1,27 @@
+type: object
+required:
+  - body
+properties:
+  id:
+    description: The template's identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  body:
+    description: The template's body
+    type: string
+  createdTime:
+    description: The template's created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The template's updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"

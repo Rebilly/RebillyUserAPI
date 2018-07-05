@@ -2,21 +2,28 @@ parameters:
   - $ref: "#/parameters/resourceId"
 post:
   tags:
-    - Email Templates
-  summary: Replace email template's placeholders with real data
+    - Templates
+  summary: Replace template's placeholders with real data from context
   description: |
-    Replace email template's placeholders with real data
+    Replace template's placeholders with real data from context
   parameters:
     - name: body
       in: body
-      description: The data context resource
+      description: The context resource
       required: true
       schema:
         type: object
         required:
-          - data
+          - templates
+          - context
         properties:
-          data:
+          templates:
+            type: array
+            minItems: 1
+            items:
+              allOf:
+                - $ref: "#/definitions/ResourceId"
+          context:
             description: The data context
             type: object
   responses:
@@ -30,4 +37,6 @@ post:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/EmailTemplate"
+        type: array
+        items:
+          $ref: "#/definitions/Rendering"

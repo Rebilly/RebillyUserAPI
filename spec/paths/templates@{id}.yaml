@@ -2,13 +2,13 @@ parameters:
   - $ref: "#/parameters/resourceId"
 get:
   tags:
-    - Email Templates
-  summary: Retrieve an email template
+    - Templates
+  summary: Retrieve a template
   description: |
-    Retrieve an email template
+    Retrieve a template
   responses:
     200:
-      description: Email template was retrieved successfully
+      description: Template was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -17,27 +17,27 @@ get:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/EmailTemplate"
+        $ref: "#/definitions/Template"
     401:
       $ref: "#/responses/AccessForbidden"
     404:
       $ref: "#/responses/NotFound"
 put:
   tags:
-    - Email Templates
-  summary: Create or update an email template with predefined identifier
+    - Templates
+  summary: Create or update a template with predefined identifier
   description: |
-    Create or update email template with predefined identifier
+    Create or update a template with predefined identifier
   parameters:
     - name: body
       in: body
-      description: Email template resource
+      description: Template resource
       required: true
       schema:
-        $ref: "#/definitions/EmailTemplate"
+        $ref: "#/definitions/Template"
   responses:
     200:
-      description: Email template was updated
+      description: Template was updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -46,9 +46,9 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/EmailTemplate"
+        $ref: "#/definitions/Template"
     201:
-      description: Email template was created
+      description: Template was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -57,20 +57,20 @@ put:
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
       schema:
-        $ref: "#/definitions/EmailTemplate"
+        $ref: "#/definitions/Template"
     401:
       $ref: "#/responses/AccessForbidden"
     422:
       $ref: "#/responses/InvalidDataError"
 delete:
   tags:
-    - Email Templates
-  summary: Delete an email template
+    - Templates
+  summary: Delete a template
   description: |
-    Delete an email template
+    Delete a template
   responses:
     204:
-      description: Email template was deleted
+      description: Template was deleted
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
