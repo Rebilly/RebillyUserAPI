@@ -20,7 +20,7 @@ post:
             minItems: 1
             items:
               allOf:
-                - $ref: "#/definitions/ResourceId"
+                - $ref: "#/definitions/Template"
           context:
             description: The data context
             type: object
