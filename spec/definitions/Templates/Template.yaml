@@ -10,6 +10,11 @@ properties:
   body:
     description: The template's body
     type: string
+  tags:
+    description: The template's tags
+    type: array
+    items:
+      type: string
   createdTime:
     description: The template's created time
     allOf:
