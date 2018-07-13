@@ -4,6 +4,10 @@ readOnly: true
 properties:
   version:
     type: integer
+  binds:
+    type: array
+    items:
+      $ref: "#/definitions/Bind"
   rules:
     type: array
     items:
