@@ -37,6 +37,9 @@ properties:
   rulesCount:
     type: integer
     readOnly: true
+  bindsCount:
+    type: integer
+    readOnly: true
 required:
   - eventType
   - title
