@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Templates
+  summary: Replace template's placeholders with real data from context
+  description: |
+    Replace template's placeholders with real data from context
+  parameters:
+    - name: body
+      in: body
+      description: The context resource
+      required: true
+      schema:
+        type: object
+        required:
+          - templates
+          - context
+        properties:
+          templates:
+            type: array
+            minItems: 1
+            items:
+              allOf:
+                - $ref: "#/definitions/Template"
+          context:
+            description: The data context
+            type: object
+  responses:
+    200:
+      description: Email template's placeholders was replaced
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Rendering"

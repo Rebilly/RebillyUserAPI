@@ -232,6 +232,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Email Messages
       - Email Notifications
   - name: Rules
     tags:
@@ -260,6 +261,9 @@ x-tagGroups:
       - Taxes
       - Tracking
       - Websites
+  - name: Templates
+    tags:
+      - Templates
   - name: Related docs
     tags:
       - Rebilly API

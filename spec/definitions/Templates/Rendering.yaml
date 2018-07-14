@@ -1,0 +1,12 @@
+type: object
+required:
+  - template
+  - rendered
+properties:
+  template:
+    description: The template's identifier string
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  rendered:
+    description: The rendered template output
+    type: string
