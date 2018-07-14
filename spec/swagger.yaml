@@ -273,7 +273,7 @@ securityDefinitions:
       Also you can generate additional API keys, and delete API keys (as you may
       need to rotate your keys in the future). All API keys can be restricted to a
       small set of permissions (restricted API keys).
-    name: "REB-APIKEY: sk_live_xxxx"
+    name: REB-APIKEY
     type: apiKey
     in: header
   PublishableApiKey:
@@ -286,12 +286,18 @@ securityDefinitions:
   JWT:
     description: |
       You can create a JSON Web Token (JWT) via our [JWT Session resource](#tag/Sessions%2Fpaths%2F~1signin%2Fpost).
-    name: "Authorization: Bearer jwt"
+
+      Usage format: `Bearer <JWT>`
+    name: Authorization
     type: apiKey
     in: header
+    # OAS3 supports bearer http scheme: temproal fix for OAS2 bellow
+    x-type: http
+    x-scheme: bearer
 ################################################################################
 security:
   - SecretApiKey: []
+  - JWT: []
 ################################################################################
 responses:
   AccessForbidden:
