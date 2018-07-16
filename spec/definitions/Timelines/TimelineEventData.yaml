@@ -1,0 +1,14 @@
+type: object
+description: Additional event data
+properties:
+  actions:
+    description: Actions available to a Timeline event
+    type: array
+    items:
+      type: string
+      enum:
+        - send-email
+  tables:
+    type: array
+    items:
+      $ref: "#/definitions/TimelineEventTable"

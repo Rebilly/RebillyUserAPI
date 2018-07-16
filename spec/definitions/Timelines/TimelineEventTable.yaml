@@ -1,0 +1,12 @@
+type: object
+description: Additional information about Timeline event
+properties:
+  title:
+    type: string
+    description: Data table title
+  footer:
+    type: string
+    description: Data table title
+  data:
+    type: array
+    description: Table data. Each array element represents a table row
