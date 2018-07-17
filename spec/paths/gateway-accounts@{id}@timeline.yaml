@@ -28,6 +28,6 @@ get:
       schema:
         type: array
         items:
-          $ref: "#/definitions/GatewayAccountDowntimeSchedule"
+          $ref: "#/definitions/GatewayAccountTimeline"
     401:
       $ref: "#/responses/AccessForbidden"
