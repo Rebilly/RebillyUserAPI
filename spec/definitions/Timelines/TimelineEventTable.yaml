@@ -11,4 +11,6 @@ properties:
     type: array
     description: Table data. Each array element represents a table row
     items:
-      type: string
+      type: array
+      items:
+        type: string
