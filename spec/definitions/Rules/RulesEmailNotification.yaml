@@ -2,7 +2,7 @@ type: object
 properties:
   credentialHash:
     type: string
-    description: SMTP Credential identifier string.
+    description: SMTP or Mailgun credential identifier string.
   sender:
     type: string
     description: The sender address. The template palceholders are allowed.
@@ -36,7 +36,6 @@ properties:
       Leave empty to recieve "text/plain" email.
       The template palceholders are allowed.
 required:
-  - credentialHash
   - sender
   - recipients
   - subject
