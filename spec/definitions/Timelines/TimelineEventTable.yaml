@@ -6,7 +6,7 @@ properties:
     description: Data table title
   footer:
     type: string
-    description: Data table title
+    description: Data table footer
   data:
     type: array
     description: Table data. Each array element represents a table row

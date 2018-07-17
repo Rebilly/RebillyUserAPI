@@ -1,7 +1,7 @@
 type: object
 properties:
   id:
-    description: The card identifier string
+    description: The Timeline event identifier string
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
