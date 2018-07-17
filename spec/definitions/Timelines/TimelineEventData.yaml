@@ -4,10 +4,11 @@ properties:
   actions:
     description: Actions available to a Timeline event
     type: array
+    minItems: 0
     items:
       type: string
       enum:
-        - send-email
+        - resend-email
   tables:
     type: array
     items:
