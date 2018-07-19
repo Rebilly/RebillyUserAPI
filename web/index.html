@@ -33,16 +33,20 @@
   </head>
   <body>
     <div id="redoc_container"></div>
-    <script src="https://redocpro-cdn.redoc.ly/v1.0.0-insiders.1/redocpro-standalone.min.js"> </script>
+    <script src="https://redocpro-cdn.redoc.ly/v1.0.0-alpha.6/redocpro-standalone.min.js"> </script>
     <script>
+      RedocPro.setPublicPath('https://redocpro-cdn.redoc.ly/v1.0.0-alpha.6/');
       RedocPro.init('./swagger.json', {
+        showConsole: true,
         theme: {
           colors: {
-            text: '#333333'
+            text: {
+              primary: '#333333'
+            }
           },
-          baseFont: {
-            family: "Verdana, Geneva, sans-serif",
-            size: '14px'
+          typography: {
+            fontFamily: "Verdana, Geneva, sans-serif",
+            fontSize: '14px'
           }
         }
       }, document.querySelector('#redoc_container'))
