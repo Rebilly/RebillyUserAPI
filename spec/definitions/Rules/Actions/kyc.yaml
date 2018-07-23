@@ -1,0 +1,42 @@
+description: "Verify customer identity"
+allOf:
+  - $ref: "#/definitions/RuleAction"
+  - type: object
+    properties:
+      exclude:
+        type: string
+        enum:
+          - customers-with-accepted-document
+          - customers-with-document
+          - none
+      mandatory:
+        type: boolean
+        description: Is the verification mandatory
+        default: 0
+      when-prompted:
+        type: string
+        enum:
+          - before-process
+          - after-process
+      if-rejected-before:
+        type: string
+        enum:
+          - process
+          - decline
+          - use-alternate-gateway
+      alternate-gateway-if-rejected:
+        type: string
+      if-rejected-after:
+        type: string
+        enum:
+          - proceed
+      if-optional:
+        type: string
+        enum:
+          - allow-bypass
+          - use-alternate-gateway
+      alternate-gateway-if-optional:
+    required:
+      - exclude
+      - mandatory
+      - when-prompted
