@@ -10,16 +10,18 @@ allOf:
           - customers-with-accepted-document
           - customers-with-document
           - none
+        default: customers-with-accepted-document
       mandatory:
         type: boolean
         description: Is the verification mandatory
-        default: 0
+        default: true
       when-prompted:
         type: string
         description: When to verify, before or after processing the transaction
         enum:
           - before-process
           - after-process
+        default: before-process
       if-rejected-before:
         type: string
         description: What to do if verification is before processing, and is rejected
@@ -27,6 +29,7 @@ allOf:
           - process
           - decline
           - use-alternate-gateway
+        default: decline
       alternate-gateway-if-rejected:
         type: string
         description: Gateway account to use if use-alternate-gateway is selected for alternate-gateway-if-rejected
@@ -35,12 +38,14 @@ allOf:
         description: What to do if verification is after processing, and is rejected
         enum:
           - proceed
+        default: proceed
       if-optional:
         type: string
         description: What to do if verification is optional
         enum:
           - allow-bypass
           - allow-use-alternate-gateway
+        default: allow-bypass
       alternate-gateway-if-optional:
         type: string
         description: Gateway account to use if allow-use-alternate-gateway is selected for alternate-gateway-if-optional
