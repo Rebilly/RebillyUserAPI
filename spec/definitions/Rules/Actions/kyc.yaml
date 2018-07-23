@@ -52,4 +52,4 @@ allOf:
     required:
       - exclude
       - mandatory
-      - when-prompted
+      - when-to-prompt
