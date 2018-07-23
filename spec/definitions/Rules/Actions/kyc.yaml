@@ -5,6 +5,7 @@ allOf:
     properties:
       exclude:
         type: string
+        description: Who should be excluded from the verification
         enum:
           - customers-with-accepted-document
           - customers-with-document
@@ -15,27 +16,34 @@ allOf:
         default: 0
       when-prompted:
         type: string
+        description: When to verify, before or after processing the transaction
         enum:
           - before-process
           - after-process
       if-rejected-before:
         type: string
+        description: What to do if verification is before processing, and is rejected
         enum:
           - process
           - decline
           - use-alternate-gateway
       alternate-gateway-if-rejected:
         type: string
+        description: Gateway account to use if use-alternate-gateway is selected for alternate-gateway-if-rejected
       if-rejected-after:
         type: string
+        description: What to do if verification is after processing, and is rejected
         enum:
           - proceed
       if-optional:
         type: string
+        description: What to do if verification is optional
         enum:
           - allow-bypass
-          - use-alternate-gateway
+          - allow-use-alternate-gateway
       alternate-gateway-if-optional:
+        type: string
+        description: Gateway account to use if allow-use-alternate-gateway is selected for alternate-gateway-if-optional
     required:
       - exclude
       - mandatory
