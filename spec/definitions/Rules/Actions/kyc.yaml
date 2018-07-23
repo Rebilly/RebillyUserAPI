@@ -3,7 +3,7 @@ allOf:
   - $ref: "#/definitions/RuleAction"
   - type: object
     properties:
-      exclude:
+      excludePolicy:
         type: string
         description: Who should be excluded from the verification
         enum:
@@ -11,18 +11,18 @@ allOf:
           - customers-with-document
           - none
         default: customers-with-accepted-document
-      mandatory:
+      isMandatory:
         type: boolean
         description: Is the verification mandatory
         default: true
-      when-to-prompt:
+      promptPolicy:
         type: string
         description: When to prompt, before or after processing the transaction
         enum:
           - before-process
           - after-process
         default: before-process
-      if-rejected-before:
+      rejectedBeforeProcessPolicy:
         type: string
         description: What to do if verification is before processing, and is rejected
         enum:
@@ -30,26 +30,26 @@ allOf:
           - decline
           - use-alternate-gateway
         default: decline
-      alternate-gateway-if-rejected:
+      alternateGatewayIfRejected:
         type: string
         description: Gateway account to use if use-alternate-gateway is selected for alternate-gateway-if-rejected
-      if-rejected-after:
+      rejectedAfterProcessPolicy:
         type: string
         description: What to do if verification is after processing, and is rejected
         enum:
           - proceed
         default: proceed
-      if-optional:
+      optionalPolicy:
         type: string
         description: What to do if verification is optional
         enum:
           - allow-bypass
           - allow-use-alternate-gateway
         default: allow-bypass
-      alternate-gateway-if-optional:
+      alternateGatewayIfOptional:
         type: string
         description: Gateway account to use if allow-use-alternate-gateway is selected for alternate-gateway-if-optional
     required:
-      - exclude
-      - mandatory
-      - when-to-prompt
+      - excludePolicy
+      - isMandatory
+      - promptPolicy
