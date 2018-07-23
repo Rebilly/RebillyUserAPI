@@ -119,6 +119,9 @@ tags:
   - name: Email Credentials
     description: |
       Get and create SMTP credential hashes.
+  - name: Mailgun Credentials
+    description: |
+      Get and create Mailgun credential hashes.
   - name: Scheduled Custom Events
     description: |
       Scheduled Custom Events description
@@ -133,6 +136,8 @@ tags:
   - name: Lists
     description: |
       Lists contain sets of values and may be referenced within Rules criteria.
+
+      List order may not be maintained and duplicates may be removed.
 
       You may grant permissions to edit Lists to different people than those who can edit Rules.
       It may be useful if your workflow involves frequent updates to value sets used in criteria.
@@ -230,6 +235,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Mailgun Credentials
       - Email Notifications
   - name: Rules
     tags:
