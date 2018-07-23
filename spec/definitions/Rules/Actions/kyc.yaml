@@ -30,9 +30,9 @@ allOf:
           - decline
           - use-alternate-gateway
         default: decline
-      alternateGatewayIfRejected:
+      alternateGatewayAccountIfRejected:
         type: string
-        description: Gateway account to use if use-alternate-gateway is selected for alternate-gateway-if-rejected
+        description: Gateway account to use if use-alternate-gateway is selected for rejectedBeforeProcessPolicy
       rejectedAfterProcessPolicy:
         type: string
         description: What to do if verification is after processing, and is rejected
@@ -46,10 +46,12 @@ allOf:
           - allow-bypass
           - allow-use-alternate-gateway
         default: allow-bypass
-      alternateGatewayIfOptional:
+      alternateGatewayAccountIfOptional:
         type: string
-        description: Gateway account to use if allow-use-alternate-gateway is selected for alternate-gateway-if-optional
+        description: Gateway account to use if allow-use-alternate-gateway is selected for optionalPolicy
     required:
       - excludePolicy
       - isMandatory
       - promptPolicy
+      - rejectedBeforeProcessPolicy
+      - optionalPolicy
