@@ -15,9 +15,9 @@ allOf:
         type: boolean
         description: Is the verification mandatory
         default: true
-      when-prompted:
+      when-to-prompt:
         type: string
-        description: When to verify, before or after processing the transaction
+        description: When to prompt, before or after processing the transaction
         enum:
           - before-process
           - after-process
