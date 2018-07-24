@@ -1,4 +1,4 @@
-description: "Verify customer identity"
+description: "Request KYC page to verify customer identity"
 allOf:
   - $ref: "#/definitions/RuleAction"
   - type: object
@@ -19,21 +19,21 @@ allOf:
         type: string
         description: When to prompt, before or after processing the transaction
         enum:
-          - before-txn-process
-          - after-txn-process
-        default: before-txn-process
-      rejectedBeforeTxnProcessPolicy:
+          - before-transaction-process
+          - after-transaction-process
+        default: before-transaction-process
+      rejectedBeforeTransactionProcessPolicy:
         type: string
         description: What to do if verification is before transaction processing, and is rejected
         enum:
-          - process-txn
+          - process-transaction
           - decline
           - use-alternate-gateway
         default: decline
       alternateGatewayAccountIfRejected:
         type: string
-        description: Gateway account to use if use-alternate-gateway is selected for rejectedBeforeTxnProcessPolicy
-      rejectedAfterTxnProcessPolicy:
+        description: Gateway account to use if use-alternate-gateway is selected for rejectedBeforeTransactionProcessPolicy
+      rejectedAfterTransactionProcessPolicy:
         type: string
         description: What to do if verification is after transaction processing, and is rejected
         enum:
@@ -53,6 +53,6 @@ allOf:
       - excludePolicy
       - isMandatory
       - promptPolicy
-      - rejectedBeforeTxnProcessPolicy
-      - rejectedAfterTxnProcessPolicy
+      - rejectedBeforeTransactionProcessPolicy
+      - rejectedAfterTransactionProcessPolicy
       - optionalPolicy
