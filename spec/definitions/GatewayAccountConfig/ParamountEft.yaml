@@ -34,4 +34,4 @@ allOf:
             description: Transaction type
             enum:
               - debit_with_verification
-              - debit_withou_verification
+              - debit_without_verification
