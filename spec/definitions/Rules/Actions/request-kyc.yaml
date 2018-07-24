@@ -19,23 +19,23 @@ allOf:
         type: string
         description: When to prompt, before or after processing the transaction
         enum:
-          - before-process
-          - after-process
-        default: before-process
-      rejectedBeforeProcessPolicy:
+          - before-txn-process
+          - after-txn-process
+        default: before-txn-process
+      rejectedBeforeTxnProcessPolicy:
         type: string
-        description: What to do if verification is before processing, and is rejected
+        description: What to do if verification is before transaction processing, and is rejected
         enum:
-          - process
+          - process-txn
           - decline
           - use-alternate-gateway
         default: decline
       alternateGatewayAccountIfRejected:
         type: string
-        description: Gateway account to use if use-alternate-gateway is selected for rejectedBeforeProcessPolicy
-      rejectedAfterProcessPolicy:
+        description: Gateway account to use if use-alternate-gateway is selected for rejectedBeforeTxnProcessPolicy
+      rejectedAfterTxnProcessPolicy:
         type: string
-        description: What to do if verification is after processing, and is rejected
+        description: What to do if verification is after transaction processing, and is rejected
         enum:
           - proceed
         default: proceed
@@ -53,5 +53,6 @@ allOf:
       - excludePolicy
       - isMandatory
       - promptPolicy
-      - rejectedBeforeProcessPolicy
+      - rejectedBeforeTxnProcessPolicy
+      - rejectedAfterTxnProcessPolicy
       - optionalPolicy
