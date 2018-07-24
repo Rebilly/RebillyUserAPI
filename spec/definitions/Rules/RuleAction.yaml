@@ -15,6 +15,7 @@ properties:
       - trigger-webhook
       - stop-subscriptions
       - add-risk-score
+      - request-kyc
   status:
     $ref: "#/definitions/OnOff"
 required:
