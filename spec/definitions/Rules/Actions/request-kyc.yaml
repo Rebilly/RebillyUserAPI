@@ -53,4 +53,4 @@ allOf:
       - promptPolicy
       - rejectedBeforeTransactionProcessPolicy
       - rejectedAfterTransactionProcessPolicy
-      - optionalPolicy
+      - allowBypass
