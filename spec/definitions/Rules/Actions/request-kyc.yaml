@@ -45,6 +45,7 @@ allOf:
         default: true
       allowBypassWithGatewayAccountId:
         type: string
+        nullable: true
         description: Show a link to the user to bypass KYC with the given gateway account id
         default: null
     required:
