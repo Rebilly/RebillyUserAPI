@@ -11,5 +11,6 @@ properties:
         - resend-email
   tables:
     type: array
+    minItems: 0
     items:
       $ref: "#/definitions/TimelineEventTable"

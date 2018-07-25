@@ -1,20 +1,15 @@
 type: object
 description: Additional information about Timeline event
+discriminator: type
 properties:
+  type:
+    type: string
+    enum:
+     - two-columns
+     - three-columns
   title:
     type: string
     description: Data table title
   footer:
     type: string
     description: Data table footer
-  data:
-    type: array
-    description: Table data. Each array element represents a table row
-    items:
-      type: object
-      additionalProperties:
-        type: string
-      example:
-        "attribute": "Descriptor"
-        "previousValue": "test.com"
-        "newValue": "new-test.com"
