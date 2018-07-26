@@ -39,20 +39,19 @@ allOf:
         enum:
           - proceed
         default: proceed
-      optionalPolicy:
+      allowBypass:
+        type: boolean
+        description: Show a link to the user to bypass the KYC
+        default: true
+      allowBypassWithGatewayAccountId:
         type: string
-        description: What to do if verification is optional
-        enum:
-          - allow-bypass
-          - allow-use-alternate-gateway
-        default: allow-bypass
-      alternateGatewayAccountIfOptional:
-        type: string
-        description: Gateway account to use if allow-use-alternate-gateway is selected for optionalPolicy
+        nullable: true
+        description: Show a link to the user to bypass KYC with the given gateway account id
+        default: null
     required:
       - excludePolicy
       - isMandatory
       - promptPolicy
       - rejectedBeforeTransactionProcessPolicy
       - rejectedAfterTransactionProcessPolicy
-      - optionalPolicy
+      - allowBypass
