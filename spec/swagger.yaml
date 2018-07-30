@@ -89,13 +89,15 @@ consumes:
 tags:
   - name: API Keys
     description: |
-      Always keep your API Keys private.  In addition to your API Keys, you may use
+      Always keep your API Keys private. When creating your API keys,
+      you can restrict them to a given set of permissions.
+      In addition to your API Keys, you may use
       JSON Web Tokens (JWT) to authenticate to the API.  See
       our [Sessions](#tag/Sessions) resource for more information.
   - name: Checkout Pages
     description: |
       Hosted checkout pages.
-  - name: Custom Rules
+  - name: Custom Events
     description: |
       If system events can't solve your problems, you are able to create a custom event
       that can fit your requirements, and use it to solve your own business logic.
@@ -111,13 +113,18 @@ tags:
       in order from top to bottom. If the condition is met, the corresponding actions are executed.
       The conditions continue to be checked until either all of the conditions have been executed,
       or a special "stop" action is executed.
-  - name: Credential Hashes
+  - name: Custom Event Rules
     description: |
-      Get and create SMTP and Webhook credential hashes.
+      Custom Events Rules description
   - name: Email Credentials
     description: |
-      Send automated emails through our system by connecting to your third party
-      SMTP server (or your third party email service provider's SMTP server).
+      Get and create SMTP credential hashes.
+  - name: Mailgun Credentials
+    description: |
+      Get and create Mailgun credential hashes.
+  - name: Scheduled Custom Events
+    description: |
+      Scheduled Custom Events description
   - name: Gateway Accounts
     description: |
       Gateway accounts connect payment request to third party networks and platforms.
@@ -129,6 +136,8 @@ tags:
   - name: Lists
     description: |
       Lists contain sets of values and may be referenced within Rules criteria.
+
+      List order may not be maintained and duplicates may be removed.
 
       You may grant permissions to edit Lists to different people than those who can edit Rules.
       It may be useful if your workflow involves frequent updates to value sets used in criteria.
@@ -144,10 +153,21 @@ tags:
       Organizations include the name and address of the entities related to your
       account. An account may be multi-national, and support multiple
       organizations. Note: Organizations are share between "Live" and "Sandbox"
-  - name: Reports
+  - name: Profile
+    description: |
+      A Profile represents the person currently logged in to Rebilly.
+  - name: Rebilly API
+    description: |
+      The Rebilly API is the main API commonly integrated by 3rd parties.  You may see
+      the [Rebilly API Documentation here](https://rebilly.github.io/RebillyAPI/).
+  - name: Reports API
     description: |
       The Rebilly Reporting API is currently experimental.  You may see
       the [Reports API Documentation here](https://rebilly.github.io/RebillyReportsAPI/).
+  - name: Reset password
+    description: |
+      When a password reset is requested, an email with a token is sent. Upon receiving the email
+      the user then needs to click a link and choose a new password.
   - name: Rules
     description: |
       "Don't conform to the rules. Create the rules."
@@ -161,14 +181,13 @@ tags:
       in order from top to bottom. If the condition is met, the corresponding actions are executed.
       The conditions continue to be checked until either all of the conditions have been executed,
       or a special "stop" action is executed.
-  - name: Sessions
+  - name: JWT Session
     description: |
       A session contains a token, which is a JSON Web Token.  The token is created
       with a user's signin credentials.
 
       This token can be used to authenticate to the API.  In addition, the session can be set to
-      expire at a particular time, and has very granular control over permissions.
-      Use the token to then authenticate for further requests to the Rebilly API.
+      expire at a particular time. Use the token to then authenticate for further requests to the Rebilly API.
 
       The token should be kept private, but could be stored on the user's browser
       client to simulate a "session."
@@ -198,11 +217,57 @@ tags:
       website is related to each invoice and each payment gateway account.  This feature
       would allow you to have gateway accounts that are related to multiple websites, or
       exclusive to particular websites.  And gives you more control over your business.
+  - name: Webhook Credentials
+    description: |
+      Get and create Webhook credential hashes.
   - name: Webhooks
     description: |
       Webhooks are designed to notify your systems when certain/all registered events happen in near real-time.
       They allow you to collect information about those events. Rebilly can send these information via
       POST to an URL of your choice.
+################################################################################
+x-tagGroups:
+  - name: Security
+    tags:
+      - JWT Session
+      - API Keys
+      - Reset password
+  - name: Email
+    tags:
+      - Email Credentials
+      - Mailgun Credentials
+      - Email Notifications
+  - name: Rules
+    tags:
+      - Rules
+      - Lists
+      - Custom Events
+      - Custom Event Rules
+      - Scheduled Custom Events
+  - name: Users
+    tags:
+      - Profile
+      - Users
+  - name: Webhooks
+    tags:
+      - Webhook Credentials
+      - Webhooks
+  - name: Other
+    tags:
+      - Checkout Pages
+      - Gateway Accounts
+      - Layouts
+      - Migrate payment cards
+      - Notes
+      - Organizations
+      - Status
+      - Taxes
+      - Tracking
+      - Websites
+  - name: Related docs
+    tags:
+      - Rebilly API
+      - Reports API
 ################################################################################
 securityDefinitions:
   SecretApiKey:
@@ -210,7 +275,8 @@ securityDefinitions:
       When you sign up for an account, you are given your first secret API key.
       To do so please [follow this link.](https://app.rebilly.com/signup)
       Also you can generate additional API keys, and delete API keys (as you may
-      need to rotate your keys in the future).
+      need to rotate your keys in the future). All API keys can be restricted to a
+      small set of permissions (restricted API keys).
     name: "REB-APIKEY: sk_live_xxxx"
     type: apiKey
     in: header
@@ -223,7 +289,7 @@ securityDefinitions:
     in: header
   JWT:
     description: |
-      You can create a JSON Web Token (JWT) via our [Sessions resource](#tag/Sessions%2Fpaths%2F~1signin%2Fpost).
+      You can create a JSON Web Token (JWT) via our [JWT Session resource](#tag/Sessions%2Fpaths%2F~1signin%2Fpost).
     name: "Authorization: Bearer jwt"
     type: apiKey
     in: header
@@ -287,11 +353,6 @@ parameters:
     in: query
     type: string
     description: The partial search of the text fields.
-  collectionCriteria:
-    name: criteria
-    in: query
-    type: string
-    description: The json criteria for collection
   collectionSort:
     name: sort
     in: query

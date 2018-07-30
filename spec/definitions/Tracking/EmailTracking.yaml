@@ -8,16 +8,26 @@ properties:
       - $ref: "#/definitions/ResourceId"
   eventType:
     $ref: "#/definitions/EventType"
+  sender:
+    description: The email sender address
+    type: string
+    format: email
   subject:
     description: The email subject
     type: string
-  body:
-    description: The email body
+  bodyText:
+    description: The email text body
     type: string
-  email:
-    description: The email address
+  bodyHtml:
+    description: The email html body
     type: string
-    format: email
+  recipients:
+    description: The email recipient addresses
+    type: array
+    minItems: 1
+    items:
+      type: string
+      format: email
   responseCode:
     type: integer
     description: Response code received

@@ -1,7 +1,6 @@
 post:
   tags:
-    - Users
-    - Sessions
+    - JWT Session
   summary: Destroys the user's current session
   description: |
     Destroys the user's current session. Endpoint must be accessed with valid JWT Authorization header.

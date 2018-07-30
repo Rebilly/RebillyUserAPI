@@ -1,6 +1,6 @@
 get:
   tags:
-    - Users
+    - Profile
   summary: Retrieve user's profile
   description: |
     Retrieve user's profile
@@ -22,7 +22,7 @@ get:
       $ref: "#/responses/NotFound"
 put:
   tags:
-    - Users
+    - Profile
   summary: Update user's profile
   description: |
     Update user's profile

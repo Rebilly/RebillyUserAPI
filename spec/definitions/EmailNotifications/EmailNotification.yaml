@@ -2,7 +2,8 @@ type: object
 required:
   - eventType
   - subject
-  - body
+  - bodyText
+  - bodyHtml
   - notifications
 properties:
   id:
@@ -23,11 +24,17 @@ properties:
   subject:
     description: The email notification template's subject
     type: string
-  body:
-    description: The email notification template's body
+  bodyText:
+    description: The email notification template's text body
+    type: string
+  bodyHtml:
+    description: The email notification template's html body
     type: string
   status:
     $ref: "#/definitions/OnOff"
+  attachInvoice:
+    description: Whether attach the related invoice to the email or not in case it's available.
+    type: boolean
   notifications:
     type: array
     description: The list of email addresses to send the email notification template.
@@ -35,12 +42,19 @@ properties:
     items:
       type: object
       required:
-        - email
+        - recipients
         - status
       properties:
-        email:
+        sender:
+          description: The notification's sender email address.
           type: string
-          description: Specified email or placeholder
+          format: email
+        recipients:
+          type: array
+          description: The notification's list of recipient emails or placeholders.
+          minItems: 1
+          items:
+            type: string
         status:
           $ref: "#/definitions/OnOff"
   createdTime:

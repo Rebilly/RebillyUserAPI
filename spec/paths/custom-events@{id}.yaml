@@ -2,7 +2,7 @@ parameters:
   - $ref: "#/parameters/resourceId"
 get:
   tags:
-    - Custom Rules
+    - Custom Events
   summary: Retrieve a custom event
   description: |
     Retrieve a custom event with predefined identifier string
@@ -24,7 +24,7 @@ get:
       $ref: "#/responses/NotFound"
 put:
   tags:
-    - Custom Rules
+    - Custom Events
   summary: Create a custom event with predefined ID
   description: |
     Create a custom event with predefined identifier string
@@ -56,7 +56,7 @@ put:
       $ref: "#/responses/InvalidDataError"
 delete:
   tags:
-    - Custom Rules
+    - Custom Events
   summary: Delete a custom event
   description: |
     Delete a custom event with predefined identifier string

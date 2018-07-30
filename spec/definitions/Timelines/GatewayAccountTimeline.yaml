@@ -1,0 +1,39 @@
+type: object
+readOnly: true
+properties:
+  id:
+    description: The Timeline event identifier string
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  eventType:
+    description: Timeline event type
+    type: string
+    enum:
+      - gateway-account-created
+      - gateway-account-changed
+      - gateway-account-enabled
+      - gateway-account-disabled
+      - gateway-account-down
+      - gateway-account-up
+  triggeredBy:
+    description: Shows who or what triggered the Timeline event
+    type: string
+    enum:
+      - rebilly
+      - app
+      - direct-api
+  message:
+    description: The message that describes the event details
+    type: string
+  eventData:
+    $ref: "#/definitions/TimelineEventData"
+  eventTime:
+    description: Timeline event time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to resource
+    minItems: 1
+    items:
+      - $ref: "#/definitions/SelfLink"
