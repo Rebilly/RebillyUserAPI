@@ -1,0 +1,16 @@
+type: object
+description: Additional event data
+properties:
+  actions:
+    description: Actions available to a Timeline event. Can be empty in case no actions are available for an event
+    type: array
+    minItems: 0
+    items:
+      type: string
+      enum:
+        - resend-email
+  tables:
+    type: array
+    minItems: 0
+    items:
+      $ref: "#/definitions/TimelineEventTable"
