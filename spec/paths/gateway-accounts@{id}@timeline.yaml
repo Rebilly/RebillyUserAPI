@@ -9,6 +9,7 @@ get:
   parameters:
     - $ref: "#/parameters/collectionLimit"
     - $ref: "#/parameters/collectionOffset"
+    - $ref: "#/parameters/collectionFilter"
   responses:
     200:
       description: A list of Gateway Account timeline events was retrieved successfully
