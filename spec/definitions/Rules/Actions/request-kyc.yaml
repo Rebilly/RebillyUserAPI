@@ -49,6 +49,9 @@ allOf:
       alternateGatewayAccountIfOptional:
         type: string
         description: Gateway account to use if allow-use-alternate-gateway is selected for optionalPolicy
+      bypassCurrencyToDisplay:
+        description: The currency three letter code to display on the bypass link, if optional
+        type: string
     required:
       - excludePolicy
       - isMandatory
