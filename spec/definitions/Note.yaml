@@ -28,6 +28,14 @@ properties:
     type: string
     enum:
       - customer
+      - gateway-account
+  attachedFiles:
+    description: File IDs attached to the note
+    type: array
+    items:
+      description: File ID
+      allOf:
+        - $ref: "#/definitions/ResourceId"
   relatedId:
     description: The note's related resource ID
     allOf:
