@@ -21,8 +21,8 @@ properties:
       type: object
       additionalProperties:
         type: string
-      example:
-      "+user@email.com": "user1"
+        example:
+          "+user@email.com": "user1"
   resourceLinks:
     type: array
     minItems: 0
@@ -30,5 +30,5 @@ properties:
       type: object
       additionalProperties:
         type: string
-      example:
-        "#customers-customer1": "customer1"
+        example:
+          "#customers-customer1": "customer1"
