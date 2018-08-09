@@ -29,13 +29,18 @@ properties:
     enum:
       - customer
       - gateway-account
-  attachedFiles:
-    description: File IDs attached to the note
-    type: array
-    items:
-      description: File ID
-      allOf:
-        - $ref: "#/definitions/ResourceId"
+  mentions:
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      "+user@email.com": "user1"
+  resourceLinks:
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      "#customers-customer1": "customer1"
   relatedId:
     description: The note's related resource ID
     allOf:
@@ -59,3 +64,4 @@ properties:
     minItems: 1
     items:
       - $ref: "#/definitions/SelfLink"
+      - $ref: "#/definitions/AttachmentResourceLink"
