@@ -236,6 +236,7 @@ x-tagGroups:
     tags:
       - Email Credentials
       - Mailgun Credentials
+      - Email Messages
       - Email Notifications
   - name: Rules
     tags:
