@@ -18,6 +18,7 @@ properties:
     enum:
     - draft
     - outbox
+    - sending
     - sent
     - fail
   metadata:
