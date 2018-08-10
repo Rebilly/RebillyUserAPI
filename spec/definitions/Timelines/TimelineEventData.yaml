@@ -14,3 +14,8 @@ properties:
     minItems: 0
     items:
       $ref: "#/definitions/TimelineEventTable"
+  mentions:
+    type: array
+    minItems: 0
+    items:
+      $ref: "#/definitions/NoteMention"

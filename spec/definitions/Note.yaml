@@ -28,6 +28,19 @@ properties:
     type: string
     enum:
       - customer
+      - gateway-account
+  mentions:
+    type: array
+    minItems: 0
+    readOnly: true
+    items:
+      $ref: "#/definitions/NoteMention"
+  resourceLinks:
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      "#customers-customer1": "customer1"
   relatedId:
     description: The note's related resource ID
     allOf:
@@ -51,3 +64,4 @@ properties:
     minItems: 1
     items:
       - $ref: "#/definitions/SelfLink"
+      - $ref: "#/definitions/AttachmentResourceLink"
