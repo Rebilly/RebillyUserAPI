@@ -18,17 +18,4 @@ properties:
     type: array
     minItems: 0
     items:
-      type: object
-      additionalProperties:
-        type: string
-        example:
-          "+user@email.com": "user1"
-  resourceLinks:
-    type: array
-    minItems: 0
-    items:
-      type: object
-      additionalProperties:
-        type: string
-        example:
-          "#customers-customer1": "customer1"
+      $ref: "#/definitions/NoteMention"

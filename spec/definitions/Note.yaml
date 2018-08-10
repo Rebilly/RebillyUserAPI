@@ -30,11 +30,11 @@ properties:
       - customer
       - gateway-account
   mentions:
-    type: object
-    additionalProperties:
-      type: string
-    example:
-      "+user@email.com": "user1"
+    type: array
+    minItems: 0
+    readOnly: true
+    items:
+      $ref: "#/definitions/NoteMention"
   resourceLinks:
     type: object
     additionalProperties:

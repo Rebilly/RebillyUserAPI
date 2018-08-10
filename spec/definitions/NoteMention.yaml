@@ -1,0 +1,12 @@
+type: object
+properties:
+  userId:
+    description: The mentioned user's identifier string
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  fullName:
+    description: The mentioned user's full name
+    type: string
+  email:
+    description: The mentioned user's email
+    type: string
