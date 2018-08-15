@@ -1,12 +1,11 @@
 type: object
-readOnly: true
 properties:
   id:
-    description: The Timeline event identifier string
+    description: The Timeline message identifier string
     allOf:
       - $ref: "#/definitions/ResourceId"
-  eventType:
-    description: Timeline event type
+  messageType:
+    description: Timeline message type
     type: string
     enum:
       - gateway-account-created
@@ -16,19 +15,19 @@ properties:
       - gateway-account-down
       - gateway-account-up
   triggeredBy:
-    description: Shows who or what triggered the Timeline event
+    description: Shows who or what triggered the Timeline message
     type: string
     enum:
       - rebilly
       - app
       - direct-api
   message:
-    description: The message that describes the event details
+    description: The message that describes the message details
     type: string
-  eventData:
-    $ref: "#/definitions/TimelineEventData"
-  eventTime:
-    description: Timeline event time
+  extraData:
+    $ref: "#/definitions/TimelineExtraData"
+  occurredTime:
+    description: Timeline message time
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
   _links:
