@@ -1,5 +1,6 @@
 type: object
 description: Additional data
+readOnly: true
 properties:
   actions:
     description: Actions available to a Timeline message. Can be empty in case no actions are available for a message
