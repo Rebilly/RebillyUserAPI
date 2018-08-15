@@ -7,6 +7,7 @@ properties:
     enum:
      - two-columns
      - three-columns
+     - comment
   title:
     type: string
     description: Data table title
