@@ -5,7 +5,7 @@ properties:
     readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
-  messageType:
+  type:
     description: Timeline message type
     readOnly: true
     type: string
