@@ -7,8 +7,8 @@ post:
   description: |
     Send an email message
   responses:
-    204:
-      description: Email message was sent
+    202:
+      description: Email message was accepted
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
@@ -16,6 +16,8 @@ post:
           $ref: "#/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailMessage"
     401:
       $ref: "#/responses/AccessForbidden"
     409:
