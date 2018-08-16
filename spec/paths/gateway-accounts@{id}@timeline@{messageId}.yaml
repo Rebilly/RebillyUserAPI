@@ -14,7 +14,7 @@ get:
     Retrieve a Gateway Timeline message with specified identifier string
   responses:
     200:
-      description: Gateway Downtime Timeline message was retrieved successfully
+      description: Gateway Timeline message was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
