@@ -1,5 +1,6 @@
 type: object
 description: Additional event data
+readOnly: true
 properties:
   actions:
     description: Actions available to a Timeline event. Can be empty in case no actions are available for an event
