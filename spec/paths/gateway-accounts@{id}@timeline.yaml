@@ -3,16 +3,16 @@ parameters:
 get:
   tags:
     - Gateway Accounts
-  summary: Retrieve a list of gateway account timeline events
+  summary: Retrieve a list of gateway account timeline messages
   description: |
-    Retrieve a list of gateway account timeline events
+    Retrieve a list of gateway account timeline messages
   parameters:
     - $ref: "#/parameters/collectionLimit"
     - $ref: "#/parameters/collectionOffset"
     - $ref: "#/parameters/collectionFilter"
   responses:
     200:
-      description: A list of Gateway Account timeline events was retrieved successfully
+      description: A list of Gateway Account timeline messages was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"

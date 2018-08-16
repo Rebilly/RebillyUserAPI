@@ -1,6 +1,6 @@
 allOf:
   -
-    $ref: "#/definitions/TimelineEventTable"
+    $ref: "#/definitions/TimelineTable"
   -
     type: object
     properties:
