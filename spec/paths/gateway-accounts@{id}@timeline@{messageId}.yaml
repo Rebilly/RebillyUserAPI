@@ -1,20 +1,20 @@
 parameters:
   - $ref: "#/parameters/resourceId"
   -
-    name: eventId
+    name: messageId
     in: path
-    description: The Gateway Account Timeline event ID
+    description: The Gateway Account Timeline message ID
     type: string
     required: true
 get:
   tags:
     - Gateway Accounts
-  summary: Retrieve a Gateway Downtime Timeline event
+  summary: Retrieve a Gateway Downtime Timeline message
   description: |
-    Retrieve a Gateway Downtime Timeline event with specified identifier string
+    Retrieve a Gateway Downtime Timeline message with specified identifier string
   responses:
     200:
-      description: Gateway Downtime Timeline event was retrieved successfully
+      description: Gateway Downtime Timeline message was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/headers/Rate-Limit-Limit"
