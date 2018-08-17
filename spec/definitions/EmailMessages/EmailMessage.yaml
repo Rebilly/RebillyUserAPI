@@ -13,14 +13,13 @@ properties:
     - $ref: "#/definitions/ResourceId"
   status:
     description: The email message's status
-    readOnly: true
     type: string
     enum:
     - draft
     - outbox
     - sending
     - sent
-    - fail
+    - failed
   metadata:
     description: The email message's metadata
     type: array

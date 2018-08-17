@@ -82,3 +82,40 @@ delete:
           $ref: "#/headers/Rate-Limit-Reset"
     409:
       $ref: "#/responses/Conflict"
+patch:
+  tags:
+  - Email Messages
+  summary: Send an email message
+  description: |
+    Send an email message
+  parameters:
+  - name: body
+    in: body
+    description: Email message status
+    required: true
+    schema:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          description: The email message's status
+          type: string
+          enum:
+          - outbox
+  responses:
+    202:
+      description: Email message was accepted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailMessage"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    409:
+      $ref: "#/responses/Conflict"
