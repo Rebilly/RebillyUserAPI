@@ -1,0 +1,16 @@
+type: object
+description: Additional data
+properties:
+  actions:
+    description: Actions available to a Timeline message. Can be empty in case no actions are available for a message
+    type: array
+    minItems: 0
+    items:
+      type: string
+      enum:
+        - resend-email
+  tables:
+    type: array
+    minItems: 0
+    items:
+      $ref: "#/definitions/TimelineTable"

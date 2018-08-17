@@ -1,0 +1,16 @@
+allOf:
+  -
+    $ref: "#/definitions/TimelineTable"
+  -
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          userFullName:
+            type: string
+          userId:
+            type: string
+        example:
+          "userFullName": "John Doe"
+          "userId": "user-123"
