@@ -22,48 +22,6 @@ get:
       $ref: "#/responses/AccessForbidden"
     404:
       $ref: "#/responses/NotFound"
-put:
-  tags:
-  - Email Messages
-  summary: Create or update an email message with predefined identifier
-  description: |
-    Create or update email message with predefined identifier
-  parameters:
-  - name: body
-    in: body
-    description: Email message resource
-    required: true
-    schema:
-      $ref: "#/definitions/EmailMessage"
-  responses:
-    200:
-      description: Email message was updated
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/EmailMessage"
-    201:
-      description: Email message was created
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/EmailMessage"
-    401:
-      $ref: "#/responses/AccessForbidden"
-    422:
-      $ref: "#/responses/InvalidDataError"
-    409:
-      $ref: "#/responses/Conflict"
 delete:
   tags:
   - Email Messages
