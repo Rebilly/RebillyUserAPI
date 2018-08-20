@@ -62,7 +62,7 @@ patch:
           enum:
           - outbox
   responses:
-    202:
+    200:
       description: Email message was accepted
       headers:
         Rate-Limit-Limit:
@@ -77,3 +77,5 @@ patch:
       $ref: "#/responses/AccessForbidden"
     409:
       $ref: "#/responses/Conflict"
+    422:
+      $ref: "#/responses/InvalidDataError"
