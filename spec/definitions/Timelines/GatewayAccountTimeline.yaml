@@ -1,13 +1,14 @@
 type: object
-readOnly: true
 properties:
   id:
     description: The Timeline message identifier string
+    readOnly: true
     allOf:
       - $ref: "#/definitions/ResourceId"
   type:
     description: Timeline message type
     type: string
+    readOnly: true
     enum:
       - gateway-account-created
       - gateway-account-changed
@@ -18,6 +19,7 @@ properties:
   triggeredBy:
     description: Shows who or what triggered the Timeline message
     type: string
+    readOnly: true
     enum:
       - rebilly
       - app
@@ -29,6 +31,7 @@ properties:
     $ref: "#/definitions/TimelineExtraData"
   occurredTime:
     description: Timeline message time
+    readOnly: true
     allOf:
       - $ref: "#/definitions/ServerTimestamp"
   _links:

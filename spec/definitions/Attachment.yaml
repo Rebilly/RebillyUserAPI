@@ -24,6 +24,7 @@ properties:
       - product
       - subscription
       - transaction
+      - gateway-timeline-comment
   relatedId:
     description: Linked object Id
     type: string

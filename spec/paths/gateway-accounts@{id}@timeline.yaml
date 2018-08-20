@@ -32,3 +32,34 @@ get:
           $ref: "#/definitions/GatewayAccountTimeline"
     401:
       $ref: "#/responses/AccessForbidden"
+post:
+  tags:
+  - Gateway Accounts
+  summary: Create a Gateway Account Timeline comment
+  description: |
+    Create a Gateway Account Timeline comment
+  parameters:
+  - name: body
+    in: body
+    description: Gateway Account Timeline resource
+    required: true
+    schema:
+      $ref: "#/definitions/GatewayAccountTimeline"
+  responses:
+    201:
+      description: Gateway Account Timeline comment was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/GatewayAccountTimeline"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
