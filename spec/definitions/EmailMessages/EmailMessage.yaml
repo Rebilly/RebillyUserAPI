@@ -23,21 +23,11 @@ properties:
     default: draft
   metadata:
     description: The email message's metadata
-    type: array
-    items:
-      type: object
-      required:
-      - name
-      - value
-      properties:
-        name:
-          description: The metadata name
-          type: string
-          example: "eventType"
-        value:
-          description: The metadata value
-          type: string
-          example: "subscription-canceled"
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      eventType: "subscription-canceled"
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
