@@ -33,15 +33,19 @@ properties:
         name:
           description: The metadata name
           type: string
+          example: "eventType"
         value:
           description: The metadata value
+          example: "subscription-canceled"
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
+    example: "b120c2ca-6c2b-4690-9dff-3b0d87852dc7"
   from:
     description: The email message's sender address
     type: string
     format: email
+    example: "from-example@rebilly.com"
   to:
     description: The email message's recipients address list
     type: array
@@ -49,41 +53,49 @@ properties:
     items:
       type: string
       format: email
+    example: ["to-example@rebilly.com"]
   cc:
     description: The email message's CC address list
     type: array
     items:
       type: string
       format: email
+    example: ["сс-example@rebilly.com"]
   bcc:
     description: The email message's BCC address list
     type: array
     items:
       type: string
       format: email
+    example: ["сс-example@rebilly.com"]
   subject:
     description: The email message's subject
     type: string
+    example: "Welcome dear customer!"
   text:
     description: The email message's text body
     type: string
+    example: "Email message text body"
   html:
     description: The email message's html body
     type: string
+    example: "<p>Email message html body</p>"
   attachments:
     description: The email message's attachemnts
     type: array
     items:
       type: object
       required:
-      - resource
+      - resourceType
       - resourceId
       properties:
-        resource:
-          description: The attachment's resource
+        resourceType:
+          description: The attachment's resource type
           type: string
+          example: "invoice"
         resourceId:
           description: The attachment's resource identifier string
+          example: "INV-1"
           allOf:
           - $ref: "#/definitions/ResourceId"
   createdTime:
