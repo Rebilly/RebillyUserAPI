@@ -36,6 +36,7 @@ properties:
           example: "eventType"
         value:
           description: The metadata value
+          type: string
           example: "subscription-canceled"
   credentialHash:
     type: string
