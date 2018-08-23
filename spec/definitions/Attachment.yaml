@@ -25,6 +25,7 @@ properties:
       - subscription
       - transaction
       - gateway-timeline-comment
+      - organization
   relatedId:
     description: Linked object Id
     type: string
