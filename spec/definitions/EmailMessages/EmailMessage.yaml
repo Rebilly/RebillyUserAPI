@@ -20,6 +20,7 @@ properties:
     - sending
     - sent
     - failed
+    default: draft
   metadata:
     description: The email message's metadata
     type: array
