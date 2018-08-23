@@ -44,9 +44,9 @@ properties:
     type: string
     maxLength: 10
   fileId:
-    description: The organization logo (this logo will appear on your invoice)
-    type: string
-    maxLength: 50
+    description: Linked File object id for organization logo (to be shown on invoices)
+    allOf:
+      - $ref: "#/definitions/ResourceId"
   _links:
     type: array
     description: The links related to resource
