@@ -1,0 +1,81 @@
+parameters:
+- $ref: "#/parameters/resourceId"
+get:
+  tags:
+  - Email Messages
+  summary: Retrieve an email message
+  description: |
+    Retrieve an email message
+  responses:
+    200:
+      description: Email message with specified identifier was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailMessage"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+delete:
+  tags:
+  - Email Messages
+  summary: Delete an email message
+  description: |
+    Delete an email message
+  responses:
+    204:
+      description: Email message was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+    409:
+      $ref: "#/responses/Conflict"
+patch:
+  tags:
+  - Email Messages
+  summary: Send an email message
+  description: |
+    Send an email message
+  parameters:
+  - name: body
+    in: body
+    description: Email message status
+    required: true
+    schema:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          description: The email message's status
+          type: string
+          enum:
+          - outbox
+  responses:
+    200:
+      description: Email message was accepted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/EmailMessage"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    409:
+      $ref: "#/responses/Conflict"
+    422:
+      $ref: "#/responses/InvalidDataError"

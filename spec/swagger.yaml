@@ -240,6 +240,7 @@ x-tagGroups:
       - Email Credentials
       - Mailgun Credentials
       - SendGrid Credentials
+      - Email Messages
       - Email Notifications
   - name: Rules
     tags:
