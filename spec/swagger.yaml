@@ -122,6 +122,9 @@ tags:
   - name: Mailgun Credentials
     description: |
       Get and create Mailgun credential hashes.
+  - name: SendGrid Credentials
+    description: |
+      Get and create SendGrid credential hashes.
   - name: Scheduled Custom Events
     description: |
       Scheduled Custom Events description
@@ -236,6 +239,7 @@ x-tagGroups:
     tags:
       - Email Credentials
       - Mailgun Credentials
+      - SendGrid Credentials
       - Email Messages
       - Email Notifications
   - name: Rules
