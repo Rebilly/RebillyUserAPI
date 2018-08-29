@@ -30,7 +30,7 @@ properties:
       eventType: "subscription-canceled"
   credentialHash:
     type: string
-    description: SMTP or Mailgun credential identifier string.
+    description: SMTP or any Email Service Provider credential identifier string.
     example: "b120c2ca-6c2b-4690-9dff-3b0d87852dc7"
   from:
     description: The email message's sender address
