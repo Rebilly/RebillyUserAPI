@@ -125,6 +125,9 @@ tags:
   - name: SendGrid Credentials
     description: |
       Get and create SendGrid credential hashes.
+  - name: AWS SES Credentials
+    description: |
+      Get and create AWS SES credential hashes.
   - name: Scheduled Custom Events
     description: |
       Scheduled Custom Events description
@@ -240,6 +243,7 @@ x-tagGroups:
       - Email Credentials
       - Mailgun Credentials
       - SendGrid Credentials
+      - AWS SES Credentials
       - Email Messages
       - Email Notifications
   - name: Rules
