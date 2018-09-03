@@ -119,15 +119,6 @@ tags:
   - name: Email Credentials
     description: |
       Get and create SMTP credential hashes.
-  - name: Mailgun Credentials
-    description: |
-      Get and create Mailgun credential hashes.
-  - name: SendGrid Credentials
-    description: |
-      Get and create SendGrid credential hashes.
-  - name: AWS SES Credentials
-    description: |
-      Get and create AWS SES credential hashes.
   - name: Scheduled Custom Events
     description: |
       Scheduled Custom Events description
@@ -241,9 +232,6 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
-      - Mailgun Credentials
-      - SendGrid Credentials
-      - AWS SES Credentials
       - Email Messages
       - Email Notifications
   - name: Rules
