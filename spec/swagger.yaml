@@ -233,7 +233,6 @@ x-tagGroups:
     tags:
       - Email Credentials
       - Email Messages
-      - Email Notifications
   - name: Rules
     tags:
       - Rules
