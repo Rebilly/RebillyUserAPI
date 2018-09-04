@@ -35,6 +35,23 @@ properties:
     description: |
       Leave empty to recieve "text/plain" email.
       The template palceholders are allowed.
+  attachments:
+    description: The message's attachemnts
+    type: array
+    items:
+      type: object
+      required:
+        - resourceType
+        - resourceId
+      properties:
+        resourceType:
+          description: The attachment's resource type.
+          type: string
+          example: "invoice"
+        resourceId:
+          description: The attachment's resource identifier string. The template palceholders are allowed.
+          type: string
+          example: "INV-1"
 required:
   - sender
   - recipients
