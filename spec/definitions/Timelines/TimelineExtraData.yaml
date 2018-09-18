@@ -15,6 +15,14 @@ properties:
     minItems: 0
     items:
       $ref: "#/definitions/TimelineTable"
+  author:
+    type: object
+    description: Timeline comment author data
+    properties:
+      userFullName:
+        type: string
+      userId:
+        type: string
   mentions:
     type: array
     minItems: 0
