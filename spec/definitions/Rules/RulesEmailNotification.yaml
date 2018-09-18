@@ -3,9 +3,9 @@ properties:
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
-  name:
+  title:
     type: string
-    description: The name of the message. (This name will appear in reports.)
+    description: The title of the message. (This title will appear in reports.)
   version:
     type: string
     description: The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
