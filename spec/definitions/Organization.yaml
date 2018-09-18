@@ -48,7 +48,7 @@ properties:
   emails:
     $ref: "#/definitions/ContactEmails"
   taxDescriptor:
-    description: The organization's tax label. This will be displayed in the invoice.
+    description: The organization's tax label. This will be displayed on the invoice.
     type: string
     maxLength: 255
   _links:
