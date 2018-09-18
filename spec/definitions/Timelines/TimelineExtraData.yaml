@@ -15,3 +15,9 @@ properties:
     minItems: 0
     items:
       $ref: "#/definitions/TimelineTable"
+  mentions:
+    type: array
+    minItems: 0
+    items:
+      type: string
+      description: Mentioned user's ID
