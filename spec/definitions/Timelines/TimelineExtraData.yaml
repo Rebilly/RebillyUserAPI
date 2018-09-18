@@ -24,8 +24,8 @@ properties:
       userId:
         type: string
   mentions:
-    type: array
-    minItems: 0
-    items:
+    type: object
+    additionalProperties:
       type: string
-      description: Mentioned user's ID
+      example:
+        "@test@mail.com": "userId-1"
