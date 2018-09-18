@@ -1,4 +1,4 @@
-description: The contact emails
+description: The emails
 type: array
 items:
   type: object
