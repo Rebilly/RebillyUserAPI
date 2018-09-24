@@ -1,0 +1,22 @@
+description: ""
+allOf:
+- $ref: "#/definitions/RuleAction"
+- type: object
+  properties:
+    emails:
+      type: array
+      minItems: 1
+      items:
+        type: object
+        properties:
+          email:
+            $ref: "#/definitions/RulesEmailNotification"
+          weight:
+            type: integer
+            description: The message weight.
+            example: 75
+        required:
+        - weight
+        - email
+  required:
+  - emails
