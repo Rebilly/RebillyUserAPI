@@ -3,16 +3,13 @@ properties:
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
-  title:
-    type: string
-    description: The title of the message. (This title will appear in reports.)
   version:
     type: string
     description: The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
-  sender:
+  from:
     type: string
     description: The sender address. The template placeholders are allowed.
-  recipients:
+  to:
     type: array
     description: The recipients addresses. The template placeholders are allowed.
     minItems: 1
@@ -31,12 +28,12 @@ properties:
   subject:
     type: string
     description: The message subject. The template placeholders are allowed.
-  bodyText:
+  text:
     type: string
     description: |
       Leave empty to use text from "bodyHtml" without tags.
       The template placeholders are allowed.
-  bodyHtml:
+  html:
     type: string
     description: |
       Leave empty to recieve "text/plain" email.
@@ -61,13 +58,13 @@ properties:
   weight:
     type: integer
     description: The message's weight.
-    minimum: 1
+    minimum: 0
     maximum: 100
     example: 75
     default: 100
 required:
-  - sender
-  - recipients
+  - from
+  - to
   - subject
-  - bodyText
-  - bodyHtml
+  - text
+  - html
