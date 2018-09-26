@@ -61,6 +61,8 @@ properties:
   weight:
     type: integer
     description: The message's weight.
+    minimum: 1
+    maximum: 100
     example: 75
     default: 100
 required:
