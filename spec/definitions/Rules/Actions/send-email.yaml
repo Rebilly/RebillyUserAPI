@@ -1,4 +1,13 @@
 description: ""
 allOf:
   - $ref: "#/definitions/RuleAction"
-  - $ref: "#/definitions/RulesEmailNotification"
+  - type: object
+    properties:
+      emails:
+        type: array
+        description: The list of messages.
+        minItems: 1
+        items:
+          - $ref: "#/definitions/RulesEmailNotification"
+    required:
+      - emails

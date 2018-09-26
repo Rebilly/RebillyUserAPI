@@ -12,7 +12,6 @@ properties:
       - schedule-payment-retry
       - schedule-payment
       - send-email
-      - split-test-email
       - trigger-webhook
       - stop-subscriptions
       - add-risk-score

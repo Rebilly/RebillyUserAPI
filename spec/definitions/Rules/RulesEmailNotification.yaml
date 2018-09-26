@@ -58,6 +58,11 @@ properties:
           description: The attachment's resource identifier string. The template placeholders are allowed.
           type: string
           example: "INV-1"
+  weight:
+    type: integer
+    description: The message's weight.
+    example: 75
+    default: 100
 required:
   - sender
   - recipients
