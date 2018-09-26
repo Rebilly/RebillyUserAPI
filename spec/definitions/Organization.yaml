@@ -51,6 +51,10 @@ properties:
     description: The organization's tax label. This will be displayed on the invoice.
     type: string
     maxLength: 255
+  invoiceTimeZone:
+    description: Invoice will use this time zone to display time otherwise UTC will be used. Example "America/New_York"
+    type: string
+    maxLength: 50
   _links:
     type: array
     description: The links related to resource
