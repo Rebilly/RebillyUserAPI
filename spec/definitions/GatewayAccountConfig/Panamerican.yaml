@@ -30,5 +30,8 @@ allOf:
           extraStep:
             type: boolean
             description: Show extra step for user to enter their ID number
+          encodeToAscii:
+            type: boolean
+            description: Will encode all chars to ascii
         required:
           - "extraStep"
