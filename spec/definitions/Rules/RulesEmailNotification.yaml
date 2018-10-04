@@ -34,16 +34,21 @@ properties:
   bodyText:
     type: string
     description: |
-      Leave empty to use text from "bodyHtml" without tags.
+      The message's text body.
+      Leave empty to use content from "bodyHtml" or "wysiwyg".
       The template placeholders are allowed.
   bodyHtml:
     type: string
     description: |
-      Leave empty to recieve "text/plain" email.
+      The message's html body.
+      Leave empty to use content from "bodyText" or "wysiwyg".
       The template placeholders are allowed.
   wysiwyg:
     type: string
-    description: Special formatted message's body.
+    description: |
+      Special formatted message's body.
+      Leave empty to use content from "bodyText" or "bodyHtml".
+      The template placeholders are allowed.
   attachments:
     description: The message's attachemnts
     type: array
