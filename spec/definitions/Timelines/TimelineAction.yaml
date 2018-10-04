@@ -1,0 +1,10 @@
+type: object
+discriminator: action
+readOnly: true
+description: Actions available to a Timeline message. Can be empty in case no actions are available for a message
+properties:
+  action:
+    type: string
+    enum:
+      - resend-email
+      - redemption-cancel

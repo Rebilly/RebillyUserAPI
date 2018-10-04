@@ -14,6 +14,14 @@ properties:
       - primary-address-changed
       - default-payment-instrument-changed
       - lead-source-changed
+      - custom-fields-changed
+      - coupon-redeemed
+      - coupon-redemption-canceled
+      - kyc-document-created
+      - kyc-document-accepted
+      - kyc-document-manually-accepted
+      - kyc-document-rejected
+      - kyc-document-manually-rejected
   triggeredBy:
     description: Shows who or what triggered the Timeline message
     type: string
