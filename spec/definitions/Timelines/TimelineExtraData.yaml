@@ -3,7 +3,10 @@ description: Additional data
 readOnly: true
 properties:
   actions:
-    $ref: "#/definitions/TimelineAction"
+    description: Actions available to a Timeline message. Can be empty in case no actions are available for a message
+    type: array
+    items:
+      $ref: "#/definitions/TimelineAction"
   tables:
     type: array
     minItems: 0
