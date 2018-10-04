@@ -29,8 +29,6 @@ items:
         - customers
         - data-exports
         - disputes
-        - email-notifications
-        - email-notifications-tracking
         - events
         - files
         - gateway-accounts
