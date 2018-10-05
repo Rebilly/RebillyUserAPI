@@ -11,9 +11,6 @@ allOf:
         type: object
         description: AmexVPC credentials object
         properties:
-          url:
-            type: string
-            description: Virtual Payment Client URL
           merchantId:
             type: string
             description: Merchant ID
@@ -29,8 +26,16 @@ allOf:
             description: Password (used for refund, void and capture)
             format: password
         required:
-          - "url"
           - "merchantId"
           - "accessCode"
           - "user"
           - "password"
+      settings:
+        type: object
+        description: AmexVPC settings object
+        properties:
+          url:
+            type: string
+            description: Virtual Payment Client URL
+        required:
+          - "url"

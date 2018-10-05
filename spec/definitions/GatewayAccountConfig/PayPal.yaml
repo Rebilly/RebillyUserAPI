@@ -13,10 +13,15 @@ allOf:
           merchantIdInPayPal:
             type: string
             description: PayPal Gateway merchant id
+        required:
+         - "merchantIdInPayPal"
+      settings:
+        type: object
+        description: PayPal settings object
+        properties:
           redirectUrl:
             type: string
             description: PayPal Gateway redirect url
             format: url
         required:
-         - "merchantIdInPayPal"
-         - "redirectUrl"
+          - "redirectUrl"
