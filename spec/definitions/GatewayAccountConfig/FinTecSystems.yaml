@@ -33,12 +33,12 @@ allOf:
             type: string
             description: Two letter country code
             enum:
-            - AT
-            - CH
-            - DE
+              - AT
+              - CH
+              - DE
           recipientHolder:
             type: string
             description: Account holder of the recipient account
-      required:
-        - "recipientHolder"
-        - "recipientCountry"
+        required:
+          - "recipientHolder"
+          - "recipientCountry"
