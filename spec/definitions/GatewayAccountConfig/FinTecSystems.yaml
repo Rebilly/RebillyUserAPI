@@ -25,20 +25,20 @@ allOf:
           - "apiKey"
           - "recipientIBAN"
           - "recipientBIC"
-    settings:
-      type: object
-      description: FinTecSystems settings object
-      properties:
-        recipientCountry:
-          type: string
-          description: Two letter country code
-          enum:
-          - AT
-          - CH
-          - DE
-        recipientHolder:
-          type: string
-          description: Account holder of the recipient account
+      settings:
+        type: object
+        description: FinTecSystems settings object
+        properties:
+          recipientCountry:
+            type: string
+            description: Two letter country code
+            enum:
+            - AT
+            - CH
+            - DE
+          recipientHolder:
+            type: string
+            description: Account holder of the recipient account
       required:
         - "recipientHolder"
         - "recipientCountry"
