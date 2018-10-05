@@ -30,8 +30,6 @@ allOf:
         required:
           - "client"
           - "password"
-          - "policy"
-          - "delay"
       settings:
         type: object
         description: Datacash settings object

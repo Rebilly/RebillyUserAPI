@@ -13,9 +13,9 @@ allOf:
           accountId:
             type: string
             description: MTA Pay Gateway account ID
-          goods:
+          partyId:
             type: string
-            description: MTA Pay Gateway goods
+            description: MTA Pay Gateway party ID
           md5key:
             type: string
             description: MTA Pay Gateway md5key
@@ -28,9 +28,9 @@ allOf:
         type: object
         description: MTA Pay settings object
         properties:
-          partyId:
+          goods:
             type: string
-            description: MTA Pay Gateway party ID
+            description: MTA Pay Gateway goods
           mobilePay:
             type: string
             description: MTA Pay Gateway mobile pay param
