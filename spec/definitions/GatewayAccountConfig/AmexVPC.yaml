@@ -5,9 +5,10 @@ allOf:
   -
     type: "object"
     required:
-     - "gatewayConfig"
+     - "credentials"
+     - "settings"
     properties:
-      gatewayConfig:
+      credentials:
         type: object
         description: AmexVPC credentials object
         properties:

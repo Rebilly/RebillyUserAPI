@@ -5,10 +5,10 @@ allOf:
   -
     type: "object"
     required:
-     - "gatewayConfig"
+     - "credentials"
      - "settings"
     properties:
-      gatewayConfig:
+      credentials:
         type: object
         description: Ipay Options credentials object
         properties:
