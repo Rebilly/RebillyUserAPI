@@ -36,6 +36,7 @@ properties:
     description: The email message's sender address
     type: string
     format: email
+    maxLength: 254
     example: "from-example@rebilly.com"
   to:
     description: The email message's recipients address list
@@ -44,6 +45,7 @@ properties:
     items:
       type: string
       format: email
+      maxLength: 254
     example: ["to-example@rebilly.com"]
   cc:
     description: The email message's CC address list
@@ -51,6 +53,7 @@ properties:
     items:
       type: string
       format: email
+      maxLength: 254
     example: ["сс-example@rebilly.com"]
   bcc:
     description: The email message's BCC address list
@@ -58,10 +61,12 @@ properties:
     items:
       type: string
       format: email
+      maxLength: 254
     example: ["сс-example@rebilly.com"]
   subject:
     description: The email message's subject
     type: string
+    maxLength: 998
     example: "Welcome dear customer!"
   text:
     description: The email message's text body
