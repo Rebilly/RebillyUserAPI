@@ -255,6 +255,7 @@ x-tagGroups:
   - name: Other
     tags:
       - Checkout Pages
+      - Customers
       - Gateway Accounts
       - Layouts
       - Migrate payment cards
