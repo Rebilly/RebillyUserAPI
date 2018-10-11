@@ -59,7 +59,7 @@ properties:
         resourceId:
           description: The attachment's resource identifier string. The template placeholders are allowed.
           type: string
-          maxLength: 50
+          maxLength: 255
           example: "INV-1"
   weight:
     type: integer
