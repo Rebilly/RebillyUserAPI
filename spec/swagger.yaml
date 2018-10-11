@@ -97,6 +97,10 @@ tags:
   - name: Checkout Pages
     description: |
       Hosted checkout pages.
+  - name: Customers
+    description: |
+      Customers are your customers, sometimes known as accounts, clients,
+      members, patrons, or players in other systems.
   - name: Custom Events
     description: |
       If system events can't solve your problems, you are able to create a custom event
@@ -273,20 +277,20 @@ securityDefinitions:
       Also you can generate additional API keys, and delete API keys (as you may
       need to rotate your keys in the future). All API keys can be restricted to a
       small set of permissions (restricted API keys).
-    name: "REB-APIKEY"
+    name: "REB-APIKEY: sk_live_xxxx"
     type: apiKey
     in: header
   PublishableApiKey:
     description: |
       Only for the Tokens resource.
       You can create a Publishable API Key via our [API Keys resource](#tag/API-Keys), by specifying the type as `publishable`.
-    name: "Authorization"
+    name: "Authorization: Bearer pk_live_xxxx"
     type: apiKey
     in: header
   JWT:
     description: |
       You can create a JSON Web Token (JWT) via our [JWT Session resource](#tag/Sessions%2Fpaths%2F~1signin%2Fpost).
-    name: "Authorization"
+    name: "Authorization: Bearer jwt"
     type: apiKey
     in: header
 ################################################################################
