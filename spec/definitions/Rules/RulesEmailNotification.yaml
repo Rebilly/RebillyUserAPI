@@ -9,25 +9,30 @@ properties:
   from:
     type: string
     description: The sender address. The template placeholders are allowed.
+    maxLength: 254
   to:
     type: array
     description: The recipients addresses. The template placeholders are allowed.
     minItems: 1
     items:
       type: string
+      maxLength: 254
   cc:
     type: array
     description: The recipients addresses. The template placeholders are allowed.
     items:
       type: string
+      maxLength: 254
   bcc:
     type: array
     description: The hidden recipients addresses. The template placeholders are allowed.
     items:
       type: string
+      maxLength: 254
   subject:
     type: string
     description: The message subject. The template placeholders are allowed.
+    maxLength: 998
   text:
     type: string
     description: |
@@ -39,7 +44,7 @@ properties:
       Leave empty to recieve "text/plain" email.
       The template placeholders are allowed.
   attachments:
-    description: The message's attachemnts
+    description: The message's attachments
     type: array
     items:
       type: object
@@ -54,6 +59,7 @@ properties:
         resourceId:
           description: The attachment's resource identifier string. The template placeholders are allowed.
           type: string
+          maxLength: 50
           example: "INV-1"
   weight:
     type: integer
