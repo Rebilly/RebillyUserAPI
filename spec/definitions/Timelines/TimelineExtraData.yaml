@@ -7,9 +7,7 @@ properties:
     type: array
     minItems: 0
     items:
-      type: string
-      enum:
-        - resend-email
+      $ref: "#/definitions/TimelineAction"
   tables:
     type: array
     minItems: 0
