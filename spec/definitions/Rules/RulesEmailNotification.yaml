@@ -2,43 +2,75 @@ type: object
 properties:
   credentialHash:
     type: string
-    description: SMTP Credential identifier string.
-  sender:
+    description: SMTP or Mailgun credential identifier string.
+  version:
     type: string
-    description: The sender address. The template palceholders are allowed.
-  recipients:
+    description: The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
+  from:
+    type: string
+    description: The sender address. The template placeholders are allowed.
+    maxLength: 254
+  to:
     type: array
-    description: The recipients addresses. The template palceholders are allowed.
+    description: The recipients addresses. The template placeholders are allowed.
     minItems: 1
     items:
       type: string
+      maxLength: 254
   cc:
     type: array
-    description: The recipients addresses. The template palceholders are allowed.
+    description: The recipients addresses. The template placeholders are allowed.
     items:
       type: string
+      maxLength: 254
   bcc:
     type: array
-    description: The hidden recipients addresses. The template palceholders are allowed.
+    description: The hidden recipients addresses. The template placeholders are allowed.
     items:
       type: string
+      maxLength: 254
   subject:
     type: string
-    description: The message subject. The template palceholders are allowed.
-  bodyText:
+    description: The message subject. The template placeholders are allowed.
+    maxLength: 998
+  text:
     type: string
     description: |
       Leave empty to use text from "bodyHtml" without tags.
-      The template palceholders are allowed.
-  bodyHtml:
+      The template placeholders are allowed.
+  html:
     type: string
     description: |
       Leave empty to recieve "text/plain" email.
-      The template palceholders are allowed.
+      The template placeholders are allowed.
+  attachments:
+    description: The message's attachments
+    type: array
+    items:
+      type: object
+      required:
+        - resourceType
+        - resourceId
+      properties:
+        resourceType:
+          description: The attachment's resource type.
+          type: string
+          example: "invoice"
+        resourceId:
+          description: The attachment's resource identifier string. The template placeholders are allowed.
+          type: string
+          maxLength: 255
+          example: "INV-1"
+  weight:
+    type: integer
+    description: The message's weight.
+    minimum: 0
+    maximum: 100
+    example: 75
+    default: 100
 required:
-  - credentialHash
-  - sender
-  - recipients
+  - from
+  - to
   - subject
-  - bodyText
-  - bodyHtml
+  - text
+  - html
