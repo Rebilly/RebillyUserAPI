@@ -11,18 +11,14 @@
     So override default browser styles
     -->
     <style>
-      @import url(//fonts.googleapis.com/css?family=Roboto:300,400,700);
       @import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
 
       body {
         margin: 0;
         padding: 0;
-        font-family: Verdana, Geneva, sans-serif;
-        font-size: 14px;
-        color: #333;
       }
 
-      redoc api-logo img {
+      #redoc_container .menu-content img {
         padding: 20px 30px 14px 30px;
       }
     </style>
@@ -35,8 +31,26 @@
     <link rel="apple-touch-icon-precomposed" media="(resolution: 163dpi)" href="apple-touch-icon-163dpi.png">
   </head>
   <body>
-    <redoc spec-url="./swagger.json" lazy-rendering native-scrollbars>
-    </redoc>
-    <script src="//rebilly.github.io/ReDoc/releases/v1.x.x/redoc.min.js"> </script>
+    <div id="redoc_container"></div>
+    <script src="https://redocpro-cdn.redoc.ly/v1.0.0-beta.5/redocpro-standalone.min.js"> </script>
+    <script>
+      RedocPro.init('./swagger.json', {
+        showConsole: true,
+        layout: {
+          scope: 'section',
+        },
+        theme: {
+          colors: {
+            text: {
+              primary: '#333333'
+            }
+          },
+          typography: {
+            fontFamily: "Verdana, Geneva, sans-serif",
+            fontSize: '14px'
+          }
+        }
+      }, document.querySelector('#redoc_container'))
+    </script>
   </body>
 </html>
