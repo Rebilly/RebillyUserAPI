@@ -13,8 +13,8 @@ allOf:
         items:
           - $ref: "#/definitions/RulesEmailNotification"
       splitTestStartTime:
+        type: string
+        format: date-time
         description: The split test start time
-        allOf:
-          - $ref: "#/definitions/ServerTimestamp"
     required:
       - emails
