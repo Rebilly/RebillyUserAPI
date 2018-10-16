@@ -33,6 +33,7 @@ items:
         - files
         - gateway-accounts
         - invoices
+        - kyc
         - layouts
         - lead-sources
         - lists
