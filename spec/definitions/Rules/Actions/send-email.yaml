@@ -12,5 +12,9 @@ allOf:
         minItems: 1
         items:
           - $ref: "#/definitions/RulesEmailNotification"
+      splitTestStartTime:
+        type: string
+        format: date-time
+        description: The split test start time
     required:
       - emails
