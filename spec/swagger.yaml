@@ -423,3 +423,6 @@ headers:
   Pagination-Offset:
     description: Pagination offset
     type: integer
+  Location:
+    description: The location of the related resource
+    type: string
