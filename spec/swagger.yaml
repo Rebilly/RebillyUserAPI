@@ -437,3 +437,4 @@ headers:
   Location:
     description: The location of the related resource
     type: string
+    format: url
