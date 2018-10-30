@@ -45,12 +45,12 @@ properties:
       The message's html body.
       Leave empty to use content from "bodyText".
       The template placeholders are allowed.
-  raw:
+  editor:
     type: string
     description: |
-      The message's raw body.
-      It can store the source code for the generated "bodyHtml".
-      The template placeholders are allowed.
+      The source of the message required for the email editor.
+      Not used for sending emails.
+      Used by the editor to reproduce the message for future updates.
   attachments:
     description: The message's attachments
     type: array
