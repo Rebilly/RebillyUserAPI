@@ -36,13 +36,21 @@ properties:
   text:
     type: string
     description: |
-      Leave empty to use text from "bodyHtml" without tags.
+      The message's text body.
+      Leave empty to use content from "bodyHtml".
       The template placeholders are allowed.
   html:
     type: string
     description: |
-      Leave empty to recieve "text/plain" email.
+      The message's html body.
+      Leave empty to use content from "bodyText".
       The template placeholders are allowed.
+  editor:
+    type: string
+    description: |
+      The source of the message required for the email editor.
+      Not used for sending emails.
+      Used by the editor to reproduce the message for future updates.
   attachments:
     description: The message's attachments
     type: array
