@@ -77,9 +77,9 @@ basePath: "/v2.1"
 schemes:
   - "https"
 x-servers:
-  - url: //api.rebilly.com/v2.1
+  - url: https://api.rebilly.com/v2.1
     description: Live Server
-  - url: //api-sandbox.rebilly.com/v2.1
+  - url: https://api-sandbox.rebilly.com/v2.1
     description: Sandbox Server
 produces:
   - "application/json"
@@ -119,9 +119,6 @@ tags:
   - name: Email Credentials
     description: |
       Get and create SMTP credential hashes.
-  - name: Mailgun Credentials
-    description: |
-      Get and create Mailgun credential hashes.
   - name: Scheduled Custom Events
     description: |
       Scheduled Custom Events description
@@ -235,8 +232,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
-      - Mailgun Credentials
-      - Email Notifications
+      - Email Messages
   - name: Rules
     tags:
       - Rules
@@ -277,25 +273,30 @@ securityDefinitions:
       Also you can generate additional API keys, and delete API keys (as you may
       need to rotate your keys in the future). All API keys can be restricted to a
       small set of permissions (restricted API keys).
-    name: "REB-APIKEY: sk_live_xxxx"
+    name: REB-APIKEY
     type: apiKey
     in: header
   PublishableApiKey:
     description: |
       Only for the Tokens resource.
       You can create a Publishable API Key via our [API Keys resource](#tag/API-Keys), by specifying the type as `publishable`.
-    name: "Authorization: Bearer pk_live_xxxx"
+    name: Authorization
     type: apiKey
     in: header
   JWT:
     description: |
       You can create a JSON Web Token (JWT) via our [JWT Session resource](#tag/Sessions%2Fpaths%2F~1signin%2Fpost).
-    name: "Authorization: Bearer jwt"
+      Usage format: `Bearer <JWT>`
+    name: Authorization
     type: apiKey
     in: header
+    # OAS3 supports bearer http scheme: temproal fix for OAS2 bellow
+    x-type: http
+    x-scheme: bearer
 ################################################################################
 security:
   - SecretApiKey: []
+  - JWT: []
 ################################################################################
 responses:
   AccessForbidden:
@@ -347,7 +348,7 @@ parameters:
     description: |
       The collection items filter requires a special format.
       Use "," for multiple allowed values.  Use ";" for multiple fields.
-      See the [filter guide](https://rebilly.github.io/RebillyUserAPI/#section/Using-filter) for more options and examples about this format.
+      See the [filter guide](#section/Using-filter) for more options and examples about this format.
   collectionQuery:
     name: q
     in: query
@@ -396,6 +397,8 @@ parameters:
     type: string
     enum:
       - application/json
+      - text/csv
+      - application/pdf
     default: application/json
     description: The response media type
 ################################################################################

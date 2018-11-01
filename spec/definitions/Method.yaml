@@ -36,3 +36,4 @@ enum:
   - ePay.bg
   - iDEAL
   - domestic-cards
+  - Giropay
