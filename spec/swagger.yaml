@@ -320,6 +320,17 @@ responses:
     description: "Invalid data was sent"
     schema:
       $ref: "#/definitions/InvalidError"
+  SeeOther:
+    description: "See other"
+    headers:
+      Location:
+        $ref: "#/headers/Location"
+      Rate-Limit-Limit:
+        $ref: "#/headers/Rate-Limit-Limit"
+      Rate-Limit-Remaining:
+        $ref: "#/headers/Rate-Limit-Remaining"
+      Rate-Limit-Reset:
+        $ref: "#/headers/Rate-Limit-Reset"
 ################################################################################
 parameters:
   resourceId:
@@ -423,3 +434,7 @@ headers:
   Pagination-Offset:
     description: Pagination offset
     type: integer
+  Location:
+    description: The location of the related resource
+    type: string
+    format: url
