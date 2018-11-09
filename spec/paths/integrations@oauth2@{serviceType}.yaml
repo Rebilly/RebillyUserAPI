@@ -19,7 +19,7 @@ post:
         required:
           - url
           - expireTime
-        propreties:
+        properties:
           url:
             description: The authentication URL
             readOnly: true
