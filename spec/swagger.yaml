@@ -412,6 +412,14 @@ parameters:
       - application/pdf
     default: application/json
     description: The response media type
+  oauth2ServiceType:
+    name: serviceType
+    in: path
+    description: The service type
+    type: string
+    required: true
+    enum:
+      - google-drive
 ################################################################################
 headers:
   Rate-Limit-Limit:

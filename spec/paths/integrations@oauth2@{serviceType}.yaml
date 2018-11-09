@@ -1,3 +1,5 @@
+parameters:
+- $ref: "#/parameters/oauth2ServiceType"
 post:
   tags:
   - Integrations OAuth2
