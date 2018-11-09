@@ -1,0 +1,34 @@
+post:
+  tags:
+  - Integrations OAuth2
+  summary: Generate an authentication URL
+  description: |
+    Generate an authentication URL
+  responses:
+    201:
+      description: Authentication URL was generate
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        type: object
+        required:
+          - url
+          - expireTime
+        propreties:
+          url:
+            description: The authentication URL
+            readOnly: true
+            type: string
+            format: url
+          expireTime:
+            description: The authentication expire time
+            readOnly: true
+            allOf:
+              - $ref: "#/definitions/ServerTimestamp"
+    401:
+      $ref: "#/responses/AccessForbidden"
