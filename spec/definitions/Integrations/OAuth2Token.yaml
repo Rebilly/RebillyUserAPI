@@ -1,0 +1,21 @@
+type: object
+required:
+- serviceType
+- url
+- expireTime
+properties:
+  serviceType:
+    description: The name of service to connect with using OAuth2
+    type: string
+    enum:
+    - google-drive
+  url:
+    description: The authentication URL
+    readOnly: true
+    type: string
+    format: url
+  expireTime:
+    description: The authentication expire time
+    readOnly: true
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
