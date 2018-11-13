@@ -3,7 +3,7 @@ post:
   - Integrations OAuth2
   summary: Generate an authentication URL
   description: |
-    Generate an authentication URL where the merchant should be redirected to grant the requested access
+    Generate an authentication URL where the merchant should be redirected to grant the requested access.
   parameters:
   - name: body
     in: body
