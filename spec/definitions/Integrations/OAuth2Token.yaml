@@ -15,7 +15,7 @@ properties:
     type: string
     format: url
   expirationTime:
-    description: The authentication expire time
+    description: The authentication expiration time
     readOnly: true
     allOf:
     - $ref: "#/definitions/ServerTimestamp"
