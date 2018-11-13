@@ -2,7 +2,6 @@ type: object
 required:
 - serviceType
 - url
-- expireTime
 properties:
   serviceType:
     description: The name of service to connect with using OAuth2
@@ -17,5 +16,13 @@ properties:
   expirationTime:
     description: The authentication expiration time
     readOnly: true
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
+  createdTime:
+    description: The email message's created time
+    allOf:
+    - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The email message's updated time
     allOf:
     - $ref: "#/definitions/ServerTimestamp"
