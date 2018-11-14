@@ -5,9 +5,9 @@ allOf:
   -
     type: "object"
     required:
-     - "gatewayConfig"
+     - "credentials"
     properties:
-      gatewayConfig:
+      credentials:
         type: object
         properties:
           client:
@@ -17,17 +17,6 @@ allOf:
             type: string
             description: DataCash Gateway password
             format: password
-          policy:
-            type: integer
-            description: Policy
-            minimum: 0
-            maximum: 7
-            default: 2
-          delay:
-            type: integer
-            description: Auto Capture delay (in hours)
-            minimum: 0
-            default: 0
           reportGroup:
             type: string
             description: DataCash report group
@@ -41,7 +30,20 @@ allOf:
         required:
           - "client"
           - "password"
-          - "policy"
-          - "delay"
+      settings:
+        type: object
+        description: Datacash settings object
+        properties:
+          policy:
+            type: integer
+            description: Policy
+            minimum: 0
+            maximum: 7
+            default: 2
+          delay:
+            type: integer
+            description: Auto Capture delay (in hours)
+            minimum: 0
+            default: 0
       mpi:
         $ref: "#/definitions/DataCashMpis"
