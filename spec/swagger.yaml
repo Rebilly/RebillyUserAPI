@@ -279,18 +279,18 @@ securityDefinitions:
   PublishableApiKey:
     description: |
       Only for the Tokens resource.
-      You can create a Publishable API Key via our [API Keys resource](#tag/API-Keys), by specifying the type as `publishable`.
+      You can create a Publishable API Key via our [API Keys resource](https://rebilly.github.io/RebillyUserAPI/#tag/API-Keys), by specifying the type as `publishable`.
     name: Authorization
     type: apiKey
     in: header
   JWT:
     description: |
-      You can create a JSON Web Token (JWT) via our [JWT Session resource](#tag/JWT-Session/paths/~1signin/post).
+      You can create a JSON Web Token (JWT) via our [JWT Session resource](https://rebilly.github.io/RebillyUserAPI/#tag/JWT-Session/paths/~1signin/post).
       Usage format: `Bearer <JWT>`
     name: Authorization
     type: apiKey
     in: header
-    # OAS3 supports bearer http scheme: temproal fix for OAS2 bellow
+    # OAS3 supports bearer http scheme: temporal fix for OAS2 bellow
     x-type: http
     x-scheme: bearer
 ################################################################################
