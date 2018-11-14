@@ -1,9 +1,9 @@
 type: object
 required:
-- serviceName
+- service
 - url
 properties:
-  serviceName:
+  service:
     description: The name of service to connect with using OAuth2
     type: string
     enum:
