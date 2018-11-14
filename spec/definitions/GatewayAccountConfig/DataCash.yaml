@@ -27,6 +27,12 @@ allOf:
             type: string
             description: DataCash report password
             format: password
+          visaPayoutsClient:
+            type: string
+            description: DataCash Gateway client for Visa payouts (OCT)
+          masterCardPayoutsClient:
+            type: string
+            description: DataCash Gateway client for MasterCard payouts (OCT)
         required:
           - "client"
           - "password"
