@@ -50,5 +50,4 @@ put:
     404:
       $ref: "#/responses/NotFound"
     422:
-      description: Invalid data was sent
       $ref: "#/responses/InvalidDataError"

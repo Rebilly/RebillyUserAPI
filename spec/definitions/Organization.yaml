@@ -10,7 +10,8 @@ properties:
       - $ref: "#/definitions/ResourceId"
   createdTime:
     description: The organization created time
-    $ref: "#/definitions/ServerTimestamp"
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
   updatedTime:
     description: The organization updated time
     allOf:
