@@ -7,7 +7,7 @@ properties:
     description: The name of service to connect with using OAuth2
     type: string
     enum:
-    - google-drive
+    - google-sheets
   url:
     description: The authentication URL
     readOnly: true
