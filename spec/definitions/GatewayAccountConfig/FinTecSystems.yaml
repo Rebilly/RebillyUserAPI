@@ -5,9 +5,10 @@ allOf:
   -
     type: "object"
     required:
-     - "gatewayConfig"
+     - "credentials"
+     - "settings"
     properties:
-      gatewayConfig:
+      credentials:
         type: object
         description: FinTecSystems credentials object
         properties:
@@ -15,15 +16,20 @@ allOf:
             type: string
             description: FinTecSystems api key
             format: password
-          recipientHolder:
-            type: string
-            description: Account holder of the recipient account
           recipientIBAN:
             type: string
             description: IBAN of the recipient account
           recipientBIC:
             type: string
             description: BIC of the recipient account
+        required:
+          - "apiKey"
+          - "recipientIBAN"
+          - "recipientBIC"
+      settings:
+        type: object
+        description: FinTecSystems settings object
+        properties:
           recipientCountry:
             type: string
             description: Two letter country code
@@ -31,9 +37,9 @@ allOf:
               - AT
               - CH
               - DE
+          recipientHolder:
+            type: string
+            description: Account holder of the recipient account
         required:
-          - "apiKey"
           - "recipientHolder"
-          - "recipientIBAN"
-          - "recipientBIC"
           - "recipientCountry"

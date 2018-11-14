@@ -5,9 +5,9 @@ allOf:
 -
   type: "object"
   required:
-  - "gatewayConfig"
+  - "credentials"
   properties:
-    gatewayConfig:
+    credentials:
       type: object
       description: CauriPayment credentials object
       properties:
