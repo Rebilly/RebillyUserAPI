@@ -86,4 +86,5 @@ delete:
       $ref: "#/responses/NotFound"
     409:
       description: User has related resources and cannot be deleted
-      $ref: "#/responses/Conflict"
+      schema:
+        $ref: "#/definitions/Error"
