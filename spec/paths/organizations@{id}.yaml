@@ -62,7 +62,8 @@ put:
       $ref: "#/responses/AccessForbidden"
     409:
       description: The similar organization already exists
-      $ref: "#/responses/Conflict"
+      schema:
+        $ref: "#/definitions/Error"
     422:
       $ref: "#/responses/InvalidDataError"
 delete:
