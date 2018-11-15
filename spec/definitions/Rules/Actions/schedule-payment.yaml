@@ -9,7 +9,6 @@ allOf:
       amountPolicy:
         type: string
         enum:
-          - "balance-outstanding"
           - "invoice-total"
     required:
       - scheduleInstruction
