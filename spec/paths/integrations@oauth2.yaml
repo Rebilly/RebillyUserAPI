@@ -21,7 +21,44 @@ post:
           $ref: "#/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
           $ref: "#/headers/Rate-Limit-Reset"
+        RedirectUrl:
+          description: The authentication URL where the merchant should be redirected to grant the requested access
+          type: string
+          format: url
       schema:
         $ref: "#/definitions/OAuth2Token"
     401:
       $ref: "#/responses/AccessForbidden"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
+patch:
+  tags:
+  - Integrations OAuth2
+  summary: Create OAuth2 credential
+  description: |
+    Create OAuth2 credential based on granted access.
+  parameters:
+  - name: body
+    in: body
+    description: OAuth2 code resource
+    required: true
+    schema:
+      $ref: "#/definitions/OAuth2Code"
+  responses:
+    201:
+      description: OAuth2 credential was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/OAuth2Credential"
+    422:
+      description: Invalid data was sent
+      schema:
+        $ref: "#/definitions/InvalidError"
