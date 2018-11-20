@@ -30,9 +30,17 @@ allOf:
           visaPayoutsClient:
             type: string
             description: DataCash Gateway client for Visa payouts (OCT)
+          visaPayoutsPassword:
+            type: string
+            description: DataCash Gateway password for Visa payouts (OCT)
+            format: password
           masterCardPayoutsClient:
             type: string
             description: DataCash Gateway client for MasterCard payouts (OCT)
+          masterCardPayoutsPassword:
+            type: string
+            description: DataCash Gateway password for MasterCard payouts (OCT)
+            format: password
         required:
           - "client"
           - "password"
