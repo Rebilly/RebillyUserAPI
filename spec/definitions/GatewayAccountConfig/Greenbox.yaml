@@ -21,5 +21,3 @@ allOf:
       required:
       - "clientId"
       - "clientSecret"
-    mpi:
-      $ref: "#/definitions/A1GatewayMpis"
