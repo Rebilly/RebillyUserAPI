@@ -1,0 +1,25 @@
+description: Greenbox config
+allOf:
+-
+  $ref: "#/definitions/GatewayAccount"
+-
+  type: "object"
+  required:
+  - "credentials"
+  properties:
+    credentials:
+      type: object
+      description: Greenbox credentials object
+      properties:
+        clientId:
+          type: string
+          description: Greenbox client ID
+        clientSecret:
+          type: string
+          description: Greenbox client secret
+          format: password
+      required:
+      - "clientId"
+      - "clientSecret"
+    mpi:
+      $ref: "#/definitions/A1GatewayMpis"
