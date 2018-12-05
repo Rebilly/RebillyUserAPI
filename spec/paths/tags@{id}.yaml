@@ -48,11 +48,11 @@ patch:
     Tag a customer
   parameters:
   - name: body
-      in: body
-      description: Tag resource
-      required: true
-      schema:
-        $ref: "#/definitions/CustomerTag"
+    in: body
+    description: Tag resource
+    required: true
+    schema:
+      $ref: "#/definitions/CustomerTag"
   responses:
     204:
       description: Customer was tagged
