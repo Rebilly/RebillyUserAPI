@@ -1,0 +1,12 @@
+type: object
+description: Customer tag
+required:
+- customerId
+properties:
+  customerId:
+    description: The customer identifier string
+    allOf:
+    - $ref: "#/definitions/ResourceId"
+  untag:
+    description: Whether tag or untag the customer
+    type: boolean

@@ -1,0 +1,69 @@
+parameters:
+- $ref: "#/parameters/resourceId"
+get:
+  tags:
+  - Tags
+  summary: Retrieve a tag
+  description: |
+    Retrieve a tag
+  responses:
+    200:
+      description: Tag with specified identifier was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+      schema:
+        $ref: "#/definitions/Tag"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"
+delete:
+  tags:
+  - Tags
+  summary: Delete a tag
+  description: |
+    Delete a tag
+  responses:
+    204:
+      description: Tag was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+    401:
+      $ref: "#/responses/AccessForbidden"
+patch:
+  tags:
+  - Tags
+  summary: Tag a customer
+  description: |
+    Tag a customer
+  parameters:
+  - name: body
+      in: body
+      description: Tag resource
+      required: true
+      schema:
+        $ref: "#/definitions/CustomerTag"
+  responses:
+    204:
+      description: Customer was tagged
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/headers/Rate-Limit-Reset"
+    401:
+      $ref: "#/responses/AccessForbidden"
+    422:
+      $ref: "#/responses/InvalidDataError"
