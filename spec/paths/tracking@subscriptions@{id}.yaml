@@ -1,5 +1,5 @@
 parameters:
-  - $ref: "#/parameters/resourceId"
+  - $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Tracking
@@ -7,9 +7,11 @@ get:
   responses:
     200:
       description: Tracking subscription log was retrieved successfully
-      schema:
-        $ref: "#/definitions/SubscriptionTracking"
-    404:
-      $ref: "#/responses/NotFound"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SubscriptionTracking'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
+    404:
+      $ref: '#/components/responses/NotFound'

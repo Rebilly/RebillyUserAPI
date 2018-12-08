@@ -1,0 +1,17 @@
+description: Jeton Gateway config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+    properties:
+      credentials:
+        type: object
+        properties:
+          apiKey:
+            type: string
+            description: Jeton apiKey
+        required:
+          - "apiKey"

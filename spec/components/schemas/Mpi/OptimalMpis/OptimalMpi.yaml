@@ -1,0 +1,4 @@
+description: Optimal Integrated
+allOf:
+  -
+    $ref: "#/components/schemas/OptimalMpis"

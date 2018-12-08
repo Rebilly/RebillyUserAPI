@@ -1,11 +1,12 @@
 parameters:
-  - $ref: "#/parameters/resourceId"
+  - $ref: '#/components/parameters/resourceId'
   - name: version
     in: path
-    type: integer
     required: true
-    minimum: 1
     description: List version
+    schema:
+      type: integer
+      minimum: 1
 get:
   tags:
     - Lists
@@ -13,9 +14,11 @@ get:
   responses:
     200:
       description: List's exact version was retrieved successfully
-      schema:
-        $ref: "#/definitions/List"
-    404:
-      $ref: "#/responses/NotFound"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/List'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
+    404:
+      $ref: '#/components/responses/NotFound'

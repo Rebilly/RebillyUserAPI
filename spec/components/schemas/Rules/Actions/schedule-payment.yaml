@@ -1,0 +1,15 @@
+description: ""
+allOf:
+  - $ref: "#/components/schemas/RuleAction"
+  - type: object
+    description: "The calculation instruction of scheduled time for payment"
+    properties:
+      scheduleInstruction:
+        $ref: "#/components/schemas/CommonScheduleInstruction"
+      amountPolicy:
+        type: string
+        enum:
+          - "invoice-amount-due"
+    required:
+      - scheduleInstruction
+      - amountPolicy

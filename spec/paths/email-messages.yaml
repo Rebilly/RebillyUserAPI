@@ -1,6 +1,6 @@
 get:
   tags:
-  - Email Messages
+    - Email Messages
   summary: Retrieve a list of email messages
   description: |
     Retrieve a list of email messages
@@ -9,49 +9,53 @@ get:
       description: A list of email messages was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
         Pagination-Total:
-          $ref: "#/headers/Pagination-Total"
+          $ref: "#/components/headers/Pagination-Total"
         Pagination-Limit:
-          $ref: "#/headers/Pagination-Limit"
+          $ref: "#/components/headers/Pagination-Limit"
         Pagination-Offset:
-          $ref: "#/headers/Pagination-Offset"
-      schema:
-        type: array
-        items:
-          $ref: "#/definitions/EmailMessage"
+          $ref: "#/components/headers/Pagination-Offset"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/EmailMessage'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
 post:
   tags:
-  - Email Messages
+    - Email Messages
   summary: Create an email message
   description: |
     Create an email message
-  parameters:
-  - name: body
-    in: body
-    description: Email message resource
-    required: true
-    schema:
-      $ref: "#/definitions/EmailMessage"
   responses:
     201:
       description: Email message was created
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/EmailMessage"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmailMessage'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     422:
-      $ref: "#/responses/InvalidDataError"
+      $ref: '#/components/responses/InvalidDataError'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/EmailMessage'
+    description: Email message resource
+    required: true

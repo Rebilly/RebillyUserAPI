@@ -1,0 +1,22 @@
+description: Flexepin Gateway config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+    properties:
+      credentials:
+        type: object
+        properties:
+          apiKey:
+            type: string
+            description: Flexepin API Key
+          apiSecret:
+            type: string
+            description: Flexepin API Secret
+            format: password
+        required:
+          - "apiKey"
+          - "apiSecret"

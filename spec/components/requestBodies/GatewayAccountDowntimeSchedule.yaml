@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
+description: Gateway Account downtime schedule resource
+required: true

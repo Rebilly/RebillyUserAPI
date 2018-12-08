@@ -1,0 +1,8 @@
+description: RebillyProcessor Gateway config
+allOf:
+  - $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    properties:
+      mpi:
+        $ref: "#/components/schemas/RebillyProcessorMpis"

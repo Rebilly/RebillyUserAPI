@@ -4,21 +4,25 @@ post:
   summary: Migrate payment cards to another gateway account
   description: |
     Migrate payment cards to another gateway account
-  parameters:
-    - name: body
-      in: body
-      description: Payment card migration attributes
-      required: true
-      schema:
-        $ref: "#/definitions/PaymentCardMigration"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PaymentCardMigration'
+    description: Payment card migration attributes
+    required: true
   responses:
     201:
       description: Migration command was accepted
-      schema:
-        $ref: "#/definitions/PaymentCardMigration"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentCardMigration'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     422:
       description: Invalid data was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InvalidError'

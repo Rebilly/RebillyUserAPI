@@ -1,5 +1,5 @@
 parameters:
-  - $ref: "#/parameters/resourceId"
+  - $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Lists
@@ -11,59 +11,60 @@ get:
       description: List was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/List"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/List'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
 put:
   tags:
     - Lists
   summary: Create or update a list with predefined ID
   description: |
     Create or update a list with predefined identifier string
-  parameters:
-    - name: body
-      in: body
-      description: List resource
-      required: true
-      schema:
-        $ref: "#/definitions/List"
+  requestBody:
+    $ref: '#/components/requestBodies/List'
   responses:
     200:
       description: List was updated
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/List"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/List'
     201:
       description: List was created
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/List"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/List'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
     422:
-      $ref: "#/responses/InvalidDataError"
+      $ref: '#/components/responses/InvalidDataError'
 delete:
   tags:
     - Lists
@@ -71,18 +72,18 @@ delete:
   description: |
     Delete a list with predefined identifier string
   responses:
-    204:
+    '204':
       description: List was deleted
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset: 
+          $ref: "#/components/headers/Rate-Limit-Reset"
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
     409:
       description: List is used in Rules and cannot be deleted

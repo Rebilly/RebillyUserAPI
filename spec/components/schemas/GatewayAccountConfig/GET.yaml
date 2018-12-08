@@ -1,0 +1,19 @@
+description: GET Gateway config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+    properties:
+      credentials:
+        type: object
+        properties:
+          accountId:
+            type: string
+            description: GET Gateway account ID
+        required:
+          - "accountId"
+      mpi:
+        $ref: "#/components/schemas/GETMpis"

@@ -1,0 +1,4 @@
+allOf:
+  - $ref: "#/components/schemas/AmountAdjustment"
+  - $ref: "#/components/schemas/SmtpAuthorization"
+  - $ref: "#/components/schemas/WebhookAuthorization"

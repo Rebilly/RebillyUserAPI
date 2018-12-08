@@ -1,0 +1,18 @@
+type: object
+description: Version of rules
+readOnly: true
+properties:
+  version:
+    type: integer
+  createdTime:
+    $ref: "#/components/schemas/ServerTimestamp"
+  _links:
+    type: array
+    description: The links related to a resource
+    readOnly: true
+    minItems: 3
+    items:
+      anyOf:
+      - $ref: "#/components/schemas/SelfLink"
+      - $ref: "#/components/schemas/RuleSetHistoryLink"
+      - $ref: "#/components/schemas/RuleSetVersionLink"
