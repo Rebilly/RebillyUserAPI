@@ -37,6 +37,8 @@ post:
   summary: Create an api key
   description: |
     Create an api key
+  requestBody:
+    $ref: "#/components/requestBodies/ApiKey"
   responses:
     201:
       description: Api Key was created

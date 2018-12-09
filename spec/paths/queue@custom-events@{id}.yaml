@@ -20,7 +20,7 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/CustomEvent'
-    '303':
+    303:
       description: Custom event was successfully processed and moved out from queue
       headers:
         Rate-Limit-Limit:
