@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    description: The customer identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/definitions/ResourceId"
+  defaultPaymentInstrument:
+    $ref: "#/definitions/PaymentInstrument"
+  createdTime:
+    description: The customer created time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  updatedTime:
+    description: The customer updated time
+    allOf:
+      - $ref: "#/definitions/ServerTimestamp"
+  customFields:
+    $ref: "#/definitions/ResourceCustomFields"
+  primaryAddress:
+    $ref: "#/definitions/ContactObject"
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 3
+    items:
+      - $ref: "#/definitions/SelfLink"
+      - $ref: "#/definitions/NotesLink"
+      - $ref: "#/definitions/DefaultPaymentInstrumentLink"
+      - $ref: "#/definitions/LeadSourceLink"
+
