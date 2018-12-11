@@ -13,7 +13,7 @@ post:
     Sends a token to activate user account
   security: []
   responses:
-    '204':
+    204:
       description: User account was activated
       headers:
         Rate-Limit-Limit:

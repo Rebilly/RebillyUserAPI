@@ -31,7 +31,7 @@ delete:
   description: |
     Delete an email message
   responses:
-    '204':
+    204:
       description: Email message was deleted
       headers:
         Rate-Limit-Limit:

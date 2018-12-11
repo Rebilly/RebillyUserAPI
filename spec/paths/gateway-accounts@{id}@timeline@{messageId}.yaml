@@ -37,7 +37,7 @@ delete:
   description: |
     Delete a Gateway Timeline message with predefined identifier string
   responses:
-    '204':
+    204:
       description: Gateway Account Timeline message was deleted
       headers:
         Rate-Limit-Limit:

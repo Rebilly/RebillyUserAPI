@@ -71,7 +71,7 @@ delete:
   description: |
     Delete a Gateway Account downtime schedule
   responses:
-    '204':
+    204:
       description: Gateway Account downtime schedule was deleted
       headers:
         Rate-Limit-Limit:

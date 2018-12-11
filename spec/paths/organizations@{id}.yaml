@@ -76,7 +76,7 @@ delete:
   description: |
     Delete a organization with predefined identifier string
   responses:
-    '204':
+    204:
       description: Organization was deleted
       headers:
         Rate-Limit-Limit:

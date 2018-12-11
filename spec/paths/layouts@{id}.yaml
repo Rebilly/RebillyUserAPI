@@ -72,7 +72,7 @@ delete:
   description: |
     Delete a layout with predefined identifier string
   responses:
-    '204':
+    204:
       description: Layout was deleted
       headers:
         Rate-Limit-Limit:
