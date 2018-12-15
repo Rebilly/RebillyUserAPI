@@ -69,7 +69,7 @@ delete:
           $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
           $ref: "#/components/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset: 
+        Rate-Limit-Reset:
           $ref: "#/components/headers/Rate-Limit-Reset"
       description: Custom event was deleted
     401:
