@@ -849,7 +849,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -989,7 +989,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -1118,7 +1118,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -1239,7 +1239,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -1410,7 +1410,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -1539,7 +1539,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -1668,7 +1668,7 @@
                 }
               },
               "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
                 "schema": {
                   "type": "string"
                 }
@@ -15556,7 +15556,7 @@
             }
           },
           "Rate-Limit-Reset": {
-            "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+            "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
             "schema": {
               "type": "string"
             }
@@ -15888,7 +15888,7 @@
     },
     "securitySchemes": {
       "JWT": {
-        "description": "You can create a JSON Web Token (JWT) via our [JWT Session resource](https://rebilly.github.io/RebillyUserAPI/#tag/JWT-Session/paths/~1signin/post).\nUsage format: `Bearer `\n",
+        "description": "You can create a JSON Web Token (JWT) via our [JWT Session resource](https://rebilly.github.io/RebillyUserAPI/#tag/JWT-Session/paths/~1signin/post).\nUsage format: `Bearer <JWT>`\n",
         "name": "Authorization",
         "type": "apiKey",
         "in": "header",
