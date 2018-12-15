@@ -9067,7 +9067,7 @@ components:
             amountPolicy:
               type: string
               enum:
-                - invoice-total
+                - invoice-amount-due
           required:
             - scheduleInstruction
             - amountPolicy

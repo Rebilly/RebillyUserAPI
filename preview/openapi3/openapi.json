@@ -13457,7 +13457,7 @@
               "amountPolicy": {
                 "type": "string",
                 "enum": [
-                  "invoice-total"
+                  "invoice-amount-due"
                 ]
               }
             },
