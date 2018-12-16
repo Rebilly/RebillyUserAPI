@@ -1,5 +1,5 @@
 swaggerUI: false
-oasVersion: '2.0'
+oasVersion: '3.0.0'
 splitSpec: true
 codeSamples: true
 travis: true
