@@ -15568,7 +15568,7 @@
       "collectionExpand": {
         "name": "expand",
         "in": "query",
-        "description": "Expand response to get full related object intead of ID.  See the expand guide for more info.",
+        "description": "Expand response to get full related object intead of ID. See the expand guide for more info.",
         "schema": {
           "type": "string"
         }
@@ -15576,7 +15576,7 @@
       "collectionFields": {
         "name": "fields",
         "in": "query",
-        "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.",
+        "description": "Limit the returned fields to the list specified, separated by comma. Note that id is always returned.",
         "schema": {
           "type": "string"
         }
