@@ -3,32 +3,38 @@ get:
     - Tracking
   summary: Retrieve a list of tracking API logs
   parameters:
-    - $ref: "#/parameters/collectionLimit"
-    - $ref: "#/parameters/collectionOffset"
-    - x-rebillyMerge:
-      - $ref: "#/parameters/mediaType"
-      - enum:
-        - application/json
-        - text/csv
+    - $ref: '#/components/parameters/collectionLimit'
+    - $ref: '#/components/parameters/collectionOffset'
+    - name: Accept
+      in: header
+      description: The response media type
+      schema:
+        type: string
+        enum:
+          - application/json
+          - text/csv
+        default: application/json
   responses:
     200:
       description: Tracking API logs was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Reset"
         Pagination-Total:
-          $ref: "#/headers/Pagination-Total"
+          $ref: "#/components/headers/Pagination-Total"
         Pagination-Limit:
-          $ref: "#/headers/Pagination-Limit"
+          $ref: "#/components/headers/Pagination-Limit"
         Pagination-Offset:
-          $ref: "#/headers/Pagination-Offset"
-      schema:
-        type: array
-        items:
-          $ref: "#/definitions/ApiTracking"
+          $ref: "#/components/headers/Pagination-Offset"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ApiTracking'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'

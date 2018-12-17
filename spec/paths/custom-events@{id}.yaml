@@ -1,5 +1,5 @@
 parameters:
-  - $ref: "#/parameters/resourceId"
+  - $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Custom Events
@@ -11,50 +11,51 @@ get:
       description: Custom event was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/CustomEvent"
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CustomEvent'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
 put:
   tags:
     - Custom Events
   summary: Create a custom event with predefined ID
   description: |
     Create a custom event with predefined identifier string
-  parameters:
-    - name: body
-      in: body
-      description: Custom event resource
-      required: true
-      schema:
-        $ref: "#/definitions/CustomEvent"
+  requestBody:
+    $ref: '#/components/requestBodies/CustomEvent'
   responses:
     202:
       description: Custom event was accepted
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/CustomEvent"
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CustomEvent'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     409:
       description: Custom event can't be modified
-      schema:
-        $ref: "#/definitions/Error"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     422:
-      $ref: "#/responses/InvalidDataError"
+      $ref: '#/components/responses/InvalidDataError'
 delete:
   tags:
     - Custom Events
@@ -65,17 +66,19 @@ delete:
     204:
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Reset"
       description: Custom event was deleted
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
     409:
       description: Custom event has related rules and cannot be deleted
-      schema:
-        $ref: "#/definitions/Error"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

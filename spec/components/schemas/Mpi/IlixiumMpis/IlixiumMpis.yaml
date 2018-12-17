@@ -1,0 +1,12 @@
+description: IlixiumMpis Mpis
+discriminator:
+  propertyName: name
+type: object
+required:
+  - name
+properties:
+  name:
+    allOf:
+      - $ref: "#/components/schemas/MpiName"
+    enum:
+     - IlixiumMpi

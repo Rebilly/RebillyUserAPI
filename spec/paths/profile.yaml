@@ -9,45 +9,49 @@ get:
       description: Profile was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/Profile"
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Profile'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
 put:
   tags:
     - Profile
   summary: Update user's profile
   description: |
     Update user's profile
-  parameters:
-    - name: body
-      in: body
-      description: Profile resource
-      required: true
-      schema:
-        $ref: "#/definitions/Profile"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Profile'
+    description: Profile resource
+    required: true
   responses:
     200:
       description: Profile was updated
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/Profile"
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Profile'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     404:
-      $ref: "#/responses/NotFound"
+      $ref: '#/components/responses/NotFound'
     422:
-      $ref: "#/responses/InvalidDataError"
+      $ref: '#/components/responses/InvalidDataError'

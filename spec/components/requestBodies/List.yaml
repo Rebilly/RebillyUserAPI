@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/List'
+description: List resource
+required: true

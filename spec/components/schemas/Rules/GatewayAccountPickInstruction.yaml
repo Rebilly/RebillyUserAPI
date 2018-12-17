@@ -1,0 +1,11 @@
+type: object
+discriminator:
+  propertyName: method
+properties:
+  method:
+    type: string
+    enum:
+      - gateway-account-weights
+      - gateway-acquirer-weights
+required:
+  - method

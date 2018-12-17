@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/RuleSet'
+description: Set of rules resource
+required: true

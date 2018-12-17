@@ -2,8 +2,9 @@ parameters:
   - name: token
     in: path
     description: The token string
-    type: string
     required: true
+    schema:
+      type: string
 post:
   tags:
     - Profile
@@ -16,12 +17,14 @@ post:
       description: User account was activated
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Reset"
     422:
       description: Invalid token was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InvalidError'

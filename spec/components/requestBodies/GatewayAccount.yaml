@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/GatewayAccount'
+description: Gateway Account resource
+required: true

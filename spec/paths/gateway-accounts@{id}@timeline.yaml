@@ -1,5 +1,5 @@
 parameters:
-  - $ref: "#/parameters/resourceId"
+  - $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Gateway Accounts
@@ -7,59 +7,65 @@ get:
   description: |
     Retrieve a list of gateway account timeline messages
   parameters:
-    - $ref: "#/parameters/collectionLimit"
-    - $ref: "#/parameters/collectionOffset"
-    - $ref: "#/parameters/collectionFilter"
+    - $ref: '#/components/parameters/collectionLimit'
+    - $ref: '#/components/parameters/collectionOffset'
+    - $ref: '#/components/parameters/collectionFilter'
   responses:
     200:
       description: A list of Gateway Account timeline messages was retrieved successfully
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Reset"
         Pagination-Total:
-          $ref: "#/headers/Pagination-Total"
+          $ref: "#/components/headers/Pagination-Total"
         Pagination-Limit:
-          $ref: "#/headers/Pagination-Limit"
+          $ref: "#/components/headers/Pagination-Limit"
         Pagination-Offset:
-          $ref: "#/headers/Pagination-Offset"
-      schema:
-        type: array
-        items:
-          $ref: "#/definitions/GatewayAccountTimeline"
+          $ref: "#/components/headers/Pagination-Offset"
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/GatewayAccountTimeline'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
 post:
   tags:
-  - Gateway Accounts
+    - Gateway Accounts
   summary: Create a Gateway Account Timeline comment
   description: |
     Create a Gateway Account Timeline comment
-  parameters:
-  - name: body
-    in: body
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/GatewayAccountTimeline'
     description: Gateway Account Timeline resource
     required: true
-    schema:
-      $ref: "#/definitions/GatewayAccountTimeline"
   responses:
     201:
       description: Gateway Account Timeline comment was created
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
-      schema:
-        $ref: "#/definitions/GatewayAccountTimeline"
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GatewayAccountTimeline'
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     422:
       description: Invalid data was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InvalidError'

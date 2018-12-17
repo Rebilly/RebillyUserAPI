@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/GlobalWebhook'
+description: Webhook resource
+required: true

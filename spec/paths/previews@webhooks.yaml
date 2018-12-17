@@ -4,26 +4,23 @@ post:
   summary: Trigger a test webhook
   description: |
     Trigger a test webhook
-  parameters:
-    - name: body
-      in: body
-      description: Webhook resource
-      required: true
-      schema:
-        $ref: "#/definitions/GlobalWebhook"
+  requestBody:
+    $ref: '#/components/requestBodies/GlobalWebhook'
   responses:
     204:
       description: Test webhook was triggered
       headers:
         Rate-Limit-Limit:
-          $ref: "#/headers/Rate-Limit-Limit"
+          $ref: "#/components/headers/Rate-Limit-Limit"
         Rate-Limit-Remaining:
-          $ref: "#/headers/Rate-Limit-Remaining"
+          $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
-          $ref: "#/headers/Rate-Limit-Reset"
+          $ref: "#/components/headers/Rate-Limit-Reset"
     401:
-      $ref: "#/responses/AccessForbidden"
+      $ref: '#/components/responses/AccessForbidden'
     422:
       description: Invalid data was sent
-      schema:
-        $ref: "#/definitions/InvalidError"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InvalidError'

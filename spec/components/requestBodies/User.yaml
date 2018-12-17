@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/User'
+description: User resource
+required: true

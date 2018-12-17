@@ -1,0 +1,23 @@
+type: object
+discriminator:
+  propertyName: name
+properties:
+  name:
+    type: string
+    description: The action name
+    enum:
+      - blacklist
+      - cancel-scheduled-payments
+      - guess-payment-card-expiration
+      - pick-gateway-account
+      - schedule-payment-retry
+      - schedule-payment
+      - send-email
+      - trigger-webhook
+      - stop-subscriptions
+      - add-risk-score
+      - request-kyc
+  status:
+    $ref: "#/components/schemas/OnOff"
+required:
+  - name

@@ -1,0 +1,11 @@
+description: Other
+allOf:
+  - $ref: "#/components/schemas/A1GatewayMpis"
+  - $ref: "#/components/schemas/eMerchantPayMpis"
+  - $ref: "#/components/schemas/GETMpis"
+  - $ref: "#/components/schemas/NMIMpis"
+  - $ref: "#/components/schemas/PayvisionMpis"
+  - $ref: "#/components/schemas/VantivLitleMpis"
+  - $ref: "#/components/schemas/WalpayMpis"
+  - $ref: "#/components/schemas/WorldpayMpis"
+
