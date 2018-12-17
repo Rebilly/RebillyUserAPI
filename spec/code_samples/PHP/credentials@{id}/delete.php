@@ -1,1 +1,0 @@
-$client->customerCredentials()->delete('credentialId');
