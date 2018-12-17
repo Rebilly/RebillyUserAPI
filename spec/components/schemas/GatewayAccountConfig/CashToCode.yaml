@@ -1,0 +1,32 @@
+description: CashToCode config
+allOf:
+-
+  $ref: "#/components/schemas/GatewayAccount"
+-
+  type: "object"
+  required:
+  - "credentials"
+  properties:
+    credentials:
+      type: object
+      description: CashToCode credentials object
+      properties:
+        cashToCodeUsername:
+          type: string
+          description: CashToCode credentials Username
+        cashToCodePassword:
+          type: string
+          description: CashToCode credentials password
+          format: password
+        merchantUsername:
+          type: string
+          description: Merchant credentials Username
+        merchantPassword:
+          type: string
+          description: Merchant credentials password
+          format: password
+      required:
+      - "cashToCodeUsername"
+      - "cashToCodePassword"
+      - "merchantUsername"
+      - "merchantPassword"
