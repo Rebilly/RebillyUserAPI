@@ -11026,6 +11026,7 @@
           "CardinalCommerce",
           "PaayMpi",
           "Panamerican",
+          "eMerchantPayMpi",
           "Other"
         ]
       },
@@ -12112,6 +12113,7 @@
             ],
             "enum": [
               "PaayMpi",
+              "eMerchantPayMpi",
               "Other"
             ]
           }

@@ -7522,6 +7522,7 @@ components:
         - CardinalCommerce
         - PaayMpi
         - Panamerican
+        - eMerchantPayMpi
         - Other
     GlobalWebhook:
       type: object
@@ -8218,6 +8219,7 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - PaayMpi
+            - eMerchantPayMpi
             - Other
     GETMpis:
       description: GET Mpis
