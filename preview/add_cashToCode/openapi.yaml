@@ -7586,10 +7586,16 @@ components:
         - subscription-canceled
         - subscription-renewed
         - transaction-processed
+        - transaction-timeout-resolved
         - payment-card-expired
         - transaction-declined
         - invoice-modified
         - invoice-created
+        - invoice-abandoned
+        - invoice-paid
+        - invoice-voided
+        - invoice-issued
+        - invoice-past-due
         - dispute-created
         - suspended-payment-completed
     InvalidError:
