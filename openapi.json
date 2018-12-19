@@ -11129,7 +11129,7 @@
           "invoice-issued",
           "invoice-past-due",
           "dispute-created",
-          "suspended-payment-completed"
+          "offsite-payment-completed"
         ]
       },
       "InvalidError": {
