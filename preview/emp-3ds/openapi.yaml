@@ -7522,7 +7522,7 @@ components:
         - CardinalCommerce
         - PaayMpi
         - Panamerican
-        - PaayMpi
+        - eMerchantPayMpi
         - Other
     GlobalWebhook:
       type: object
