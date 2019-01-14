@@ -12,9 +12,11 @@ properties:
     type: string
     format: password
   oneTimePassword:
-    description: One time password for 2 factor authentication
+    description: One time password for 2 factor authentication. Should contain digits only.
     type: string
-    example: 123456
+    minimum: 6
+    maximum: 6
+    example: "123456"
   expiredTime:
     description: Session expired time. Defaults to one hour
     type: string
