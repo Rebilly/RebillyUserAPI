@@ -9462,6 +9462,10 @@
                     "type": "string",
                     "description": "Greenbox client ID"
                   },
+                  "locationId": {
+                    "type": "string",
+                    "description": "Greenbox location ID"
+                  },
                   "clientSecret": {
                     "type": "string",
                     "description": "Greenbox client secret",
@@ -9470,7 +9474,8 @@
                 },
                 "required": [
                   "clientId",
-                  "clientSecret"
+                  "clientSecret",
+                  "locationId"
                 ]
               }
             }
