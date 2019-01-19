@@ -5555,8 +5555,15 @@ components:
           type: integer
           minimum: 100
           maximum: 600
+          description: The HTTP status code.
         error:
           type: string
+        type:
+          type: string
+          description: 'A URI reference [[RFC3986](https://tools.ietf.org/html/rfc3986)] that identifies the problem type. It should provide human-readable documentation for the problem type. When this member is not present, its value is assumed to be "about:blank".'
+        title:
+          type: string
+          description: 'A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.'
     SystemEvent:
       type: object
       description: The application event
@@ -7640,10 +7647,9 @@ components:
         - $ref: '#/components/schemas/Error'
         - type: object
           properties:
-            details:
-              type: array
-              items:
-                type: string
+            invalidFields:
+              type: object
+              description: An object keyed by the invalid property field names.  Dot notation is used for nested object property names.
     InvoiceIssue:
       type: object
       properties:
@@ -8177,40 +8183,41 @@ components:
       type: string
       description: The payment method
       enum:
-        - ach
-        - cash
         - payment-card
+        - ach
+        - bank-account
+        - cash
         - paypal
         - Alipay
-        - China UnionPay
-        - Flexepin
-        - Gpaysafe
-        - Jeton
-        - OchaPay
-        - SMSVoucher
-        - UPayCard
-        - WeChat Pay
-        - AstroPay Card
+        - AstroPay-Card
         - bank-transfer
         - bitcoin
         - Boleto
         - cash-deposit
+        - CashToCode
+        - China-UnionPay
+        - domestic-cards
         - echeck
+        - EPS
+        - ePay-bg
+        - Flexepin
+        - Giropay
+        - Gpaysafe
+        - iDEAL
         - instant-bank-transfer
         - invoice
+        - Jeton
+        - Klarna
         - miscellaneous
+        - OchaPay
         - online-bank-transfer
         - phone
-        - voucher
         - QQPay
-        - Klarna
-        - Skrill Rapid Transfer
-        - EPS
-        - ePay.bg
-        - iDEAL
-        - domestic-cards
-        - Giropay
-        - CashToCode
+        - Skrill-Rapid-Transfer
+        - SMSVoucher
+        - UPayCard
+        - voucher
+        - WeChat-Pay
     A1GatewayMpis:
       description: A1Gateway Mpis
       discriminator:
@@ -8729,10 +8736,6 @@ components:
               description: The bank account identifier string
               allOf:
                 - $ref: '#/components/schemas/ResourceId'
-            gatewayAccountId:
-              description: The payment gateway identifier string
-              allOf:
-                - $ref: '#/components/schemas/ResourceId'
     cash:
       description: Cash payment instrument object
       allOf:
@@ -8754,10 +8757,6 @@ components:
               description: The payment card identifier string
               allOf:
                 - $ref: '#/components/schemas/ResourceId'
-            gatewayAccountId:
-              description: The payment gateway identifier string
-              allOf:
-                - $ref: '#/components/schemas/ResourceId'
     paypal:
       description: PayPal payment instrument object
       allOf:
@@ -8768,10 +8767,6 @@ components:
           properties:
             payPalAccountId:
               description: The PayPal account identifier string
-              allOf:
-                - $ref: '#/components/schemas/ResourceId'
-            gatewayAccountId:
-              description: The payment gateway identifier string
               allOf:
                 - $ref: '#/components/schemas/ResourceId'
     AmountAdjustment:
@@ -9552,6 +9547,24 @@ components:
       required:
         - name
         - value
+    BillingScheduleInstruction:
+      type: object
+      description: |
+        The calculation instruction of billing time.
+        This is used in conjunction with the **service period anchor** to calculate the time the invoice is issued.
+      discriminator:
+        propertyName: method
+      default:
+        method: immediately
+      required:
+        - method
+      properties:
+        method:
+          type: string
+          default: immediately
+          enum:
+            - immediately
+            - date-interval
     CommonScheduleInstruction:
       type: object
       description: The calculation instruction of scheduled time
@@ -9600,6 +9613,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
+        - $ref: '#/components/schemas/BillingScheduleInstruction'
         - type: object
           properties:
             duration:
@@ -9615,6 +9629,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
+        - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
         - type: object
           properties:
             day:
@@ -9633,6 +9648,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
+        - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
         - type: object
           properties:
             day:
@@ -9651,6 +9667,8 @@ components:
     immediately:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
+        - $ref: '#/components/schemas/BillingScheduleInstruction'
+        - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
     intelligent:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
@@ -9666,6 +9684,25 @@ components:
           required:
             - duration
             - unit
+    ServicePeriodAnchorInstruction:
+      type: object
+      description: |
+        Instruction for calculating the service period anchor.
+        This is used in conjunction with the **subscription start** to calculate the time the service period starts and ends.
+      discriminator:
+        propertyName: method
+      default:
+        method: immediately
+      required:
+        - method
+      properties:
+        method:
+          type: string
+          default: immediately
+          enum:
+            - immediately
+            - day-of-month
+            - day-of-week
     Time:
       type: string
       format: date-time
