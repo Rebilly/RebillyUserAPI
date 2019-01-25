@@ -9728,6 +9728,18 @@
                 "required": [
                   "apiKey"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "description": "Jeton's method"
+                  }
+                },
+                "required": [
+                  "method"
+                ]
               }
             }
           }

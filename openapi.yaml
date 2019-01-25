@@ -6698,6 +6698,14 @@ components:
                   description: Jeton apiKey
               required:
                 - apiKey
+            settings:
+              type: object
+              properties:
+                method:
+                  type: string
+                  description: Jeton's method
+              required:
+                - method
     JetPay:
       description: JetPay Gateway config
       allOf:
