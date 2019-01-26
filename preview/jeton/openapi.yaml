@@ -6704,6 +6704,11 @@ components:
                 method:
                   type: string
                   description: Jeton's method
+                  enum:
+                    - CHECKOUT
+                    - DIRECT
+                    - QR
+                    - JETGO
               required:
                 - method
     JetPay:
