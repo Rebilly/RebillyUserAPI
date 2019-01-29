@@ -1,4 +1,4 @@
-description: GlobalCollect Gateway config
+description: Ingenico Gateway config
 allOf:
   -
     $ref: "#/components/schemas/GatewayAccount"
@@ -12,20 +12,20 @@ allOf:
         properties:
           merchantId:
             type: string
-            description: GlobalCollect Gateway merchant ID
+            description: Ingenico Gateway merchant ID
           apiKeyId:
             type: string
-            description: GlobalCollect Gateway api key ID
+            description: Ingenico Gateway api key ID
           apiSecretKey:
             type: string
-            description: GlobalCollect Gateway api secret key
+            description: Ingenico Gateway api secret key
             format: password
           skipFraudService:
             type: boolean
-            description: GlobalCollect skip fraud service
+            description: Ingenico skip fraud service
         required:
           - "merchantId"
           - "apiKeyId"
           - "apiSecretKey"
       mpi:
-        $ref: "#/components/schemas/GlobalCollectMpis"
+        $ref: "#/components/schemas/IngenicoMpis"

@@ -1,0 +1,4 @@
+description: Ingenico Integrated
+allOf:
+  -
+    $ref: "#/components/schemas/IngenicoMpis"
