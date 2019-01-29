@@ -30,3 +30,17 @@ allOf:
           - "secretWord"
           - "MerchantID"
           - "MerchantPassword"
+      settings:
+        type: object
+        properties:
+          method:
+            type: string
+            description: ApcoPay's method
+            enum:
+            - AFTERPAY
+            - IDEAL
+            - CREDITCLICK
+            - BANCONTACT
+            - ONLINEUBERWEISEN
+        required:
+        - "method"
