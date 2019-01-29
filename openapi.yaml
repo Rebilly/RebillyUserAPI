@@ -6368,7 +6368,7 @@ components:
           properties:
             credentials:
               type: object
-              description: Rotessa credentials object
+              description: Elavon credentials object
               properties:
                 ssl_merchant_id:
                   type: string
