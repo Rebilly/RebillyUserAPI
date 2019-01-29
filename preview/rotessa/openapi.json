@@ -10583,7 +10583,8 @@
           {
             "type": "object",
             "required": [
-              "credentials"
+              "credentials",
+              "settings"
             ],
             "properties": {
               "credentials": {
