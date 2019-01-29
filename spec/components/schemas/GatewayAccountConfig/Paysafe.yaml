@@ -1,0 +1,28 @@
+description: Paysafe Gateway config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+    properties:
+      credentials:
+        type: object
+        properties:
+          storeId:
+            type: string
+            description: Paysafe Gateway store ID
+          storePwd:
+            type: string
+            description: Paysafe Gateway store password
+            format: password
+          accountNum:
+            type: string
+            description: Paysafe Gateway account number
+        required:
+          - "storeId"
+          - "storePwd"
+          - "accountNum"
+      mpi:
+        $ref: "#/components/schemas/PaysafeMpis"
