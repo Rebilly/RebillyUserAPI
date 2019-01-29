@@ -1,4 +1,0 @@
-description: GlobalCollect Integrated
-allOf:
-  -
-    $ref: "#/components/schemas/GlobalCollectMpis"
