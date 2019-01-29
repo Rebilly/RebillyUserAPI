@@ -1,0 +1,27 @@
+description: Elavon config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+    properties:
+      credentials:
+        type: object
+        description: Rotessa credentials object
+        properties:
+          ssl_merchant_id:
+            type: string
+            description: Elavon merchant ID
+          ssl_user_id:
+            type: string
+            description: Elavon user ID
+          ssl_pin:
+            type: string
+            description: Elavon pin
+            format: password
+        required:
+          - "ssl_merchant_id"
+          - "ssl_user_id"
+          - "ssl_pin"
