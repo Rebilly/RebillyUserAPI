@@ -6494,36 +6494,6 @@ components:
                 - accountId
             mpi:
               $ref: '#/components/schemas/GETMpis'
-    GlobalCollect:
-      description: GlobalCollect Gateway config
-      allOf:
-        - $ref: '#/components/schemas/GatewayAccount'
-        - type: object
-          required:
-            - credentials
-          properties:
-            credentials:
-              type: object
-              properties:
-                merchantId:
-                  type: string
-                  description: GlobalCollect Gateway merchant ID
-                apiKeyId:
-                  type: string
-                  description: GlobalCollect Gateway api key ID
-                apiSecretKey:
-                  type: string
-                  description: GlobalCollect Gateway api secret key
-                  format: password
-                skipFraudService:
-                  type: boolean
-                  description: GlobalCollect skip fraud service
-              required:
-                - merchantId
-                - apiKeyId
-                - apiSecretKey
-            mpi:
-              $ref: '#/components/schemas/GlobalCollectMpis'
     GlobalOne:
       description: GlobalOne Gateway config
       allOf:
@@ -6643,6 +6613,36 @@ components:
                 - digestPassword
             mpi:
               $ref: '#/components/schemas/IlixiumMpis'
+    Ingenico:
+      description: Ingenico Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                merchantId:
+                  type: string
+                  description: Ingenico Gateway merchant ID
+                apiKeyId:
+                  type: string
+                  description: Ingenico Gateway api key ID
+                apiSecretKey:
+                  type: string
+                  description: Ingenico Gateway api secret key
+                  format: password
+                skipFraudService:
+                  type: boolean
+                  description: Ingenico skip fraud service
+              required:
+                - merchantId
+                - apiKeyId
+                - apiSecretKey
+            mpi:
+              $ref: '#/components/schemas/IngenicoMpis'
     Intuit:
       description: Intuit Gateway config
       allOf:
@@ -7588,7 +7588,7 @@ components:
         - IlixiumMpi
         - DataCashMpi
         - OptimalMpi
-        - GlobalCollectMpi
+        - IngenicoMpi
         - CardinalCommerce
         - PaayMpi
         - Panamerican
@@ -8305,23 +8305,6 @@ components:
           enum:
             - PaayMpi
             - Other
-    GlobalCollectMpi:
-      description: GlobalCollect Integrated
-      allOf:
-        - $ref: '#/components/schemas/GlobalCollectMpis'
-    GlobalCollectMpis:
-      description: GlobalCollect Mpis
-      discriminator:
-        propertyName: name
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          allOf:
-            - $ref: '#/components/schemas/MpiName'
-          enum:
-            - GlobalCollectMpi
     IlixiumMpi:
       description: Ilixium Integrated
       allOf:
@@ -8339,6 +8322,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - IlixiumMpi
+    IngenicoMpi:
+      description: Ingenico Integrated
+      allOf:
+        - $ref: '#/components/schemas/IngenicoMpis'
+    IngenicoMpis:
+      description: Ingenico Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - IngenicoMpi
     NMIMpis:
       description: NMI Mpis
       discriminator:
