@@ -6,7 +6,7 @@ enum:
  - IlixiumMpi
  - DataCashMpi
  - OptimalMpi
- - GlobalCollectMpi
+ - IngenicoMpi
  - CardinalCommerce
  - PaayMpi
  - Panamerican
