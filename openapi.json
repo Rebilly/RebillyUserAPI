@@ -8618,40 +8618,6 @@
           }
         ]
       },
-      "Beanstream": {
-        "description": "Beanstream Gateway config",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/GatewayAccount"
-          },
-          {
-            "type": "object",
-            "required": [
-              "credentials"
-            ],
-            "properties": {
-              "credentials": {
-                "type": "object",
-                "properties": {
-                  "merchantId": {
-                    "type": "string",
-                    "description": "Beanstream Gateway merchant ID"
-                  },
-                  "apiPasscode": {
-                    "type": "string",
-                    "description": "Beanstream Gateway API Passcode",
-                    "format": "password"
-                  }
-                },
-                "required": [
-                  "merchantId",
-                  "apiPasscode"
-                ]
-              }
-            }
-          }
-        ]
-      },
       "BlueSnap": {
         "description": "BlueSnap config",
         "allOf": [
@@ -10389,6 +10355,48 @@
           }
         ]
       },
+      "Paysafe": {
+        "description": "Paysafe Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "storeId": {
+                    "type": "string",
+                    "description": "Paysafe Gateway store ID"
+                  },
+                  "storePwd": {
+                    "type": "string",
+                    "description": "Paysafe Gateway store password",
+                    "format": "password"
+                  },
+                  "accountNum": {
+                    "type": "string",
+                    "description": "Paysafe Gateway account number"
+                  }
+                },
+                "required": [
+                  "storeId",
+                  "storePwd",
+                  "accountNum"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/PaysafeMpis"
+              }
+            }
+          }
+        ]
+      },
       "Payvision": {
         "description": "Payvision Gateway config",
         "allOf": [
@@ -11236,6 +11244,7 @@
           "IlixiumMpi",
           "DataCashMpi",
           "OptimalMpi",
+          "PaysafeMpi",
           "IngenicoMpi",
           "CardinalCommerce",
           "PaayMpi",
@@ -12583,6 +12592,36 @@
             "$ref": "#/components/schemas/PanamericanMpis"
           }
         ]
+      },
+      "PaysafeMpi": {
+        "description": "Paysafe Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PaysafeMpis"
+          }
+        ]
+      },
+      "PaysafeMpis": {
+        "description": "Paysafe Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "PaysafeMpi"
+            ]
+          }
+        }
       },
       "CardinalCommerce": {
         "description": "CardinalCommerce Mpi Credentials",
