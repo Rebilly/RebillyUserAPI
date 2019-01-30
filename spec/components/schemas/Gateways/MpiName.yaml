@@ -6,6 +6,7 @@ enum:
  - IlixiumMpi
  - DataCashMpi
  - OptimalMpi
+ - PaysafeMpi
  - IngenicoMpi
  - CardinalCommerce
  - PaayMpi

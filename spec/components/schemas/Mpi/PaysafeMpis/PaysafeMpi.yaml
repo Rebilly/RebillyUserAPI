@@ -1,0 +1,4 @@
+description: Paysafe Integrated
+allOf:
+  -
+    $ref: "#/components/schemas/PaysafeMpis"
