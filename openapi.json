@@ -9781,7 +9781,8 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "Jeton apiKey"
+                    "description": "Jeton apiKey",
+                    "format": "password"
                   }
                 },
                 "required": [
