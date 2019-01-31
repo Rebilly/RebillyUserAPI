@@ -13,6 +13,7 @@ allOf:
           apiKey:
             type: string
             description: Jeton apiKey
+            format: password
         required:
           - "apiKey"
       settings:
