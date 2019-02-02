@@ -36,6 +36,6 @@ allOf:
           type: string
           description: Inovio product ID
       required:
-        - "websiteId",
-        - "merchantAccountId",
+        - "websiteId"
+        - "merchantAccountId"
         - "productId"
