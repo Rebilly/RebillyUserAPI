@@ -9601,8 +9601,7 @@
           {
             "type": "object",
             "required": [
-              "credentials",
-              "settings"
+              "credentials"
             ],
             "properties": {
               "credentials": {
@@ -9785,8 +9784,7 @@
           {
             "type": "object",
             "required": [
-              "credentials",
-              "settings"
+              "credentials"
             ],
             "properties": {
               "credentials": {

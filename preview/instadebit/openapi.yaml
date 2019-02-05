@@ -6618,7 +6618,6 @@ components:
         - type: object
           required:
             - credentials
-            - settings
           properties:
             credentials:
               type: object
@@ -6739,7 +6738,6 @@ components:
         - type: object
           required:
             - credentials
-            - settings
           properties:
             credentials:
               type: object
