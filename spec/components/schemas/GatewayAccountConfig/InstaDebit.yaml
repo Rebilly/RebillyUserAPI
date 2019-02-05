@@ -6,7 +6,6 @@ allOf:
   type: "object"
   required:
   - "credentials"
-  - "settings"
   properties:
     credentials:
       type: object
