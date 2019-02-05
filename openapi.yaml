@@ -6611,6 +6611,28 @@ components:
               required:
                 - clientId
                 - secretWord
+    iDebit:
+      description: iDebit config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: iDebit credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: iDebit merchant account number
+                password:
+                  type: string
+                  description: iDebit merchant account password
+                  format: password
+              required:
+                - merchantId
+                - password
     Ilixium:
       description: Ilixium Gateway config
       allOf:
@@ -6709,6 +6731,28 @@ components:
                 - websiteId
                 - merchantAccountId
                 - productId
+    InstaDebit:
+      description: InstaDebit config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: InstaDebit credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: InstaDebit merchant account number
+                password:
+                  type: string
+                  description: InstaDebit merchant account password
+                  format: password
+              required:
+                - merchantId
+                - password
     Intuit:
       description: Intuit Gateway config
       allOf:
