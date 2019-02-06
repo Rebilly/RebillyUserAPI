@@ -17,6 +17,7 @@ properties:
       - stop-subscriptions
       - add-risk-score
       - request-kyc
+      - tag-or-untag-customer
   status:
     $ref: "#/components/schemas/OnOff"
 required:
