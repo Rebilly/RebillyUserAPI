@@ -9,7 +9,7 @@ properties:
       properties:
         count:
           type: integer
-          min: 1
+          minimum: 1
           description: The number of available integrations
         ruleSets:
           type: array
@@ -34,7 +34,7 @@ properties:
                       description: The name of the rule
                     index:
                       type: integer
-                      min: 0
+                      minimum: 0
                       description: The index of the rule
                     actions:
                       type: array
@@ -48,6 +48,6 @@ properties:
                             description: The name of the action
                           index:
                             type: integer
-                            min: 0
+                            minimum: 0
                             description: The name of the action
 
