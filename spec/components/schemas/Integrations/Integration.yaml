@@ -1,0 +1,53 @@
+type: object
+properties:
+  integrations:
+    description: The list of integration types
+    type: array
+    readOnly: true
+    items:
+    - type: object
+      properties:
+        count:
+          type: integer
+          min: 1
+          description: The number of available integrations
+        items:
+          type: array
+          minItems: 1
+          description: The list of integrations
+          items:
+          - type: object
+            properties:
+              ruleSetId:
+                description: The rule set's identifier string
+                allOf:
+                - $ref: "#/components/parameters/systemEventType"
+              rules:
+                type: array
+                minItems: 1
+                description: The list of rules
+                items:
+                - type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the rule
+                    index:
+                      type: integer
+                      min: 0
+                      description: The index of the rule
+                    actions:
+                      type: array
+                      minItems: 1
+                      description: The list of the actions
+                      items:
+                      - type: object
+                        properties:
+                          name:
+                            type: string
+                            description: The name of the action
+                          index:
+                            type: integer
+                            min: 0
+                            description: The name of the action
+
