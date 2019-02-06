@@ -8397,7 +8397,9 @@ components:
         - Flexepin
         - Giropay
         - Gpaysafe
+        - iDebit
         - iDEAL
+        - InstaDebit
         - instant-bank-transfer
         - invoice
         - Jeton
