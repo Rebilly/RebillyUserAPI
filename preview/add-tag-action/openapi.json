@@ -13935,7 +13935,6 @@
               "addingTags": {
                 "description": "The list of tag ID customer should be tagged with",
                 "type": "array",
-                "minItems": 1,
                 "items": {
                   "type": "string"
                 }
@@ -13943,7 +13942,6 @@
               "removingTags": {
                 "description": "The list of tag ID customer should be untagged from",
                 "type": "array",
-                "minItems": 1,
                 "items": {
                   "type": "string"
                 }
