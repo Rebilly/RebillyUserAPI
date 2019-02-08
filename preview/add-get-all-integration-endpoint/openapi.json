@@ -11580,25 +11580,6 @@
                         "type": "integer",
                         "minimum": 0,
                         "description": "The index of the rule"
-                      },
-                      "actions": {
-                        "type": "array",
-                        "minItems": 1,
-                        "description": "The list of the actions",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "description": "The name of the action"
-                            },
-                            "index": {
-                              "type": "integer",
-                              "minimum": 0,
-                              "description": "The index of the action"
-                            }
-                          }
-                        }
                       }
                     }
                   }
