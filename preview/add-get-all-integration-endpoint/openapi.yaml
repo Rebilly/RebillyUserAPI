@@ -7920,7 +7920,7 @@ components:
                           index:
                             type: integer
                             minimum: 0
-                            description: The name of the action
+                            description: The index of the action
     InvalidError:
       allOf:
         - $ref: '#/components/schemas/Error'
