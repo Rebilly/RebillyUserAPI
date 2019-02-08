@@ -10933,6 +10933,41 @@
           }
         ]
       },
+      "SmartInvoice": {
+        "description": "SmartInvoice config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "SmartInvoice credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "SmartInvoice merchant account UID"
+                  },
+                  "applicationId": {
+                    "type": "string",
+                    "description": "SmartInvoice application UID",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "applicationId"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "SMSVoucher": {
         "description": "SMSVoucher Gateway config",
         "allOf": [
