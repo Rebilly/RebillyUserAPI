@@ -21,3 +21,5 @@ allOf:
       required:
       - "merchantId"
       - "applicationId"
+    mpi:
+      $ref: "#/components/schemas/SmartInvoiceMpis"
