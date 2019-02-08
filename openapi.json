@@ -10963,6 +10963,9 @@
                   "merchantId",
                   "applicationId"
                 ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/SmartInvoiceMpis"
               }
             }
           }
@@ -12880,6 +12883,36 @@
             ],
             "enum": [
               "RebillySandboxMpi"
+            ]
+          }
+        }
+      },
+      "SmartInvoiceMpi": {
+        "description": "SmartInvoice Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SmartInvoiceMpis"
+          }
+        ]
+      },
+      "SmartInvoiceMpis": {
+        "description": "SmartInvoice Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "SmartInvoiceMpi"
             ]
           }
         }
