@@ -7501,6 +7501,30 @@ components:
               required:
                 - accountEmail
                 - secretWord
+    SmartInvoice:
+      description: SmartInvoice config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SmartInvoice credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: SmartInvoice merchant account UID
+                applicationId:
+                  type: string
+                  description: SmartInvoice application UID
+                  format: password
+              required:
+                - merchantId
+                - applicationId
+            mpi:
+              $ref: '#/components/schemas/SmartInvoiceMpis'
     SMSVoucher:
       description: SMSVoucher Gateway config
       allOf:
@@ -7893,13 +7917,13 @@ components:
                 description: The rule set's identifier string
                 allOf:
                   - $ref: '#/components/parameters/systemEventType'
-              ruleName:
+              bindName:
                 type: string
-                description: The name of the rule
-              ruleIndex:
+                description: The name of the bind
+              bindIndex:
                 type: integer
                 minimum: 0
-                description: The index of the rule
+                description: The index of the bind
     InvalidError:
       allOf:
         - $ref: '#/components/schemas/Error'
@@ -8736,6 +8760,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - RebillySandboxMpi
+    SmartInvoiceMpi:
+      description: SmartInvoice Integrated
+      allOf:
+        - $ref: '#/components/schemas/SmartInvoiceMpis'
+    SmartInvoiceMpis:
+      description: SmartInvoice Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - SmartInvoiceMpi
     VantivLitleMpis:
       description: VantivLitle Mpis
       discriminator:
