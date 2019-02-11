@@ -11549,11 +11549,11 @@
             "minimum": 1,
             "description": "The number of available rule sets"
           },
-          "ruleSets": {
+          "configurations": {
             "readOnly": true,
             "type": "array",
             "minItems": 1,
-            "description": "The list of rule sets",
+            "description": "The list of configurations",
             "items": {
               "type": "object",
               "properties": {
@@ -11565,24 +11565,14 @@
                     }
                   ]
                 },
-                "rules": {
-                  "type": "array",
-                  "minItems": 1,
-                  "description": "The list of rules",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the rule"
-                      },
-                      "index": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "description": "The index of the rule"
-                      }
-                    }
-                  }
+                "ruleName": {
+                  "type": "string",
+                  "description": "The name of the rule"
+                },
+                "ruleIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "The index of the rule"
                 }
               }
             }
