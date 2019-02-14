@@ -1,0 +1,28 @@
+description: Pay4fun config
+allOf:
+-
+  $ref: "#/components/schemas/GatewayAccount"
+-
+  type: "object"
+  required:
+  - "credentials"
+  properties:
+    credentials:
+      type: object
+      description: Pay4fun credentials object
+      properties:
+        merchantId:
+          type: string
+          description: Pay4fun merchant ID
+        merchantSecret:
+          type: string
+          description: Pay4fun merchant secret
+          format: password
+        merchantKey:
+          type: string
+          description: Pay4fun merchant key
+          format: password
+      required:
+      - "merchantId"
+      - "merchantSecret"
+      - "merchantKey"
