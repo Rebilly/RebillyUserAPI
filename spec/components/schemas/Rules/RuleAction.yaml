@@ -12,6 +12,7 @@ properties:
       - pick-gateway-account
       - schedule-payment-retry
       - schedule-payment
+      - schedule-invoice-retry
       - send-email
       - trigger-webhook
       - stop-subscriptions
