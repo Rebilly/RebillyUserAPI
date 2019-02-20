@@ -13,14 +13,14 @@ allOf:
               $ref: "#/components/schemas/CommonScheduleInstruction"
           required:
             - scheduleInstruction
-      afterAttemptPolicy:
+      afterAttemptPolicies:
         description: The policy on the attempt finishes
         type: array
         items:
           type: string
           enum:
             - "change-subscription-renewal-time"
-      afterRetryEndPolicy:
+      afterRetryEndPolicies:
         description: The policy on the retry ends
         type: array
         items:
@@ -33,7 +33,7 @@ allOf:
         type: boolean
     required:
       - attempts
-      - afterAttemptPolicy
-      - afterRetryEndPolicy
+      - afterAttemptPolicies
+      - afterRetryEndPolicies
       - overwriteScheduleInstruction
 
