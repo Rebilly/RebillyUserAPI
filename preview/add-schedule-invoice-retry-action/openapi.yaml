@@ -9500,7 +9500,7 @@ components:
               items:
                 type: string
                 enum:
-                  - abandon-invoice
+                  - void-invoice
                   - cancel-subscription
             overwriteScheduleInstruction:
               description: Whether to replace the existing retry or not

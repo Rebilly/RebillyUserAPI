@@ -14098,7 +14098,7 @@
                 "items": {
                   "type": "string",
                   "enum": [
-                    "abandon-invoice",
+                    "void-invoice",
                     "cancel-subscription"
                   ]
                 }
