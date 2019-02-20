@@ -9498,11 +9498,16 @@ components:
               type: string
               enum:
                 - none
+                - void-invoice
                 - cancel-subscription
+            overwriteScheduleInstruction:
+              description: Whether to replace the existing retry or not
+              type: boolean
           required:
             - attempts
             - afterAttemptPolicy
             - afterRetryEndPolicy
+            - overwriteScheduleInstruction
     schedule-payment-retry:
       description: ''
       allOf:
