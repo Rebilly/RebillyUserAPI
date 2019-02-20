@@ -7108,7 +7108,7 @@ components:
                 - merchant_pass
                 - payee
     Pay4fun:
-      description: Pay4fun config
+      description: Pay4Fun config
       allOf:
         - $ref: '#/components/schemas/GatewayAccount'
         - type: object
@@ -7117,18 +7117,45 @@ components:
           properties:
             credentials:
               type: object
-              description: Pay4fun credentials object
+              description: Pay4Fun credentials object
               properties:
                 merchantId:
                   type: string
-                  description: Pay4fun merchant ID
+                  description: Pay4Fun merchant ID
                 merchantSecret:
                   type: string
-                  description: Pay4fun merchant secret
+                  description: Pay4Fun merchant secret
                   format: password
                 merchantKey:
                   type: string
-                  description: Pay4fun merchant key
+                  description: Pay4Fun merchant key
+                  format: password
+              required:
+                - merchantId
+                - merchantSecret
+                - merchantKey
+    Pay4Fun:
+      description: Pay4Fun config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Pay4Fun credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: Pay4Fun merchant ID
+                merchantSecret:
+                  type: string
+                  description: Pay4Fun merchant secret
+                  format: password
+                merchantKey:
+                  type: string
+                  description: Pay4Fun merchant key
                   format: password
               required:
                 - merchantId
