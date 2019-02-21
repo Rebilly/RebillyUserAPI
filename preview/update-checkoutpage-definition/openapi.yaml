@@ -5850,6 +5850,7 @@ components:
         - transaction-process-requested
         - risk-score-changed
         - transaction-discrepancy-found
+        - renewal-invoice-payment-declined
     ForgotPassword:
       type: object
       required:
@@ -7780,6 +7781,28 @@ components:
                   description: SMSVoucher AppId
               required:
                 - AppId
+    SparkPay:
+      description: SparkPay config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SparkPay credentials object
+              properties:
+                shopId:
+                  type: string
+                  description: SparkPay shop ID
+                secretKey:
+                  type: string
+                  description: SparkPay secret key
+                  format: password
+              required:
+                - shopId
+                - secretKey
     StaticGateway:
       description: StaticGateway Gateway config
       allOf:
@@ -8130,6 +8153,7 @@ components:
         - invoice-past-due
         - dispute-created
         - offsite-payment-completed
+        - renewal-invoice-payment-declined
     Integration:
       type: object
       properties:
