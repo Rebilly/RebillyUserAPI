@@ -8111,7 +8111,8 @@
           "transaction-declined",
           "transaction-process-requested",
           "risk-score-changed",
-          "transaction-discrepancy-found"
+          "transaction-discrepancy-found",
+          "renewal-invoice-payment-declined"
         ]
       },
       "ForgotPassword": {
@@ -11643,7 +11644,8 @@
           "invoice-issued",
           "invoice-past-due",
           "dispute-created",
-          "offsite-payment-completed"
+          "offsite-payment-completed",
+          "renewal-invoice-payment-declined"
         ]
       },
       "Integration": {

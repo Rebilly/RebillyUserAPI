@@ -5638,6 +5638,7 @@ components:
         - transaction-process-requested
         - risk-score-changed
         - transaction-discrepancy-found
+        - renewal-invoice-payment-declined
     ForgotPassword:
       type: object
       required:
@@ -7940,6 +7941,7 @@ components:
         - invoice-past-due
         - dispute-created
         - offsite-payment-completed
+        - renewal-invoice-payment-declined
     Integration:
       type: object
       properties:
