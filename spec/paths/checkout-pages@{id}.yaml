@@ -3,7 +3,7 @@ parameters:
 get:
   tags:
     - Checkout Pages
-  summary: Retrieve a Checkout Page
+  summary: Read a Checkout Page
   description: |
     Retrieve a Checkout Page with specified identifier string
   responses:
@@ -20,7 +20,7 @@ get:
 put:
   tags:
     - Checkout Pages
-  summary: Create or update a Checkout Page with predefined ID
+  summary: Edit a Checkout Page
   description: |
     Create or update a Checkout Page with predefined identifier string
   responses:
