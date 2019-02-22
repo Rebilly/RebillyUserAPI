@@ -1,12 +1,9 @@
 get:
   tags:
     - Checkout Pages
-  summary: Retrieve a list of checkout pages
+  summary: Browse a list of checkout pages
   description: |
-    Retrieve a list of checkout pages
-  parameters:
-    - $ref: '#/components/parameters/collectionLimit'
-    - $ref: '#/components/parameters/collectionOffset'
+    Browse a list of checkout pages
   responses:
     200:
       description: A list of checkout pages was retrieved successfully
@@ -34,9 +31,9 @@ get:
 post:
   tags:
     - Checkout Pages
-  summary: Create a Checkout Page
+  summary: Add a Checkout Page
   description: |
-    Create a Checkout Page
+    Add a Checkout Page
   responses:
     201:
       description: Checkout Page was created

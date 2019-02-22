@@ -19,3 +19,4 @@ enum:
   - invoice-past-due
   - dispute-created
   - offsite-payment-completed
+  - renewal-invoice-payment-declined
