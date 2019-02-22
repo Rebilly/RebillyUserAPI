@@ -1,4 +1,4 @@
-description: Onlineuberweisen config
+description: Onlineueberweisen config
 allOf:
   -
     $ref: "#/components/schemas/GatewayAccount"
@@ -9,10 +9,10 @@ allOf:
     properties:
       credentials:
         type: object
-        description: Onlineuberweisen credentials object
+        description: Onlineueberweisen credentials object
         properties:
           apiKey:
             type: string
-            description: Onlineuberweisen API Key
+            description: Onlineueberweisen API Key
         required:
           - "apiKey"
