@@ -10,7 +10,7 @@ allOf:
           type: object
           properties:
             scheduleInstruction:
-              $ref: "#/components/schemas/CommonScheduleInstruction"
+              $ref: "#/components/schemas/InvoiceRetryScheduleInstruction"
           required:
             - scheduleInstruction
       afterAttemptPolicies:
