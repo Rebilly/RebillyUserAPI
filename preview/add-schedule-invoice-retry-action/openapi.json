@@ -14380,7 +14380,7 @@
                   "type": "object",
                   "properties": {
                     "scheduleInstruction": {
-                      "$ref": "#/components/schemas/CommonScheduleInstruction"
+                      "$ref": "#/components/schemas/InvoiceRetryScheduleInstruction"
                     }
                   },
                   "required": [
@@ -15154,6 +15154,28 @@
           "Thursday",
           "Friday",
           "Saturday"
+        ]
+      },
+      "InvoiceRetryScheduleInstruction": {
+        "type": "object",
+        "description": "The calculation instruction of scheduled time",
+        "discriminator": {
+          "propertyName": "method"
+        },
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "intelligent",
+              "immediately",
+              "date-interval",
+              "day-of-month",
+              "day-of-week"
+            ]
+          }
+        },
+        "required": [
+          "method"
         ]
       },
       "auto": {
