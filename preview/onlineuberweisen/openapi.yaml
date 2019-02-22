@@ -7206,7 +7206,7 @@ components:
                 - apiPassword
                 - secretWord
     Onlineueberweisen:
-      description: Onlineuberweisen config
+      description: Onlineueberweisen config
       allOf:
         - $ref: '#/components/schemas/GatewayAccount'
         - type: object
@@ -7215,11 +7215,11 @@ components:
           properties:
             credentials:
               type: object
-              description: Onlineuberweisen credentials object
+              description: Onlineueberweisen credentials object
               properties:
                 apiKey:
                   type: string
-                  description: Onlineuberweisen API Key
+                  description: Onlineueberweisen API Key
               required:
                 - apiKey
     Optimal:
