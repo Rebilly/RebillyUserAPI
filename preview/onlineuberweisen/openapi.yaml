@@ -7205,7 +7205,7 @@ components:
                 - apiUsername
                 - apiPassword
                 - secretWord
-    Onlineuberweisen:
+    Onlineueberweisen:
       description: Onlineuberweisen config
       allOf:
         - $ref: '#/components/schemas/GatewayAccount'
