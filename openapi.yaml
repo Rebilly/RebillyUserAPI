@@ -8868,6 +8868,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - IngenicoMpi
+    InovioMpi:
+      description: Inovio Integrated
+      allOf:
+        - $ref: '#/components/schemas/InovioMpis'
+    InovioMpis:
+      description: Inovio Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - InovioMpi
     NMIMpis:
       description: NMI Mpis
       discriminator:
