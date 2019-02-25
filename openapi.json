@@ -10087,6 +10087,9 @@
                   "merchantAccountId",
                   "productId"
                 ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/InovioMpis"
               }
             }
           }
