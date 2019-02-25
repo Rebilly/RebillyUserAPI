@@ -1,0 +1,4 @@
+description: Inovio Integrated
+allOf:
+  -
+    $ref: "#/components/schemas/InovioMpis"
