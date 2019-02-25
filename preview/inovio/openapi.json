@@ -26,7 +26,7 @@
     },
     {
       "name": "Checkout Pages",
-      "description": "Hosted checkout pages.\n"
+      "description": "Hosted checkout pages can be configured here.  You can customize the theme\nand content and more that appears on your hosted checkout pages.\n"
     },
     {
       "name": "Custom Events",
@@ -537,16 +537,8 @@
         "tags": [
           "Checkout Pages"
         ],
-        "summary": "Retrieve a list of checkout pages",
-        "description": "Retrieve a list of checkout pages\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          }
-        ],
+        "summary": "Browse a list of checkout pages",
+        "description": "Browse a list of checkout pages\n",
         "responses": {
           "200": {
             "description": "A list of checkout pages was retrieved successfully",
@@ -596,8 +588,8 @@
         "tags": [
           "Checkout Pages"
         ],
-        "summary": "Create a Checkout Page",
-        "description": "Create a Checkout Page\n",
+        "summary": "Add a Checkout Page",
+        "description": "Add a Checkout Page\n",
         "responses": {
           "201": {
             "description": "Checkout Page was created",
@@ -655,7 +647,7 @@
         "tags": [
           "Checkout Pages"
         ],
-        "summary": "Retrieve a Checkout Page",
+        "summary": "Read a Checkout Page",
         "description": "Retrieve a Checkout Page with specified identifier string\n",
         "responses": {
           "200": {
@@ -686,7 +678,7 @@
         "tags": [
           "Checkout Pages"
         ],
-        "summary": "Create or update a Checkout Page with predefined ID",
+        "summary": "Edit a Checkout Page",
         "description": "Create or update a Checkout Page with predefined identifier string\n",
         "responses": {
           "200": {
@@ -3798,6 +3790,53 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          }
+        }
+      }
+    },
+    "/integrations": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Retrieve a list of integrations",
+        "description": "Retrieve a list of integrations\n",
+        "responses": {
+          "200": {
+            "description": "A list of integrations was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Integration"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
           }
         }
       }
@@ -7221,10 +7260,10 @@
       "CheckoutPage": {
         "type": "object",
         "required": [
-          "name",
           "planId",
           "websiteId",
-          "uriPath"
+          "urlPathSegment",
+          "name"
         ],
         "properties": {
           "id": {
@@ -7237,7 +7276,7 @@
             ]
           },
           "planId": {
-            "description": "Checkout page plan ID",
+            "description": "Checkout page plan ID.  If the plan is deactivated, the submit button on the checkout page will be deactivated and the page will display \"Sold Out.\"",
             "type": "string",
             "allOf": [
               {
@@ -7254,30 +7293,192 @@
               }
             ]
           },
-          "uriPath": {
-            "description": "Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/<uriPath>",
+          "urlPathSegment": {
+            "description": "Your own custom url path segment for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/`urlPathSegment`",
             "type": "string",
+            "minLength": 5,
             "maxLength": 50
           },
           "name": {
-            "description": "Checkout page name",
-            "type": "string"
+            "description": "Checkout page name, used for internal display to help you organize your various checkout pages.",
+            "type": "string",
+            "maxLength": 100
           },
-          "isActive": {
-            "description": "If checkout page active",
-            "type": "boolean"
+          "redirect": {
+            "type": "object",
+            "description": "After a successful checkout, the customer can optionally be redirected to a url of your choice.",
+            "properties": {
+              "url": {
+                "description": "After a successful checkout, the customer can be redirected to a url of your choice.  If left empty, the customer will remain on the thank you page.",
+                "type": "string"
+              },
+              "timeout": {
+                "description": "The time (in seconds) that the customer will remain on the thank you page before being redirected to the corresponding `url`.",
+                "type": "integer",
+                "default": 5
+              }
+            }
           },
-          "redirectUrl": {
-            "description": "Checkout page url",
-            "type": "string"
+          "isCustomCustomerIdAllowed": {
+            "description": "Set to true if you want to supply your own customer ID's in a querystring parameter on your checkout page.",
+            "type": "boolean",
+            "default": false
           },
-          "redirectTimeout": {
-            "description": "Checkout page redirect timeout",
-            "type": "integer"
+          "isBillingAddressHidden": {
+            "description": "Set to true if you want to hide billing address on your checkout page.",
+            "type": "boolean",
+            "default": false
           },
-          "allowCustomCustomerId": {
-            "description": "If to enable your own customer ID in requests",
-            "type": "boolean"
+          "isPlanSummaryHidden": {
+            "description": "Set to true if you want to hide plan summary on your checkout page.",
+            "type": "boolean",
+            "default": false
+          },
+          "isPreCheckedTerms": {
+            "description": "Set to true if you want to pre-checked checkbox of terms on your checkout page.",
+            "type": "boolean",
+            "default": false
+          },
+          "oneTimeOffer": {
+            "type": "object",
+            "description": "One time offer for checkout page.",
+            "properties": {
+              "planId": {
+                "description": "Reference to Plan ID.",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "isTiedToQuantity": {
+                "description": "Set to true if you want to tie one time offer to quantity on your checkout page.",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "thankYouOneTimeOffer": {
+            "type": "object",
+            "description": "One time offer for thank you page.",
+            "properties": {
+              "planId": {
+                "description": "Reference to Plan ID.",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "isTiedToQuantity": {
+                "description": "Set to true if you want to tie one time offer to quantity on your checkout page.",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "suggestedUpgrade": {
+            "type": "object",
+            "description": "Suggested upgrade for checkout page.",
+            "properties": {
+              "planId": {
+                "description": "Reference to Plan ID.",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "hasProration": {
+                "description": "Set to true if you want to pro rata credits given due change a subscription's plan.",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "theme": {
+            "description": "Select from pre-designed themes for your checkout page.",
+            "type": "string",
+            "default": "classic",
+            "enum": [
+              "classic",
+              "long-copy"
+            ]
+          },
+          "logoAlignment": {
+            "description": "Checkout page logo position.",
+            "type": "string",
+            "enum": [
+              "left",
+              "center",
+              "right"
+            ],
+            "default": "left"
+          },
+          "quantityLabel": {
+            "description": "Checkout page quantity label, used in case you want to customize the quantity field label.",
+            "type": "string",
+            "maxLength": 255
+          },
+          "quantityType": {
+            "description": "Checkout page quantity type, used in case you want to customize the quantity field type.",
+            "type": "string",
+            "enum": [
+              "selectbox",
+              "textinput"
+            ],
+            "default": "selectbox"
+          },
+          "quantityMin": {
+            "description": "Checkout page quantity min, used in case you want to set the minimun quantity.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 255
+          },
+          "markup": {
+            "description": "Sections of styled content that will display within the page body, keyed by \"section.\"\nThe themes rely on specific \"section\" key values, for example \"header\", \"button\", \"footer\", \"body\", \"thank-you\", \"terms\".\n",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/Section"
+            }
+          },
+          "fields": {
+            "description": "Take granular control over the default field settings.  You can make specific fields hidden, optional, or required.  You can specify labels and default values.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/FieldConfig"
+            }
+          },
+          "taxes": {
+            "type": "object",
+            "description": "Taxes, you can specify description and list of name-value items.",
+            "properties": {
+              "description": {
+                "description": "Taxes description.",
+                "type": "string"
+              },
+              "items": {
+                "description": "Taxes values.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Taxes"
+                }
+              }
+            }
+          },
+          "status": {
+            "description": "If `inactive`, the checkout page url will result in a 404.",
+            "type": "string",
+            "enum": [
+              "active",
+              "inactive"
+            ],
+            "default": "active"
           },
           "createdTime": {
             "description": "Checkout page created time",
@@ -7303,6 +7504,121 @@
             "items": {
               "$ref": "#/components/schemas/SelfLink"
             }
+          }
+        }
+      },
+      "FieldConfig": {
+        "type": "object",
+        "description": "A configuration for a field.",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "description": "The name of the field, as defined in our APIs. You can also include custom fields.\n",
+            "type": "string",
+            "enum": [
+              "companyName",
+              "phoneNumber",
+              "address",
+              "addressLine2",
+              "city",
+              "region",
+              "country",
+              "postalCode",
+              "couponCode",
+              "quantity"
+            ]
+          },
+          "setting": {
+            "description": "If you want the field hidden, optional, or required.  Some fields may be required by a specific theme, and these settings will not override that.\nDefaults are that most fields are shown.  You may wish to hide `couponCode`, if you don't use coupons.  You may wish to require specific fields\nthat are optional (eg `phoneNumber`).\n",
+            "type": "string",
+            "enum": [
+              "hidden",
+              "optional",
+              "required"
+            ]
+          },
+          "label": {
+            "description": "If you want to override the default label, you can set a value here (eg, instead of \"First Name\", you can set \"Given Name\").",
+            "type": "string"
+          },
+          "default": {
+            "description": "Set a default value for the field.  It will default to being empty, or 1 for `quantity`.",
+            "type": "string"
+          }
+        }
+      },
+      "Section": {
+        "type": "object",
+        "required": [
+          "section",
+          "content",
+          "style",
+          "enabled"
+        ],
+        "properties": {
+          "section": {
+            "description": "A key for this section of content.\n",
+            "type": "string",
+            "enum": [
+              "header",
+              "body",
+              "order-summary",
+              "button",
+              "footer",
+              "thank-you",
+              "terms"
+            ]
+          },
+          "style": {
+            "description": "Control the font and background colors.",
+            "$ref": "#/components/schemas/Style"
+          },
+          "content": {
+            "description": "The text you want to appear in the section, can be styled in html markup.  You can include image references.",
+            "type": "string"
+          },
+          "enabled": {
+            "description": "Set to false if you want to disable this markup section on checkout page.",
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
+      "Style": {
+        "type": "object",
+        "properties": {
+          "background": {
+            "description": "Background color for the section in hexadecimal format.",
+            "type": "string",
+            "maxLength": 6,
+            "default": "ffffff"
+          },
+          "color": {
+            "description": "Font color for the section in hexadecimal format.",
+            "type": "string",
+            "maxLength": 6,
+            "default": "cccccc"
+          }
+        }
+      },
+      "Taxes": {
+        "type": "object",
+        "description": "A configuration for a tax.",
+        "required": [
+          "label",
+          "value"
+        ],
+        "properties": {
+          "label": {
+            "description": "Tax name",
+            "type": "string"
+          },
+          "value": {
+            "description": "Value of tax.",
+            "type": "number",
+            "format": "float"
           }
         }
       },
@@ -8064,7 +8380,8 @@
           "transaction-declined",
           "transaction-process-requested",
           "risk-score-changed",
-          "transaction-discrepancy-found"
+          "transaction-discrepancy-found",
+          "renewal-invoice-payment-declined"
         ]
       },
       "ForgotPassword": {
@@ -9592,6 +9909,41 @@
           }
         ]
       },
+      "iDebit": {
+        "description": "iDebit config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "iDebit credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "iDebit merchant account number"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "iDebit merchant account password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "password"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Ilixium": {
         "description": "Ilixium Gateway config",
         "allOf": [
@@ -9734,6 +10086,41 @@
                   "websiteId",
                   "merchantAccountId",
                   "productId"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "InstaDebit": {
+        "description": "InstaDebit config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "InstaDebit credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "InstaDebit merchant account number"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "InstaDebit merchant account password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "password"
                 ]
               }
             }
@@ -10238,6 +10625,47 @@
                   "merchant_id",
                   "merchant_pass",
                   "payee"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Pay4Fun": {
+        "description": "Pay4Fun config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Pay4Fun credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pay4Fun merchant ID"
+                  },
+                  "merchantSecret": {
+                    "type": "string",
+                    "description": "Pay4Fun merchant secret",
+                    "format": "password"
+                  },
+                  "merchantKey": {
+                    "type": "string",
+                    "description": "Pay4Fun merchant key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "merchantSecret",
+                  "merchantKey"
                 ]
               }
             }
@@ -10863,6 +11291,44 @@
           }
         ]
       },
+      "SmartInvoice": {
+        "description": "SmartInvoice config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "SmartInvoice credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "SmartInvoice merchant account UID"
+                  },
+                  "applicationId": {
+                    "type": "string",
+                    "description": "SmartInvoice application UID",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "applicationId"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/SmartInvoiceMpis"
+              }
+            }
+          }
+        ]
+      },
       "SMSVoucher": {
         "description": "SMSVoucher Gateway config",
         "allOf": [
@@ -10885,6 +11351,41 @@
                 },
                 "required": [
                   "AppId"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "SparkPay": {
+        "description": "SparkPay config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "SparkPay credentials object",
+                "properties": {
+                  "shopId": {
+                    "type": "string",
+                    "description": "SparkPay shop ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "SparkPay secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "shopId",
+                  "secretKey"
                 ]
               }
             }
@@ -11412,8 +11913,56 @@
           "invoice-issued",
           "invoice-past-due",
           "dispute-created",
-          "offsite-payment-completed"
+          "offsite-payment-completed",
+          "renewal-invoice-payment-declined"
         ]
+      },
+      "Integration": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "readOnly": true,
+            "description": "The integration label",
+            "type": "string",
+            "enum": [
+              "google-sheets-integration"
+            ]
+          },
+          "count": {
+            "readOnly": true,
+            "type": "integer",
+            "minimum": 1,
+            "description": "The number of available rule sets"
+          },
+          "configurations": {
+            "readOnly": true,
+            "type": "array",
+            "minItems": 1,
+            "description": "The list of configurations",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ruleSetId": {
+                  "description": "The rule set's identifier string",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/parameters/systemEventType"
+                    }
+                  ]
+                },
+                "bindName": {
+                  "type": "string",
+                  "description": "The name of the bind"
+                },
+                "bindIndex": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "The index of the bind"
+                }
+              }
+            }
+          }
+        }
       },
       "InvalidError": {
         "allOf": [
@@ -12307,18 +12856,29 @@
           "Flexepin",
           "Giropay",
           "Gpaysafe",
+          "iDebit",
           "iDEAL",
+          "InstaDebit",
           "instant-bank-transfer",
           "invoice",
           "Jeton",
           "Klarna",
           "miscellaneous",
+          "Neteller",
+          "Nordea-Solo",
           "OchaPay",
           "online-bank-transfer",
+          "Paysafecard",
           "phone",
+          "POLi",
+          "Przelewy24",
           "QQPay",
+          "Resurs",
+          "SEPA",
+          "Skrill",
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
+          "Trustly",
           "UPayCard",
           "voucher",
           "WeChat-Pay"
@@ -12480,6 +13040,36 @@
             ],
             "enum": [
               "IngenicoMpi"
+            ]
+          }
+        }
+      },
+      "InovioMpi": {
+        "description": "Inovio Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InovioMpis"
+          }
+        ]
+      },
+      "InovioMpis": {
+        "description": "Inovio Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "InovioMpi"
             ]
           }
         }
@@ -12773,6 +13363,36 @@
             ],
             "enum": [
               "RebillySandboxMpi"
+            ]
+          }
+        }
+      },
+      "SmartInvoiceMpi": {
+        "description": "SmartInvoice Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SmartInvoiceMpis"
+          }
+        ]
+      },
+      "SmartInvoiceMpis": {
+        "description": "SmartInvoice Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "SmartInvoiceMpi"
             ]
           }
         }
@@ -13853,6 +14473,39 @@
           }
         ]
       },
+      "tag-or-untag-customer": {
+        "description": "Tag or untag a customer with specified list of tags",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "addingTags": {
+                "description": "The list of tag ID customer should be tagged with",
+                "type": "array",
+                "maxItems": 1000,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "removingTags": {
+                "description": "The list of tag ID customer should be untagged from",
+                "type": "array",
+                "maxItems": 1000,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "addingTags",
+              "removingTags"
+            ]
+          }
+        ]
+      },
       "trigger-webhook": {
         "description": "",
         "allOf": [
@@ -14112,7 +14765,8 @@
               "trigger-webhook",
               "stop-subscriptions",
               "add-risk-score",
-              "request-kyc"
+              "request-kyc",
+              "tag-or-untag-customer"
             ]
           },
           "status": {

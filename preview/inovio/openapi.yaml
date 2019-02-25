@@ -80,7 +80,8 @@ tags:
       our [Sessions](https://rebilly.github.io/RebillyUserAPI/#tag/JWT-Session) resource for more information.
   - name: Checkout Pages
     description: |
-      Hosted checkout pages.
+      Hosted checkout pages can be configured here.  You can customize the theme
+      and content and more that appears on your hosted checkout pages.
   - name: Custom Events
     description: |
       If system events can't solve your problems, you are able to create a custom event
@@ -495,12 +496,9 @@ paths:
     get:
       tags:
         - Checkout Pages
-      summary: Retrieve a list of checkout pages
+      summary: Browse a list of checkout pages
       description: |
-        Retrieve a list of checkout pages
-      parameters:
-        - $ref: '#/components/parameters/collectionLimit'
-        - $ref: '#/components/parameters/collectionOffset'
+        Browse a list of checkout pages
       responses:
         '200':
           description: A list of checkout pages was retrieved successfully
@@ -534,9 +532,9 @@ paths:
     post:
       tags:
         - Checkout Pages
-      summary: Create a Checkout Page
+      summary: Add a Checkout Page
       description: |
-        Create a Checkout Page
+        Add a Checkout Page
       responses:
         '201':
           description: Checkout Page was created
@@ -581,7 +579,7 @@ paths:
     get:
       tags:
         - Checkout Pages
-      summary: Retrieve a Checkout Page
+      summary: Read a Checkout Page
       description: |
         Retrieve a Checkout Page with specified identifier string
       responses:
@@ -602,7 +600,7 @@ paths:
     put:
       tags:
         - Checkout Pages
-      summary: Create or update a Checkout Page with predefined ID
+      summary: Edit a Checkout Page
       description: |
         Create or update a Checkout Page with predefined identifier string
       responses:
@@ -2669,6 +2667,37 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+  /integrations:
+    get:
+      tags:
+        - Integrations
+      summary: Retrieve a list of integrations
+      description: |
+        Retrieve a list of integrations
+      responses:
+        '200':
+          description: A list of integrations was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Integration'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
   /layouts:
     get:
       tags:
@@ -5041,10 +5070,10 @@ components:
     CheckoutPage:
       type: object
       required:
-        - name
         - planId
         - websiteId
-        - uriPath
+        - urlPathSegment
+        - name
       properties:
         id:
           description: Checkout page identifier string
@@ -5052,7 +5081,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/ResourceId'
         planId:
-          description: Checkout page plan ID
+          description: 'Checkout page plan ID.  If the plan is deactivated, the submit button on the checkout page will be deactivated and the page will display "Sold Out."'
           type: string
           allOf:
             - $ref: '#/components/schemas/ResourceId'
@@ -5061,25 +5090,145 @@ components:
           type: string
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        uriPath:
-          description: 'Your own custom uri path for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/<uriPath>'
+        urlPathSegment:
+          description: 'Your own custom url path segment for this Checkout Page. It will be appended to checkout url https://checkout.rebilly.com/checkout/`urlPathSegment`'
           type: string
+          minLength: 5
           maxLength: 50
         name:
-          description: Checkout page name
+          description: 'Checkout page name, used for internal display to help you organize your various checkout pages.'
           type: string
-        isActive:
-          description: If checkout page active
+          maxLength: 100
+        redirect:
+          type: object
+          description: 'After a successful checkout, the customer can optionally be redirected to a url of your choice.'
+          properties:
+            url:
+              description: 'After a successful checkout, the customer can be redirected to a url of your choice.  If left empty, the customer will remain on the thank you page.'
+              type: string
+            timeout:
+              description: The time (in seconds) that the customer will remain on the thank you page before being redirected to the corresponding `url`.
+              type: integer
+              default: 5
+        isCustomCustomerIdAllowed:
+          description: Set to true if you want to supply your own customer ID's in a querystring parameter on your checkout page.
           type: boolean
-        redirectUrl:
-          description: Checkout page url
+          default: false
+        isBillingAddressHidden:
+          description: Set to true if you want to hide billing address on your checkout page.
+          type: boolean
+          default: false
+        isPlanSummaryHidden:
+          description: Set to true if you want to hide plan summary on your checkout page.
+          type: boolean
+          default: false
+        isPreCheckedTerms:
+          description: Set to true if you want to pre-checked checkbox of terms on your checkout page.
+          type: boolean
+          default: false
+        oneTimeOffer:
+          type: object
+          description: One time offer for checkout page.
+          properties:
+            planId:
+              description: Reference to Plan ID.
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            isTiedToQuantity:
+              description: Set to true if you want to tie one time offer to quantity on your checkout page.
+              type: boolean
+              default: false
+        thankYouOneTimeOffer:
+          type: object
+          description: One time offer for thank you page.
+          properties:
+            planId:
+              description: Reference to Plan ID.
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            isTiedToQuantity:
+              description: Set to true if you want to tie one time offer to quantity on your checkout page.
+              type: boolean
+              default: false
+        suggestedUpgrade:
+          type: object
+          description: Suggested upgrade for checkout page.
+          properties:
+            planId:
+              description: Reference to Plan ID.
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            hasProration:
+              description: Set to true if you want to pro rata credits given due change a subscription's plan.
+              type: boolean
+              default: false
+        theme:
+          description: Select from pre-designed themes for your checkout page.
           type: string
-        redirectTimeout:
-          description: Checkout page redirect timeout
+          default: classic
+          enum:
+            - classic
+            - long-copy
+        logoAlignment:
+          description: Checkout page logo position.
+          type: string
+          enum:
+            - left
+            - center
+            - right
+          default: left
+        quantityLabel:
+          description: 'Checkout page quantity label, used in case you want to customize the quantity field label.'
+          type: string
+          maxLength: 255
+        quantityType:
+          description: 'Checkout page quantity type, used in case you want to customize the quantity field type.'
+          type: string
+          enum:
+            - selectbox
+            - textinput
+          default: selectbox
+        quantityMin:
+          description: 'Checkout page quantity min, used in case you want to set the minimun quantity.'
           type: integer
-        allowCustomCustomerId:
-          description: If to enable your own customer ID in requests
-          type: boolean
+          minimum: 1
+          maximum: 255
+        markup:
+          description: |
+            Sections of styled content that will display within the page body, keyed by "section."
+            The themes rely on specific "section" key values, for example "header", "button", "footer", "body", "thank-you", "terms".
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/Section'
+        fields:
+          description: 'Take granular control over the default field settings.  You can make specific fields hidden, optional, or required.  You can specify labels and default values.'
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/FieldConfig'
+        taxes:
+          type: object
+          description: 'Taxes, you can specify description and list of name-value items.'
+          properties:
+            description:
+              description: Taxes description.
+              type: string
+            items:
+              description: Taxes values.
+              type: array
+              items:
+                $ref: '#/components/schemas/Taxes'
+        status:
+          description: 'If `inactive`, the checkout page url will result in a 404.'
+          type: string
+          enum:
+            - active
+            - inactive
+          default: active
         createdTime:
           description: Checkout page created time
           allOf:
@@ -5095,6 +5244,100 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+    FieldConfig:
+      type: object
+      description: A configuration for a field.
+      required:
+        - name
+      properties:
+        name:
+          description: |
+            The name of the field, as defined in our APIs. You can also include custom fields.
+          type: string
+          enum:
+            - companyName
+            - phoneNumber
+            - address
+            - addressLine2
+            - city
+            - region
+            - country
+            - postalCode
+            - couponCode
+            - quantity
+        setting:
+          description: |
+            If you want the field hidden, optional, or required.  Some fields may be required by a specific theme, and these settings will not override that.
+            Defaults are that most fields are shown.  You may wish to hide `couponCode`, if you don't use coupons.  You may wish to require specific fields
+            that are optional (eg `phoneNumber`).
+          type: string
+          enum:
+            - hidden
+            - optional
+            - required
+        label:
+          description: 'If you want to override the default label, you can set a value here (eg, instead of "First Name", you can set "Given Name").'
+          type: string
+        default:
+          description: 'Set a default value for the field.  It will default to being empty, or 1 for `quantity`.'
+          type: string
+    Section:
+      type: object
+      required:
+        - section
+        - content
+        - style
+        - enabled
+      properties:
+        section:
+          description: |
+            A key for this section of content.
+          type: string
+          enum:
+            - header
+            - body
+            - order-summary
+            - button
+            - footer
+            - thank-you
+            - terms
+        style:
+          description: Control the font and background colors.
+          $ref: '#/components/schemas/Style'
+        content:
+          description: 'The text you want to appear in the section, can be styled in html markup.  You can include image references.'
+          type: string
+        enabled:
+          description: Set to false if you want to disable this markup section on checkout page.
+          type: boolean
+          default: true
+    Style:
+      type: object
+      properties:
+        background:
+          description: Background color for the section in hexadecimal format.
+          type: string
+          maxLength: 6
+          default: ffffff
+        color:
+          description: Font color for the section in hexadecimal format.
+          type: string
+          maxLength: 6
+          default: cccccc
+    Taxes:
+      type: object
+      description: A configuration for a tax.
+      required:
+        - label
+        - value
+      properties:
+        label:
+          description: Tax name
+          type: string
+        value:
+          description: Value of tax.
+          type: number
+          format: float
     none:
       allOf:
         - $ref: '#/components/schemas/AmountAdjustment'
@@ -5607,6 +5850,7 @@ components:
         - transaction-process-requested
         - risk-score-changed
         - transaction-discrepancy-found
+        - renewal-invoice-payment-declined
     ForgotPassword:
       type: object
       required:
@@ -6611,6 +6855,28 @@ components:
               required:
                 - clientId
                 - secretWord
+    iDebit:
+      description: iDebit config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: iDebit credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: iDebit merchant account number
+                password:
+                  type: string
+                  description: iDebit merchant account password
+                  format: password
+              required:
+                - merchantId
+                - password
     Ilixium:
       description: Ilixium Gateway config
       allOf:
@@ -6709,6 +6975,28 @@ components:
                 - websiteId
                 - merchantAccountId
                 - productId
+    InstaDebit:
+      description: InstaDebit config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: InstaDebit credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: InstaDebit merchant account number
+                password:
+                  type: string
+                  description: InstaDebit merchant account password
+                  format: password
+              required:
+                - merchantId
+                - password
     Intuit:
       description: Intuit Gateway config
       allOf:
@@ -7032,6 +7320,33 @@ components:
                 - merchant_id
                 - merchant_pass
                 - payee
+    Pay4Fun:
+      description: Pay4Fun config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Pay4Fun credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: Pay4Fun merchant ID
+                merchantSecret:
+                  type: string
+                  description: Pay4Fun merchant secret
+                  format: password
+                merchantKey:
+                  type: string
+                  description: Pay4Fun merchant key
+                  format: password
+              required:
+                - merchantId
+                - merchantSecret
+                - merchantKey
     Payeezy:
       description: Payeezy Gateway config
       allOf:
@@ -7426,6 +7741,30 @@ components:
               required:
                 - accountEmail
                 - secretWord
+    SmartInvoice:
+      description: SmartInvoice config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SmartInvoice credentials object
+              properties:
+                merchantId:
+                  type: string
+                  description: SmartInvoice merchant account UID
+                applicationId:
+                  type: string
+                  description: SmartInvoice application UID
+                  format: password
+              required:
+                - merchantId
+                - applicationId
+            mpi:
+              $ref: '#/components/schemas/SmartInvoiceMpis'
     SMSVoucher:
       description: SMSVoucher Gateway config
       allOf:
@@ -7442,6 +7781,28 @@ components:
                   description: SMSVoucher AppId
               required:
                 - AppId
+    SparkPay:
+      description: SparkPay config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SparkPay credentials object
+              properties:
+                shopId:
+                  type: string
+                  description: SparkPay shop ID
+                secretKey:
+                  type: string
+                  description: SparkPay secret key
+                  format: password
+              required:
+                - shopId
+                - secretKey
     StaticGateway:
       description: StaticGateway Gateway config
       allOf:
@@ -7792,6 +8153,40 @@ components:
         - invoice-past-due
         - dispute-created
         - offsite-payment-completed
+        - renewal-invoice-payment-declined
+    Integration:
+      type: object
+      properties:
+        label:
+          readOnly: true
+          description: The integration label
+          type: string
+          enum:
+            - google-sheets-integration
+        count:
+          readOnly: true
+          type: integer
+          minimum: 1
+          description: The number of available rule sets
+        configurations:
+          readOnly: true
+          type: array
+          minItems: 1
+          description: The list of configurations
+          items:
+            type: object
+            properties:
+              ruleSetId:
+                description: The rule set's identifier string
+                allOf:
+                  - $ref: '#/components/parameters/systemEventType'
+              bindName:
+                type: string
+                description: The name of the bind
+              bindIndex:
+                type: integer
+                minimum: 0
+                description: The index of the bind
     InvalidError:
       allOf:
         - $ref: '#/components/schemas/Error'
@@ -8353,18 +8748,29 @@ components:
         - Flexepin
         - Giropay
         - Gpaysafe
+        - iDebit
         - iDEAL
+        - InstaDebit
         - instant-bank-transfer
         - invoice
         - Jeton
         - Klarna
         - miscellaneous
+        - Neteller
+        - Nordea-Solo
         - OchaPay
         - online-bank-transfer
+        - Paysafecard
         - phone
+        - POLi
+        - Przelewy24
         - QQPay
+        - Resurs
+        - SEPA
+        - Skrill
         - Skrill-Rapid-Transfer
         - SMSVoucher
+        - Trustly
         - UPayCard
         - voucher
         - WeChat-Pay
@@ -8462,6 +8868,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - IngenicoMpi
+    InovioMpi:
+      description: Inovio Integrated
+      allOf:
+        - $ref: '#/components/schemas/InovioMpis'
+    InovioMpis:
+      description: Inovio Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - InovioMpi
     NMIMpis:
       description: NMI Mpis
       discriminator:
@@ -8626,6 +9049,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - RebillySandboxMpi
+    SmartInvoiceMpi:
+      description: SmartInvoice Integrated
+      allOf:
+        - $ref: '#/components/schemas/SmartInvoiceMpis'
+    SmartInvoiceMpis:
+      description: SmartInvoice Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - SmartInvoiceMpi
     VantivLitleMpis:
       description: VantivLitle Mpis
       discriminator:
@@ -9330,6 +9770,27 @@ components:
       description: Stop active subscriptions
       allOf:
         - $ref: '#/components/schemas/RuleAction'
+    tag-or-untag-customer:
+      description: Tag or untag a customer with specified list of tags
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            addingTags:
+              description: The list of tag ID customer should be tagged with
+              type: array
+              maxItems: 1000
+              items:
+                type: string
+            removingTags:
+              description: The list of tag ID customer should be untagged from
+              type: array
+              maxItems: 1000
+              items:
+                type: string
+          required:
+            - addingTags
+            - removingTags
     trigger-webhook:
       description: ''
       allOf:
@@ -9507,6 +9968,7 @@ components:
             - stop-subscriptions
             - add-risk-score
             - request-kyc
+            - tag-or-untag-customer
         status:
           $ref: '#/components/schemas/OnOff'
       required:
