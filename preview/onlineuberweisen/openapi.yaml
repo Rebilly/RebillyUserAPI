@@ -7227,7 +7227,7 @@ components:
               type: object
               description: Onlineueberweisen settings object
               properties:
-                payform_code:
+                payformCode:
                   type: string
                   description: Onlineueberweisen payform code to use customized Payform template
                   default: default
