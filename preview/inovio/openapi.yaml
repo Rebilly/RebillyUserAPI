@@ -6975,6 +6975,8 @@ components:
                 - websiteId
                 - merchantAccountId
                 - productId
+            mpi:
+              $ref: '#/components/schemas/InovioMpis'
     InstaDebit:
       description: InstaDebit config
       allOf:
