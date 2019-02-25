@@ -14,5 +14,9 @@ allOf:
           apiKey:
             type: string
             description: Onlineueberweisen API Key
+          payform_code:
+            type: string
+            description: Onlineueberweisen payform code to use customized Payform template
+            default: "default"
         required:
           - "apiKey"
