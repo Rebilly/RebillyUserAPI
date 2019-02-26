@@ -9783,14 +9783,14 @@ components:
                 enum:
                   - abandon-invoice
                   - cancel-subscription
-            overwriteScheduleInstruction:
+            overrideScheduleInstruction:
               description: Whether to replace the existing retry or not
               type: boolean
           required:
             - attempts
             - afterAttemptPolicies
             - afterRetryEndPolicies
-            - overwriteScheduleInstruction
+            - overrideScheduleInstruction
     schedule-payment-retry:
       description: ''
       allOf:
