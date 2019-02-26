@@ -35,5 +35,5 @@ allOf:
       - attempts
       - afterAttemptPolicies
       - afterRetryEndPolicies
-      - overwriteScheduleInstruction
+      - overrideScheduleInstruction
 
