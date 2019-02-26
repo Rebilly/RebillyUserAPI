@@ -1,0 +1,27 @@
+description: Onlineueberweisen config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+     - "credentials"
+     - "settings"
+    properties:
+      credentials:
+        type: object
+        description: Onlineueberweisen credentials object
+        properties:
+          apiKey:
+            type: string
+            description: Onlineueberweisen API Key
+        required:
+          - "apiKey"
+      settings:
+        type: object
+        description: Onlineueberweisen settings object
+        properties:
+          payformCode:
+            type: string
+            description: Onlineueberweisen payform code to use customized Payform template
+            default: "default"
