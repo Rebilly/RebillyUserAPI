@@ -10087,6 +10087,9 @@
                   "merchantAccountId",
                   "productId"
                 ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/InovioMpis"
               }
             }
           }
@@ -13081,6 +13084,36 @@
             ],
             "enum": [
               "IngenicoMpi"
+            ]
+          }
+        }
+      },
+      "InovioMpi": {
+        "description": "Inovio Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InovioMpis"
+          }
+        ]
+      },
+      "InovioMpis": {
+        "description": "Inovio Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "InovioMpi"
             ]
           }
         }
