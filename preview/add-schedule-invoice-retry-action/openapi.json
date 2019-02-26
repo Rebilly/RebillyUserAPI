@@ -10087,6 +10087,9 @@
                   "merchantAccountId",
                   "productId"
                 ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/InovioMpis"
               }
             }
           }
@@ -10449,6 +10452,47 @@
                   "apiPassword",
                   "secretWord"
                 ]
+              }
+            }
+          }
+        ]
+      },
+      "Onlineueberweisen": {
+        "description": "Onlineueberweisen config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials",
+              "settings"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Onlineueberweisen credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Onlineueberweisen API Key"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "Onlineueberweisen settings object",
+                "properties": {
+                  "payformCode": {
+                    "type": "string",
+                    "description": "Onlineueberweisen payform code to use customized Payform template",
+                    "default": "default"
+                  }
+                }
               }
             }
           }
@@ -13040,6 +13084,36 @@
             ],
             "enum": [
               "IngenicoMpi"
+            ]
+          }
+        }
+      },
+      "InovioMpi": {
+        "description": "Inovio Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InovioMpis"
+          }
+        ]
+      },
+      "InovioMpis": {
+        "description": "Inovio Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "InovioMpi"
             ]
           }
         }
