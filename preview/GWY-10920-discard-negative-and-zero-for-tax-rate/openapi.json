@@ -7619,7 +7619,8 @@
             "description": "Value of tax.",
             "type": "number",
             "format": "float",
-            "minimum": 0.01
+            "minimum": 0,
+            "exclusiveMinimum": true
           }
         }
       },
