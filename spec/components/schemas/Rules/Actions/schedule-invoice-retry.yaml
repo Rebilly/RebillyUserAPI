@@ -28,12 +28,12 @@ allOf:
           enum:
             - "abandon-invoice"
             - "cancel-subscription"
-      overrideScheduleInstruction:
+      overrideRetryInstruction:
         description: Whether to replace the existing retry or not
         type: boolean
     required:
       - attempts
       - afterAttemptPolicies
       - afterRetryEndPolicies
-      - overrideScheduleInstruction
+      - overrideRetryInstruction
 
