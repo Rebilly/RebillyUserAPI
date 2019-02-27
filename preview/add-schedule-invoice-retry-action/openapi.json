@@ -14483,7 +14483,7 @@
                   ]
                 }
               },
-              "overrideScheduleInstruction": {
+              "overrideRetryInstruction": {
                 "description": "Whether to replace the existing retry or not",
                 "type": "boolean"
               }
@@ -14492,7 +14492,7 @@
               "attempts",
               "afterAttemptPolicies",
               "afterRetryEndPolicies",
-              "overrideScheduleInstruction"
+              "overrideRetryInstruction"
             ]
           }
         ]
