@@ -7,8 +7,11 @@ properties:
   label:
     description: Tax name
     type: string
+    example: VAT
   value:
     description: Value of tax.
     type: number
     format: float
-
+    minimum: 0
+    exclusiveMinimum: true
+    example: 0.5
