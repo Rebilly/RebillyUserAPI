@@ -14438,6 +14438,65 @@
           }
         ]
       },
+      "schedule-invoice-retry": {
+        "description": "Schedule an invoice retry",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "attempts": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "scheduleInstruction": {
+                      "$ref": "#/components/schemas/InvoiceRetryScheduleInstruction"
+                    }
+                  },
+                  "required": [
+                    "scheduleInstruction"
+                  ]
+                }
+              },
+              "afterAttemptPolicies": {
+                "description": "The policy on the attempt finishes",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "change-subscription-renewal-time"
+                  ]
+                }
+              },
+              "afterRetryEndPolicies": {
+                "description": "The policy on the retry ends",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "abandon-invoice",
+                    "cancel-subscription"
+                  ]
+                }
+              },
+              "overrideRetryInstruction": {
+                "description": "Whether to replace the existing retry or not",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "attempts",
+              "afterAttemptPolicies",
+              "afterRetryEndPolicies",
+              "overrideRetryInstruction"
+            ]
+          }
+        ]
+      },
       "schedule-payment-retry": {
         "description": "",
         "allOf": [
@@ -14805,6 +14864,7 @@
               "pick-gateway-account",
               "schedule-payment-retry",
               "schedule-payment",
+              "schedule-invoice-retry",
               "send-email",
               "trigger-webhook",
               "stop-subscriptions",
@@ -15168,6 +15228,28 @@
           "Thursday",
           "Friday",
           "Saturday"
+        ]
+      },
+      "InvoiceRetryScheduleInstruction": {
+        "type": "object",
+        "description": "The calculation instruction of scheduled time",
+        "discriminator": {
+          "propertyName": "method"
+        },
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "intelligent",
+              "immediately",
+              "date-interval",
+              "day-of-month",
+              "day-of-week"
+            ]
+          }
+        },
+        "required": [
+          "method"
         ]
       },
       "auto": {
