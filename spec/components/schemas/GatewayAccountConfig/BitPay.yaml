@@ -1,0 +1,18 @@
+description: BitPay Gateway config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+      - "credentials"
+    properties:
+      credentials:
+        type: object
+        description: BitPay credentials object
+        properties:
+          token:
+            type: string
+            description: BitPay merchant API token
+        required:
+          - "token"
