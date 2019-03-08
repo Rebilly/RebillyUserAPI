@@ -14,5 +14,6 @@ allOf:
           token:
             type: string
             description: BitPay merchant API token
+            format: password
         required:
           - "token"
