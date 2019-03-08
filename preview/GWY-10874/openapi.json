@@ -8975,7 +8975,8 @@
                 "properties": {
                   "token": {
                     "type": "string",
-                    "description": "BitPay merchant API token"
+                    "description": "BitPay merchant API token",
+                    "format": "password"
                   }
                 },
                 "required": [
