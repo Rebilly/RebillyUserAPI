@@ -1,8 +1,0 @@
-name: service
-in: path
-description: The service name
-required: true
-schema:
-  type: string
-  enum:
-    - 'google-sheets'
