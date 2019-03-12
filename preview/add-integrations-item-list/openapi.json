@@ -1384,6 +1384,58 @@
         }
       }
     },
+    "/credential-hashes/oauth2/{hash}/items": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/hash"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Webhook Credentials"
+        ],
+        "summary": "Retrieve a list of root items available for specified credential",
+        "description": "Retrieve a list of root items available for specified credential\n",
+        "responses": {
+          "200": {
+            "description": "A list of root items available for specified credential was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GoogleSpreadsheet"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
     "/credential-hashes/postmark": {
       "post": {
         "tags": [
@@ -3830,58 +3882,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Integration"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
-    "/integrations/{service}/items": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/service"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Integrations"
-        ],
-        "summary": "Retrieve a list of integration items",
-        "description": "Retrieve a list of integration items\n",
-        "responses": {
-          "200": {
-            "description": "A list of integration items was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GoogleSpreadsheet"
                   }
                 }
               }
@@ -12065,23 +12065,6 @@
           "renewal-invoice-payment-declined"
         ]
       },
-      "GoogleSpreadsheet": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The google spreadsheet indentifier string",
-            "readOnly": true,
-            "type": "string",
-            "example": "2ytkMntAC2Ke7aIgpaOBjz9IORRlNRjwFqO7KvyNam3B"
-          },
-          "name": {
-            "readOnly": true,
-            "description": "The google spreadsheet name",
-            "type": "string",
-            "example": "Spreadsheet 1"
-          }
-        }
-      },
       "Integration": {
         "type": "object",
         "properties": {
@@ -13743,6 +13726,23 @@
             "items": {
               "$ref": "#/components/schemas/SelfLink"
             }
+          }
+        }
+      },
+      "GoogleSpreadsheet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The google spreadsheet indentifier string",
+            "readOnly": true,
+            "type": "string",
+            "example": "2ytkMntAC2Ke7aIgpaOBjz9IORRlNRjwFqO7KvyNam3B"
+          },
+          "name": {
+            "readOnly": true,
+            "description": "The google spreadsheet name",
+            "type": "string",
+            "example": "Spreadsheet 1"
           }
         }
       },
@@ -16977,18 +16977,6 @@
         "schema": {
           "type": "integer",
           "minimum": 1
-        }
-      },
-      "service": {
-        "name": "service",
-        "in": "path",
-        "description": "The service name",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "enum": [
-            "google-sheets"
-          ]
         }
       },
       "systemEventType": {
