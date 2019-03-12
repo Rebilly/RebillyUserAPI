@@ -12011,7 +12011,8 @@
           "dispute-created",
           "offsite-payment-completed",
           "renewal-invoice-payment-declined",
-          "customer-merged"
+          "customer-merged",
+          "customer-created"
         ]
       },
       "Integration": {

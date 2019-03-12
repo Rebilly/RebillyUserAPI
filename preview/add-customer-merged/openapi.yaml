@@ -8223,6 +8223,7 @@ components:
         - offsite-payment-completed
         - renewal-invoice-payment-declined
         - customer-merged
+        - customer-created
     Integration:
       type: object
       properties:
