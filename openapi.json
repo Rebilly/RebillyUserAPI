@@ -12050,7 +12050,10 @@
           "invoice-past-due",
           "dispute-created",
           "offsite-payment-completed",
-          "renewal-invoice-payment-declined"
+          "renewal-invoice-payment-declined",
+          "customer-merged",
+          "customer-created",
+          "customer-updated"
         ]
       },
       "Integration": {

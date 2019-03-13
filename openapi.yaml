@@ -8248,6 +8248,9 @@ components:
         - dispute-created
         - offsite-payment-completed
         - renewal-invoice-payment-declined
+        - customer-merged
+        - customer-created
+        - customer-updated
     Integration:
       type: object
       properties:
