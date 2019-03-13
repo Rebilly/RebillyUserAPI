@@ -22,3 +22,4 @@ enum:
   - renewal-invoice-payment-declined
   - customer-merged
   - customer-created
+  - customer-updated
