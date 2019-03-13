@@ -6600,6 +6600,32 @@ components:
                 - projectId
                 - publicKey
                 - refundKey
+    ecoPayz:
+      description: ecoPayz config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: ecoPayz credentials object
+              properties:
+                paymentPageId:
+                  type: string
+                  description: ecoPayz payment page ID
+                merchantAccountNumber:
+                  type: string
+                  description: ecoPayz merchant account number
+                merchantPassword:
+                  type: string
+                  description: ecoPayz merchant password
+                  format: password
+              required:
+                - paymentPageId
+                - merchantAccountNumber
+                - merchantPassword
     EcorePay:
       description: EcorePay Gateway config
       allOf:
