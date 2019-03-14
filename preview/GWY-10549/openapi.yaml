@@ -7217,9 +7217,14 @@ components:
                   type: string
                   description: Neteller App Client Secret
                   format: password
+                webhookSecretKey:
+                  type: string
+                  description: Neteller Webhook Secret Key
+                  format: password
               required:
                 - clientId
                 - clientSecret
+                - webhookSecretKey
     NMI:
       description: NMI Gateway config
       allOf:
