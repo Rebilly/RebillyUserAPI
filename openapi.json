@@ -9183,6 +9183,40 @@
           }
         ]
       },
+      "CASHlib": {
+        "description": "CASHlib config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "CASHlib credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "CASHlib API Key"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "description": "CASHlib merchant id"
+                  }
+                },
+                "required": [
+                  "apiKey",
+                  "merchantId"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "CashToCode": {
         "description": "CashToCode config",
         "allOf": [
