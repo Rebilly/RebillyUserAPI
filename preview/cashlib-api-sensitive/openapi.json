@@ -9201,7 +9201,8 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "CASHlib API Key"
+                    "description": "CASHlib API Key",
+                    "format": "password"
                   },
                   "merchantId": {
                     "type": "string",
