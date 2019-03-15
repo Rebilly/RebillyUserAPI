@@ -1073,6 +1073,39 @@ paths:
           $ref: '#/components/responses/Conflict'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+  '/credential-hashes/oauth2/{hash}/items':
+    parameters:
+      - $ref: '#/components/parameters/hash'
+    get:
+      tags:
+        - Webhook Credentials
+      summary: Retrieve a list of root items available for specified credential
+      description: |
+        Retrieve a list of root items available for specified credential
+      responses:
+        '200':
+          description: A list of root items available for specified credential was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GoogleSpreadsheet'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
   /credential-hashes/postmark:
     post:
       tags:
@@ -6357,6 +6390,28 @@ components:
               required:
                 - authPassword
                 - authId
+    CASHlib:
+      description: CASHlib config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: CASHlib credentials object
+              properties:
+                apiKey:
+                  type: string
+                  description: CASHlib API Key
+                  format: password
+                merchantId:
+                  type: string
+                  description: CASHlib merchant id
+              required:
+                - apiKey
+                - merchantId
     CashToCode:
       description: CashToCode config
       allOf:
@@ -6600,6 +6655,32 @@ components:
                 - projectId
                 - publicKey
                 - refundKey
+    ecoPayz:
+      description: ecoPayz config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: ecoPayz credentials object
+              properties:
+                paymentPageId:
+                  type: string
+                  description: ecoPayz payment page ID
+                merchantAccountNumber:
+                  type: string
+                  description: ecoPayz merchant account number
+                merchantPassword:
+                  type: string
+                  description: ecoPayz merchant password
+                  format: password
+              required:
+                - paymentPageId
+                - merchantAccountNumber
+                - merchantPassword
     EcorePay:
       description: EcorePay Gateway config
       allOf:
@@ -8249,6 +8330,9 @@ components:
         - dispute-created
         - offsite-payment-completed
         - renewal-invoice-payment-declined
+        - customer-merged
+        - customer-created
+        - customer-updated
     Integration:
       type: object
       properties:
@@ -9274,6 +9358,19 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+    GoogleSpreadsheet:
+      type: object
+      properties:
+        id:
+          description: The google spreadsheet indentifier string
+          readOnly: true
+          type: string
+          example: 2ytkMntAC2Ke7aIgpaOBjz9IORRlNRjwFqO7KvyNam3B
+        name:
+          readOnly: true
+          description: The google spreadsheet name
+          type: string
+          example: Spreadsheet 1
     OAuth2Credential:
       type: object
       description: OAuth2 credential
