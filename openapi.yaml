@@ -6405,6 +6405,7 @@ components:
                 apiKey:
                   type: string
                   description: CASHlib API Key
+                  format: password
                 merchantId:
                   type: string
                   description: CASHlib merchant id
