@@ -25,5 +25,12 @@ allOf:
           - "merchantId"
           - "accountId"
           - "digestPassword"
+      settings:
+        type: object
+        description: Ilixium settings object
+        properties:
+          useIpFrame:
+            type: boolean
+            description: Force Ilixium to process via Ip Frame
       mpi:
         $ref: "#/components/schemas/IlixiumMpis"
