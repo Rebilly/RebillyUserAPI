@@ -5,7 +5,7 @@ post:
     - Tracking
   summary: Triggers webhook resend attempt for specified webhook tracking.
   responses:
-    204:
+    201:
       description: Webhook resend attempt was triggered
       headers:
         Rate-Limit-Limit:
@@ -14,6 +14,10 @@ post:
           $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
           $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WebhookTracking'
     401:
       $ref: '#/components/responses/AccessForbidden'
     404:
