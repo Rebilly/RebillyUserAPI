@@ -10569,6 +10569,47 @@
           }
         ]
       },
+      "Neteller": {
+        "description": "Neteller Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Neteller credentials object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Neteller App Client ID"
+                  },
+                  "clientSecret": {
+                    "type": "string",
+                    "description": "Neteller App Client Secret",
+                    "format": "password"
+                  },
+                  "webhookSecretKey": {
+                    "type": "string",
+                    "description": "Neteller Webhook Secret Key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "clientId",
+                  "clientSecret",
+                  "webhookSecretKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "NMI": {
         "description": "NMI Gateway config",
         "allOf": [
