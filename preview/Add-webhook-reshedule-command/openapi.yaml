@@ -4297,9 +4297,9 @@ paths:
     post:
       tags:
         - Tracking
-      summary: Triggers webhook resending attempt for specified webhook tracking.
+      summary: Triggers webhook resend attempt for specified webhook tracking.
       responses:
-        '204':
+        '201':
           description: Webhook resend attempt was triggered
           headers:
             Rate-Limit-Limit:
@@ -4308,6 +4308,10 @@ paths:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookTracking'
         '401':
           $ref: '#/components/responses/AccessForbidden'
         '404':
@@ -7307,6 +7311,33 @@ components:
               required:
                 - mobilePay
                 - goods
+    Neteller:
+      description: Neteller Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Neteller credentials object
+              properties:
+                clientId:
+                  type: string
+                  description: Neteller App Client ID
+                clientSecret:
+                  type: string
+                  description: Neteller App Client Secret
+                  format: password
+                webhookSecretKey:
+                  type: string
+                  description: Neteller Webhook Secret Key
+                  format: password
+              required:
+                - clientId
+                - clientSecret
+                - webhookSecretKey
     NMI:
       description: NMI Gateway config
       allOf:
