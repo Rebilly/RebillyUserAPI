@@ -3,7 +3,7 @@ parameters:
 post:
   tags:
     - Tracking
-  summary: Triggers webhook resending attempt for specified webhook tracking.
+  summary: Triggers webhook resend attempt for specified webhook tracking.
   responses:
     204:
       description: Webhook resend attempt was triggered
