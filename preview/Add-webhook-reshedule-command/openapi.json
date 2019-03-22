@@ -6204,10 +6204,10 @@
         "tags": [
           "Tracking"
         ],
-        "summary": "Triggers webhook resend attempt for specified webhook tracking.",
+        "summary": "Schedules webhook resend attempt for specified webhook tracking.",
         "responses": {
-          "201": {
-            "description": "Webhook resend attempt was triggered",
+          "204": {
+            "description": "Webhook resend attempt was scheduled",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -6217,13 +6217,6 @@
               },
               "Rate-Limit-Reset": {
                 "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebhookTracking"
-                }
               }
             }
           },
