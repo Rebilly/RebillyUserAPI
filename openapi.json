@@ -6194,6 +6194,41 @@
         }
       }
     },
+    "/tracking/webhooks/{id}/resend": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Tracking"
+        ],
+        "summary": "Schedules webhook resend attempt for specified webhook tracking.",
+        "responses": {
+          "204": {
+            "description": "Webhook resend attempt was scheduled",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/users": {
       "get": {
         "tags": [
