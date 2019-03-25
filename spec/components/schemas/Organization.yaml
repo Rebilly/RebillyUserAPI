@@ -59,6 +59,8 @@ properties:
   isPrimary:
     description: True, if Organization is primary (available to set as true only, other organizations will become as isPrimary=false)
     type: boolean
+    enum:
+      - true
   _links:
     type: array
     description: The links related to resource
