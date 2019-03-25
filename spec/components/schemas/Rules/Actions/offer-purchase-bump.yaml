@@ -1,0 +1,49 @@
+description: "Offer Purchase Bump"
+allOf:
+- $ref: "#/components/schemas/RuleAction"
+- type: object
+  properties:
+    bumpOffers:
+      type: array
+      minItems: 1
+      items:
+        type: object
+        properties:
+          name:
+            description: name for bump offer
+            type: string
+          weight:
+            description: Weight for bump offer
+            type: string
+          currency:
+            description: Currency for bump offer (3 letter currency code)
+            type: string
+          bumpAmount:
+            description: Bump amount offer
+            type: float
+          bonusAmount:
+            description: Bonus amount offer
+            type: float
+          choices:
+            type: array
+            minItems: 1
+            items:
+              type: object
+              properties:
+                langIso:
+                  description: 2 chars language ISO-639-1 code
+                  type: string
+                content:
+                  type: string
+              required:
+              - langIso
+              - content
+        required:
+        - name
+        - weight
+        - currency
+        - bumpAmount
+        - bonusAmount
+        - choices
+  required:
+  - bumpOffers
