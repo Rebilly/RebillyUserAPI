@@ -10,7 +10,7 @@ allOf:
         type: object
         properties:
           name:
-            description: name for bump offer
+            description: Bump offer name
             type: string
           weight:
             description: Weight for bump offer
