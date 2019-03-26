@@ -14627,7 +14627,7 @@
                   "type": "object",
                   "properties": {
                     "langIso": {
-                      "description": "2 chars language ISO-639-1 code",
+                      "description": "Language (two letter ISO 639-1 code)",
                       "type": "string"
                     },
                     "content": {
@@ -14671,15 +14671,15 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "description": "name for bump offer",
+                      "description": "Bump offer name",
                       "type": "string"
                     },
                     "weight": {
-                      "description": "Weight for bump offer",
+                      "description": "Bump offer weight",
                       "type": "string"
                     },
                     "currency": {
-                      "description": "Currency for bump offer (3 letter currency code)",
+                      "description": "Currency (three letter ISO 4217 code)",
                       "type": "string"
                     },
                     "bumpAmount": {
@@ -14697,7 +14697,7 @@
                         "type": "object",
                         "properties": {
                           "langIso": {
-                            "description": "2 chars language ISO-639-1 code",
+                            "description": "Language (two letter ISO 639-1 code)",
                             "type": "string"
                           },
                           "content": {
