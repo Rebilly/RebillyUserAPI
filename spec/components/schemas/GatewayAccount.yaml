@@ -91,21 +91,7 @@ properties:
     description: Accepted payment card brands
     type: array
     items:
-      type: string
-      enum:
-        - Visa
-        - MasterCard
-        - American Express
-        - Discover
-        - Maestro
-        - Solo
-        - Electron
-        - JCB
-        - Voyager
-        - Diners Club
-        - Switch
-        - Laser
-        - China Unionpay
+      $ref: "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/payment-instruments/payment-card-brands.json"
   isDown:
     description: True if gateway is currently in downtime period.
     type: boolean
