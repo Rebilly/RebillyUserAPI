@@ -10471,16 +10471,6 @@ components:
             - day-of-week
       required:
         - method
-    DayOfWeek:
-      type: string
-      enum:
-        - Sunday
-        - Monday
-        - Tuesday
-        - Wednesday
-        - Thursday
-        - Friday
-        - Saturday
     InvoiceRetryScheduleInstruction:
       type: object
       description: The calculation instruction of scheduled time
@@ -10573,7 +10563,9 @@ components:
               description: The number of the units
               minimum: 1
             unit:
-              $ref: '#/components/schemas/TimeUnit'
+              allOf:
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-unit.json'
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-plural-unit.json'
           required:
             - duration
             - unit
@@ -10596,25 +10588,6 @@ components:
             - immediately
             - day-of-month
             - day-of-week
-    Time:
-      type: string
-      format: date-time
-      pattern: '^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](([+-]([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9])|Z)?$'
-    TimeUnit:
-      type: string
-      enum:
-        - second
-        - seconds
-        - minute
-        - minutes
-        - hour
-        - hours
-        - day
-        - days
-        - month
-        - months
-        - year
-        - years
     SendGridCredential:
       type: object
       description: SendGrid Credential
