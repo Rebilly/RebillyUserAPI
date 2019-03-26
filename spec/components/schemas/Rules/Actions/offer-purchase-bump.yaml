@@ -13,7 +13,7 @@ allOf:
             description: Bump offer name
             type: string
           weight:
-            description: Weight for bump offer
+            description: Bump offer weight
             type: string
           currency:
             description: Currency for bump offer (3 letter currency code)
