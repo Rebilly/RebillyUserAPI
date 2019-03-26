@@ -15587,7 +15587,7 @@
                 "description": "The day of the month when event will be scheduled.\nBe aware if the month has less days,\nthe last day of the month will be selected.\n"
               },
               "time": {
-                "$ref": "#/components/schemas/Time"
+                "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/extended-time-iso8601.json"
               }
             },
             "required": [
