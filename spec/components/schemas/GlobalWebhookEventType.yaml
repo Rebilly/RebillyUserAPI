@@ -1,15 +1,11 @@
 type: string
 description: Rebilly webhooks event type
 enum:
+  - customer-merged
+  - customer-created
+  - customer-updated
+  - dispute-created
   - gateway-account-requested
-  - subscription-trial-ended
-  - subscription-activated
-  - subscription-canceled
-  - subscription-renewed
-  - transaction-processed
-  - transaction-timeout-resolved
-  - payment-card-expired
-  - transaction-declined
   - invoice-modified
   - invoice-created
   - invoice-abandoned
@@ -17,9 +13,15 @@ enum:
   - invoice-voided
   - invoice-issued
   - invoice-past-due
-  - dispute-created
   - offsite-payment-completed
+  - payment-card-expired
   - renewal-invoice-payment-declined
-  - customer-merged
-  - customer-created
-  - customer-updated
+  - subscription-trial-ended
+  - subscription-activated
+  - subscription-canceled
+  - subscription-renewed
+  - transaction-processed
+  - transaction-timeout-resolved
+  - transaction-declined
+  - transaction-discrepancy-found
+  - transaction-amount-discrepancy-found
