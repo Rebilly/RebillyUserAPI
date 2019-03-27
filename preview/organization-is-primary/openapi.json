@@ -14070,10 +14070,7 @@
           },
           "isPrimary": {
             "description": "True, if Organization is primary (available to set as true only, other organizations will become as isPrimary=false)",
-            "type": "boolean",
-            "enum": [
-              true
-            ]
+            "type": "boolean"
           },
           "_links": {
             "type": "array",
