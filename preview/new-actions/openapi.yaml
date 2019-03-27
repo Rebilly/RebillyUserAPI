@@ -6030,21 +6030,7 @@ components:
           description: Accepted payment card brands
           type: array
           items:
-            type: string
-            enum:
-              - Visa
-              - MasterCard
-              - American Express
-              - Discover
-              - Maestro
-              - Solo
-              - Electron
-              - JCB
-              - Voyager
-              - Diners Club
-              - Switch
-              - Laser
-              - China Unionpay
+            $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/payment-instruments/payment-card-brands.json'
         isDown:
           description: True if gateway is currently in downtime period.
           type: boolean
@@ -8339,15 +8325,11 @@ components:
       type: string
       description: Rebilly webhooks event type
       enum:
+        - customer-merged
+        - customer-created
+        - customer-updated
+        - dispute-created
         - gateway-account-requested
-        - subscription-trial-ended
-        - subscription-activated
-        - subscription-canceled
-        - subscription-renewed
-        - transaction-processed
-        - transaction-timeout-resolved
-        - payment-card-expired
-        - transaction-declined
         - invoice-modified
         - invoice-created
         - invoice-abandoned
@@ -8355,12 +8337,18 @@ components:
         - invoice-voided
         - invoice-issued
         - invoice-past-due
-        - dispute-created
         - offsite-payment-completed
+        - payment-card-expired
         - renewal-invoice-payment-declined
-        - customer-merged
-        - customer-created
-        - customer-updated
+        - subscription-trial-ended
+        - subscription-activated
+        - subscription-canceled
+        - subscription-renewed
+        - transaction-processed
+        - transaction-timeout-resolved
+        - transaction-declined
+        - transaction-discrepancy-found
+        - transaction-amount-discrepancy-found
     Integration:
       type: object
       properties:
@@ -10559,16 +10547,6 @@ components:
             - day-of-week
       required:
         - method
-    DayOfWeek:
-      type: string
-      enum:
-        - Sunday
-        - Monday
-        - Tuesday
-        - Wednesday
-        - Thursday
-        - Friday
-        - Saturday
     InvoiceRetryScheduleInstruction:
       type: object
       description: The calculation instruction of scheduled time
@@ -10600,7 +10578,9 @@ components:
               description: The number of the units
               minimum: 1
             unit:
-              $ref: '#/components/schemas/TimeUnit'
+              allOf:
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-unit.json'
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-plural-unit.json'
           required:
             - duration
             - unit
@@ -10620,7 +10600,7 @@ components:
                 Be aware if the month has less days,
                 the last day of the month will be selected.
             time:
-              $ref: '#/components/schemas/Time'
+              $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/extended-time-iso8601.json'
           required:
             - day
     day-of-week:
@@ -10631,7 +10611,7 @@ components:
         - type: object
           properties:
             day:
-              $ref: '#/components/schemas/DayOfWeek'
+              $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/long-day-of-week.json'
             week:
               type: string
               default: next
@@ -10640,7 +10620,7 @@ components:
                 - first-in-month
                 - last-in-month
             time:
-              $ref: '#/components/schemas/Time'
+              $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/extended-time-iso8601.json'
           required:
             - day
     immediately:
@@ -10659,7 +10639,9 @@ components:
               description: The number of the units
               minimum: 1
             unit:
-              $ref: '#/components/schemas/TimeUnit'
+              allOf:
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-unit.json'
+                - $ref: 'https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-plural-unit.json'
           required:
             - duration
             - unit
@@ -10682,25 +10664,6 @@ components:
             - immediately
             - day-of-month
             - day-of-week
-    Time:
-      type: string
-      format: date-time
-      pattern: '^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](([+-]([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9])|Z)?$'
-    TimeUnit:
-      type: string
-      enum:
-        - second
-        - seconds
-        - minute
-        - minutes
-        - hour
-        - hours
-        - day
-        - days
-        - month
-        - months
-        - year
-        - years
     SendGridCredential:
       type: object
       description: SendGrid Credential
