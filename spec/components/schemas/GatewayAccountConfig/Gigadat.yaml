@@ -33,7 +33,7 @@ allOf:
             type: string
             description: Gigadat payment method
             enum:
-            - IDP
-            - ETI
+            - ONLINE
+            - E-TRANSFER
         required:
           - "method"
