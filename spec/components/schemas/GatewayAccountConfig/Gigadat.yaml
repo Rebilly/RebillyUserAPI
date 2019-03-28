@@ -26,3 +26,14 @@ allOf:
           - "campaignId"
           - "accessToken"
           - "securityToken"
+      settings:
+        type: object
+        properties:
+          method:
+            type: string
+            description: Gigadat payment method
+            enum:
+            - IDP
+            - ETI
+        required:
+          - "method"
