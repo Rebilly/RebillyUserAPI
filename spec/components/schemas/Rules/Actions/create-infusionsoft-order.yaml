@@ -1,0 +1,18 @@
+description: "Create a Keap Infusionsoft order along with a contact"
+allOf:
+  - $ref: "#/components/schemas/RuleAction"
+  - type: object
+    properties:
+      contactBody:
+        description: "The list of contact attributes that will be used during Keap Infusionsoft creation process"
+        type: object
+      orderBody:
+        description: "The list of order attributes that will be used during Keap Infusionsoft creation process except `contact_id`"
+        type: object
+      credentialHash:
+        type: string
+        description: "OAuth2 credential identifier string"
+    required:
+      - credentialHash
+      - contactBody
+      - orderBody
