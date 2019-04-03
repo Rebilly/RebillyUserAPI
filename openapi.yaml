@@ -5926,6 +5926,7 @@ components:
         - transaction-process-requested
         - risk-score-changed
         - transaction-discrepancy-found
+        - transaction-amount-discrepancy-found
         - renewal-invoice-payment-declined
     ForgotPassword:
       type: object
