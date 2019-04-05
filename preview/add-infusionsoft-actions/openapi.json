@@ -8490,6 +8490,7 @@
           "transaction-process-requested",
           "risk-score-changed",
           "transaction-discrepancy-found",
+          "transaction-amount-discrepancy-found",
           "renewal-invoice-payment-declined"
         ]
       },
@@ -9998,22 +9999,6 @@
                   "campaignId",
                   "accessToken",
                   "securityToken"
-                ]
-              },
-              "settings": {
-                "type": "object",
-                "properties": {
-                  "method": {
-                    "type": "string",
-                    "description": "Gigadat payment method",
-                    "enum": [
-                      "online",
-                      "e-transfer"
-                    ]
-                  }
-                },
-                "required": [
-                  "method"
                 ]
               }
             }
@@ -12329,8 +12314,33 @@
             "type": "object",
             "properties": {
               "invalidFields": {
-                "type": "object",
-                "description": "An object keyed by the invalid property field names.  Dot notation is used for nested object property names."
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string",
+                      "description": "The field name. Dot notation is used for nested object field names."
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "field": "field1",
+                    "message": "field1 is invalid"
+                  },
+                  {
+                    "field": "subObject.field2",
+                    "message": "field2 is invalid"
+                  },
+                  {
+                    "field": "subObject.field2",
+                    "message": "another error in the field2"
+                  }
+                ]
               }
             }
           }
