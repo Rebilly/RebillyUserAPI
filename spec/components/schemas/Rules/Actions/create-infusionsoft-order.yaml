@@ -46,7 +46,7 @@ allOf:
                       - "PHONE3"
                       - "PHONE4"
                       - "PHONE5"
-                    exemple: "PHONE1"
+                    example: "PHONE1"
       orderBody:
         description: "The list of order attributes that will be used during Keap Infusionsoft creation process except `contact_id`"
         type: object
