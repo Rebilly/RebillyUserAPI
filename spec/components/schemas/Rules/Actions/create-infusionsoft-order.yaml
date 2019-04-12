@@ -25,7 +25,7 @@ allOf:
                     - "EMAIL1"
                     - "EMAIL2"
                     - "EMAIL3"
-                  exemple: "EMAIL1"
+                  example: "EMAIL1"
           phone_numbers:
             description: "The contact phone numbers that will be used during Keap Infusionsoft creation process"
               type: array
