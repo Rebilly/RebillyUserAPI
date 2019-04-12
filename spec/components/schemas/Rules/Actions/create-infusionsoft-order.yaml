@@ -28,25 +28,25 @@ allOf:
                   example: "EMAIL1"
           phone_numbers:
             description: "The contact phone numbers that will be used during Keap Infusionsoft creation process"
-              type: array
-              minItems: 1
-              items:
-                type: object
-                properties:
-                  number:
-                    description: "The contact phone number that will be used during Keap Infusionsoft creation process"
-                    type: string
-                    example: "{{ invoice.customer.customFields.phoneNumber }}"
-                  field:
-                    description: "The contact phone field type that will be used during Keap Infusionsoft creation process"
-                    type: string
-                    enum:
-                      - "PHONE1"
-                      - "PHONE2"
-                      - "PHONE3"
-                      - "PHONE4"
-                      - "PHONE5"
-                    example: "PHONE1"
+            type: array
+            minItems: 1
+            items:
+              type: object
+              properties:
+                number:
+                  description: "The contact phone number that will be used during Keap Infusionsoft creation process"
+                  type: string
+                  example: "{{ invoice.customer.customFields.phoneNumber }}"
+                field:
+                  description: "The contact phone field type that will be used during Keap Infusionsoft creation process"
+                  type: string
+                  enum:
+                    - "PHONE1"
+                    - "PHONE2"
+                    - "PHONE3"
+                    - "PHONE4"
+                    - "PHONE5"
+                  example: "PHONE1"
       orderBody:
         description: "The list of order attributes that will be used during Keap Infusionsoft creation process except `contact_id`"
         type: object
