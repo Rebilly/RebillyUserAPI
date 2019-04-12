@@ -11,4 +11,3 @@ allOf:
         description: "OAuth2 credential identifier string"
     required:
       - credentialHash
-      - paymentBody
