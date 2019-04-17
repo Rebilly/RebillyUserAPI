@@ -10000,6 +10000,22 @@
                   "accessToken",
                   "securityToken"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "payoutMethod": {
+                    "type": "string",
+                    "description": "Payout method",
+                    "enum": [
+                      "e-transfer",
+                      "ACH"
+                    ]
+                  }
+                },
+                "required": [
+                  "payoutMethod"
+                ]
               }
             }
           }

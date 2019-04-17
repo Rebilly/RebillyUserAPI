@@ -6920,6 +6920,17 @@ components:
                 - campaignId
                 - accessToken
                 - securityToken
+            settings:
+              type: object
+              properties:
+                payoutMethod:
+                  type: string
+                  description: Payout method
+                  enum:
+                    - e-transfer
+                    - ACH
+              required:
+                - payoutMethod
     GlobalOne:
       description: GlobalOne Gateway config
       allOf:
