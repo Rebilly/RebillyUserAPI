@@ -797,24 +797,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Email Credentials
-      summary: Delete an AWS SES credential
-      description: |
-        Delete an AWS SES credential
-      responses:
-        '204':
-          description: AWS SES credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /credential-hashes/emails:
     post:
       tags:
@@ -930,24 +912,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Email Credentials
-      summary: Delete an email credential
-      description: |
-        Delete an email credential
-      responses:
-        '204':
-          description: Email credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /credential-hashes/mailgun:
     post:
       tags:
@@ -1063,24 +1027,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Email Credentials
-      summary: Delete a Mailgun credential
-      description: |
-        Delete a Mailgun credential
-      responses:
-        '204':
-          description: Mailgun credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /credential-hashes/oauth2:
     get:
       tags:
@@ -1368,24 +1314,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Email Credentials
-      summary: Delete a Postmark credential
-      description: |
-        Delete a Postmark credential
-      responses:
-        '204':
-          description: Postmark credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /credential-hashes/sendgrid:
     post:
       tags:
@@ -1501,24 +1429,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Email Credentials
-      summary: Delete a SendGrid credential
-      description: |
-        Delete a SendGrid credential
-      responses:
-        '204':
-          description: SendGrid credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /credential-hashes/webhooks:
     post:
       tags:
@@ -1634,24 +1544,6 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Webhook Credentials
-      summary: Delete a webhook credential
-      description: |
-        Delete a webhook credential
-      responses:
-        '204':
-          description: Webhook credential was deleted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-        '409':
-          $ref: '#/components/responses/Conflict'
   /custom-events:
     get:
       tags:
@@ -5798,26 +5690,24 @@ components:
     Credential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
     PatchCredential:
       type: object
+      required:
+        - disabledTime
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
+        disabledTime:
+          description: The time when the credential was disabled
+          type: string
+          format: date-time
     Condition:
       type: object
       discriminator:
@@ -6025,17 +5915,13 @@ components:
     SmtpCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         host:
@@ -9272,17 +9158,13 @@ components:
     MailgunCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         emailFrom:
@@ -9778,17 +9660,13 @@ components:
     OAuth2Credential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         service:
@@ -10068,17 +9946,13 @@ components:
     PostmarkCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         serverApiToken:
@@ -11002,17 +10876,13 @@ components:
     SendGridCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         apiKey:
@@ -11037,17 +10907,13 @@ components:
     SESCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         key:
@@ -11771,17 +11637,13 @@ components:
     WebhookCredential:
       type: object
       properties:
-        disabled:
-          description: Whether the credential is disabled or not
-          type: boolean
-          default: false
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        deletedTime:
+        disabledTime:
           readOnly: true
-          description: The credential deletion time
+          description: The time when the credential was disabled
           type: string
           format: date-time
         host:
