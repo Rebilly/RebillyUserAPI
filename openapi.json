@@ -10318,8 +10318,7 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "INOVAPAY API key",
-                    "format": "password"
+                    "description": "INOVAPAY API key"
                   },
                   "apiSecret": {
                     "type": "string",

@@ -7124,7 +7124,6 @@ components:
                 apiKey:
                   type: string
                   description: INOVAPAY API key
-                  format: password
                 apiSecret:
                   type: string
                   description: INOVAPAY API secret
