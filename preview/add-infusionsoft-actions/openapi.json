@@ -10000,6 +10000,22 @@
                   "accessToken",
                   "securityToken"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "payoutMethod": {
+                    "type": "string",
+                    "description": "Payout method",
+                    "enum": [
+                      "e-transfer",
+                      "ACH"
+                    ]
+                  }
+                },
+                "required": [
+                  "payoutMethod"
+                ]
               }
             }
           }
@@ -10279,6 +10295,41 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/IngenicoMpis"
+              }
+            }
+          }
+        ]
+      },
+      "INOVAPAY": {
+        "description": "INOVAPAY config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "INOVAPAY credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "INOVAPAY API key"
+                  },
+                  "apiSecret": {
+                    "type": "string",
+                    "description": "INOVAPAY API secret",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey",
+                  "apiSecret"
+                ]
               }
             }
           }
