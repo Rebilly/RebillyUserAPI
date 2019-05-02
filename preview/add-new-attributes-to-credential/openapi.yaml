@@ -797,6 +797,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/emails:
     post:
       tags:
@@ -912,6 +914,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/mailgun:
     post:
       tags:
@@ -1027,6 +1031,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/oauth2:
     get:
       tags:
@@ -1314,6 +1320,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/sendgrid:
     post:
       tags:
@@ -1429,6 +1437,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/webhooks:
     post:
       tags:
@@ -1544,6 +1554,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /custom-events:
     get:
       tags:
@@ -5694,20 +5706,27 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
     PatchCredential:
       type: object
       required:
-        - disabledTime
+        - status
       properties:
-        disabledTime:
-          description: The time when the credential was disabled
+        status:
+          description: The credential status
           type: string
-          format: date-time
+          enum:
+            - deactivated
     Condition:
       type: object
       discriminator:
@@ -5919,9 +5938,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         host:
@@ -9184,9 +9209,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         emailFrom:
@@ -9686,9 +9717,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         service:
@@ -9972,9 +10009,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         serverApiToken:
@@ -10902,9 +10945,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         apiKey:
@@ -10933,9 +10982,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         key:
@@ -11663,9 +11718,15 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        disabledTime:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
           readOnly: true
-          description: The time when the credential was disabled
+          description: The time when the credential was deactivated
           type: string
           format: date-time
         host:

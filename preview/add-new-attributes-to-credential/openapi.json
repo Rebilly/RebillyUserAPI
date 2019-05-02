@@ -961,6 +961,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -1137,6 +1140,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -1313,6 +1319,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -1749,6 +1758,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -1925,6 +1937,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -2101,6 +2116,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -8147,9 +8165,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           }
@@ -8158,13 +8184,15 @@
       "PatchCredential": {
         "type": "object",
         "required": [
-          "disabledTime"
+          "status"
         ],
         "properties": {
-          "disabledTime": {
-            "description": "The time when the credential was disabled",
+          "status": {
+            "description": "The credential status",
             "type": "string",
-            "format": "date-time"
+            "enum": [
+              "deactivated"
+            ]
           }
         }
       },
@@ -8515,9 +8543,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -13539,9 +13575,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -14352,9 +14396,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -14799,9 +14851,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -16164,9 +16224,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -16207,9 +16275,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
@@ -17295,9 +17371,17 @@
               }
             ]
           },
-          "disabledTime": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
             "readOnly": true,
-            "description": "The time when the credential was disabled",
+            "description": "The time when the credential was deactivated",
             "type": "string",
             "format": "date-time"
           },
