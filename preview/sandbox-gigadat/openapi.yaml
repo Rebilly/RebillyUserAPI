@@ -6929,8 +6929,13 @@ components:
                   enum:
                     - e-transfer
                     - ACH
+                sandbox:
+                  type: boolean
+                  description: True if gateway account is in sandbox mode
+                  default: false
               required:
                 - payoutMethod
+                - sandbox
     GlobalOne:
       description: GlobalOne Gateway config
       allOf:
