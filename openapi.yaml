@@ -9014,10 +9014,13 @@ components:
         - bitcoin
         - Boleto
         - cash-deposit
+        - CASHlib
         - CashToCode
         - China-UnionPay
         - domestic-cards
         - echeck
+        - ecoPayz
+        - ecoVoucher
         - EPS
         - ePay-bg
         - Flexepin
@@ -9027,6 +9030,8 @@ components:
         - iDEAL
         - InstaDebit
         - instant-bank-transfer
+        - Interac-online
+        - Interac-eTransfer
         - invoice
         - Jeton
         - Klarna
@@ -9035,7 +9040,9 @@ components:
         - Nordea-Solo
         - OchaPay
         - online-bank-transfer
+        - Onlineueberweisen
         - Paysafecard
+        - Pay4Fun
         - phone
         - POLi
         - Przelewy24
@@ -9045,6 +9052,7 @@ components:
         - Skrill
         - Skrill-Rapid-Transfer
         - SMSVoucher
+        - SparkPay
         - Trustly
         - UPayCard
         - voucher
