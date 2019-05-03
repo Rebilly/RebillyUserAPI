@@ -8174,10 +8174,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           }
         }
       },
@@ -8552,10 +8554,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "host": {
             "type": "string",
@@ -13590,10 +13594,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "emailFrom": {
             "type": "string",
@@ -14411,10 +14417,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "service": {
             "description": "The name of service that the OAuth2 credential belongs to",
@@ -14866,10 +14874,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "serverApiToken": {
             "type": "string",
@@ -16239,10 +16249,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "apiKey": {
             "type": "string",
@@ -16290,10 +16302,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "key": {
             "type": "string",
@@ -17386,10 +17400,12 @@
             ]
           },
           "deactivationTime": {
-            "readOnly": true,
             "description": "The time when the credential was deactivated",
-            "type": "string",
-            "format": "date-time"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
           },
           "host": {
             "type": "string",

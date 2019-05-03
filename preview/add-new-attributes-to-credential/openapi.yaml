@@ -5713,10 +5713,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
     PatchCredential:
       type: object
       required:
@@ -5945,10 +5944,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         host:
           type: string
           description: The host name
@@ -9221,10 +9219,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         emailFrom:
           type: string
           format: email
@@ -9729,10 +9726,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         service:
           description: The name of service that the OAuth2 credential belongs to
           type: string
@@ -10021,10 +10017,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         serverApiToken:
           type: string
           description: The Postmark server API token
@@ -10957,10 +10952,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         apiKey:
           type: string
           description: The SendGrid api key
@@ -10994,10 +10988,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         key:
           type: string
           description: The AWS access key ID
@@ -11730,10 +11723,9 @@ components:
             - active
             - deactivated
         deactivationTime:
-          readOnly: true
           description: The time when the credential was deactivated
-          type: string
-          format: date-time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         host:
           type: string
           description: The host name
