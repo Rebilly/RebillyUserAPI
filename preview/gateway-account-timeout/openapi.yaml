@@ -6049,6 +6049,8 @@ components:
           description: Gateway Account request timeout
           type: integer
           nullable: true
+          minimum: 10
+          maximum: 120
         createdTime:
           description: Gateway Account created time
           allOf:
