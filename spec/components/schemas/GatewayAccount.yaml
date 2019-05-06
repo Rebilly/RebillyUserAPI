@@ -106,7 +106,7 @@ properties:
     allOf:
       - $ref: "#/components/schemas/Condition"
   timeout:
-    description: Gateway Account request timeout
+    description: Gateway Account request timeout in seconds
     type: integer
     nullable: true
     minimum: 10
