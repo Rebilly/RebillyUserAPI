@@ -9290,6 +9290,7 @@ components:
         - Onlineueberweisen
         - Paysafecard
         - Pay4Fun
+        - PinPay
         - phone
         - POLi
         - Przelewy24
