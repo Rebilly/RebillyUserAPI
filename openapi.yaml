@@ -6045,6 +6045,12 @@ components:
           description: Set restriction conditions on transaction
           allOf:
             - $ref: '#/components/schemas/Condition'
+        timeout:
+          description: Gateway Account request timeout in seconds
+          type: integer
+          nullable: true
+          minimum: 10
+          maximum: 120
         createdTime:
           description: Gateway Account created time
           allOf:
