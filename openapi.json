@@ -7731,19 +7731,6 @@
           }
         }
       },
-      "none": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AmountAdjustment"
-          },
-          {
-            "$ref": "#/components/schemas/SmtpAuthorization"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookAuthorization"
-          }
-        ]
-      },
       "ContactEmails": {
         "description": "The list of emails",
         "type": "array",
@@ -8145,7 +8132,10 @@
       "SmtpAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/SmtpAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -8187,6 +8177,13 @@
           },
           {
             "$ref": "#/components/schemas/UserPasswordAuthorization"
+          }
+        ]
+      },
+      "SmtpAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SmtpAuthorization"
           }
         ]
       },
@@ -14391,7 +14388,10 @@
       "AmountAdjustment": {
         "type": "object",
         "discriminator": {
-          "propertyName": "method"
+          "propertyName": "method",
+          "mapping": {
+            "none": "#/components/schemas/AmountAdjustmentNone"
+          }
         },
         "properties": {
           "method": {
@@ -14450,6 +14450,13 @@
           "attempts",
           "afterAttemptPolicy",
           "afterRetryEndPolicy"
+        ]
+      },
+      "AmountAdjustmentNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AmountAdjustment"
+          }
         ]
       },
       "discount": {
@@ -14751,7 +14758,7 @@
                   "email",
                   "fingerprint",
                   "ip-address",
-                  "payment-card-id"
+                  "payment-card"
                 ]
               },
               "ttl": {
@@ -16893,7 +16900,10 @@
       "WebhookAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/WebhookAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -16985,6 +16995,13 @@
               "token",
               "tokenSecret"
             ]
+          }
+        ]
+      },
+      "WebhookAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WebhookAuthorization"
           }
         ]
       },
