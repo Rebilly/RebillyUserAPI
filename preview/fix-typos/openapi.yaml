@@ -5702,7 +5702,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/SmtpAuthorization'
         - $ref: '#/components/schemas/UserPasswordAuthorization'
-    SmptAuthorizationNone:
+    SmtpAuthorizationNone:
       allOf:
         - $ref: '#/components/schemas/SmtpAuthorization'
     SmtpCredential:
