@@ -1,6 +1,8 @@
 type: object
 discriminator:
   propertyName: method
+  mapping:
+    none: '#/components/schemas/AmountAdjustmentNone'
 properties:
   method:
     type: string

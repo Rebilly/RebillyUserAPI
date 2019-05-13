@@ -10,7 +10,7 @@ allOf:
           - email
           - fingerprint
           - ip-address
-          - payment-card-id
+          - payment-card
       ttl:
         type: integer
         description: Blacklist TTL. Defaults to zero, meaning blacklist record won't expire ever.
