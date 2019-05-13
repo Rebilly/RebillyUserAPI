@@ -2,11 +2,13 @@ showConsole: true
 layout:
   scope: section
 theme:
+  logo:
+    gutter: 20px 30px 14px 30px
   colors:
-    text: 
+    text:
       primary: '#333333'
-  typography: 
+  typography:
     fontFamily: 'Verdana, Geneva, sans-serif'
     fontSize: '14px'
-redocURL: https://redocpro-cdn.redoc.ly/v1.0.0-beta.5/redocpro-standalone.min.js
+redocURL: https://redocpro-cdn.redoc.ly/v1.0.0-beta.18/redocpro-standalone.min.js
 redocExport: RedocPro
