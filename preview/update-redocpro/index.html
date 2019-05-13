@@ -18,15 +18,6 @@
         margin: 0;
         padding: 0;
       }
-
-      #redoc_container .menu-content img {
-        padding: 20px 30px 14px 30px;
-      }
-
-      /* temporal workaround */
-      #redoc .menu-content img {
-        padding: 20px 30px 14px 30px;
-      }
     </style>
 
     <!-- favicons -->
@@ -39,11 +30,11 @@
   </head>
   <body>
     <div id="redoc_container"></div>
-    <script src="https://redocpro-cdn.redoc.ly/v1.0.0-beta.17-1/redocpro-standalone.min.js"></script>
+    <script src="https://redocpro-cdn.redoc.ly/v1.0.0-beta.18/redocpro-standalone.min.js"></script>
     <script>
       RedocPro.init(
         './openapi.json',
-        {"showConsole":true,"layout":{"scope":"section"},"theme":{"logo":{"gutter":0},"colors":{"text":{"primary":"#333333"}},"typography":{"fontFamily":"Verdana, Geneva, sans-serif","fontSize":"14px"}},"redocURL":"https://redocpro-cdn.redoc.ly/v1.0.0-beta.17-1/redocpro-standalone.min.js","redocExport":"RedocPro"},
+        {"showConsole":true,"layout":{"scope":"section"},"theme":{"logo":{"gutter":"20px 30px 14px 30px"},"colors":{"text":{"primary":"#333333"}},"typography":{"fontFamily":"Verdana, Geneva, sans-serif","fontSize":"14px"}},"redocURL":"https://redocpro-cdn.redoc.ly/v1.0.0-beta.18/redocpro-standalone.min.js","redocExport":"RedocPro"},
         document.getElementById("redoc_container")
       );
     </script>
