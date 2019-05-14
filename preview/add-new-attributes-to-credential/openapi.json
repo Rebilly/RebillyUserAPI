@@ -8031,19 +8031,6 @@
           }
         }
       },
-      "none": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AmountAdjustment"
-          },
-          {
-            "$ref": "#/components/schemas/SmtpAuthorization"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookAuthorization"
-          }
-        ]
-      },
       "ContactEmails": {
         "description": "The list of emails",
         "type": "array",
@@ -8489,7 +8476,10 @@
       "SmtpAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/SmtpAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -8531,6 +8521,13 @@
           },
           {
             "$ref": "#/components/schemas/UserPasswordAuthorization"
+          }
+        ]
+      },
+      "SmtpAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SmtpAuthorization"
           }
         ]
       },
@@ -9014,6 +9011,13 @@
                 "$ref": "#/components/schemas/Condition"
               }
             ]
+          },
+          "timeout": {
+            "description": "Gateway Account request timeout in seconds",
+            "type": "integer",
+            "nullable": true,
+            "minimum": 10,
+            "maximum": 120
           },
           "createdTime": {
             "description": "Gateway Account created time",
@@ -11083,6 +11087,36 @@
                   "clientId",
                   "clientSecret",
                   "webhookSecretKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "NinjaWallet": {
+        "description": "NinjaWallet config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "NinjaWallet credentials object",
+                "properties": {
+                  "authorizationToken": {
+                    "type": "string",
+                    "description": "NinjaWallet authorization token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "authorizationToken"
                 ]
               }
             }
@@ -14746,7 +14780,10 @@
       "AmountAdjustment": {
         "type": "object",
         "discriminator": {
-          "propertyName": "method"
+          "propertyName": "method",
+          "mapping": {
+            "none": "#/components/schemas/AmountAdjustmentNone"
+          }
         },
         "properties": {
           "method": {
@@ -14805,6 +14842,13 @@
           "attempts",
           "afterAttemptPolicy",
           "afterRetryEndPolicy"
+        ]
+      },
+      "AmountAdjustmentNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AmountAdjustment"
+          }
         ]
       },
       "discount": {
@@ -15122,7 +15166,7 @@
                   "email",
                   "fingerprint",
                   "ip-address",
-                  "payment-card-id"
+                  "payment-card"
                 ]
               },
               "ttl": {
@@ -17296,7 +17340,10 @@
       "WebhookAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/WebhookAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -17388,6 +17435,13 @@
               "token",
               "tokenSecret"
             ]
+          }
+        ]
+      },
+      "WebhookAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WebhookAuthorization"
           }
         ]
       },

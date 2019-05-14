@@ -5612,11 +5612,6 @@ components:
           minimum: 0
           exclusiveMinimum: true
           example: 0.5
-    none:
-      allOf:
-        - $ref: '#/components/schemas/AmountAdjustment'
-        - $ref: '#/components/schemas/SmtpAuthorization'
-        - $ref: '#/components/schemas/WebhookAuthorization'
     ContactEmails:
       description: The list of emails
       type: array
@@ -5909,6 +5904,8 @@ components:
       type: object
       discriminator:
         propertyName: type
+        mapping:
+          none: '#/components/schemas/SmtpAuthorizationNone'
       properties:
         type:
           type: string
@@ -5930,6 +5927,9 @@ components:
       allOf:
         - $ref: '#/components/schemas/SmtpAuthorization'
         - $ref: '#/components/schemas/UserPasswordAuthorization'
+    SmtpAuthorizationNone:
+      allOf:
+        - $ref: '#/components/schemas/SmtpAuthorization'
     SmtpCredential:
       type: object
       properties:
@@ -6280,6 +6280,12 @@ components:
           description: Set restriction conditions on transaction
           allOf:
             - $ref: '#/components/schemas/Condition'
+        timeout:
+          description: Gateway Account request timeout in seconds
+          type: integer
+          nullable: true
+          minimum: 10
+          maximum: 120
         createdTime:
           description: Gateway Account created time
           allOf:
@@ -7621,6 +7627,24 @@ components:
                 - clientId
                 - clientSecret
                 - webhookSecretKey
+    NinjaWallet:
+      description: NinjaWallet config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: NinjaWallet credentials object
+              properties:
+                authorizationToken:
+                  type: string
+                  description: NinjaWallet authorization token
+                  format: password
+              required:
+                - authorizationToken
     NMI:
       description: NMI Gateway config
       allOf:
@@ -9937,6 +9961,8 @@ components:
       type: object
       discriminator:
         propertyName: method
+        mapping:
+          none: '#/components/schemas/AmountAdjustmentNone'
       properties:
         method:
           type: string
@@ -9978,6 +10004,9 @@ components:
         - attempts
         - afterAttemptPolicy
         - afterRetryEndPolicy
+    AmountAdjustmentNone:
+      allOf:
+        - $ref: '#/components/schemas/AmountAdjustment'
     discount:
       allOf:
         - $ref: '#/components/schemas/AmountAdjustment'
@@ -10203,7 +10232,7 @@ components:
                 - email
                 - fingerprint
                 - ip-address
-                - payment-card-id
+                - payment-card
             ttl:
               type: integer
               description: 'Blacklist TTL. Defaults to zero, meaning blacklist record won''t expire ever.'
@@ -11664,6 +11693,8 @@ components:
       type: object
       discriminator:
         propertyName: type
+        mapping:
+          none: '#/components/schemas/WebhookAuthorizationNone'
       properties:
         type:
           type: string
@@ -11720,6 +11751,9 @@ components:
             - consumerSecret
             - token
             - tokenSecret
+    WebhookAuthorizationNone:
+      allOf:
+        - $ref: '#/components/schemas/WebhookAuthorization'
     WebhookCredential:
       type: object
       properties:
