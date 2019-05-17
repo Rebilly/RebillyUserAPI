@@ -1,6 +1,8 @@
 type: object
 discriminator:
   propertyName: type
+  mapping:
+    none: '#/components/schemas/WebhookAuthorizationNone'
 properties:
   type:
     type: string
