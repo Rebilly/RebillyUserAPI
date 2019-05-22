@@ -9978,10 +9978,82 @@ components:
       description: ''
       allOf:
         - $ref: '#/components/schemas/RuleAction'
+    display-other-choices:
+      description: Display Other Choices
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            choices:
+              type: array
+              minItems: 1
+              items:
+                type: object
+                properties:
+                  langIso:
+                    description: Language (two letter ISO 639-1 code)
+                    type: string
+                  content:
+                    type: string
+                required:
+                  - langIso
+                  - content
+          required:
+            - choices
     guess-payment-card-expiration:
       description: ''
       allOf:
         - $ref: '#/components/schemas/RuleAction'
+    offer-purchase-bump:
+      description: Offer Purchase Bump
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            bumpOffers:
+              type: array
+              minItems: 1
+              items:
+                type: object
+                properties:
+                  name:
+                    description: Bump offer name
+                    type: string
+                  weight:
+                    description: Bump offer weight
+                    type: string
+                  currency:
+                    description: Currency (three letter ISO 4217 code)
+                    type: string
+                  bumpAmount:
+                    description: Bump amount offer
+                    type: number
+                  bonusAmount:
+                    description: Bonus amount offer
+                    type: number
+                  choices:
+                    type: array
+                    minItems: 1
+                    items:
+                      type: object
+                      properties:
+                        langIso:
+                          description: Language (two letter ISO 639-1 code)
+                          type: string
+                        content:
+                          type: string
+                      required:
+                        - langIso
+                        - content
+                required:
+                  - name
+                  - weight
+                  - currency
+                  - bumpAmount
+                  - bonusAmount
+                  - choices
+          required:
+            - bumpOffers
     pick-gateway-account:
       description: ''
       allOf:
@@ -10340,6 +10412,8 @@ components:
             - add-risk-score
             - request-kyc
             - tag-or-untag-customer
+            - display-other-choices
+            - offer-purchase-bump
         status:
           $ref: '#/components/schemas/OnOff'
       required:
