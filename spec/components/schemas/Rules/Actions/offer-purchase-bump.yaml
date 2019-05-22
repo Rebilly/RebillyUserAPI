@@ -15,9 +15,6 @@ allOf:
           weight:
             description: Bump offer weight
             type: string
-          currency:
-            description: Currency (three letter ISO 4217 code)
-            type: string
           bumpAmount:
             description: Bump amount offer
             type: number
@@ -41,7 +38,6 @@ allOf:
         required:
         - name
         - weight
-        - currency
         - bumpAmount
         - bonusAmount
         - choices
