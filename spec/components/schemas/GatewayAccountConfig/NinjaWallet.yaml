@@ -1,0 +1,19 @@
+description: NinjaWallet config
+allOf:
+-
+  $ref: "#/components/schemas/GatewayAccount"
+-
+  type: "object"
+  required:
+  - "credentials"
+  properties:
+    credentials:
+      type: object
+      description: NinjaWallet credentials object
+      properties:
+        authorizationToken:
+          type: string
+          description: NinjaWallet authorization token
+          format: password
+      required:
+      - "authorizationToken"
