@@ -766,6 +766,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Email Credentials
+      summary: Update an AWS SES credential
+      description: |
+        Update an AWS SES credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: AWS SES credential resource
+        required: true
+      responses:
+        '200':
+          description: AWS SES credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SESCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/emails:
     post:
       tags:
@@ -850,6 +883,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Email Credentials
+      summary: Update an email credential
+      description: |
+        Update an email credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: Email credential resource
+        required: true
+      responses:
+        '200':
+          description: Email credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmtpCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/mailgun:
     post:
       tags:
@@ -934,6 +1000,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Email Credentials
+      summary: Update a mailgun credential
+      description: |
+        Update a mailgun credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: Mailgun credential resource
+        required: true
+      responses:
+        '200':
+          description: Mailgun credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MailgunCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/oauth2:
     get:
       tags:
@@ -1137,6 +1236,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Email Credentials
+      summary: Update a Postmark credential
+      description: |
+        Update a Postmark credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: Postmark credential resource
+        required: true
+      responses:
+        '200':
+          description: Postmark credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostmarkCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/sendgrid:
     post:
       tags:
@@ -1221,6 +1353,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Email Credentials
+      summary: Update a SendGrid credential
+      description: |
+        Update a SendGrid credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: SendGrid credential resource
+        required: true
+      responses:
+        '200':
+          description: SendGrid credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendGridCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/webhooks:
     post:
       tags:
@@ -1305,6 +1470,39 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+    patch:
+      tags:
+        - Webhook Credentials
+      summary: Update a webhook credential
+      description: |
+        Update a webhook credential with specified token identifier string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCredential'
+        description: Webhook credential resource
+        required: true
+      responses:
+        '200':
+          description: Webhook credential was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookCredential'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /custom-events:
     get:
       tags:
@@ -5443,6 +5641,33 @@ components:
           primary:
             description: True if phone is primary
             type: boolean
+    Credential:
+      type: object
+      properties:
+        hash:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
+    PatchCredential:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - deactivated
     Condition:
       type: object
       discriminator:
@@ -5654,14 +5879,21 @@ components:
         - $ref: '#/components/schemas/SmtpAuthorization'
     SmtpCredential:
       type: object
-      description: SMTP Credential
-      required:
-        - host
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         host:
           type: string
           description: The host name
@@ -5688,6 +5920,9 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+      description: SMTP Credential
+      required:
+        - host
     UserPasswordAuthorization:
       type: object
       properties:
@@ -8964,16 +9199,21 @@ components:
             $ref: '#/components/schemas/SelfLink'
     MailgunCredential:
       type: object
-      description: Mailgun Credential
-      required:
-        - emailFrom
-        - apiKey
-        - domain
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         emailFrom:
           type: string
           format: email
@@ -8991,6 +9231,11 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+      description: Mailgun Credential
+      required:
+        - emailFrom
+        - apiKey
+        - domain
     Method:
       type: string
       description: The payment method
@@ -9472,16 +9717,21 @@ components:
           example: Spreadsheet 1
     OAuth2Credential:
       type: object
-      description: OAuth2 credential
-      required:
-        - code
-        - scopes
-        - service
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         service:
           description: The name of service that the OAuth2 credential belongs to
           type: string
@@ -9516,6 +9766,11 @@ components:
           items:
             anyOf:
               - $ref: '#/components/schemas/SelfLink'
+      description: OAuth2 credential
+      required:
+        - code
+        - scopes
+        - service
     OnOff:
       type: string
       default: active
@@ -9759,14 +10014,21 @@ components:
             - type
     PostmarkCredential:
       type: object
-      description: Postmark Credential
-      required:
-        - serverApiToken
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         serverApiToken:
           type: string
           description: The Postmark server API token
@@ -9778,6 +10040,9 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+      description: Postmark Credential
+      required:
+        - serverApiToken
     PriceBasedShippingRate:
       type: object
       required:
@@ -10754,14 +11019,21 @@ components:
             - day-of-week
     SendGridCredential:
       type: object
-      description: SendGrid Credential
-      required:
-        - apiKey
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         apiKey:
           type: string
           description: The SendGrid api key
@@ -10773,6 +11045,9 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+      description: SendGrid Credential
+      required:
+        - apiKey
     ServerTimestamp:
       type: string
       description: 'Read-only timestamp, automatically assigned on back-end.'
@@ -10780,16 +11055,21 @@ components:
       readOnly: true
     SESCredential:
       type: object
-      description: Amazon simple email service (AWS SES) credential
-      required:
-        - key
-        - secret
-        - region
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         key:
           type: string
           description: The AWS access key ID
@@ -10813,6 +11093,11 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+      description: Amazon simple email service (AWS SES) credential
+      required:
+        - key
+        - secret
+        - region
     Session:
       type: object
       required:
@@ -11510,17 +11795,27 @@ components:
         - $ref: '#/components/schemas/WebhookAuthorization'
     WebhookCredential:
       type: object
-      description: Webhook credential
       properties:
         hash:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/ResourceId'
+        status:
+          description: The credential status
+          type: string
+          enum:
+            - active
+            - deactivated
+        deactivationTime:
+          description: The time when the credential was deactivated
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
         host:
           type: string
           description: The host name
         auth:
           $ref: '#/components/schemas/WebhookAuthorization'
+      description: Webhook credential
       required:
         - host
     Website:
