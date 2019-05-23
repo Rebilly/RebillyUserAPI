@@ -6,6 +6,6 @@ properties:
     description: The link type
     type: string
     enum:
-      - oauth2
+      - oauth2ConnectUrl
 required:
   - rel
