@@ -789,46 +789,6 @@
         ]
       }
     },
-    "/credential-hashes/authUrl/oauth2/{service}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/service"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Webhook Credentials"
-        ],
-        "summary": "Generate an OAuth2 auth URL",
-        "description": "Generate an OAuth2 auth URL\n",
-        "responses": {
-          "200": {
-            "description": "An OAuth2 auth URL was generated successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AuthUrl"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
     "/credential-hashes/aws-ses": {
       "post": {
         "tags": [
@@ -1341,48 +1301,6 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Webhook Credentials"
-        ],
-        "summary": "Create an OAuth2 credential with predefined identifier string",
-        "description": "Create an OAuth2 credential with predefined identifier string\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/OAuth2Credential"
-        },
-        "responses": {
-          "201": {
-            "description": "OAuth2 credential was created",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuth2Credential"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "409": {
-            "$ref": "#/components/responses/Conflict"
-          },
-          "422": {
-            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -12396,6 +12314,22 @@
                 }
               }
             }
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SelfLink"
+                },
+                {
+                  "$ref": "#/components/schemas/OAuth2Link"
+                }
+              ]
+            }
           }
         }
       },
@@ -12844,6 +12778,26 @@
             "type": "string",
             "enum": [
               "notes"
+            ]
+          }
+        },
+        "required": [
+          "rel"
+        ]
+      },
+      "OAuth2Link": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Link"
+          }
+        ],
+        "properties": {
+          "rel": {
+            "description": "The link type",
+            "type": "string",
+            "enum": [
+              "oauth2"
             ]
           }
         },
@@ -14052,35 +14006,6 @@
           }
         }
       },
-      "AuthUrl": {
-        "type": "object",
-        "description": "OAuth2 credential",
-        "properties": {
-          "state": {
-            "readOnly": true,
-            "description": "The state that will part of the auth URL",
-            "type": "string"
-          },
-          "url": {
-            "readOnly": true,
-            "description": "The authentication URL where the user should be redirected to",
-            "type": "string"
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/SelfLink"
-                }
-              ]
-            }
-          }
-        }
-      },
       "GoogleSpreadsheet": {
         "type": "object",
         "properties": {
@@ -14158,9 +14083,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/SelfLink"
-                },
-                {
-                  "$ref": "#/components/schemas/RedirectLink"
                 }
               ]
             }
