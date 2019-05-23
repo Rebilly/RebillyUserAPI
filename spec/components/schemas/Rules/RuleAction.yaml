@@ -19,6 +19,8 @@ properties:
       - add-risk-score
       - request-kyc
       - tag-or-untag-customer
+      - display-other-choices
+      - offer-purchase-bump
       - create-infusionsoft-order
       - create-infusionsoft-payment
   status:
