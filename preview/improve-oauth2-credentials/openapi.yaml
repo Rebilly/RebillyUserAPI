@@ -8692,7 +8692,7 @@ components:
           items:
             anyOf:
               - $ref: '#/components/schemas/SelfLink'
-              - $ref: '#/components/schemas/OAuth2Link'
+              - $ref: '#/components/schemas/OAuth2ConnectUrlLink'
     InvalidError:
       allOf:
         - $ref: '#/components/schemas/Error'
@@ -8972,7 +8972,7 @@ components:
             - notes
       required:
         - rel
-    OAuth2Link:
+    OAuth2ConnectUrlLink:
       type: object
       allOf:
         - $ref: '#/components/schemas/Link'
@@ -8981,7 +8981,7 @@ components:
           description: The link type
           type: string
           enum:
-            - oauth2
+            - oauth2ConnectUrl
       required:
         - rel
     OnBoardingUrlLink:

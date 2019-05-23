@@ -12731,7 +12731,7 @@
                   "$ref": "#/components/schemas/SelfLink"
                 },
                 {
-                  "$ref": "#/components/schemas/OAuth2Link"
+                  "$ref": "#/components/schemas/OAuth2ConnectUrlLink"
                 }
               ]
             }
@@ -13190,7 +13190,7 @@
           "rel"
         ]
       },
-      "OAuth2Link": {
+      "OAuth2ConnectUrlLink": {
         "type": "object",
         "allOf": [
           {
@@ -13202,7 +13202,7 @@
             "description": "The link type",
             "type": "string",
             "enum": [
-              "oauth2"
+              "oauth2ConnectUrl"
             ]
           }
         },
