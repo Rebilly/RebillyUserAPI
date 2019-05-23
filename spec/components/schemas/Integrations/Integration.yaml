@@ -38,4 +38,4 @@ properties:
     items:
       anyOf:
         - $ref: "#/components/schemas/SelfLink"
-        - $ref: "#/components/schemas/OAuth2ConnectUrlLink"
+        - $ref: "#/components/schemas/OAuth2ConnectLink"
