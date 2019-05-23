@@ -1,0 +1,8 @@
+name: service
+in: path
+description: The name of service that the OAuth2 credential belongs to
+required: true
+schema:
+  type: string
+  enum:
+    - google-sheets

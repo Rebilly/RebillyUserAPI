@@ -1,14 +1,8 @@
 type: object
 description: OAuth2 credential
-required:
-  - service
 properties:
-  service:
-    description: The name of service that the OAuth2 credential belongs to
-    type: string
-    enum:
-      - google-sheets
   state:
+    readOnly: true
     description: The state that will part of the auth URL
     type: string
   url:
