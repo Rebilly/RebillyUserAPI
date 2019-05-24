@@ -2931,7 +2931,7 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
   '/integrations/{label}':
     parameters:
-      - $ref: '#/components/parameters/label'
+      - $ref: '#/components/parameters/integrationLabel'
     get:
       tags:
         - Integrations
@@ -12039,7 +12039,7 @@ components:
       required: true
       schema:
         type: string
-    label:
+    integrationLabel:
       name: label
       in: path
       description: The integration label

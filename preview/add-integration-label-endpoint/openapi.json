@@ -4196,7 +4196,7 @@
     "/integrations/{label}": {
       "parameters": [
         {
-          "$ref": "#/components/parameters/label"
+          "$ref": "#/components/parameters/integrationLabel"
         }
       ],
       "get": {
@@ -17875,7 +17875,7 @@
           "type": "string"
         }
       },
-      "label": {
+      "integrationLabel": {
         "name": "label",
         "in": "path",
         "description": "The integration label",
