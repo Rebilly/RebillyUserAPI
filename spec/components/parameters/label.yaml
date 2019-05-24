@@ -1,0 +1,8 @@
+name: label
+in: path
+description: The integration label
+required: true
+schema:
+  type: string
+  enum:
+    - 'google-sheets-integration'
