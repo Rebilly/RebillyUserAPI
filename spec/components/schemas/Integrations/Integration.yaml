@@ -19,14 +19,14 @@ properties:
     items:
       type: object
       properties:
-        ruleSetId:
-          description: The rule set's identifier string
+        eventType:
+          description: The configuration event type
           allOf:
           - $ref: "#/components/parameters/systemEventType"
-        bindName:
+        title:
           type: string
-          description: The name of the bind
-        bindIndex:
+          description: The configuration title
+        index:
           type: integer
           minimum: 0
-          description: The index of the bind
+          description: The configuration index
