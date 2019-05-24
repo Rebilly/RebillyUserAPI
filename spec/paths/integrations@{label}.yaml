@@ -1,5 +1,5 @@
 parameters:
-  - $ref: '#/components/parameters/label'
+  - $ref: '#/components/parameters/integrationLabel'
 get:
   tags:
     - Integrations
