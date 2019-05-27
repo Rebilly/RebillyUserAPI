@@ -1403,43 +1403,6 @@
               }
             }
           },
-          "303": {
-            "description": "An existent OAuth2 credential was retrieved",
-            "headers": {
-              "Location": {
-                "description": "The location of the related resource",
-                "schema": {
-                  "type": "string",
-                  "format": "url"
-                }
-              },
-              "Rate-Limit-Limit": {
-                "description": "The number of allowed requests in the current period",
-                "schema": {
-                  "type": "integer"
-                }
-              },
-              "Rate-Limit-Remaining": {
-                "description": "The number of remaining requests in the current period",
-                "schema": {
-                  "type": "integer"
-                }
-              },
-              "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuth2Credential"
-                }
-              }
-            }
-          },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
           },
@@ -1495,8 +1458,8 @@
         "tags": [
           "Webhook Credentials"
         ],
-        "summary": "Update pending OAuth2 credential",
-        "description": "Update pending OAuth2 credential.\n",
+        "summary": "Update an OAuth2 credential with specified token identifier string",
+        "description": "Update an OAuth2 credential with specified token identifier string\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/OAuth2Credential"
         },
@@ -1524,6 +1487,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
@@ -4189,6 +4155,49 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
+    "/integrations/{label}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/integrationLabel"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Retrieve an integration for specific label",
+        "description": "Retrieve an integration for specific label\n",
+        "responses": {
+          "200": {
+            "description": "An integration with specific label was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -12753,6 +12762,22 @@
                 }
               }
             }
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SelfLink"
+                },
+                {
+                  "$ref": "#/components/schemas/OAuth2ConnectLink"
+                }
+              ]
+            }
           }
         }
       },
@@ -13201,6 +13226,26 @@
             "type": "string",
             "enum": [
               "notes"
+            ]
+          }
+        },
+        "required": [
+          "rel"
+        ]
+      },
+      "OAuth2ConnectLink": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Link"
+          }
+        ],
+        "properties": {
+          "rel": {
+            "description": "The link type",
+            "type": "string",
+            "enum": [
+              "oauth2Connect"
             ]
           }
         },
@@ -14512,9 +14557,6 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/SelfLink"
-                },
-                {
-                  "$ref": "#/components/schemas/RedirectLink"
                 }
               ]
             }
@@ -14522,6 +14564,8 @@
         },
         "description": "OAuth2 credential",
         "required": [
+          "code",
+          "scopes",
           "service"
         ]
       },
@@ -17966,6 +18010,18 @@
         "required": true,
         "schema": {
           "type": "string"
+        }
+      },
+      "integrationLabel": {
+        "name": "label",
+        "in": "path",
+        "description": "The integration label",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "google-sheets-integration"
+          ]
         }
       },
       "mediaType": {
