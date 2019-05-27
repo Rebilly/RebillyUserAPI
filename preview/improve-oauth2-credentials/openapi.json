@@ -4159,6 +4159,49 @@
         }
       }
     },
+    "/integrations/{label}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/integrationLabel"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Retrieve an integration for specific label",
+        "description": "Retrieve an integration for specific label\n",
+        "responses": {
+          "200": {
+            "description": "An integration with specific label was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/layouts": {
       "get": {
         "tags": [
@@ -17831,6 +17874,18 @@
         "required": true,
         "schema": {
           "type": "string"
+        }
+      },
+      "integrationLabel": {
+        "name": "label",
+        "in": "path",
+        "description": "The integration label",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "google-sheets-integration"
+          ]
         }
       },
       "mediaType": {
