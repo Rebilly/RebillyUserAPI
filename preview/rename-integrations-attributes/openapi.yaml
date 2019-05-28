@@ -1088,31 +1088,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OAuth2Credential'
-        '303':
-          description: An existent OAuth2 credential was retrieved
-          headers:
-            Location:
-              description: The location of the related resource
-              schema:
-                type: string
-                format: url
-            Rate-Limit-Limit:
-              description: The number of allowed requests in the current period
-              schema:
-                type: integer
-            Rate-Limit-Remaining:
-              description: The number of remaining requests in the current period
-              schema:
-                type: integer
-            Rate-Limit-Reset:
-              description: |
-                The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuth2Credential'
         '401':
           $ref: '#/components/responses/AccessForbidden'
         '422':
@@ -1147,9 +1122,9 @@ paths:
     patch:
       tags:
         - Webhook Credentials
-      summary: Update pending OAuth2 credential
+      summary: Update an OAuth2 credential with specified token identifier string
       description: |
-        Update pending OAuth2 credential.
+        Update an OAuth2 credential with specified token identifier string
       requestBody:
         $ref: '#/components/requestBodies/OAuth2Credential'
       responses:
@@ -1168,6 +1143,8 @@ paths:
                 $ref: '#/components/schemas/OAuth2Credential'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
         '422':
@@ -8734,6 +8711,15 @@ components:
                 type: integer
                 minimum: 0
                 description: The configuration index
+        _links:
+          type: array
+          description: The links related to resource
+          readOnly: true
+          minItems: 1
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/SelfLink'
+              - $ref: '#/components/schemas/OAuth2ConnectLink'
     InvalidError:
       allOf:
         - $ref: '#/components/schemas/Error'
@@ -9011,6 +8997,18 @@ components:
           type: string
           enum:
             - notes
+      required:
+        - rel
+    OAuth2ConnectLink:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Link'
+      properties:
+        rel:
+          description: The link type
+          type: string
+          enum:
+            - oauth2Connect
       required:
         - rel
     OnBoardingUrlLink:
@@ -9825,9 +9823,10 @@ components:
           items:
             anyOf:
               - $ref: '#/components/schemas/SelfLink'
-              - $ref: '#/components/schemas/RedirectLink'
       description: OAuth2 credential
       required:
+        - code
+        - scopes
         - service
     OnOff:
       type: string
