@@ -22,6 +22,7 @@ items:
         - "checkout-pages"
         - "contacts"
         - "coupons"
+        - "companies"
         - "coupons-redemptions"
         - "credentials"
         - "custom-events"

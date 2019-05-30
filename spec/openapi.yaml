@@ -131,11 +131,11 @@ tags:
     description: |
       Leave notes on a customer record to have a handy location to share with
       others who may interface with the customer.  It's great for customer service.
-  - name: Organizations
+  - name: Companies
     description: |
-      Organizations include the name and address of the entities related to your
+      Companies include the name and address of the entities related to your
       account. An account may be multi-national, and support multiple
-      organizations. Note: Organizations are share between "Live" and "Sandbox"
+      companies. Note: Companies are share between "Live" and "Sandbox"
   - name: Profile
     description: |
       A Profile represents the person currently logged in to Rebilly.
@@ -241,7 +241,7 @@ x-tagGroups:
       - Layouts
       - Migrate payment cards
       - Notes
-      - Organizations
+      - Companies
       - Status
       - Taxes
       - Tracking

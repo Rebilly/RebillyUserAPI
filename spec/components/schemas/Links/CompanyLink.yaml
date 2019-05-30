@@ -6,6 +6,6 @@ properties:
     description: The link type
     type: string
     enum:
-      - organization
+      - company
 required:
   - rel

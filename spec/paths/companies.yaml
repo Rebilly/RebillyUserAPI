@@ -1,15 +1,15 @@
 get:
   tags:
-    - Organizations
-  summary: Retrieve a list of organizations
+    - Companies
+  summary: Retrieve a list of companies
   description: |
-    Retrieve a list of organizations
+    Retrieve a list of companies
   parameters:
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
   responses:
     200:
-      description: A list of organizations was retrieved successfully
+      description: A list of companies was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -28,20 +28,20 @@ get:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Organization'
+              $ref: '#/components/schemas/Company'
     401:
       $ref: '#/components/responses/AccessForbidden'
 post:
   tags:
-    - Organizations
-  summary: Create a organization
+    - Companies
+  summary: Create a company
   description: |
-    Create a organization
+    Create a company
   requestBody:
-    $ref: '#/components/requestBodies/Organization'
+    $ref: '#/components/requestBodies/Company'
   responses:
     201:
-      description: Organization was created
+      description: Company was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -52,11 +52,11 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Organization'
+            $ref: '#/components/schemas/Company'
     401:
       $ref: '#/components/responses/AccessForbidden'
     409:
-      description: The similar organization already exists
+      description: The similar company already exists
       content:
         application/json:
           schema:
