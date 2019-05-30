@@ -8683,7 +8683,7 @@ components:
       properties:
         label:
           allOf:
-            - $ref: '#/components/schemas/GlobalWebhookEventType'
+            - $ref: '#/components/schemas/OAuth2CredentialService'
             - description: The integration label
             - readOnly: true
         count:
