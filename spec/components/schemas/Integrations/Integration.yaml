@@ -1,11 +1,10 @@
 type: object
 properties:
   label:
-    readOnly: true
-    description: The integration label
-    type: string
-    enum:
-    - 'google-sheets-integration'
+    allOf:
+      - $ref: "#/components/schemas/GlobalWebhookEventType"
+      - description: The integration label
+      - readOnly: true
   count:
     readOnly: true
     type: integer
