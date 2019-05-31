@@ -34,6 +34,7 @@ enum:
   - INOVAPAY-wallet
   - InstaDebit
   - instant-bank-transfer
+  - Interac
   - Interac-online
   - Interac-eTransfer
   - invoice
