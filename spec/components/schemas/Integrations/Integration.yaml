@@ -3,9 +3,8 @@ properties:
   label:
     readOnly: true
     description: The integration label
-    type: string
-    enum:
-    - 'google-sheets-integration'
+    allOf:
+      - $ref: "#/components/schemas/OAuth2CredentialService"
   count:
     readOnly: true
     type: integer
