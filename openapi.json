@@ -12724,9 +12724,10 @@
           "label": {
             "readOnly": true,
             "description": "The integration label",
-            "type": "string",
-            "enum": [
-              "google-sheets-integration"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "count": {
@@ -14517,9 +14518,10 @@
           },
           "service": {
             "description": "The name of service that the OAuth2 credential belongs to",
-            "type": "string",
-            "enum": [
-              "google-sheets"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "code": {
@@ -14568,6 +14570,12 @@
           "code",
           "scopes",
           "service"
+        ]
+      },
+      "OAuth2CredentialService": {
+        "type": "string",
+        "enum": [
+          "google-sheets"
         ]
       },
       "OnOff": {
@@ -17883,9 +17891,10 @@
         "description": "The integration label",
         "required": true,
         "schema": {
-          "type": "string",
-          "enum": [
-            "google-sheets-integration"
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OAuth2CredentialService"
+            }
           ]
         }
       },
