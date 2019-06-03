@@ -8682,10 +8682,10 @@ components:
       type: object
       properties:
         label:
+          readOnly: true
+          description: The integration label
           allOf:
             - $ref: '#/components/schemas/OAuth2CredentialService'
-            - description: The integration label
-            - readOnly: true
         count:
           readOnly: true
           type: integer
@@ -9325,6 +9325,7 @@ components:
         - INOVAPAY-wallet
         - InstaDebit
         - instant-bank-transfer
+        - Interac
         - Interac-online
         - Interac-eTransfer
         - invoice
@@ -9789,9 +9790,9 @@ components:
           allOf:
             - $ref: '#/components/schemas/ServerTimestamp'
         service:
+          description: The name of service that the OAuth2 credential belongs to
           allOf:
             - $ref: '#/components/schemas/OAuth2CredentialService'
-            - description: The name of service that the OAuth2 credential belongs to
         code:
           description: The OAuth2 code provided by the authentication server
           type: string
@@ -12046,9 +12047,8 @@ components:
       description: The integration label
       required: true
       schema:
-        type: string
-        enum:
-          - google-sheets-integration
+        allOf:
+          - $ref: '#/components/schemas/OAuth2CredentialService'
     mediaType:
       name: Accept
       in: header
