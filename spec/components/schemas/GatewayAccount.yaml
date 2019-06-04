@@ -111,6 +111,9 @@ properties:
     nullable: true
     minimum: 10
     maximum: 120
+  keepApprovedTransactionAsUnknown:
+    description: Keep approved transaction as unknown/waiting-settlement
+    type: boolean
   createdTime:
     description: Gateway Account created time
     allOf:
