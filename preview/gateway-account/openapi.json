@@ -9029,7 +9029,7 @@
             "maximum": 120
           },
           "keepApprovedTransactionAsUnknown": {
-            "description": "Keep approved transaction as unknown/waiting-settlement. To mark these transaction as approved please use patch transaction. We will these unknown transaction and mark as abandon base on approvalWindowTtl.",
+            "description": "Keep approved transaction as `unknown`/`waiting-settlement`. To mark this transaction as `approved` please use patch transaction. We will pickup this unknown transaction and mark as `abandoned` based on `approvalWindowTtl`.",
             "type": "boolean"
           },
           "createdTime": {
