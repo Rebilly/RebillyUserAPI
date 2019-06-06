@@ -1,6 +1,6 @@
 type: object
 required:
-  - name
+  - description
   - values
 properties:
   id:
@@ -13,8 +13,8 @@ properties:
     type: integer
     readOnly: true
     minimum: 1
-  name:
-    description: List name
+  description:
+    description: List description
     type: string
   values:
     description: List values
