@@ -13597,7 +13597,7 @@
       "List": {
         "type": "object",
         "required": [
-          "name",
+          "description",
           "values"
         ],
         "properties": {
@@ -13616,8 +13616,8 @@
             "readOnly": true,
             "minimum": 1
           },
-          "name": {
-            "description": "List name",
+          "description": {
+            "description": "List description",
             "type": "string"
           },
           "values": {
