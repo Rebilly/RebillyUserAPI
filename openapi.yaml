@@ -5341,6 +5341,8 @@ components:
         - CA
         - SB
         - BL
+        - NB
+        - UI
     CheckoutPage:
       type: object
       required:
