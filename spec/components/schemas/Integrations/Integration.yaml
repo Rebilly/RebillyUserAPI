@@ -1,8 +1,8 @@
 type: object
 properties:
-  label:
+  service:
     readOnly: true
-    description: The integration label
+    description: The integration service
     allOf:
       - $ref: "#/components/schemas/OAuth2CredentialService"
   count:
@@ -18,17 +18,17 @@ properties:
     items:
       type: object
       properties:
+        id:
+          description: The configuration identifier string
+          allOf:
+            - $ref: "#/components/schemas/ResourceId"
         eventType:
           description: The configuration event type
           allOf:
-          - $ref: "#/components/parameters/systemEventType"
+            - $ref: "#/components/parameters/systemEventType"
         title:
           type: string
           description: The configuration title
-        index:
-          type: integer
-          minimum: 0
-          description: The configuration index
   _links:
     type: array
     description: The links related to resource
