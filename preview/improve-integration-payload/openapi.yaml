@@ -8701,10 +8701,12 @@ components:
           items:
             type: object
             properties:
-              id:
-                description: The configuration identifier string
-                allOf:
-                  - $ref: '#/components/schemas/ResourceId'
+              labels:
+                description: The configuration labels
+                type: array
+                minItems: 1
+                items:
+                  type: string
               eventType:
                 description: The configuration event type
                 allOf:
