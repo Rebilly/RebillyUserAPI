@@ -8683,9 +8683,9 @@ components:
     Integration:
       type: object
       properties:
-        label:
+        service:
           readOnly: true
-          description: The integration label
+          description: The integration service
           allOf:
             - $ref: '#/components/schemas/OAuth2CredentialService'
         count:
@@ -8701,6 +8701,12 @@ components:
           items:
             type: object
             properties:
+              labels:
+                description: The configuration labels
+                type: array
+                minItems: 1
+                items:
+                  type: string
               eventType:
                 description: The configuration event type
                 allOf:
@@ -8708,10 +8714,6 @@ components:
               title:
                 type: string
                 description: The configuration title
-              index:
-                type: integer
-                minimum: 0
-                description: The configuration index
         _links:
           type: array
           description: The links related to resource
