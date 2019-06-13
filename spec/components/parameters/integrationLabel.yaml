@@ -3,6 +3,5 @@ in: path
 description: The integration label
 required: true
 schema:
-  type: string
-  enum:
-    - 'google-sheets-integration'
+  allOf:
+    - $ref: "#/components/schemas/OAuth2CredentialService"
