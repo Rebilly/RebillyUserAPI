@@ -3577,6 +3577,49 @@
         ]
       }
     },
+    "/gateway-accounts/{id}/close": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Gateway Accounts"
+        ],
+        "summary": "Close a Gateway Account",
+        "description": "Close a gateway account with specified identifier string.\nAlso known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able\nto process transactions. The \"status\" attribute will be set to \"closed\".\n",
+        "responses": {
+          "201": {
+            "description": "Closed successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayAccount"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/gateway-accounts/{id}/disable": {
       "parameters": [
         {
@@ -8905,7 +8948,8 @@
             "enum": [
               "active",
               "inactive",
-              "pending"
+              "pending",
+              "closed"
             ]
           },
           "gatewayName": {
