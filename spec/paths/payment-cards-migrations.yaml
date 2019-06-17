@@ -1,6 +1,6 @@
 post:
   tags:
-    - Migrate payment cards
+    - Payment Cards
   summary: Migrate payment cards to another gateway account
   description: |
     Migrate payment cards to another gateway account
