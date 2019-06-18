@@ -5374,7 +5374,13 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Bank Name",
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }
