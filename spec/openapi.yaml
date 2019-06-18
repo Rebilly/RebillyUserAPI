@@ -177,10 +177,6 @@ tags:
   - name: Status
     description: |
       Check the status of the Rebilly API (no authentication required).
-  - name: Taxes
-    description: |
-      Proposed: You can map a product to a tax category.  The tax category is used by
-      tax providers to calculate taxes for invoices.
   - name: Tracking
     description: |
       Tracking is a layer for accessing all the activity (API requests,
@@ -243,7 +239,6 @@ x-tagGroups:
       - Notes
       - Organizations
       - Status
-      - Taxes
       - Tracking
       - Websites
   - name: Related docs
