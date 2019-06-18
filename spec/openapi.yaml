@@ -124,9 +124,9 @@ tags:
 
       You may grant permissions to edit Lists to different people than those who can edit Rules.
       It may be useful if your workflow involves frequent updates to value sets used in criteria.
-  - name: Migrate payment cards
+  - name: Payment Cards
     description: |
-      Migrate payment cards from one gateway to another.
+      Payment cards are a type of payment instrument used for credit and debit card sales.
   - name: Notes
     description: |
       Leave notes on a customer record to have a handy location to share with
@@ -177,10 +177,6 @@ tags:
   - name: Status
     description: |
       Check the status of the Rebilly API (no authentication required).
-  - name: Taxes
-    description: |
-      Proposed: You can map a product to a tax category.  The tax category is used by
-      tax providers to calculate taxes for invoices.
   - name: Tracking
     description: |
       Tracking is a layer for accessing all the activity (API requests,
@@ -239,11 +235,10 @@ x-tagGroups:
       - Checkout Pages
       - Gateway Accounts
       - Layouts
-      - Migrate payment cards
+      - Payment Cards
       - Notes
       - Organizations
       - Status
-      - Taxes
       - Tracking
       - Websites
   - name: Related docs

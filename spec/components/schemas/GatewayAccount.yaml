@@ -22,6 +22,7 @@ properties:
       - active
       - inactive
       - pending
+      - closed
   gatewayName:
     $ref: "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/payment-gateways/gateway-name.json"
   acquirerName:
