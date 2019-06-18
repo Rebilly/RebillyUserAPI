@@ -28,6 +28,10 @@ get:
           schema:
             type: array
             items:
-              type: string
+              type: object
+              properties:
+                name:
+                  description: Bank Name
+                  type: string
     401:
       $ref: '#/components/responses/AccessForbidden'
