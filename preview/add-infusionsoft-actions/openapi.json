@@ -57,8 +57,8 @@
       "description": "Lists contain sets of values and may be referenced within Rules criteria.\n\nList order may not be maintained and duplicates may be removed.\n\nYou may grant permissions to edit Lists to different people than those who can edit Rules.\nIt may be useful if your workflow involves frequent updates to value sets used in criteria.\n"
     },
     {
-      "name": "Migrate payment cards",
-      "description": "Migrate payment cards from one gateway to another.\n"
+      "name": "Payment Cards",
+      "description": "Payment cards are a type of payment instrument used for credit and debit card sales.\n"
     },
     {
       "name": "Notes",
@@ -95,10 +95,6 @@
     {
       "name": "Status",
       "description": "Check the status of the Rebilly API (no authentication required).\n"
-    },
-    {
-      "name": "Taxes",
-      "description": "Proposed: You can map a product to a tax category.  The tax category is used by\ntax providers to calculate taxes for invoices.\n"
     },
     {
       "name": "Tracking",
@@ -167,11 +163,10 @@
         "Checkout Pages",
         "Gateway Accounts",
         "Layouts",
-        "Migrate payment cards",
+        "Payment Cards",
         "Notes",
         "Organizations",
         "Status",
-        "Taxes",
         "Tracking",
         "Websites"
       ]
@@ -3577,6 +3572,49 @@
         ]
       }
     },
+    "/gateway-accounts/{id}/close": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Gateway Accounts"
+        ],
+        "summary": "Close a Gateway Account",
+        "description": "Close a gateway account with specified identifier string.\nAlso known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able\nto process transactions. The \"status\" attribute will be set to \"closed\".\n",
+        "responses": {
+          "201": {
+            "description": "Closed successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayAccount"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/gateway-accounts/{id}/disable": {
       "parameters": [
         {
@@ -5293,10 +5331,65 @@
         }
       }
     },
+    "/payment-cards-bank-names": {
+      "get": {
+        "tags": [
+          "Payment Cards"
+        ],
+        "summary": "Retrieve a list of payment card issuing bank names",
+        "description": "Retrieve a list of payment card issuing bank names\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionQuery"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of payment card issuing bank names was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
     "/payment-cards-migrations": {
       "post": {
         "tags": [
-          "Migrate payment cards"
+          "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
         "description": "Migrate payment cards to another gateway account\n",
@@ -6059,53 +6152,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/tax-categories": {
-      "get": {
-        "tags": [
-          "Taxes"
-        ],
-        "summary": "Retrieve a list of tax categories",
-        "description": "Retrieve a list of tax categories\n",
-        "responses": {
-          "200": {
-            "description": "A list of tax categories was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaxCategory"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
           }
         }
       }
@@ -8905,7 +8951,8 @@
             "enum": [
               "active",
               "inactive",
-              "pending"
+              "pending",
+              "closed"
             ]
           },
           "gatewayName": {
@@ -16874,47 +16921,6 @@
                 "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
-          }
-        }
-      },
-      "TaxCategory": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The tax category identifier string",
-            "type": "string",
-            "readOnly": true,
-            "maxLength": 50,
-            "enum": [
-              99999,
-              20010,
-              40030,
-              51020,
-              51010,
-              31000,
-              30070
-            ]
-          },
-          "description": {
-            "description": "The tax category description",
-            "type": "string",
-            "maxLength": 512
-          },
-          "taxProvider": {
-            "description": "The tax category maps to a provider",
-            "type": "string",
-            "enum": [
-              "tax-jar"
-            ]
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/SelfLink"
-            }
           }
         }
       },
