@@ -2,6 +2,7 @@ get:
   tags:
     - Payment Cards
   summary: Retrieve a list of payment card issuing bank names
+  operationId: getBankNames
   description: |
     Retrieve a list of payment card issuing bank names
   parameters:
