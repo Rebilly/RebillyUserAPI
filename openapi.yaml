@@ -11354,6 +11354,7 @@ components:
             - gateway-account-disabled
             - gateway-account-down
             - gateway-account-up
+            - gateway-account-closed
         triggeredBy:
           description: Shows who or what triggered the Timeline message
           type: string
