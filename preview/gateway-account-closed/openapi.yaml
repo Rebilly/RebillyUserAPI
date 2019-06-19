@@ -3732,6 +3732,7 @@ paths:
       tags:
         - Payment Cards
       summary: Retrieve a list of payment card issuing bank names
+      operationId: getBankNames
       description: |
         Retrieve a list of payment card issuing bank names
       parameters:
@@ -3758,7 +3759,11 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    name:
+                      description: Bank Name
+                      type: string
         '401':
           $ref: '#/components/responses/AccessForbidden'
   /payment-cards-migrations:
