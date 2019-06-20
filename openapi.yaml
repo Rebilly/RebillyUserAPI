@@ -6325,6 +6325,11 @@ components:
           nullable: true
           minimum: 10
           maximum: 120
+        token:
+          description: Gateway Account token
+          type: string
+          readOnly: true
+          example: TwiX3f92k4AiBE27BzTbQ38hHjicBz_w
         createdTime:
           description: Gateway Account created time
           allOf:
