@@ -112,6 +112,10 @@ properties:
     nullable: true
     minimum: 10
     maximum: 120
+  token:
+    description: Gateway account token
+    type: string
+    readOnly: true
   createdTime:
     description: Gateway Account created time
     allOf:
