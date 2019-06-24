@@ -11159,6 +11159,16 @@
                   "clientSecret",
                   "webhookSecretKey"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "Neteller settings object",
+                "properties": {
+                  "netellerGo": {
+                    "type": "boolean",
+                    "description": "Enable NETELLERgo! payment flow"
+                  }
+                }
               }
             }
           }
