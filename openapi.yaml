@@ -6287,7 +6287,7 @@ components:
           type: integer
           default: 3600
           minimum: 300
-          maximum: 1296000
+          maximum: 16777215
         threeDSecure:
           description: 'True, if Gateway Account allows 3DSecure'
           type: boolean
