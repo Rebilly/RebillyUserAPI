@@ -3732,6 +3732,7 @@ paths:
       tags:
         - Payment Cards
       summary: Retrieve a list of payment card issuing bank names
+      operationId: getBankNames
       description: |
         Retrieve a list of payment card issuing bank names
       parameters:
@@ -3758,7 +3759,11 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    name:
+                      description: Bank Name
+                      type: string
         '401':
           $ref: '#/components/responses/AccessForbidden'
   /payment-cards-migrations:
@@ -6282,7 +6287,7 @@ components:
           type: integer
           default: 3600
           minimum: 300
-          maximum: 1296000
+          maximum: 16777215
         threeDSecure:
           description: 'True, if Gateway Account allows 3DSecure'
           type: boolean
@@ -6320,6 +6325,11 @@ components:
           nullable: true
           minimum: 10
           maximum: 120
+        token:
+          description: Gateway Account token
+          type: string
+          readOnly: true
+          example: TwiX3f92k4AiBE27BzTbQ38hHjicBz_w
         createdTime:
           description: Gateway Account created time
           allOf:
@@ -7661,6 +7671,13 @@ components:
                 - clientId
                 - clientSecret
                 - webhookSecretKey
+            settings:
+              type: object
+              description: Neteller settings object
+              properties:
+                netellerGo:
+                  type: boolean
+                  description: Enable NETELLERgo! payment flow
     NinjaWallet:
       description: NinjaWallet config
       allOf:
@@ -11445,6 +11462,7 @@ components:
             - gateway-account-disabled
             - gateway-account-down
             - gateway-account-up
+            - gateway-account-closed
         triggeredBy:
           description: Shows who or what triggered the Timeline message
           type: string
