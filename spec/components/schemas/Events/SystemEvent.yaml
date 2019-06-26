@@ -14,6 +14,13 @@ properties:
   bindsCount:
     type: integer
     readOnly: true
+  actionCounts:
+    type: object
+    readOnly: true
+    properties:
+      send-email:
+        type: integer
+        readOnly: true
   _links:
     type: array
     description: The links related to resource
