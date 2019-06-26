@@ -8887,8 +8887,15 @@
             "properties": {
               "send-email": {
                 "type": "integer",
+                "description": "The count of binds `send-email` actions per event",
                 "readOnly": true
               }
+            },
+            "required": [
+              "send-email"
+            ],
+            "additionalProperties": {
+              "type": "string"
             }
           },
           "_links": {
