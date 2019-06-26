@@ -20,7 +20,12 @@ properties:
     properties:
       send-email:
         type: integer
+        description: The count of `send-email` actions per event
         readOnly: true
+    required:
+      - send-email
+    additionalProperties:
+      type: string
   _links:
     type: array
     description: The links related to resource
