@@ -30,8 +30,20 @@ properties:
     type: string
     format: uri
   headers:
-    type: object
-    description: Map of elements with header name - header value association
+    type: array
+    description: Array of elements with header name and header value
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        status:
+          type: string
+          enum:
+            - active
+            # TODO (what are other values)
   credentialHash:
     type: string
     description: Hash from Credentials which is used for authentication by the given URL
