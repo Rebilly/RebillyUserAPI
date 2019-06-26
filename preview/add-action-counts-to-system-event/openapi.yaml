@@ -6173,7 +6173,7 @@ components:
         bindsCount:
           type: integer
           readOnly: true
-        actionCounts:
+        bindActionCounts:
           type: object
           readOnly: true
           properties:
