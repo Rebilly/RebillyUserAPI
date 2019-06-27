@@ -23,6 +23,6 @@ get:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/EmailNotificationEvent'
+              $ref: '#/components/schemas/EmailNotification'
     401:
       $ref: '#/components/responses/AccessForbidden'
