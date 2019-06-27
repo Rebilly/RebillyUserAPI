@@ -8912,14 +8912,6 @@
                     "type": "string"
                   }
                 },
-                "eventType": {
-                  "description": "The notification event type",
-                  "allOf": [
-                    {
-                      "$ref": "#/components/parameters/systemEventType"
-                    }
-                  ]
-                },
                 "title": {
                   "type": "string",
                   "description": "The notification title"
