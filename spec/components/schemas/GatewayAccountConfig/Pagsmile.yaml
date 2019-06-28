@@ -13,9 +13,9 @@ allOf:
           merchantId:
             type: string
             description: Pagsmile merchant ID
-            appId:
-              type: string
-              description: Pagsmile app ID
+          appId:
+            type: string
+            description: Pagsmile app ID
           secretKey:
             type: string
             description: Pagsmile secret key
