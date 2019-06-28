@@ -11364,6 +11364,45 @@
           }
         ]
       },
+      "Pagsmile": {
+        "description": "Pagsmile Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pagsmile merchant ID"
+                  },
+                  "appId": {
+                    "type": "string",
+                    "description": "Pagsmile app ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "Pagsmile secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "appId",
+                  "secretKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Panamerican": {
         "description": "Panamerican config",
         "allOf": [
