@@ -8977,7 +8977,7 @@
           "dccMarkup": {
             "description": "Dynamic currency conversion markup in basis points",
             "type": "integer",
-            "minimum": 1,
+            "minimum": -10000,
             "maximum": 10000
           },
           "dccForceCurrency": {
