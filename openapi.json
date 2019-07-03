@@ -5399,6 +5399,7 @@
           "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
+        "operationId": "migratePaymentCards",
         "description": "Migrate payment cards to another gateway account\n",
         "requestBody": {
           "content": {
