@@ -5399,6 +5399,7 @@
           "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
+        "operationId": "migratePaymentCards",
         "description": "Migrate payment cards to another gateway account\n",
         "requestBody": {
           "content": {
@@ -8977,7 +8978,7 @@
           "dccMarkup": {
             "description": "Dynamic currency conversion markup in basis points",
             "type": "integer",
-            "minimum": 1,
+            "minimum": -10000,
             "maximum": 10000
           },
           "dccForceCurrency": {
@@ -9030,7 +9031,7 @@
             "type": "integer",
             "default": 3600,
             "minimum": 300,
-            "maximum": 1296000
+            "maximum": 16777215
           },
           "threeDSecure": {
             "description": "True, if Gateway Account allows 3DSecure",
@@ -9083,6 +9084,12 @@
             "nullable": true,
             "minimum": 10,
             "maximum": 120
+          },
+          "token": {
+            "description": "Gateway Account token",
+            "type": "string",
+            "readOnly": true,
+            "example": "TwiX3f92k4AiBE27BzTbQ38hHjicBz_w"
           },
           "createdTime": {
             "description": "Gateway Account created time",
@@ -11153,6 +11160,16 @@
                   "clientSecret",
                   "webhookSecretKey"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "Neteller settings object",
+                "properties": {
+                  "netellerGo": {
+                    "type": "boolean",
+                    "description": "Enable NETELLERgo! payment flow"
+                  }
+                }
               }
             }
           }
@@ -11343,6 +11360,45 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/OptimalMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Pagsmile": {
+        "description": "Pagsmile Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pagsmile merchant ID"
+                  },
+                  "appId": {
+                    "type": "string",
+                    "description": "Pagsmile app ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "Pagsmile secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "appId",
+                  "secretKey"
+                ]
               }
             }
           }
@@ -16857,7 +16913,8 @@
               "gateway-account-enabled",
               "gateway-account-disabled",
               "gateway-account-down",
-              "gateway-account-up"
+              "gateway-account-up",
+              "gateway-account-closed"
             ]
           },
           "triggeredBy": {
