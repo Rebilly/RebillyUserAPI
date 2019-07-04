@@ -6,14 +6,7 @@ properties:
     allOf:
       - $ref: "#/components/schemas/ResourceId"
   eventType:
-    type: string
-    description: The system event type
-    enum:
-      - subscription-ended
-      - subscription-trial-ended
-      - subscription-renewed
-      - payment-card-expired
-      - invoice-past-due
+    $ref: "#/components/schemas/CustomEventType"
   title:
     type: string
     description: The custom event title
