@@ -3800,6 +3800,7 @@ paths:
       tags:
         - Payment Cards
       summary: Migrate payment cards to another gateway account
+      operationId: migratePaymentCards
       description: |
         Migrate payment cards to another gateway account
       requestBody:
@@ -6312,7 +6313,7 @@ components:
         dccMarkup:
           description: Dynamic currency conversion markup in basis points
           type: integer
-          minimum: 1
+          minimum: -10000
           maximum: 10000
         dccForceCurrency:
           type: string
@@ -7862,6 +7863,31 @@ components:
                 - accountNum
             mpi:
               $ref: '#/components/schemas/OptimalMpis'
+    Pagsmile:
+      description: Pagsmile Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                merchantId:
+                  type: string
+                  description: Pagsmile merchant ID
+                appId:
+                  type: string
+                  description: Pagsmile app ID
+                secretKey:
+                  type: string
+                  description: Pagsmile secret key
+                  format: password
+              required:
+                - merchantId
+                - appId
+                - secretKey
     Panamerican:
       description: Panamerican config
       allOf:
@@ -12149,6 +12175,8 @@ components:
       required: true
       schema:
         type: string
+        maxLength: 50
+        pattern: '^[@~\-\.\w\d]+$'
     rulesVersion:
       name: version
       in: path

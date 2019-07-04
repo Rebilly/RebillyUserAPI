@@ -5445,6 +5445,7 @@
           "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
+        "operationId": "migratePaymentCards",
         "description": "Migrate payment cards to another gateway account\n",
         "requestBody": {
           "content": {
@@ -9070,7 +9071,7 @@
           "dccMarkup": {
             "description": "Dynamic currency conversion markup in basis points",
             "type": "integer",
-            "minimum": 1,
+            "minimum": -10000,
             "maximum": 10000
           },
           "dccForceCurrency": {
@@ -11452,6 +11453,45 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/OptimalMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Pagsmile": {
+        "description": "Pagsmile Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pagsmile merchant ID"
+                  },
+                  "appId": {
+                    "type": "string",
+                    "description": "Pagsmile app ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "Pagsmile secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "appId",
+                  "secretKey"
+                ]
               }
             }
           }
@@ -18046,7 +18086,9 @@
         "description": "The resource identifier string",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 50,
+          "pattern": "^[@~\\-\\.\\w\\d]+$"
         }
       },
       "rulesVersion": {
