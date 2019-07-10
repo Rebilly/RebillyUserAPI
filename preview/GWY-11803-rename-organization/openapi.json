@@ -57,8 +57,8 @@
       "description": "Lists contain sets of values and may be referenced within Rules criteria.\n\nList order may not be maintained and duplicates may be removed.\n\nYou may grant permissions to edit Lists to different people than those who can edit Rules.\nIt may be useful if your workflow involves frequent updates to value sets used in criteria.\n"
     },
     {
-      "name": "Migrate payment cards",
-      "description": "Migrate payment cards from one gateway to another.\n"
+      "name": "Payment Cards",
+      "description": "Payment cards are a type of payment instrument used for credit and debit card sales.\n"
     },
     {
       "name": "Notes",
@@ -95,10 +95,6 @@
     {
       "name": "Status",
       "description": "Check the status of the Rebilly API (no authentication required).\n"
-    },
-    {
-      "name": "Taxes",
-      "description": "Proposed: You can map a product to a tax category.  The tax category is used by\ntax providers to calculate taxes for invoices.\n"
     },
     {
       "name": "Tracking",
@@ -167,11 +163,10 @@
         "Checkout Pages",
         "Gateway Accounts",
         "Layouts",
-        "Migrate payment cards",
+        "Payment Cards",
         "Notes",
         "Companies",
         "Status",
-        "Taxes",
         "Tracking",
         "Websites"
       ]
@@ -3845,6 +3840,49 @@
         ]
       }
     },
+    "/gateway-accounts/{id}/close": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Gateway Accounts"
+        ],
+        "summary": "Close a Gateway Account",
+        "description": "Close a gateway account with specified identifier string.\nAlso known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able\nto process transactions. The \"status\" attribute will be set to \"closed\".\n",
+        "responses": {
+          "201": {
+            "description": "Closed successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayAccount"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/gateway-accounts/{id}/disable": {
       "parameters": [
         {
@@ -5281,12 +5319,75 @@
         ]
       }
     },
+    "/payment-cards-bank-names": {
+      "get": {
+        "tags": [
+          "Payment Cards"
+        ],
+        "summary": "Retrieve a list of payment card issuing bank names",
+        "operationId": "getBankNames",
+        "description": "Retrieve a list of payment card issuing bank names\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionQuery"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of payment card issuing bank names was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Bank Name",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
     "/payment-cards-migrations": {
       "post": {
         "tags": [
-          "Migrate payment cards"
+          "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
+        "operationId": "migratePaymentCards",
         "description": "Migrate payment cards to another gateway account\n",
         "requestBody": {
           "content": {
@@ -6047,53 +6148,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/tax-categories": {
-      "get": {
-        "tags": [
-          "Taxes"
-        ],
-        "summary": "Retrieve a list of tax categories",
-        "description": "Retrieve a list of tax categories\n",
-        "responses": {
-          "200": {
-            "description": "A list of tax categories was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaxCategory"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
           }
         }
       }
@@ -7657,7 +7711,9 @@
           "B",
           "CA",
           "SB",
-          "BL"
+          "BL",
+          "NB",
+          "UI"
         ]
       },
       "CheckoutPage": {
@@ -8990,7 +9046,8 @@
             "enum": [
               "active",
               "inactive",
-              "pending"
+              "pending",
+              "closed"
             ]
           },
           "gatewayName": {
@@ -9008,7 +9065,7 @@
           "dccMarkup": {
             "description": "Dynamic currency conversion markup in basis points",
             "type": "integer",
-            "minimum": 1,
+            "minimum": -10000,
             "maximum": 10000
           },
           "dccForceCurrency": {
@@ -9061,7 +9118,7 @@
             "type": "integer",
             "default": 3600,
             "minimum": 300,
-            "maximum": 1296000
+            "maximum": 16777215
           },
           "threeDSecure": {
             "description": "True, if Gateway Account allows 3DSecure",
@@ -9114,6 +9171,12 @@
             "nullable": true,
             "minimum": 10,
             "maximum": 120
+          },
+          "token": {
+            "description": "Gateway Account token",
+            "type": "string",
+            "readOnly": true,
+            "example": "TwiX3f92k4AiBE27BzTbQ38hHjicBz_w"
           },
           "createdTime": {
             "description": "Gateway Account created time",
@@ -11184,6 +11247,16 @@
                   "clientSecret",
                   "webhookSecretKey"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "Neteller settings object",
+                "properties": {
+                  "netellerGo": {
+                    "type": "boolean",
+                    "description": "Enable NETELLERgo! payment flow"
+                  }
+                }
               }
             }
           }
@@ -11374,6 +11447,45 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/OptimalMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Pagsmile": {
+        "description": "Pagsmile Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pagsmile merchant ID"
+                  },
+                  "appId": {
+                    "type": "string",
+                    "description": "Pagsmile app ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "Pagsmile secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "appId",
+                  "secretKey"
+                ]
               }
             }
           }
@@ -11763,6 +11875,35 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/PaysafeMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Paysafecash": {
+        "description": "Paysafecash Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Paysafecash API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
               }
             }
           }
@@ -12808,12 +12949,13 @@
       "Integration": {
         "type": "object",
         "properties": {
-          "label": {
+          "service": {
             "readOnly": true,
-            "description": "The integration label",
-            "type": "string",
-            "enum": [
-              "google-sheets-integration"
+            "description": "The integration service",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "count": {
@@ -12830,6 +12972,14 @@
             "items": {
               "type": "object",
               "properties": {
+                "labels": {
+                  "description": "The configuration labels",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "eventType": {
                   "description": "The configuration event type",
                   "allOf": [
@@ -12841,11 +12991,6 @@
                 "title": {
                   "type": "string",
                   "description": "The configuration title"
-                },
-                "index": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "description": "The configuration index"
                 }
               }
             }
@@ -13683,7 +13828,7 @@
       "List": {
         "type": "object",
         "required": [
-          "name",
+          "description",
           "values"
         ],
         "properties": {
@@ -13702,8 +13847,8 @@
             "readOnly": true,
             "minimum": 1
           },
-          "name": {
-            "description": "List name",
+          "description": {
+            "description": "List description",
             "type": "string"
           },
           "values": {
@@ -13830,6 +13975,7 @@
           "INOVAPAY-wallet",
           "InstaDebit",
           "instant-bank-transfer",
+          "Interac",
           "Interac-online",
           "Interac-eTransfer",
           "invoice",
@@ -14603,9 +14749,10 @@
           },
           "service": {
             "description": "The name of service that the OAuth2 credential belongs to",
-            "type": "string",
-            "enum": [
-              "google-sheets"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "code": {
@@ -14654,6 +14801,12 @@
           "code",
           "scopes",
           "service"
+        ]
+      },
+      "OAuth2CredentialService": {
+        "type": "string",
+        "enum": [
+          "google-sheets"
         ]
       },
       "OnOff": {
@@ -16716,47 +16869,6 @@
           }
         }
       },
-      "TaxCategory": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The tax category identifier string",
-            "type": "string",
-            "readOnly": true,
-            "maxLength": 50,
-            "enum": [
-              99999,
-              20010,
-              40030,
-              51020,
-              51010,
-              31000,
-              30070
-            ]
-          },
-          "description": {
-            "description": "The tax category description",
-            "type": "string",
-            "maxLength": 512
-          },
-          "taxProvider": {
-            "description": "The tax category maps to a provider",
-            "type": "string",
-            "enum": [
-              "tax-jar"
-            ]
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/SelfLink"
-            }
-          }
-        }
-      },
       "redemption-cancel": {
         "description": "Cancel Redemption",
         "allOf": [
@@ -16819,7 +16931,8 @@
               "gateway-account-enabled",
               "gateway-account-disabled",
               "gateway-account-down",
-              "gateway-account-up"
+              "gateway-account-up",
+              "gateway-account-closed"
             ]
           },
           "triggeredBy": {
@@ -17871,9 +17984,10 @@
         "description": "The integration label",
         "required": true,
         "schema": {
-          "type": "string",
-          "enum": [
-            "google-sheets-integration"
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OAuth2CredentialService"
+            }
           ]
         }
       },
@@ -17897,7 +18011,9 @@
         "description": "The resource identifier string",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 50,
+          "pattern": "^[@~\\-\\.\\w\\d]+$"
         }
       },
       "rulesVersion": {
