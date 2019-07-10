@@ -8077,8 +8077,8 @@ components:
                 - accountNum
             mpi:
               $ref: '#/components/schemas/PaysafeMpis'
-    PaysafeCash:
-      description: PaysafeCash Gateway config
+    Paysafecash:
+      description: Paysafecash Gateway config
       allOf:
         - $ref: '#/components/schemas/GatewayAccount'
         - type: object
@@ -8090,7 +8090,7 @@ components:
               properties:
                 apiKey:
                   type: string
-                  description: PaysafeCash API key
+                  description: Paysafecash API key
                   format: password
               required:
                 - apiKey
