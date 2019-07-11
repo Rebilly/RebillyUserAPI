@@ -3,10 +3,10 @@ parameters:
 get:
   tags:
     - Segments
-  summary: Retrieve a specific segment
+  summary: Retrieve a specific Segment
   operationId: getSegment
   description: |
-    Retrieve a specific UI segment
+    Retrieve a specific UI Segment
   responses:
     200:
       description: Segment was retrieved successfully
@@ -32,10 +32,10 @@ get:
 patch:
   tags:
     - Segments
-  summary: Update a segment's visibility
+  summary: Update a Segment's visibility
   operationId: toggleSegmentsVisibility
   description: |
-    Toggle the visibility of the current segment for the authenticated user
+    Toggle the visibility of the current Segment for the authenticated user
   responses:
     200:
       description: Segment was updated successfully

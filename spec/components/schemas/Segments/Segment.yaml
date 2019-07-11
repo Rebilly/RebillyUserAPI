@@ -5,13 +5,13 @@ required:
   - scope
 properties:
   id:
-    description: ID of current segment
+    description: ID of current Segment
     readOnly: true
     type: string
     allOf:
       - $ref: '#/components/schemas/ResourceId'
   owner:
-    description: Owner (creator) of segment
+    description: Owner (creator) of Segment
     readOnly: true
     type: object
     properties:
@@ -29,7 +29,7 @@ properties:
       and consumed by the frontend. It includes such information as Segment name, UI settings, etc.
     type: object
   isVisible:
-    description: Toggle whether this segment is visible to the current user
+    description: Toggle whether this Segment is visible to the current user
     type: boolean
     readOnly: true
   userIds:
@@ -46,7 +46,7 @@ properties:
     type: array
     uniqueItems: true
     description: |
-      A list of user's id and first and last names with whom this segment
+      A list of user's id and first and last names with whom this Segment
       is shared
     readOnly: true
     items:
@@ -63,7 +63,7 @@ properties:
             type: string
   scope:
     description: |
-      If `private`, then only the owner/creator can view this segment. If set
+      If `private`, then only the owner/creator can view this Segment. If set
       to `public`, then it's shared with anyone in the owner's organization.
       If set to `shared`, then it is only shared with specific users as specified
       in the `userIds` field

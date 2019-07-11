@@ -1,10 +1,10 @@
 get:
   tags:
     - Segments
-  summary: Retrieve a user's segments
+  summary: Retrieve a user's Segments
   operationId: getSegments
   description: |
-    Retrieve a user's UI segments
+    Retrieve a user's UI Segments
   parameters:
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionFilter'
@@ -33,10 +33,10 @@ get:
 post:
   tags:
     - Segments
-  summary: Create a new UI segment
+  summary: Create a new UI Segment
   operationId: createSegment
   description: |
-    Create a new segment for oneself or to share with others within the
+    Create a new Segment for oneself or to share with others within the
     organization
   responses:
     201:
