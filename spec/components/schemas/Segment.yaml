@@ -34,7 +34,6 @@ properties:
       is shared
     readOnly: true
     items:
-      - user:
         type: object
         description: User person
         properties:
