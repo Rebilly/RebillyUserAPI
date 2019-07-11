@@ -65,8 +65,8 @@
       "description": "Leave notes on a customer record to have a handy location to share with\nothers who may interface with the customer.  It's great for customer service.\n"
     },
     {
-      "name": "Companies",
-      "description": "Companies include the name and address of the entities related to your\naccount. An account may be multi-national, and support multiple\ncompanies. Note: Companies are share between \"Live\" and \"Sandbox\"\n"
+      "name": "Organizations",
+      "description": "Organizations include the name and address of the entities related to your\naccount. An account may be multi-national, and support multiple\norganizations.\n"
     },
     {
       "name": "Profile",
@@ -165,7 +165,7 @@
         "Layouts",
         "Payment Cards",
         "Notes",
-        "Companies",
+        "Organizations",
         "Status",
         "Tracking",
         "Websites"
@@ -786,11 +786,12 @@
     },
     "/companies": {
       "get": {
+        "operationId": "getCompanies",
         "tags": [
-          "Companies"
+          "Organizations"
         ],
-        "summary": "Retrieve a list of companies",
-        "description": "Retrieve a list of companies\n",
+        "summary": "Retrieve a list of organizations",
+        "description": "Retrieve a list of organizations\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/collectionLimit"
@@ -801,7 +802,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A list of companies was retrieved successfully",
+            "description": "A list of organizations was retrieved successfully",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -827,7 +828,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Company"
+                    "$ref": "#/components/schemas/Organization"
                   }
                 }
               }
@@ -840,22 +841,23 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$companies = $client->companies()->search([\n    'filter' => 'city:Test',\n]);\n"
+            "source": "$organizations = $client->companies()->search([\n    'filter' => 'city:Test',\n]);\n"
           }
         ]
       },
       "post": {
         "tags": [
-          "Companies"
+          "Organizations"
         ],
+        "operationId": "createCompany",
         "summary": "Create a company",
         "description": "Create a company\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/Company"
+          "$ref": "#/components/requestBodies/Organization"
         },
         "responses": {
           "201": {
-            "description": "Company was created",
+            "description": "Organization was created",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -870,7 +872,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Company"
+                  "$ref": "#/components/schemas/Organization"
                 }
               }
             }
@@ -895,7 +897,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$companyForm = new Rebilly\\Entities\\Company();\n$companyForm->setName('Test Company');\n$companyForm->setCountry('US');\n\ntry {\n    $company = $client->companies()->create($companyForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$organizationForm = new Rebilly\\Entities\\Organization();\n$organizationForm->setName('Test Organization');\n$organizationForm->setCountry('US');\n\ntry {\n    $organization = $client->companies()->create($organizationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ]
       }
@@ -907,14 +909,15 @@
         }
       ],
       "get": {
+        "operationId": "getCompany",
         "tags": [
-          "Companies"
+          "Organizations"
         ],
-        "summary": "Retrieve a company",
-        "description": "Retrieve a company with specified identifier string\n",
+        "summary": "Retrieve a organization",
+        "description": "Retrieve a organization with specified identifier string\n",
         "responses": {
           "200": {
-            "description": "Company was retrieved successfully",
+            "description": "Organization was retrieved successfully",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -929,7 +932,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Company"
+                  "$ref": "#/components/schemas/Organization"
                 }
               }
             }
@@ -940,20 +943,26 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "PHP",
+            "source": "$organization = $client->companies()->load('organizationId');\n"
+          }
+        ]
       },
       "put": {
         "tags": [
-          "Companies"
+          "Organizations"
         ],
-        "summary": "Create or update a company with predefined ID",
-        "description": "Create or update a company with predefined identifier string\n",
+        "summary": "Create or update a organization with predefined ID",
+        "description": "Create or update a organization with predefined identifier string\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/Company"
+          "$ref": "#/components/requestBodies/Organization"
         },
         "responses": {
           "200": {
-            "description": "Company was updated",
+            "description": "Organization was updated",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -968,13 +977,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Company"
+                  "$ref": "#/components/schemas/Organization"
                 }
               }
             }
           },
           "201": {
-            "description": "Company was created",
+            "description": "Organization was created",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -989,7 +998,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Company"
+                  "$ref": "#/components/schemas/Organization"
                 }
               }
             }
@@ -998,7 +1007,7 @@
             "$ref": "#/components/responses/AccessForbidden"
           },
           "409": {
-            "description": "The similar company already exists",
+            "description": "The similar organization already exists",
             "content": {
               "application/json": {
                 "schema": {
@@ -1010,17 +1019,24 @@
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
           }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "PHP",
+            "source": "$organizationForm = new Rebilly\\Entities\\Organization();\n$organizationForm->setName('Test Organization');\n$organizationForm->setCountry('US');\n\ntry {\n    $organization = $client->companies()->update('organizationId', $organizationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+          }
+        ]
       },
       "delete": {
+        "operationId": "deleteCompany",
         "tags": [
-          "Companies"
+          "Organizations"
         ],
-        "summary": "Delete a company",
-        "description": "Delete a company with predefined identifier string\n",
+        "summary": "Delete a organization",
+        "description": "Delete a organization with predefined identifier string\n",
         "responses": {
           "204": {
-            "description": "Company was deleted",
+            "description": "Organization was deleted",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -1040,7 +1056,7 @@
             "$ref": "#/components/responses/NotFound"
           },
           "409": {
-            "description": "Company has related resources and cannot be deleted",
+            "description": "Organization has related resources and cannot be deleted",
             "content": {
               "application/json": {
                 "schema": {
@@ -7494,7 +7510,6 @@
                 "checkout-pages",
                 "contacts",
                 "coupons",
-                "companies",
                 "coupons-redemptions",
                 "credentials",
                 "custom-events",
@@ -8082,104 +8097,6 @@
             "minimum": 0,
             "exclusiveMinimum": true,
             "example": 0.5
-          }
-        }
-      },
-      "Company": {
-        "type": "object",
-        "required": [
-          "name",
-          "country"
-        ],
-        "properties": {
-          "id": {
-            "description": "The company identifier string",
-            "readOnly": true,
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ResourceId"
-              }
-            ]
-          },
-          "createdTime": {
-            "description": "The company created time",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ServerTimestamp"
-              }
-            ]
-          },
-          "updatedTime": {
-            "description": "The company updated time",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ServerTimestamp"
-              }
-            ]
-          },
-          "name": {
-            "description": "The company name",
-            "type": "string",
-            "maxLength": 60
-          },
-          "address": {
-            "description": "The company street address",
-            "type": "string",
-            "maxLength": 60
-          },
-          "address2": {
-            "description": "The company street address",
-            "type": "string",
-            "maxLength": 60
-          },
-          "city": {
-            "description": "The company city",
-            "type": "string",
-            "maxLength": 45
-          },
-          "region": {
-            "description": "The company region (state)",
-            "type": "string",
-            "maxLength": 45
-          },
-          "country": {
-            "description": "The company country ISO Alpha-2 code",
-            "type": "string",
-            "pattern": "^[A-Z]{2}$"
-          },
-          "postalCode": {
-            "description": "The company postal code",
-            "type": "string",
-            "maxLength": 10
-          },
-          "phoneNumbers": {
-            "$ref": "#/components/schemas/ContactPhoneNumbers"
-          },
-          "emails": {
-            "$ref": "#/components/schemas/ContactEmails"
-          },
-          "taxDescriptor": {
-            "description": "The company's tax label. This will be displayed on the invoice.",
-            "type": "string",
-            "maxLength": 255
-          },
-          "invoiceTimeZone": {
-            "description": "Invoice will use this time zone to display time otherwise UTC will be used. Example \"America/New_York\"",
-            "type": "string",
-            "maxLength": 50
-          },
-          "isPrimary": {
-            "description": "True, if company is primary (available to set as true only, other companies will become as isPrimary=false)",
-            "type": "boolean"
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/SelfLink"
-            }
           }
         }
       },
@@ -9081,7 +8998,7 @@
             "type": "string"
           },
           "organizationId": {
-            "description": "Company ID",
+            "description": "Organization ID",
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
@@ -13273,26 +13190,6 @@
           "rel"
         ]
       },
-      "CompanyLink": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Link"
-          }
-        ],
-        "properties": {
-          "rel": {
-            "description": "The link type",
-            "type": "string",
-            "enum": [
-              "company"
-            ]
-          }
-        },
-        "required": [
-          "rel"
-        ]
-      },
       "CustomerLink": {
         "type": "object",
         "allOf": [
@@ -13518,6 +13415,26 @@
             "type": "string",
             "enum": [
               "onBoardingUrl"
+            ]
+          }
+        },
+        "required": [
+          "rel"
+        ]
+      },
+      "OrganizationLink": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Link"
+          }
+        ],
+        "properties": {
+          "rel": {
+            "description": "The link type",
+            "type": "string",
+            "enum": [
+              "organization"
             ]
           }
         },
@@ -14816,6 +14733,104 @@
           "active",
           "inactive"
         ]
+      },
+      "Organization": {
+        "type": "object",
+        "required": [
+          "name",
+          "country"
+        ],
+        "properties": {
+          "id": {
+            "description": "The organization identifier string",
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "createdTime": {
+            "description": "The organization created time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "updatedTime": {
+            "description": "The organization updated time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "name": {
+            "description": "The organization name",
+            "type": "string",
+            "maxLength": 60
+          },
+          "address": {
+            "description": "The organization street address",
+            "type": "string",
+            "maxLength": 60
+          },
+          "address2": {
+            "description": "The organization street address",
+            "type": "string",
+            "maxLength": 60
+          },
+          "city": {
+            "description": "The organization city",
+            "type": "string",
+            "maxLength": 45
+          },
+          "region": {
+            "description": "The organization region (state)",
+            "type": "string",
+            "maxLength": 45
+          },
+          "country": {
+            "description": "The organization country ISO Alpha-2 code",
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "postalCode": {
+            "description": "The organization postal code",
+            "type": "string",
+            "maxLength": 10
+          },
+          "phoneNumbers": {
+            "$ref": "#/components/schemas/ContactPhoneNumbers"
+          },
+          "emails": {
+            "$ref": "#/components/schemas/ContactEmails"
+          },
+          "taxDescriptor": {
+            "description": "The organization's tax label. This will be displayed on the invoice.",
+            "type": "string",
+            "maxLength": 255
+          },
+          "invoiceTimeZone": {
+            "description": "Invoice will use this time zone to display time otherwise UTC will be used. Example \"America/New_York\"",
+            "type": "string",
+            "maxLength": 50
+          },
+          "isPrimary": {
+            "description": "True, if Organization is primary (available to set as true only, other organizations will become as isPrimary=false)",
+            "type": "boolean"
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
       },
       "PaymentCardMigration": {
         "type": "object",
@@ -17757,7 +17772,7 @@
             ]
           },
           "organizationId": {
-            "description": "Company ID",
+            "description": "Organization ID",
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
@@ -17814,7 +17829,7 @@
                   "$ref": "#/components/schemas/NotesLink"
                 },
                 {
-                  "$ref": "#/components/schemas/CompanyLink"
+                  "$ref": "#/components/schemas/OrganizationLink"
                 }
               ]
             }
@@ -18097,17 +18112,6 @@
         "description": "Checkout Page resource",
         "required": true
       },
-      "Company": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Company"
-            }
-          }
-        },
-        "description": "Company resource",
-        "required": true
-      },
       "CustomEvent": {
         "content": {
           "application/json": {
@@ -18194,6 +18198,17 @@
           }
         },
         "description": "OAuth2 credential resource",
+        "required": true
+      },
+      "Organization": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Organization"
+            }
+          }
+        },
+        "description": "Organization resource",
         "required": true
       },
       "RuleSet": {
