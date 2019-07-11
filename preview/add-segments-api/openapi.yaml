@@ -2909,10 +2909,10 @@ paths:
     get:
       tags:
         - Segments
-      summary: Retrieve a user's segments
+      summary: Retrieve a user's Segments
       operationId: getSegments
       description: |
-        Retrieve a user's UI segments
+        Retrieve a user's UI Segments
       parameters:
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionFilter'
@@ -2941,10 +2941,10 @@ paths:
     post:
       tags:
         - Segments
-      summary: Create a new UI segment
+      summary: Create a new UI Segment
       operationId: createSegment
       description: |
-        Create a new segment for oneself or to share with others within the
+        Create a new Segment for oneself or to share with others within the
         organization
       responses:
         '201':
@@ -2970,10 +2970,10 @@ paths:
     get:
       tags:
         - Segments
-      summary: Retrieve a specific segment
+      summary: Retrieve a specific Segment
       operationId: getSegment
       description: |
-        Retrieve a specific UI segment
+        Retrieve a specific UI Segment
       responses:
         '200':
           description: Segment was retrieved successfully
@@ -2999,10 +2999,10 @@ paths:
     patch:
       tags:
         - Segments
-      summary: Update a segment's visibility
+      summary: Update a Segment's visibility
       operationId: toggleSegmentsVisibility
       description: |
-        Toggle the visibility of the current segment for the authenticated user
+        Toggle the visibility of the current Segment for the authenticated user
       responses:
         '200':
           description: Segment was updated successfully
@@ -11328,7 +11328,7 @@ components:
         - isVisible
       properties:
         isVisible:
-          description: Toggle whether this segment is visible to the current user
+          description: Toggle whether this Segment is visible to the current user
           type: boolean
     Segment:
       type: object
@@ -11338,13 +11338,13 @@ components:
         - scope
       properties:
         id:
-          description: ID of current segment
+          description: ID of current Segment
           readOnly: true
           type: string
           allOf:
             - $ref: '#/components/schemas/ResourceId'
         owner:
-          description: Owner (creator) of segment
+          description: Owner (creator) of Segment
           readOnly: true
           type: object
           properties:
@@ -11362,7 +11362,7 @@ components:
             and consumed by the frontend. It includes such information as Segment name, UI settings, etc.
           type: object
         isVisible:
-          description: Toggle whether this segment is visible to the current user
+          description: Toggle whether this Segment is visible to the current user
           type: boolean
           readOnly: true
         userIds:
@@ -11379,7 +11379,7 @@ components:
           type: array
           uniqueItems: true
           description: |
-            A list of user's id and first and last names with whom this segment
+            A list of user's id and first and last names with whom this Segment
             is shared
           readOnly: true
           items:
@@ -11396,7 +11396,7 @@ components:
                 type: string
         scope:
           description: |
-            If `private`, then only the owner/creator can view this segment. If set
+            If `private`, then only the owner/creator can view this Segment. If set
             to `public`, then it's shared with anyone in the owner's organization.
             If set to `shared`, then it is only shared with specific users as specified
             in the `userIds` field

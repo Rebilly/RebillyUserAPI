@@ -4160,9 +4160,9 @@
         "tags": [
           "Segments"
         ],
-        "summary": "Retrieve a user's segments",
+        "summary": "Retrieve a user's Segments",
         "operationId": "getSegments",
-        "description": "Retrieve a user's UI segments\n",
+        "description": "Retrieve a user's UI Segments\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/collectionLimit"
@@ -4211,9 +4211,9 @@
         "tags": [
           "Segments"
         ],
-        "summary": "Create a new UI segment",
+        "summary": "Create a new UI Segment",
         "operationId": "createSegment",
-        "description": "Create a new segment for oneself or to share with others within the\norganization\n",
+        "description": "Create a new Segment for oneself or to share with others within the\norganization\n",
         "responses": {
           "201": {
             "description": "Segment was created successfully",
@@ -4255,9 +4255,9 @@
         "tags": [
           "Segments"
         ],
-        "summary": "Retrieve a specific segment",
+        "summary": "Retrieve a specific Segment",
         "operationId": "getSegment",
-        "description": "Retrieve a specific UI segment\n",
+        "description": "Retrieve a specific UI Segment\n",
         "responses": {
           "200": {
             "description": "Segment was retrieved successfully",
@@ -4298,9 +4298,9 @@
         "tags": [
           "Segments"
         ],
-        "summary": "Update a segment's visibility",
+        "summary": "Update a Segment's visibility",
         "operationId": "toggleSegmentsVisibility",
-        "description": "Toggle the visibility of the current segment for the authenticated user\n",
+        "description": "Toggle the visibility of the current Segment for the authenticated user\n",
         "responses": {
           "200": {
             "description": "Segment was updated successfully",
@@ -16822,7 +16822,7 @@
         ],
         "properties": {
           "isVisible": {
-            "description": "Toggle whether this segment is visible to the current user",
+            "description": "Toggle whether this Segment is visible to the current user",
             "type": "boolean"
           }
         }
@@ -16836,7 +16836,7 @@
         ],
         "properties": {
           "id": {
-            "description": "ID of current segment",
+            "description": "ID of current Segment",
             "readOnly": true,
             "type": "string",
             "allOf": [
@@ -16846,7 +16846,7 @@
             ]
           },
           "owner": {
-            "description": "Owner (creator) of segment",
+            "description": "Owner (creator) of Segment",
             "readOnly": true,
             "type": "object",
             "properties": {
@@ -16870,7 +16870,7 @@
             "type": "object"
           },
           "isVisible": {
-            "description": "Toggle whether this segment is visible to the current user",
+            "description": "Toggle whether this Segment is visible to the current user",
             "type": "boolean",
             "readOnly": true
           },
@@ -16891,7 +16891,7 @@
           "users": {
             "type": "array",
             "uniqueItems": true,
-            "description": "A list of user's id and first and last names with whom this segment\nis shared\n",
+            "description": "A list of user's id and first and last names with whom this Segment\nis shared\n",
             "readOnly": true,
             "items": {
               "type": "object",
@@ -16914,7 +16914,7 @@
             }
           },
           "scope": {
-            "description": "If `private`, then only the owner/creator can view this segment. If set\nto `public`, then it's shared with anyone in the owner's organization.\nIf set to `shared`, then it is only shared with specific users as specified\nin the `userIds` field\n",
+            "description": "If `private`, then only the owner/creator can view this Segment. If set\nto `public`, then it's shared with anyone in the owner's organization.\nIf set to `shared`, then it is only shared with specific users as specified\nin the `userIds` field\n",
             "type": "string",
             "enum": [
               "private",
