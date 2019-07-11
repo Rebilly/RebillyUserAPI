@@ -11328,6 +11328,7 @@ components:
         isVisible:
           description: Toggle whether this segment is visible to the current user
           type: boolean
+          readOnly: true
         userIds:
           type: array
           uniqueItems: true
