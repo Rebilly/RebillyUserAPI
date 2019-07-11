@@ -4161,6 +4161,7 @@
           "Segments"
         ],
         "summary": "Retrieve a user's segments",
+        "operationId": "getSegments",
         "description": "Retrieve a user's UI segments\n",
         "parameters": [
           {
@@ -4211,6 +4212,7 @@
           "Segments"
         ],
         "summary": "Create a new UI segment",
+        "operationId": "createSegment",
         "description": "Create a new segment for oneself or to share with others within the\norganization\n",
         "responses": {
           "201": {
@@ -4251,6 +4253,7 @@
           "Segments"
         ],
         "summary": "Retrieve a specific segment",
+        "operationId": "getSegment",
         "description": "Retrieve a specific UI segment\n",
         "responses": {
           "200": {
@@ -4290,6 +4293,7 @@
           "Segments"
         ],
         "summary": "Update a segment's visibility",
+        "operationId": "toggleSegmentsVisibility",
         "description": "Toggle the visibility of the current segment for the authenticated user\n",
         "responses": {
           "200": {

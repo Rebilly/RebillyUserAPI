@@ -2910,6 +2910,7 @@ paths:
       tags:
         - Segments
       summary: Retrieve a user's segments
+      operationId: getSegments
       description: |
         Retrieve a user's UI segments
       parameters:
@@ -2941,6 +2942,7 @@ paths:
       tags:
         - Segments
       summary: Create a new UI segment
+      operationId: createSegment
       description: |
         Create a new segment for oneself or to share with others within the
         organization
@@ -2967,6 +2969,7 @@ paths:
       tags:
         - Segments
       summary: Retrieve a specific segment
+      operationId: getSegment
       description: |
         Retrieve a specific UI segment
       responses:
@@ -2993,6 +2996,7 @@ paths:
       tags:
         - Segments
       summary: Update a segment's visibility
+      operationId: toggleSegmentsVisibility
       description: |
         Toggle the visibility of the current segment for the authenticated user
       responses:
