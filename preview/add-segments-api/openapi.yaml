@@ -3045,7 +3045,7 @@ paths:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '403':
           description: |
-            This will be thrown if the user is not the owner.
+            This will be sent if the user is not the owner.
           content:
             application/json:
               schema:

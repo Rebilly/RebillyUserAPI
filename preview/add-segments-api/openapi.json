@@ -4363,7 +4363,7 @@
             }
           },
           "403": {
-            "description": "This will be thrown if the user is not the owner.\n",
+            "description": "This will be sent if the user is not the owner.\n",
             "content": {
               "application/json": {
                 "schema": {
