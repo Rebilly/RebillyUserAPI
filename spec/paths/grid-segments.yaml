@@ -10,7 +10,7 @@ get:
     - $ref: '#/components/parameters/collectionFilter'
   responses:
     200:
-      description: Segment was retrieved successfully
+      description: Segments were retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -52,5 +52,7 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/Segment'
+    422:
+      $ref: '#/components/responses/InvalidDataError'
   requestBody:
     $ref: '#/components/requestBodies/Segment'

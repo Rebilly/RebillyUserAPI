@@ -27,6 +27,8 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/Segment'
+    404:
+      $ref: '#/components/responses/NotFound'
 patch:
   tags:
     - Segments
@@ -48,8 +50,38 @@ patch:
         application/json:
           schema:
             $ref: '#/components/schemas/Segment'
+    404:
+      $ref: '#/components/responses/NotFound'
+    422:
+      $ref: '#/components/responses/InvalidDataError'
   requestBody:
     content:
       application/json:
         schema:
           $ref: '#/components/schemas/PatchSegment'
+delete:
+  tags:
+    - Segments
+  summary: Delete a Segment
+  operationId: deleteSegment
+  description: |
+    Delete a Segment. This will also remove all shares. Only the owner may perform this.
+  responses:
+    204:
+      description: Segment was deleted successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+    403:
+      description: |
+        This will be thrown if the user is not the owner.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    404:
+      $ref: '#/components/responses/NotFound'
