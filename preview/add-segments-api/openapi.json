@@ -4315,7 +4315,13 @@
           }
         },
         "requestBody": {
-          "$ref": "#/components/requestBodies/Segment"
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchSegment"
+              }
+            }
+          }
         }
       }
     },
@@ -16756,6 +16762,18 @@
           }
         }
       },
+      "PatchSegment": {
+        "type": "object",
+        "required": [
+          "isVisible"
+        ],
+        "properties": {
+          "isVisible": {
+            "description": "Toggle whether this segment is visible to the current user",
+            "type": "boolean"
+          }
+        }
+      },
       "Segment": {
         "type": "object",
         "required": [
@@ -16764,6 +16782,16 @@
           "scope"
         ],
         "properties": {
+          "id": {
+            "description": "ID of current segment",
+            "readOnly": true,
+            "type": "string",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
           "owner": {
             "description": "Owner (creator) of segment",
             "readOnly": true,

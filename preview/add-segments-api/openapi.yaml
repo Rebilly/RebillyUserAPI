@@ -3010,7 +3010,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Segment'
       requestBody:
-        $ref: '#/components/requestBodies/Segment'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchSegment'
   /integrations:
     get:
       tags:
@@ -11281,6 +11284,14 @@ components:
             - immediately
             - day-of-month
             - day-of-week
+    PatchSegment:
+      type: object
+      required:
+        - isVisible
+      properties:
+        isVisible:
+          description: Toggle whether this segment is visible to the current user
+          type: boolean
     Segment:
       type: object
       required:
@@ -11288,6 +11299,12 @@ components:
         - owner
         - scope
       properties:
+        id:
+          description: ID of current segment
+          readOnly: true
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/ResourceId'
         owner:
           description: Owner (creator) of segment
           readOnly: true
