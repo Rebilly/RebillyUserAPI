@@ -25,10 +25,16 @@ properties:
     type: boolean
   userIds:
     type: array
+    uniqueItems: true
     description: |
       A list of user id's with whom to share, used if scope is set to `shared`
+    items:
+      description: User ID
+      allOf:
+        - $ref: '#/components/schemas/ResourceId'
   users:
     type: array
+    uniqueItems: true
     description: |
       A list of user's id and first and last names with whom this segment
       is shared
