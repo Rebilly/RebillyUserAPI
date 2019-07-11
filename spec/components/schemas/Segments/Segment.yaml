@@ -4,6 +4,12 @@ required:
   - owner
   - scope
 properties:
+  id:
+    description: ID of current segment
+    readOnly: true
+    type: string
+    allOf:
+      - $ref: '#/components/schemas/ResourceId'
   owner:
     description: Owner (creator) of segment
     readOnly: true

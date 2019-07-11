@@ -47,4 +47,7 @@ patch:
           schema:
             $ref: '#/components/schemas/Segment'
   requestBody:
-    $ref: '#/components/requestBodies/Segment'
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PatchSegment'
