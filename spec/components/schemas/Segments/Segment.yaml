@@ -24,7 +24,9 @@ properties:
         description: First and last name
         type: string
   data:
-    description: An object containing schema to set up the UI for the segment
+    description: |
+      An object containing schema to set up the UI for the segment. This schema is built
+      and consumed by the frontend. It includes such information as Segment name, UI settings, etc.
     type: object
   isVisible:
     description: Toggle whether this segment is visible to the current user
