@@ -4,6 +4,7 @@ get:
   tags:
     - Segments
   summary: Retrieve a specific segment
+  operationId: getSegment
   description: |
     Retrieve a specific UI segment
   responses:
@@ -30,6 +31,7 @@ patch:
   tags:
     - Segments
   summary: Update a segment's visibility
+  operationId: toggleSegmentsVisibility
   description: |
     Toggle the visibility of the current segment for the authenticated user
   responses:

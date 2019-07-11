@@ -2,6 +2,7 @@ get:
   tags:
     - Segments
   summary: Retrieve a user's segments
+  operationId: getSegments
   description: |
     Retrieve a user's UI segments
   parameters:
@@ -33,6 +34,7 @@ post:
   tags:
     - Segments
   summary: Create a new UI segment
+  operationId: createSegment
   description: |
     Create a new segment for oneself or to share with others within the
     organization
