@@ -1,4 +1,5 @@
 get:
+  operationId: getCompanies
   tags:
     - Organizations
   summary: Retrieve a list of organizations
@@ -34,6 +35,7 @@ get:
 post:
   tags:
     - Organizations
+  operationId: createCompany
   summary: Create a company
   description: |
     Create a company

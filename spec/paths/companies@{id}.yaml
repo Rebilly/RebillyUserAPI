@@ -1,6 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/resourceId'
 get:
+  operationId: getCompany
   tags:
     - Organizations
   summary: Retrieve a organization
@@ -70,6 +71,7 @@ put:
     422:
       $ref: '#/components/responses/InvalidDataError'
 delete:
+  operationId: deleteCompany
   tags:
     - Organizations
   summary: Delete a organization

@@ -3,7 +3,7 @@ $organizationForm->setName('Test Organization');
 $organizationForm->setCountry('US');
 
 try {
-    $organization = $client->organizations()->create($organizationForm);
+    $organization = $client->companies()->update('organizationId', $organizationForm);
 } catch (UnprocessableEntityException $e) {
     echo $e->getMessage();
 }
