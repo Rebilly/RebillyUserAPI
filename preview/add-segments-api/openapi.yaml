@@ -11310,6 +11310,7 @@ components:
         userIds:
           type: array
           uniqueItems: true
+          writeOnly: true
           description: |
             A list of user id's with whom to share, used if scope is set to `shared`
           items:
