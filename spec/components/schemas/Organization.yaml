@@ -4,44 +4,44 @@ required:
   - country
 properties:
   id:
-    description: The company identifier string
+    description: The organization identifier string
     readOnly: true
     allOf:
       - $ref: "#/components/schemas/ResourceId"
   createdTime:
-    description: The company created time
+    description: The organization created time
     allOf:
       - $ref: "#/components/schemas/ServerTimestamp"
   updatedTime:
-    description: The company updated time
+    description: The organization updated time
     allOf:
       - $ref: "#/components/schemas/ServerTimestamp"
   name:
-    description: The company name
+    description: The organization name
     type: string
     maxLength: 60
   address:
-    description: The company street address
+    description: The organization street address
     type: string
     maxLength: 60
   address2:
-    description: The company street address
+    description: The organization street address
     type: string
     maxLength: 60
   city:
-    description: The company city
+    description: The organization city
     type: string
     maxLength: 45
   region:
-    description: The company region (state)
+    description: The organization region (state)
     type: string
     maxLength: 45
   country:
-    description: The company country ISO Alpha-2 code
+    description: The organization country ISO Alpha-2 code
     type: string
     pattern: "^[A-Z]{2}$"
   postalCode:
-    description: The company postal code
+    description: The organization postal code
     type: string
     maxLength: 10
   phoneNumbers:
@@ -49,7 +49,7 @@ properties:
   emails:
     $ref: "#/components/schemas/ContactEmails"
   taxDescriptor:
-    description: The company's tax label. This will be displayed on the invoice.
+    description: The organization's tax label. This will be displayed on the invoice.
     type: string
     maxLength: 255
   invoiceTimeZone:
@@ -57,7 +57,7 @@ properties:
     type: string
     maxLength: 50
   isPrimary:
-    description: True, if company is primary (available to set as true only, other companies will become as isPrimary=false)
+    description: True, if Organization is primary (available to set as true only, other organizations will become as isPrimary=false)
     type: boolean
   _links:
     type: array

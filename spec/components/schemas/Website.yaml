@@ -12,7 +12,7 @@ properties:
     allOf:
       - $ref: "#/components/schemas/ResourceId"
   organizationId:
-    description: Company ID
+    description: Organization ID
     allOf:
     - $ref: "#/components/schemas/ResourceId"
   name:
@@ -47,4 +47,4 @@ properties:
       anyOf:
       - $ref: "#/components/schemas/SelfLink"
       - $ref: "#/components/schemas/NotesLink"
-      - $ref: "#/components/schemas/CompanyLink"
+      - $ref: "#/components/schemas/OrganizationLink"

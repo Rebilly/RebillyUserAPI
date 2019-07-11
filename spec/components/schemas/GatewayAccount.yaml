@@ -49,7 +49,7 @@ properties:
     description: The gateway account's city field (also known as line 2 descriptor)
     type: string
   organizationId:
-    description: Company ID
+    description: Organization ID
     allOf:
       - $ref: "#/components/schemas/ResourceId"
   websites:
