@@ -2,13 +2,13 @@ parameters:
   - $ref: '#/components/parameters/resourceId'
 get:
   tags:
-    - Companies
-  summary: Retrieve a company
+    - Organizations
+  summary: Retrieve a organization
   description: |
-    Retrieve a company with specified identifier string
+    Retrieve a organization with specified identifier string
   responses:
     200:
-      description: Company was retrieved successfully
+      description: Organization was retrieved successfully
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -19,22 +19,22 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Company'
+            $ref: '#/components/schemas/Organization'
     401:
       $ref: '#/components/responses/AccessForbidden'
     404:
       $ref: '#/components/responses/NotFound'
 put:
   tags:
-    - Companies
-  summary: Create or update a company with predefined ID
+    - Organizations
+  summary: Create or update a organization with predefined ID
   description: |
-    Create or update a company with predefined identifier string
+    Create or update a organization with predefined identifier string
   requestBody:
-    $ref: '#/components/requestBodies/Company'
+    $ref: '#/components/requestBodies/Organization'
   responses:
     200:
-      description: Company was updated
+      description: Organization was updated
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -45,9 +45,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Company'
+            $ref: '#/components/schemas/Organization'
     201:
-      description: Company was created
+      description: Organization was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -58,11 +58,11 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Company'
+            $ref: '#/components/schemas/Organization'
     401:
       $ref: '#/components/responses/AccessForbidden'
     409:
-      description: The similar company already exists
+      description: The similar organization already exists
       content:
         application/json:
           schema:
@@ -71,13 +71,13 @@ put:
       $ref: '#/components/responses/InvalidDataError'
 delete:
   tags:
-    - Companies
-  summary: Delete a company
+    - Organizations
+  summary: Delete a organization
   description: |
-    Delete a company with predefined identifier string
+    Delete a organization with predefined identifier string
   responses:
     204:
-      description: Company was deleted
+      description: Organization was deleted
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -90,7 +90,7 @@ delete:
     404:
       $ref: '#/components/responses/NotFound'
     409:
-      description: Company has related resources and cannot be deleted
+      description: Organization has related resources and cannot be deleted
       content:
         application/json:
           schema:
