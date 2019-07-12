@@ -115,6 +115,10 @@
     {
       "name": "Webhooks",
       "description": "Webhooks are designed to notify your systems when certain/all registered events happen in near real-time.\nThey allow you to collect information about those events. Rebilly can send these information via\nPOST to an URL of your choice.\n"
+    },
+    {
+      "name": "Segments",
+      "description": "Segments are grid UI settings that can be shared with other users. They are like a custom view.\nFor example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with\nothers in their organization.\n"
     }
   ],
   "x-tagGroups": [
@@ -166,6 +170,7 @@
         "Payment Cards",
         "Notes",
         "Organizations",
+        "Segments",
         "Status",
         "Tracking",
         "Websites"
@@ -4146,6 +4151,229 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          }
+        }
+      }
+    },
+    "/grid-segments": {
+      "get": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Retrieve a user's Segments",
+        "operationId": "getSegments",
+        "description": "Retrieve a user's UI Segments\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionFilter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Segments were retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit",
+                "Rate-Limit-Remaining": {
+                  "$ref": "#/components/headers/Rate-Limit-Remaining"
+                },
+                "Rate-Limit-Reset": {
+                  "$ref": "#/components/headers/Rate-Limit-Reset"
+                }
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Segment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Create a new UI Segment",
+        "operationId": "createSegment",
+        "description": "Create a new Segment for oneself or to share with others within the\norganization\n",
+        "responses": {
+          "201": {
+            "description": "Segment was created successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit",
+                "Rate-Limit-Remaining": {
+                  "$ref": "#/components/headers/Rate-Limit-Remaining"
+                },
+                "Rate-Limit-Reset": {
+                  "$ref": "#/components/headers/Rate-Limit-Reset"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Segment"
+        }
+      }
+    },
+    "/grid-segments/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Retrieve a specific Segment",
+        "operationId": "getSegment",
+        "description": "Retrieve a specific UI Segment\n",
+        "responses": {
+          "200": {
+            "description": "Segment was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Update a Segment's visibility",
+        "operationId": "toggleSegmentsVisibility",
+        "description": "Toggle the visibility of the current Segment for the authenticated user\n",
+        "responses": {
+          "200": {
+            "description": "Segment was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchSegment"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Delete a Segment",
+        "operationId": "deleteSegment",
+        "description": "Delete a Segment. This will also remove all shares. Only the owner may perform this.\n",
+        "responses": {
+          "204": {
+            "description": "Segment was deleted successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "403": {
+            "description": "This will be sent if the user is not the owner.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -16587,6 +16815,115 @@
           }
         }
       },
+      "PatchSegment": {
+        "type": "object",
+        "required": [
+          "isVisible"
+        ],
+        "properties": {
+          "isVisible": {
+            "description": "Toggle whether this Segment is visible to the current user",
+            "type": "boolean"
+          }
+        }
+      },
+      "Segment": {
+        "type": "object",
+        "required": [
+          "data",
+          "owner",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "description": "ID of current Segment",
+            "readOnly": true,
+            "type": "string",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "owner": {
+            "description": "Owner (creator) of Segment",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "User ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "First and last name",
+                "type": "string"
+              }
+            }
+          },
+          "data": {
+            "description": "An object containing schema to set up the UI for the segment. This schema is built\nand consumed by the frontend. It includes such information as Segment name, UI settings, etc.\n",
+            "type": "object"
+          },
+          "isVisible": {
+            "description": "Toggle whether this Segment is visible to the current user",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "userIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "writeOnly": true,
+            "description": "A list of user id's with whom to share, used if scope is set to `shared`\n",
+            "items": {
+              "description": "User ID",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "users": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "A list of user's id and first and last names with whom this Segment\nis shared\n",
+            "readOnly": true,
+            "items": {
+              "type": "object",
+              "description": "User person",
+              "properties": {
+                "id": {
+                  "description": "User ID",
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ResourceId"
+                    }
+                  ]
+                },
+                "name": {
+                  "description": "First and last name",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "scope": {
+            "description": "If `private`, then only the owner/creator can view this Segment. If set\nto `public`, then it's shared with anyone in the owner's organization.\nIf set to `shared`, then it is only shared with specific users as specified\nin the `userIds` field\n",
+            "type": "string",
+            "enum": [
+              "private",
+              "public",
+              "shared"
+            ]
+          }
+        }
+      },
       "SendGridCredential": {
         "type": "object",
         "properties": {
@@ -18216,6 +18553,17 @@
           }
         },
         "description": "Set of rules resource",
+        "required": true
+      },
+      "Segment": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            }
+          }
+        },
+        "description": "Segment resource",
         "required": true
       },
       "UpdatePassword": {
