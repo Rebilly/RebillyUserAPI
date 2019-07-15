@@ -10724,14 +10724,6 @@
               "settings": {
                 "type": "object",
                 "properties": {
-                  "payoutMethod": {
-                    "type": "string",
-                    "description": "Payout method",
-                    "enum": [
-                      "e-transfer",
-                      "ACH"
-                    ]
-                  },
                   "sandbox": {
                     "type": "boolean",
                     "description": "True if gateway account is in sandbox mode",
@@ -10739,7 +10731,6 @@
                   }
                 },
                 "required": [
-                  "payoutMethod",
                   "sandbox"
                 ]
               }
