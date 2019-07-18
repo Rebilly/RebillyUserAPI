@@ -13079,8 +13079,10 @@
             "format": "uri"
           },
           "headers": {
-            "type": "object",
-            "description": "Map of elements with header name - header value association"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookHeader"
+            }
           },
           "credentialHash": {
             "type": "string",
