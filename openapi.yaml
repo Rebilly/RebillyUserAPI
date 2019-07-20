@@ -11908,6 +11908,20 @@ components:
             isSupport:
               description: If user from support
               type: boolean
+        relatedIds:
+          type: object
+          description: The IDs of related resources
+          readOnly: true
+          properties:
+            customerId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            transactionId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            tokenId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
         duration:
           type: integer
           description: Request duration in milliseconds
