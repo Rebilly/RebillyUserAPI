@@ -10476,11 +10476,7 @@
                     "description": "eMerchantPay password for Genesis platform",
                     "format": "password"
                   }
-                },
-                "required": [
-                  "clientId",
-                  "apiKey"
-                ]
+                }
               },
               "settings": {
                 "type": "object",

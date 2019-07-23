@@ -7240,9 +7240,6 @@ components:
                   type: string
                   description: eMerchantPay password for Genesis platform
                   format: password
-              required:
-                - clientId
-                - apiKey
             settings:
               type: object
               description: eMerchantPay settings object
