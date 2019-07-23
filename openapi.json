@@ -12969,6 +12969,40 @@
           }
         ]
       },
+      "Zotapay": {
+        "description": "Zotapay Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "endpointId": {
+                    "type": "string",
+                    "description": "Zotapay's endpoint ID"
+                  },
+                  "controlKey": {
+                    "type": "string",
+                    "description": "Zotapay's merchant control key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "endpointId",
+                  "controlKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "GatewayAccountDowntimeSchedule": {
         "type": "object",
         "required": [
