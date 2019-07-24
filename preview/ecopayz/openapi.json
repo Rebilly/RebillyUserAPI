@@ -57,8 +57,8 @@
       "description": "Lists contain sets of values and may be referenced within Rules criteria.\n\nList order may not be maintained and duplicates may be removed.\n\nYou may grant permissions to edit Lists to different people than those who can edit Rules.\nIt may be useful if your workflow involves frequent updates to value sets used in criteria.\n"
     },
     {
-      "name": "Migrate payment cards",
-      "description": "Migrate payment cards from one gateway to another.\n"
+      "name": "Payment Cards",
+      "description": "Payment cards are a type of payment instrument used for credit and debit card sales.\n"
     },
     {
       "name": "Notes",
@@ -97,10 +97,6 @@
       "description": "Check the status of the Rebilly API (no authentication required).\n"
     },
     {
-      "name": "Taxes",
-      "description": "Proposed: You can map a product to a tax category.  The tax category is used by\ntax providers to calculate taxes for invoices.\n"
-    },
-    {
       "name": "Tracking",
       "description": "Tracking is a layer for accessing all the activity (API requests,\nsubscriptions, webhooks, events, etc.), thus providing easier\ndebugging and issues auditing.\n"
     },
@@ -119,6 +115,10 @@
     {
       "name": "Webhooks",
       "description": "Webhooks are designed to notify your systems when certain/all registered events happen in near real-time.\nThey allow you to collect information about those events. Rebilly can send these information via\nPOST to an URL of your choice.\n"
+    },
+    {
+      "name": "Segments",
+      "description": "Segments are grid UI settings that can be shared with other users. They are like a custom view.\nFor example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with\nothers in their organization.\n"
     }
   ],
   "x-tagGroups": [
@@ -167,11 +167,11 @@
         "Checkout Pages",
         "Gateway Accounts",
         "Layouts",
-        "Migrate payment cards",
+        "Payment Cards",
         "Notes",
         "Organizations",
+        "Segments",
         "Status",
-        "Taxes",
         "Tracking",
         "Websites"
       ]
@@ -916,6 +916,56 @@
             "$ref": "#/components/responses/NotFound"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "Email Credentials"
+        ],
+        "summary": "Update an AWS SES credential",
+        "description": "Update an AWS SES credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "AWS SES credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "AWS SES credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SESCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        }
       }
     },
     "/credential-hashes/emails": {
@@ -1043,6 +1093,56 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Email Credentials"
+        ],
+        "summary": "Update an email credential",
+        "description": "Update an email credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "Email credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Email credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmtpCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -1174,6 +1274,56 @@
             "$ref": "#/components/responses/NotFound"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "Email Credentials"
+        ],
+        "summary": "Update a mailgun credential",
+        "description": "Update a mailgun credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "Mailgun credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Mailgun credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MailgunCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        }
       }
     },
     "/credential-hashes/oauth2": {
@@ -1253,43 +1403,6 @@
               }
             }
           },
-          "303": {
-            "description": "An existent OAuth2 credential was retrieved",
-            "headers": {
-              "Location": {
-                "description": "The location of the related resource",
-                "schema": {
-                  "type": "string",
-                  "format": "url"
-                }
-              },
-              "Rate-Limit-Limit": {
-                "description": "The number of allowed requests in the current period",
-                "schema": {
-                  "type": "integer"
-                }
-              },
-              "Rate-Limit-Remaining": {
-                "description": "The number of remaining requests in the current period",
-                "schema": {
-                  "type": "integer"
-                }
-              },
-              "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuth2Credential"
-                }
-              }
-            }
-          },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
           },
@@ -1345,8 +1458,8 @@
         "tags": [
           "Webhook Credentials"
         ],
-        "summary": "Update pending OAuth2 credential",
-        "description": "Update pending OAuth2 credential.\n",
+        "summary": "Update an OAuth2 credential with specified token identifier string",
+        "description": "Update an OAuth2 credential with specified token identifier string\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/OAuth2Credential"
         },
@@ -1375,11 +1488,66 @@
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
           },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
           "409": {
             "$ref": "#/components/responses/Conflict"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          }
+        }
+      }
+    },
+    "/credential-hashes/oauth2/{hash}/items": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/hash"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Webhook Credentials"
+        ],
+        "summary": "Retrieve a list of root items available for specified credential",
+        "description": "Retrieve a list of root items available for specified credential\n",
+        "responses": {
+          "200": {
+            "description": "A list of root items available for specified credential was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GoogleSpreadsheet"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
           }
         }
       }
@@ -1511,6 +1679,56 @@
             "$ref": "#/components/responses/NotFound"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "Email Credentials"
+        ],
+        "summary": "Update a Postmark credential",
+        "description": "Update a Postmark credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "Postmark credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Postmark credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostmarkCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        }
       }
     },
     "/credential-hashes/sendgrid": {
@@ -1640,6 +1858,56 @@
             "$ref": "#/components/responses/NotFound"
           }
         }
+      },
+      "patch": {
+        "tags": [
+          "Email Credentials"
+        ],
+        "summary": "Update a SendGrid credential",
+        "description": "Update a SendGrid credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "SendGrid credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "SendGrid credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendGridCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        }
       }
     },
     "/credential-hashes/webhooks": {
@@ -1767,6 +2035,56 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Webhook Credentials"
+        ],
+        "summary": "Update a webhook credential",
+        "description": "Update a webhook credential with specified token identifier string\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchCredential"
+              }
+            }
+          },
+          "description": "Webhook credential resource",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook credential was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookCredential"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -3259,6 +3577,49 @@
         ]
       }
     },
+    "/gateway-accounts/{id}/close": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Gateway Accounts"
+        ],
+        "summary": "Close a Gateway Account",
+        "description": "Close a gateway account with specified identifier string.\nAlso known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able\nto process transactions. The \"status\" attribute will be set to \"closed\".\n",
+        "responses": {
+          "201": {
+            "description": "Closed successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayAccount"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/gateway-accounts/{id}/disable": {
       "parameters": [
         {
@@ -3794,6 +4155,285 @@
         }
       }
     },
+    "/grid-segments": {
+      "get": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Retrieve a user's Segments",
+        "operationId": "getSegments",
+        "description": "Retrieve a user's UI Segments\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionFilter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Segments were retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit",
+                "Rate-Limit-Remaining": {
+                  "$ref": "#/components/headers/Rate-Limit-Remaining"
+                },
+                "Rate-Limit-Reset": {
+                  "$ref": "#/components/headers/Rate-Limit-Reset"
+                }
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Segment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Create a new UI Segment",
+        "operationId": "createSegment",
+        "description": "Create a new Segment for oneself or to share with others within the\norganization\n",
+        "responses": {
+          "201": {
+            "description": "Segment was created successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit",
+                "Rate-Limit-Remaining": {
+                  "$ref": "#/components/headers/Rate-Limit-Remaining"
+                },
+                "Rate-Limit-Reset": {
+                  "$ref": "#/components/headers/Rate-Limit-Reset"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Segment"
+        }
+      }
+    },
+    "/grid-segments/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Retrieve a specific Segment",
+        "operationId": "getSegment",
+        "description": "Retrieve a specific UI Segment\n",
+        "responses": {
+          "200": {
+            "description": "Segment was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Update a Segment's visibility",
+        "operationId": "toggleSegmentsVisibility",
+        "description": "Toggle the visibility of the current Segment for the authenticated user\n",
+        "responses": {
+          "200": {
+            "description": "Segment was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchSegment"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Update a Segment",
+        "operationId": "updateSegment",
+        "description": "Update a Segment\n",
+        "responses": {
+          "200": {
+            "description": "Segment was updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Segment"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This will be sent if the user is not the owner.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Segment"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Segments"
+        ],
+        "summary": "Delete a Segment",
+        "operationId": "deleteSegment",
+        "description": "Delete a Segment. This will also remove all shares. Only the owner may perform this.\n",
+        "responses": {
+          "204": {
+            "description": "Segment was deleted successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "403": {
+            "description": "This will be sent if the user is not the owner.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/integrations": {
       "get": {
         "tags": [
@@ -3837,6 +4477,49 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
+    "/integrations/{label}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/integrationLabel"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Retrieve an integration for specific label",
+        "description": "Retrieve an integration for specific label\n",
+        "responses": {
+          "200": {
+            "description": "An integration with specific label was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Integration"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -4932,12 +5615,75 @@
         }
       }
     },
+    "/payment-cards-bank-names": {
+      "get": {
+        "tags": [
+          "Payment Cards"
+        ],
+        "summary": "Retrieve a list of payment card issuing bank names",
+        "operationId": "getBankNames",
+        "description": "Retrieve a list of payment card issuing bank names\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionQuery"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of payment card issuing bank names was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Bank Name",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
     "/payment-cards-migrations": {
       "post": {
         "tags": [
-          "Migrate payment cards"
+          "Payment Cards"
         ],
         "summary": "Migrate payment cards to another gateway account",
+        "operationId": "migratePaymentCards",
         "description": "Migrate payment cards to another gateway account\n",
         "requestBody": {
           "content": {
@@ -5702,53 +6448,6 @@
         }
       }
     },
-    "/tax-categories": {
-      "get": {
-        "tags": [
-          "Taxes"
-        ],
-        "summary": "Retrieve a list of tax categories",
-        "description": "Retrieve a list of tax categories\n",
-        "responses": {
-          "200": {
-            "description": "A list of tax categories was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TaxCategory"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
     "/tracking/api": {
       "get": {
         "tags": [
@@ -6138,6 +6837,41 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
+    "/tracking/webhooks/{id}/resend": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Tracking"
+        ],
+        "summary": "Schedules webhook resend attempt for specified webhook tracking.",
+        "responses": {
+          "204": {
+            "description": "Webhook resend attempt was scheduled",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -7272,7 +8006,9 @@
           "B",
           "CA",
           "SB",
-          "BL"
+          "BL",
+          "NB",
+          "UI"
         ]
       },
       "CheckoutPage": {
@@ -7644,19 +8380,6 @@
           }
         }
       },
-      "none": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AmountAdjustment"
-          },
-          {
-            "$ref": "#/components/schemas/SmtpAuthorization"
-          },
-          {
-            "$ref": "#/components/schemas/WebhookAuthorization"
-          }
-        ]
-      },
       "ContactEmails": {
         "description": "The list of emails",
         "type": "array",
@@ -7764,6 +8487,50 @@
               "description": "True if phone is primary",
               "type": "boolean"
             }
+          }
+        }
+      },
+      "Credential": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          }
+        }
+      },
+      "PatchCredential": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "deactivated"
+            ]
           }
         }
       },
@@ -8058,7 +8825,10 @@
       "SmtpAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/SmtpAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -8103,18 +8873,37 @@
           }
         ]
       },
+      "SmtpAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SmtpAuthorization"
+          }
+        ]
+      },
       "SmtpCredential": {
         "type": "object",
-        "description": "SMTP Credential",
-        "required": [
-          "host"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -8151,7 +8940,11 @@
               "$ref": "#/components/schemas/SelfLink"
             }
           }
-        }
+        },
+        "description": "SMTP Credential",
+        "required": [
+          "host"
+        ]
       },
       "UserPasswordAuthorization": {
         "type": "object",
@@ -8403,6 +9196,7 @@
           "transaction-process-requested",
           "risk-score-changed",
           "transaction-discrepancy-found",
+          "transaction-amount-discrepancy-found",
           "renewal-invoice-payment-declined"
         ]
       },
@@ -8449,7 +9243,8 @@
             "enum": [
               "active",
               "inactive",
-              "pending"
+              "pending",
+              "closed"
             ]
           },
           "gatewayName": {
@@ -8467,7 +9262,7 @@
           "dccMarkup": {
             "description": "Dynamic currency conversion markup in basis points",
             "type": "integer",
-            "minimum": 1,
+            "minimum": -10000,
             "maximum": 10000
           },
           "dccForceCurrency": {
@@ -8520,7 +9315,7 @@
             "type": "integer",
             "default": 3600,
             "minimum": 300,
-            "maximum": 1296000
+            "maximum": 16777215
           },
           "threeDSecure": {
             "description": "True, if Gateway Account allows 3DSecure",
@@ -8544,22 +9339,7 @@
             "description": "Accepted payment card brands",
             "type": "array",
             "items": {
-              "type": "string",
-              "enum": [
-                "Visa",
-                "MasterCard",
-                "American Express",
-                "Discover",
-                "Maestro",
-                "Solo",
-                "Electron",
-                "JCB",
-                "Voyager",
-                "Diners Club",
-                "Switch",
-                "Laser",
-                "China Unionpay"
-              ]
+              "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/payment-instruments/payment-card-brands.json"
             }
           },
           "isDown": {
@@ -8581,6 +9361,19 @@
                 "$ref": "#/components/schemas/Condition"
               }
             ]
+          },
+          "timeout": {
+            "description": "Gateway Account request timeout in seconds",
+            "type": "integer",
+            "nullable": true,
+            "minimum": 10,
+            "maximum": 120
+          },
+          "token": {
+            "description": "Gateway Account token",
+            "type": "string",
+            "readOnly": true,
+            "example": "TwiX3f92k4AiBE27BzTbQ38hHjicBz_w"
           },
           "createdTime": {
             "description": "Gateway Account created time",
@@ -9131,6 +9924,41 @@
           }
         ]
       },
+      "CASHlib": {
+        "description": "CASHlib config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "CASHlib credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "CASHlib API Key",
+                    "format": "password"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "description": "CASHlib merchant id"
+                  }
+                },
+                "required": [
+                  "apiKey",
+                  "merchantId"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "CashToCode": {
         "description": "CashToCode config",
         "allOf": [
@@ -9532,6 +10360,25 @@
                   "merchantAccountNumber",
                   "merchantPassword"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "ecoPayz settings object",
+                "properties": {
+                  "validCurrency": {
+                    "type": "string",
+                    "description": "Three letter currency code",
+                    "enum": [
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "USD"
+                    ]
+                  }
+                },
+                "required": [
+                  "validCurrency"
+                ]
               }
             }
           }
@@ -9634,12 +10481,35 @@
                     "type": "string",
                     "description": "eMerchantPay Gateway api key",
                     "format": "password"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "eMerchantPay username for Genesis platform"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "eMerchantPay token for Genesis platform"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "eMerchantPay password for Genesis platform",
+                    "format": "password"
                   }
-                },
-                "required": [
-                  "clientId",
-                  "apiKey"
-                ]
+                }
+              },
+              "settings": {
+                "type": "object",
+                "description": "eMerchantPay settings object",
+                "properties": {
+                  "platform": {
+                    "type": "string",
+                    "description": "eMerchantPay platform to process payment. default to IPG",
+                    "enum": [
+                      "IPG",
+                      "Genesis"
+                    ]
+                  }
+                }
               },
               "mpi": {
                 "$ref": "#/components/schemas/eMerchantPayMpis"
@@ -9851,6 +10721,69 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/GETMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Gigadat": {
+        "description": "Gigadat config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Gigadat credentials object",
+                "properties": {
+                  "campaignId": {
+                    "type": "string",
+                    "description": "Gigadat campaign ID"
+                  },
+                  "accessToken": {
+                    "type": "string",
+                    "description": "Gigadat access token",
+                    "format": "password"
+                  },
+                  "securityToken": {
+                    "type": "string",
+                    "description": "Gigadat security token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "campaignId",
+                  "accessToken",
+                  "securityToken"
+                ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "payoutMethod": {
+                    "type": "string",
+                    "description": "Payout method",
+                    "enum": [
+                      "e-transfer",
+                      "ACH"
+                    ]
+                  },
+                  "sandbox": {
+                    "type": "boolean",
+                    "description": "True if gateway account is in sandbox mode",
+                    "default": false
+                  }
+                },
+                "required": [
+                  "payoutMethod",
+                  "sandbox"
+                ]
               }
             }
           }
@@ -10072,6 +11005,16 @@
                   "digestPassword"
                 ]
               },
+              "settings": {
+                "type": "object",
+                "description": "Ilixium settings object",
+                "properties": {
+                  "useIpFrame": {
+                    "type": "boolean",
+                    "description": "Force Ilixium to process via Ip Frame"
+                  }
+                }
+              },
               "mpi": {
                 "$ref": "#/components/schemas/IlixiumMpis"
               }
@@ -10120,6 +11063,41 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/IngenicoMpis"
+              }
+            }
+          }
+        ]
+      },
+      "INOVAPAY": {
+        "description": "INOVAPAY config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "INOVAPAY credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "INOVAPAY API key"
+                  },
+                  "apiSecret": {
+                    "type": "string",
+                    "description": "INOVAPAY API secret",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey",
+                  "apiSecret"
+                ]
               }
             }
           }
@@ -10472,6 +11450,87 @@
           }
         ]
       },
+      "Neteller": {
+        "description": "Neteller Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Neteller credentials object",
+                "properties": {
+                  "clientId": {
+                    "type": "string",
+                    "description": "Neteller App Client ID"
+                  },
+                  "clientSecret": {
+                    "type": "string",
+                    "description": "Neteller App Client Secret",
+                    "format": "password"
+                  },
+                  "webhookSecretKey": {
+                    "type": "string",
+                    "description": "Neteller Webhook Secret Key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "clientId",
+                  "clientSecret",
+                  "webhookSecretKey"
+                ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "Neteller settings object",
+                "properties": {
+                  "netellerGo": {
+                    "type": "boolean",
+                    "description": "Enable NETELLERgo! payment flow"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NinjaWallet": {
+        "description": "NinjaWallet config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "NinjaWallet credentials object",
+                "properties": {
+                  "authorizationToken": {
+                    "type": "string",
+                    "description": "NinjaWallet authorization token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "authorizationToken"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "NMI": {
         "description": "NMI Gateway config",
         "allOf": [
@@ -10627,6 +11686,45 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/OptimalMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Pagsmile": {
+        "description": "Pagsmile Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Pagsmile merchant ID"
+                  },
+                  "appId": {
+                    "type": "string",
+                    "description": "Pagsmile app ID"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "Pagsmile secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "appId",
+                  "secretKey"
+                ]
               }
             }
           }
@@ -11016,6 +12114,35 @@
               },
               "mpi": {
                 "$ref": "#/components/schemas/PaysafeMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Paysafecash": {
+        "description": "Paysafecash Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Paysafecash API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
               }
             }
           }
@@ -11861,6 +12988,40 @@
           }
         ]
       },
+      "Zotapay": {
+        "description": "Zotapay Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "endpointId": {
+                    "type": "string",
+                    "description": "Zotapay's endpoint ID"
+                  },
+                  "controlKey": {
+                    "type": "string",
+                    "description": "Zotapay's merchant control key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "endpointId",
+                  "controlKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "GatewayAccountDowntimeSchedule": {
         "type": "object",
         "required": [
@@ -11994,8 +13155,10 @@
             "format": "uri"
           },
           "headers": {
-            "type": "object",
-            "description": "Map of elements with header name - header value association"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookHeader"
+            }
           },
           "credentialHash": {
             "type": "string",
@@ -12032,15 +13195,11 @@
         "type": "string",
         "description": "Rebilly webhooks event type",
         "enum": [
+          "customer-merged",
+          "customer-created",
+          "customer-updated",
+          "dispute-created",
           "gateway-account-requested",
-          "subscription-trial-ended",
-          "subscription-activated",
-          "subscription-canceled",
-          "subscription-renewed",
-          "transaction-processed",
-          "transaction-timeout-resolved",
-          "payment-card-expired",
-          "transaction-declined",
           "invoice-modified",
           "invoice-created",
           "invoice-abandoned",
@@ -12048,20 +13207,30 @@
           "invoice-voided",
           "invoice-issued",
           "invoice-past-due",
-          "dispute-created",
           "offsite-payment-completed",
-          "renewal-invoice-payment-declined"
+          "payment-card-expired",
+          "renewal-invoice-payment-declined",
+          "subscription-trial-ended",
+          "subscription-activated",
+          "subscription-canceled",
+          "subscription-renewed",
+          "transaction-processed",
+          "transaction-timeout-resolved",
+          "transaction-declined",
+          "transaction-discrepancy-found",
+          "transaction-amount-discrepancy-found"
         ]
       },
       "Integration": {
         "type": "object",
         "properties": {
-          "label": {
+          "service": {
             "readOnly": true,
-            "description": "The integration label",
-            "type": "string",
-            "enum": [
-              "google-sheets-integration"
+            "description": "The integration service",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "count": {
@@ -12078,24 +13247,43 @@
             "items": {
               "type": "object",
               "properties": {
-                "ruleSetId": {
-                  "description": "The rule set's identifier string",
+                "labels": {
+                  "description": "The configuration labels",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventType": {
+                  "description": "The configuration event type",
                   "allOf": [
                     {
                       "$ref": "#/components/parameters/systemEventType"
                     }
                   ]
                 },
-                "bindName": {
+                "title": {
                   "type": "string",
-                  "description": "The name of the bind"
-                },
-                "bindIndex": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "description": "The index of the bind"
+                  "description": "The configuration title"
                 }
               }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/SelfLink"
+                },
+                {
+                  "$ref": "#/components/schemas/OAuth2ConnectLink"
+                }
+              ]
             }
           }
         }
@@ -12109,8 +13297,33 @@
             "type": "object",
             "properties": {
               "invalidFields": {
-                "type": "object",
-                "description": "An object keyed by the invalid property field names.  Dot notation is used for nested object property names."
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string",
+                      "description": "The field name. Dot notation is used for nested object field names."
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "field": "field1",
+                    "message": "field1 is invalid"
+                  },
+                  {
+                    "field": "subObject.field2",
+                    "message": "field2 is invalid"
+                  },
+                  {
+                    "field": "subObject.field2",
+                    "message": "another error in the field2"
+                  }
+                ]
               }
             }
           }
@@ -12527,6 +13740,26 @@
           "rel"
         ]
       },
+      "OAuth2ConnectLink": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Link"
+          }
+        ],
+        "properties": {
+          "rel": {
+            "description": "The link type",
+            "type": "string",
+            "enum": [
+              "oauth2Connect"
+            ]
+          }
+        },
+        "required": [
+          "rel"
+        ]
+      },
       "OnBoardingUrlLink": {
         "type": "object",
         "allOf": [
@@ -12870,7 +14103,7 @@
       "List": {
         "type": "object",
         "required": [
-          "name",
+          "description",
           "values"
         ],
         "properties": {
@@ -12889,8 +14122,8 @@
             "readOnly": true,
             "minimum": 1
           },
-          "name": {
-            "description": "List name",
+          "description": {
+            "description": "List description",
             "type": "string"
           },
           "values": {
@@ -12929,18 +14162,28 @@
       },
       "MailgunCredential": {
         "type": "object",
-        "description": "Mailgun Credential",
-        "required": [
-          "emailFrom",
-          "apiKey",
-          "domain"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -12966,7 +14209,13 @@
               "$ref": "#/components/schemas/SelfLink"
             }
           }
-        }
+        },
+        "description": "Mailgun Credential",
+        "required": [
+          "emailFrom",
+          "apiKey",
+          "domain"
+        ]
       },
       "Method": {
         "type": "string",
@@ -12983,10 +14232,13 @@
           "bitcoin",
           "Boleto",
           "cash-deposit",
+          "CASHlib",
           "CashToCode",
           "China-UnionPay",
           "domestic-cards",
           "echeck",
+          "ecoPayz",
+          "ecoVoucher",
           "EPS",
           "ePay-bg",
           "Flexepin",
@@ -12994,8 +14246,13 @@
           "Gpaysafe",
           "iDebit",
           "iDEAL",
+          "INOVAPAY-pin",
+          "INOVAPAY-wallet",
           "InstaDebit",
           "instant-bank-transfer",
+          "Interac",
+          "Interac-online",
+          "Interac-eTransfer",
           "invoice",
           "Jeton",
           "Klarna",
@@ -13004,7 +14261,10 @@
           "Nordea-Solo",
           "OchaPay",
           "online-bank-transfer",
+          "Onlineueberweisen",
           "Paysafecard",
+          "Pay4Fun",
+          "PinPay",
           "phone",
           "POLi",
           "Przelewy24",
@@ -13014,6 +14274,7 @@
           "Skrill",
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
+          "SparkPay",
           "Trustly",
           "UPayCard",
           "voucher",
@@ -13717,12 +14978,25 @@
           }
         }
       },
+      "GoogleSpreadsheet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The google spreadsheet indentifier string",
+            "readOnly": true,
+            "type": "string",
+            "example": "2ytkMntAC2Ke7aIgpaOBjz9IORRlNRjwFqO7KvyNam3B"
+          },
+          "name": {
+            "readOnly": true,
+            "description": "The google spreadsheet name",
+            "type": "string",
+            "example": "Spreadsheet 1"
+          }
+        }
+      },
       "OAuth2Credential": {
         "type": "object",
-        "description": "OAuth2 credential",
-        "required": [
-          "service"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
@@ -13732,11 +15006,28 @@
               }
             ]
           },
-          "service": {
-            "description": "The name of service that the OAuth2 credential belongs to",
+          "status": {
+            "description": "The credential status",
             "type": "string",
             "enum": [
-              "google-sheets"
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "service": {
+            "description": "The name of service that the OAuth2 credential belongs to",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OAuth2CredentialService"
+              }
             ]
           },
           "code": {
@@ -13775,14 +15066,23 @@
               "anyOf": [
                 {
                   "$ref": "#/components/schemas/SelfLink"
-                },
-                {
-                  "$ref": "#/components/schemas/RedirectLink"
                 }
               ]
             }
           }
-        }
+        },
+        "description": "OAuth2 credential",
+        "required": [
+          "code",
+          "scopes",
+          "service"
+        ]
+      },
+      "OAuth2CredentialService": {
+        "type": "string",
+        "enum": [
+          "google-sheets"
+        ]
       },
       "OnOff": {
         "type": "string",
@@ -13874,6 +15174,10 @@
             "description": "Invoice will use this time zone to display time otherwise UTC will be used. Example \"America/New_York\"",
             "type": "string",
             "maxLength": 50
+          },
+          "isPrimary": {
+            "description": "True, if Organization is primary (available to set as true only, other organizations will become as isPrimary=false)",
+            "type": "boolean"
           },
           "_links": {
             "type": "array",
@@ -14035,7 +15339,10 @@
       "AmountAdjustment": {
         "type": "object",
         "discriminator": {
-          "propertyName": "method"
+          "propertyName": "method",
+          "mapping": {
+            "none": "#/components/schemas/AmountAdjustmentNone"
+          }
         },
         "properties": {
           "method": {
@@ -14094,6 +15401,13 @@
           "attempts",
           "afterAttemptPolicy",
           "afterRetryEndPolicy"
+        ]
+      },
+      "AmountAdjustmentNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AmountAdjustment"
+          }
         ]
       },
       "discount": {
@@ -14156,16 +15470,28 @@
       },
       "PostmarkCredential": {
         "type": "object",
-        "description": "Postmark Credential",
-        "required": [
-          "serverApiToken"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -14183,7 +15509,11 @@
               "$ref": "#/components/schemas/SelfLink"
             }
           }
-        }
+        },
+        "description": "Postmark Credential",
+        "required": [
+          "serverApiToken"
+        ]
       },
       "PriceBasedShippingRate": {
         "type": "object",
@@ -14395,7 +15725,7 @@
                   "email",
                   "fingerprint",
                   "ip-address",
-                  "payment-card-id"
+                  "payment-card"
                 ]
               },
               "ttl": {
@@ -14418,11 +15748,115 @@
           }
         ]
       },
+      "display-other-choices": {
+        "description": "Display Other Choices",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "choices": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "langIso": {
+                      "description": "Language (two letter ISO 639-1 code)",
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "langIso",
+                    "content"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "choices"
+            ]
+          }
+        ]
+      },
       "guess-payment-card-expiration": {
         "description": "",
         "allOf": [
           {
             "$ref": "#/components/schemas/RuleAction"
+          }
+        ]
+      },
+      "offer-purchase-bump": {
+        "description": "Offer Purchase Bump",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "bumpOffers": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "description": "Bump offer name",
+                      "type": "string"
+                    },
+                    "weight": {
+                      "description": "Bump offer weight",
+                      "type": "string"
+                    },
+                    "bumpAmount": {
+                      "description": "Bump amount offer",
+                      "type": "number"
+                    },
+                    "bonusAmount": {
+                      "description": "Bonus amount offer",
+                      "type": "number"
+                    },
+                    "choices": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "langIso": {
+                            "description": "Language (two letter ISO 639-1 code)",
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "langIso",
+                          "content"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "weight",
+                    "bumpAmount",
+                    "bonusAmount",
+                    "choices"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "bumpOffers"
+            ]
           }
         ]
       },
@@ -14962,7 +16396,9 @@
               "stop-subscriptions",
               "add-risk-score",
               "request-kyc",
-              "tag-or-untag-customer"
+              "tag-or-untag-customer",
+              "display-other-choices",
+              "offer-purchase-bump"
             ]
           },
           "status": {
@@ -15310,18 +16746,6 @@
           "method"
         ]
       },
-      "DayOfWeek": {
-        "type": "string",
-        "enum": [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ]
-      },
       "InvoiceRetryScheduleInstruction": {
         "type": "object",
         "description": "The calculation instruction of scheduled time",
@@ -15371,7 +16795,14 @@
                 "minimum": 1
               },
               "unit": {
-                "$ref": "#/components/schemas/TimeUnit"
+                "allOf": [
+                  {
+                    "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-unit.json"
+                  },
+                  {
+                    "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-plural-unit.json"
+                  }
+                ]
               }
             },
             "required": [
@@ -15402,7 +16833,7 @@
                 "description": "The day of the month when event will be scheduled.\nBe aware if the month has less days,\nthe last day of the month will be selected.\n"
               },
               "time": {
-                "$ref": "#/components/schemas/Time"
+                "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/extended-time-iso8601.json"
               }
             },
             "required": [
@@ -15426,7 +16857,7 @@
             "type": "object",
             "properties": {
               "day": {
-                "$ref": "#/components/schemas/DayOfWeek"
+                "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/long-day-of-week.json"
               },
               "week": {
                 "type": "string",
@@ -15438,7 +16869,7 @@
                 ]
               },
               "time": {
-                "$ref": "#/components/schemas/Time"
+                "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/extended-time-iso8601.json"
               }
             },
             "required": [
@@ -15477,7 +16908,14 @@
                 "minimum": 1
               },
               "unit": {
-                "$ref": "#/components/schemas/TimeUnit"
+                "allOf": [
+                  {
+                    "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-unit.json"
+                  },
+                  {
+                    "$ref": "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/date-time/time-plural-unit.json"
+                  }
+                ]
               }
             },
             "required": [
@@ -15511,40 +16949,139 @@
           }
         }
       },
-      "Time": {
-        "type": "string",
-        "format": "date-time",
-        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](([+-]([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9])|Z)?$"
+      "PatchSegment": {
+        "type": "object",
+        "required": [
+          "isVisible"
+        ],
+        "properties": {
+          "isVisible": {
+            "description": "Toggle whether this Segment is visible to the current user",
+            "type": "boolean"
+          }
+        }
       },
-      "TimeUnit": {
-        "type": "string",
-        "enum": [
-          "second",
-          "seconds",
-          "minute",
-          "minutes",
-          "hour",
-          "hours",
-          "day",
-          "days",
-          "month",
-          "months",
-          "year",
-          "years"
-        ]
+      "Segment": {
+        "type": "object",
+        "required": [
+          "data",
+          "owner",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "description": "ID of current Segment",
+            "readOnly": true,
+            "type": "string",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "owner": {
+            "description": "Owner (creator) of Segment",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "User ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "First and last name",
+                "type": "string"
+              }
+            }
+          },
+          "data": {
+            "description": "An object containing schema to set up the UI for the segment. This schema is built\nand consumed by the frontend. It includes such information as Segment name, UI settings, etc.\n",
+            "type": "object"
+          },
+          "isVisible": {
+            "description": "Toggle whether this Segment is visible to the current user",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "userIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "writeOnly": true,
+            "description": "A list of user id's with whom to share, used if scope is set to `shared`\n",
+            "items": {
+              "description": "User ID",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "users": {
+            "type": "array",
+            "uniqueItems": true,
+            "description": "A list of user's id and first and last names with whom this Segment\nis shared\n",
+            "readOnly": true,
+            "items": {
+              "type": "object",
+              "description": "User person",
+              "properties": {
+                "id": {
+                  "description": "User ID",
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ResourceId"
+                    }
+                  ]
+                },
+                "name": {
+                  "description": "First and last name",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "scope": {
+            "description": "If `private`, then only the owner/creator can view this Segment. If set\nto `public`, then it's shared with anyone in the owner's organization.\nIf set to `shared`, then it is only shared with specific users as specified\nin the `userIds` field\n",
+            "type": "string",
+            "enum": [
+              "private",
+              "public",
+              "shared"
+            ]
+          }
+        }
       },
       "SendGridCredential": {
         "type": "object",
-        "description": "SendGrid Credential",
-        "required": [
-          "apiKey"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -15562,7 +17099,11 @@
               "$ref": "#/components/schemas/SelfLink"
             }
           }
-        }
+        },
+        "description": "SendGrid Credential",
+        "required": [
+          "apiKey"
+        ]
       },
       "ServerTimestamp": {
         "type": "string",
@@ -15572,18 +17113,28 @@
       },
       "SESCredential": {
         "type": "object",
-        "description": "Amazon simple email service (AWS SES) credential",
-        "required": [
-          "key",
-          "secret",
-          "region"
-        ],
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -15616,7 +17167,13 @@
               "$ref": "#/components/schemas/SelfLink"
             }
           }
-        }
+        },
+        "description": "Amazon simple email service (AWS SES) credential",
+        "required": [
+          "key",
+          "secret",
+          "region"
+        ]
       },
       "Session": {
         "type": "object",
@@ -15794,47 +17351,6 @@
           }
         }
       },
-      "TaxCategory": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The tax category identifier string",
-            "type": "string",
-            "readOnly": true,
-            "maxLength": 50,
-            "enum": [
-              99999,
-              20010,
-              40030,
-              51020,
-              51010,
-              31000,
-              30070
-            ]
-          },
-          "description": {
-            "description": "The tax category description",
-            "type": "string",
-            "maxLength": 512
-          },
-          "taxProvider": {
-            "description": "The tax category maps to a provider",
-            "type": "string",
-            "enum": [
-              "tax-jar"
-            ]
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/SelfLink"
-            }
-          }
-        }
-      },
       "redemption-cancel": {
         "description": "Cancel Redemption",
         "allOf": [
@@ -15897,7 +17413,8 @@
               "gateway-account-enabled",
               "gateway-account-disabled",
               "gateway-account-down",
-              "gateway-account-up"
+              "gateway-account-up",
+              "gateway-account-closed"
             ]
           },
           "triggeredBy": {
@@ -16229,6 +17746,34 @@
               }
             }
           },
+          "relatedIds": {
+            "type": "object",
+            "description": "The IDs of related resources",
+            "readOnly": true,
+            "properties": {
+              "customerId": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "transactionId": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "tokenId": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              }
+            }
+          },
           "duration": {
             "type": "integer",
             "description": "Request duration in milliseconds"
@@ -16557,7 +18102,10 @@
       "WebhookAuthorization": {
         "type": "object",
         "discriminator": {
-          "propertyName": "type"
+          "propertyName": "type",
+          "mapping": {
+            "none": "#/components/schemas/WebhookAuthorizationNone"
+          }
         },
         "properties": {
           "type": {
@@ -16652,15 +18200,37 @@
           }
         ]
       },
+      "WebhookAuthorizationNone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WebhookAuthorization"
+          }
+        ]
+      },
       "WebhookCredential": {
         "type": "object",
-        "description": "Webhook credential",
         "properties": {
           "hash": {
             "readOnly": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "status": {
+            "description": "The credential status",
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated"
+            ]
+          },
+          "deactivationTime": {
+            "description": "The time when the credential was deactivated",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
               }
             ]
           },
@@ -16672,6 +18242,7 @@
             "$ref": "#/components/schemas/WebhookAuthorization"
           }
         },
+        "description": "Webhook credential",
         "required": [
           "host"
         ]
@@ -16917,6 +18488,19 @@
           "type": "string"
         }
       },
+      "integrationLabel": {
+        "name": "label",
+        "in": "path",
+        "description": "The integration label",
+        "required": true,
+        "schema": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/OAuth2CredentialService"
+            }
+          ]
+        }
+      },
       "mediaType": {
         "name": "Accept",
         "in": "header",
@@ -16937,7 +18521,9 @@
         "description": "The resource identifier string",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 50,
+          "pattern": "^[@~\\-\\.\\w\\d]+$"
         }
       },
       "rulesVersion": {
@@ -17129,6 +18715,17 @@
           }
         },
         "description": "Set of rules resource",
+        "required": true
+      },
+      "Segment": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Segment"
+            }
+          }
+        },
+        "description": "Segment resource",
         "required": true
       },
       "UpdatePassword": {
