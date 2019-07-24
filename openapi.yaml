@@ -7165,6 +7165,20 @@ components:
                 - paymentPageId
                 - merchantAccountNumber
                 - merchantPassword
+            settings:
+              type: object
+              description: ecoPayz settings object
+              properties:
+                validCurrency:
+                  type: string
+                  description: Three letter currency code
+                  enum:
+                    - CAD
+                    - EUR
+                    - GBP
+                    - USD
+              required:
+                - validCurrency
     EcorePay:
       description: EcorePay Gateway config
       allOf:
