@@ -7165,6 +7165,20 @@ components:
                 - paymentPageId
                 - merchantAccountNumber
                 - merchantPassword
+            settings:
+              type: object
+              description: ecoPayz settings object
+              properties:
+                validCurrency:
+                  type: string
+                  description: Three letter currency code
+                  enum:
+                    - CAD
+                    - EUR
+                    - GBP
+                    - USD
+              required:
+                - validCurrency
     EcorePay:
       description: EcorePay Gateway config
       allOf:
@@ -7230,9 +7244,26 @@ components:
                   type: string
                   description: eMerchantPay Gateway api key
                   format: password
-              required:
-                - clientId
-                - apiKey
+                username:
+                  type: string
+                  description: eMerchantPay username for Genesis platform
+                token:
+                  type: string
+                  description: eMerchantPay token for Genesis platform
+                password:
+                  type: string
+                  description: eMerchantPay password for Genesis platform
+                  format: password
+            settings:
+              type: object
+              description: eMerchantPay settings object
+              properties:
+                platform:
+                  type: string
+                  description: eMerchantPay platform to process payment. default to IPG
+                  enum:
+                    - IPG
+                    - Genesis
             mpi:
               $ref: '#/components/schemas/eMerchantPayMpis'
     FinTecSystems:
@@ -8806,6 +8837,27 @@ components:
                 - merchantPassword
             mpi:
               $ref: '#/components/schemas/WorldpayMpis'
+    Zotapay:
+      description: Zotapay Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                endpointId:
+                  type: string
+                  description: Zotapay's endpoint ID
+                controlKey:
+                  type: string
+                  description: Zotapay's merchant control key
+                  format: password
+              required:
+                - endpointId
+                - controlKey
     GatewayAccountDowntimeSchedule:
       type: object
       required:
@@ -8903,8 +8955,9 @@ components:
           type: string
           format: uri
         headers:
-          type: object
-          description: Map of elements with header name - header value association
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookHeader'
         credentialHash:
           type: string
           description: Hash from Credentials which is used for authentication by the given URL
@@ -11900,6 +11953,20 @@ components:
             isSupport:
               description: If user from support
               type: boolean
+        relatedIds:
+          type: object
+          description: The IDs of related resources
+          readOnly: true
+          properties:
+            customerId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            transactionId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            tokenId:
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
         duration:
           type: integer
           description: Request duration in milliseconds
