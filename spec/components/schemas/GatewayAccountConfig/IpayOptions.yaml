@@ -37,3 +37,4 @@ allOf:
               - w88asiapay
         required:
           - "extraStep"
+          - "subdomain"
