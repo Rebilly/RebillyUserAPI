@@ -12000,8 +12000,7 @@
           {
             "type": "object",
             "required": [
-              "credentials",
-              "settings"
+              "credentials"
             ],
             "properties": {
               "credentials": {
@@ -12014,20 +12013,6 @@
                 },
                 "required": [
                   "merchantIdInPayPal"
-                ]
-              },
-              "settings": {
-                "type": "object",
-                "description": "PayPal settings object",
-                "properties": {
-                  "redirectUrl": {
-                    "type": "string",
-                    "description": "PayPal Gateway redirect url",
-                    "format": "url"
-                  }
-                },
-                "required": [
-                  "redirectUrl"
                 ]
               }
             }

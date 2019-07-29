@@ -8223,7 +8223,6 @@ components:
         - type: object
           required:
             - credentials
-            - settings
           properties:
             credentials:
               type: object
@@ -8233,16 +8232,6 @@ components:
                   description: PayPal Gateway merchant id
               required:
                 - merchantIdInPayPal
-            settings:
-              type: object
-              description: PayPal settings object
-              properties:
-                redirectUrl:
-                  type: string
-                  description: PayPal Gateway redirect url
-                  format: url
-              required:
-                - redirectUrl
     Payr:
       description: Payr Gateway config
       allOf:
