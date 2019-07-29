@@ -11280,7 +11280,8 @@
                     "enum": [
                       "miglite",
                       "w88asiapay"
-                    ]
+                    ],
+                    "default": "miglite"
                   }
                 },
                 "required": [
