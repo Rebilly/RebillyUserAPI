@@ -7758,8 +7758,16 @@ components:
                 extraStep:
                   type: boolean
                   description: Show extra step for user to enter their email and DNI number
+                subdomain:
+                  type: string
+                  description: Subdomain to use when send request to IpayOptions default to "miglite"
+                  enum:
+                    - miglite
+                    - w88asiapay
+                  default: miglite
               required:
                 - extraStep
+                - subdomain
     Jeton:
       description: Jeton Gateway config
       allOf:
