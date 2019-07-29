@@ -11264,10 +11264,19 @@
                   "extraStep": {
                     "type": "boolean",
                     "description": "Show extra step for user to enter their email and DNI number"
+                  },
+                  "subdomain": {
+                    "type": "string",
+                    "description": "Subdomain to use when sending request to IpayOptions.",
+                    "enum": [
+                      "miglite",
+                      "w88asiapay"
+                    ]
                   }
                 },
                 "required": [
-                  "extraStep"
+                  "extraStep",
+                  "subdomain"
                 ]
               }
             }
