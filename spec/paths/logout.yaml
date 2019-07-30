@@ -2,6 +2,7 @@ post:
   tags:
     - JWT Session
   summary: Destroys the user's current session
+  operationId: PostLogoutRequest
   description: >
     Destroys the user's current session. Endpoint must be accessed with valid
     JWT Authorization header.

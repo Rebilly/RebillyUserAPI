@@ -2,6 +2,7 @@ get:
   tags:
     - Custom Events
   summary: Retrieve a list of custom events
+  operationId: GetCustomEventCollection
   description: |
     Retrieve a list of custom events
   parameters:
@@ -43,6 +44,7 @@ post:
   tags:
     - Custom Events
   summary: Create a custom event
+  operationId: PostCustomEvent
   description: |
     Create a custom event
   requestBody:

@@ -2,7 +2,7 @@ get:
   tags:
     - Segments
   summary: Retrieve a user's Segments
-  operationId: getSegments
+  operationId: GetGridSegmentCollection
   description: |
     Retrieve a user's UI Segments
   parameters:
@@ -34,7 +34,7 @@ post:
   tags:
     - Segments
   summary: Create a new UI Segment
-  operationId: createSegment
+  operationId: PostGridSegment
   description: |
     Create a new Segment for oneself or to share with others within the
     organization

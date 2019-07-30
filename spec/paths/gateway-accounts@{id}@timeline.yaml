@@ -4,6 +4,7 @@ get:
   tags:
     - Gateway Accounts
   summary: Retrieve a list of gateway account timeline messages
+  operationId: GetGatewayAccountTimelineCollection
   description: |
     Retrieve a list of gateway account timeline messages
   parameters:
@@ -38,6 +39,7 @@ post:
   tags:
     - Gateway Accounts
   summary: Create a Gateway Account Timeline comment
+  operationId: PostGatewayAccountTimeline
   description: |
     Create a Gateway Account Timeline comment
   requestBody:

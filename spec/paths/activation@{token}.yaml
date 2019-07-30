@@ -9,6 +9,7 @@ post:
   tags:
     - Profile
   summary: Activate
+  operationId: PostActivation
   description: |
     Sends a token to activate user account
   security: []

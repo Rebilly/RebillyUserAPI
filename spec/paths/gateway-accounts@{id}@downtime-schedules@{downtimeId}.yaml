@@ -10,6 +10,7 @@ get:
   tags:
     - Gateway Accounts
   summary: Retrieve a Gateway Downtime schedule
+  operationId: GetGatewayAccountDowntimeSchedule
   description: |
     Retrieve a Gateway Downtime schedule with specified identifier string
   responses:
@@ -34,6 +35,7 @@ put:
   tags:
     - Gateway Accounts
   summary: Update a Gateway Account downtime schedule
+  operationId: PutGatewayAccountDowntimeSchedule
   description: |
     Update a Gateway Account downtime schedule with predefined identifier string
   responses:
@@ -68,6 +70,7 @@ delete:
   tags:
     - Gateway Accounts
   summary: Delete a Gateway Account downtime schedule
+  operationId: DeleteGatewayAccountDowntimeSchedule
   description: |
     Delete a Gateway Account downtime schedule
   responses:

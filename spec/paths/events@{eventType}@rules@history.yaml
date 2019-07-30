@@ -4,6 +4,7 @@ get:
   tags:
     - Rules
   summary: Retrieve the change history of the set of rules
+  operationId: GetEventRuleHistoryCollection
   description: |
     Retrieve the change history of the selected set of rules.
     The history is updated each time you change the rules.

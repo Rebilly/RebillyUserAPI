@@ -4,6 +4,7 @@ post:
   tags:
     - Gateway Accounts
   summary: Close a Gateway Account
+  operationId: PostGatewayAccountClosure
   description: |
     Close a gateway account with specified identifier string.
     Also known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able

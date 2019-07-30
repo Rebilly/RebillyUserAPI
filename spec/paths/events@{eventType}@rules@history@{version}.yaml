@@ -5,6 +5,7 @@ get:
   tags:
     - Rules
   summary: Retrieve the record from the change history of the set of rules
+  operationId: GetEventRuleHistoryVersion
   description: |
     Retrieve the record from the change history of the selected set of rules.
     A history record is created each time you change the rules.

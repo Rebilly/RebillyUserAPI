@@ -4,6 +4,7 @@ get:
   tags:
     - Gateway Accounts
   summary: Retrieve a Gateway Account
+  operationId: GetGatewayAccount
   description: |
     Retrieve a Gateway Account with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Gateway Accounts
   summary: Create or update a Gateway Account with predefined ID
+  operationId: PutGatewayAccount
   description: |
     Create or update a GatewayAccount with predefined identifier string
   requestBody:
@@ -73,6 +75,7 @@ patch:
   tags:
     - Gateway Accounts
   summary: Update a Gateway Account with predefined ID
+  operationId: PatchGatewayAccount
   description: |
     Update a GatewayAccount with predefined identifier string
   requestBody:
@@ -105,6 +108,7 @@ delete:
   tags:
     - Gateway Accounts
   summary: Delete a Gateway Account
+  operationId: DeleteGatewayAccount
   description: |
     Delete a Gateway Account with predefined identifier string
   responses:

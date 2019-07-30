@@ -2,6 +2,7 @@ get:
   tags:
     - Layouts
   summary: Retrieve a layout list
+  operationId: GetLayoutCollection
   description: |
     Retrieve a layout list
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Layouts
   summary: Create a layout
+  operationId: PostLayout
   description: |
     Create a layout
   requestBody:

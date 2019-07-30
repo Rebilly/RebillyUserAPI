@@ -2,6 +2,7 @@ get:
   tags:
     - Lists
   summary: Retrieve a collection of Lists (latest version of each List)
+  operationId: GetListCollection
   description: |
     Retrieve a collection of Lists
   parameters:
@@ -37,6 +38,7 @@ post:
   tags:
     - Lists
   summary: Create a List
+  operationId: PostList
   description: |
     Create a List
   responses:

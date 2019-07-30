@@ -2,6 +2,7 @@ post:
   tags:
     - Webhooks
   summary: Trigger a test webhook
+  operationId: PostPreviewWebhook
   description: |
     Trigger a test webhook
   requestBody:

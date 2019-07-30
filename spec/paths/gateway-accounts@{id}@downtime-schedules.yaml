@@ -4,6 +4,7 @@ get:
   tags:
     - Gateway Accounts
   summary: Retrieve a list of gateway account downtime schedules
+  operationId: GetGatewayAccountDowntimeScheduleCollection
   description: |
     Retrieve a list of gateway account downtime schedules
   parameters:
@@ -37,6 +38,7 @@ post:
   tags:
     - Gateway Accounts
   summary: Create a Gateway Account downtime schedule.
+  operationId: PostGatewayAccountDowntimeSchedule
   description: |
     Create a Gateway Account downtime schedule
   responses:

@@ -2,6 +2,7 @@ get:
   tags:
     - Websites
   summary: Retrieve a list of websites
+  operationId: GetWebsiteCollection
   description: |
     Retrieve a list of websites
   parameters:
@@ -46,6 +47,7 @@ post:
   tags:
     - Websites
   summary: Create a website
+  operationId: PostWebsite
   description: |
     Create a website
   requestBody:

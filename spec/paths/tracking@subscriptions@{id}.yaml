@@ -4,6 +4,7 @@ get:
   tags:
     - Tracking
   summary: Retrieve a tracking subscription log with specified identifier string
+  operationId: GetTrackingSubscription
   responses:
     200:
       description: Tracking subscription log was retrieved successfully
