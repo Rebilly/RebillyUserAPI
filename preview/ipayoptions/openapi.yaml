@@ -270,6 +270,7 @@ paths:
       tags:
         - Profile
       summary: Activate
+      operationId: PostActivation
       description: |
         Sends a token to activate user account
       security: []
@@ -302,6 +303,7 @@ paths:
       tags:
         - API Keys
       summary: Retrieve a list of api keys
+      operationId: GetApiKeyCollection
       description: |
         Retrieve a list of api keys
       parameters:
@@ -341,6 +343,7 @@ paths:
       tags:
         - API Keys
       summary: Create an api key
+      operationId: PostApiKey
       description: |
         Create an api key
       requestBody:
@@ -386,6 +389,7 @@ paths:
       tags:
         - API Keys
       summary: Retrieve api key
+      operationId: GetApiKey
       description: |
         Retrieve api key with specified identifier string
       responses:
@@ -414,6 +418,7 @@ paths:
       tags:
         - API Keys
       summary: Create or update api key with predefined ID
+      operationId: PutApiKey
       description: |
         Create or update api key with predefined identifier string
       responses:
@@ -467,6 +472,7 @@ paths:
       tags:
         - API Keys
       summary: Delete api key
+      operationId: DeleteApiKey
       description: |
         Delete api key with predefined identifier string
       responses:
@@ -498,6 +504,7 @@ paths:
       tags:
         - Checkout Pages
       summary: Browse a list of checkout pages
+      operationId: GetCheckoutPageCollection
       description: |
         Browse a list of checkout pages
       responses:
@@ -534,6 +541,7 @@ paths:
       tags:
         - Checkout Pages
       summary: Add a Checkout Page
+      operationId: PostCheckoutPage
       description: |
         Add a Checkout Page
       responses:
@@ -581,6 +589,7 @@ paths:
       tags:
         - Checkout Pages
       summary: Read a Checkout Page
+      operationId: GetCheckoutPage
       description: |
         Retrieve a Checkout Page with specified identifier string
       responses:
@@ -602,6 +611,7 @@ paths:
       tags:
         - Checkout Pages
       summary: Edit a Checkout Page
+      operationId: PutCheckoutPage
       description: |
         Create or update a Checkout Page with predefined identifier string
       responses:
@@ -661,6 +671,7 @@ paths:
       tags:
         - Checkout Pages
       summary: Delete a Checkout Page
+      operationId: DeleteCheckoutPage
       description: |
         Delete a Checkout Page with predefined identifier string
       responses:
@@ -688,6 +699,7 @@ paths:
       tags:
         - Email Credentials
       summary: Create an AWS SES credential
+      operationId: PostAwsSesCredentialHash
       description: |
         Create an AWS SES credential
       responses:
@@ -747,6 +759,7 @@ paths:
       tags:
         - Email Credentials
       summary: Retrieve an AWS SES credential
+      operationId: GetAwsSesCredentialHash
       description: |
         Retrieve an AWS SES credential with specified token identifier string
       responses:
@@ -771,6 +784,7 @@ paths:
       tags:
         - Email Credentials
       summary: Update an AWS SES credential
+      operationId: PatchAwsSesCredentialHash
       description: |
         Update an AWS SES credential with specified token identifier string
       requestBody:
@@ -805,6 +819,7 @@ paths:
       tags:
         - Email Credentials
       summary: Create an email credential
+      operationId: PostEmailCredentialHash
       description: |
         Create an email credential
       requestBody:
@@ -864,6 +879,7 @@ paths:
       tags:
         - Email Credentials
       summary: Retrieve an email credential
+      operationId: GetEmailCredentialHash
       description: |
         Retrieve an email credential with specified token identifier string
       responses:
@@ -888,6 +904,7 @@ paths:
       tags:
         - Email Credentials
       summary: Update an email credential
+      operationId: PatchEmailCredentialHash
       description: |
         Update an email credential with specified token identifier string
       requestBody:
@@ -922,6 +939,7 @@ paths:
       tags:
         - Email Credentials
       summary: Create a mailgun credential
+      operationId: PostMailgunCredentialHash
       description: |
         Create a mailgun credential
       requestBody:
@@ -981,6 +999,7 @@ paths:
       tags:
         - Email Credentials
       summary: Retrieve a mailgun credential
+      operationId: GetMailgunCredentialHash
       description: |
         Retrieve a mailgun credential with specified token identifier string
       responses:
@@ -1005,6 +1024,7 @@ paths:
       tags:
         - Email Credentials
       summary: Update a mailgun credential
+      operationId: PatchMailgunCredentialHash
       description: |
         Update a mailgun credential with specified token identifier string
       requestBody:
@@ -1039,6 +1059,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Retrieve a list of OAuth2 credentials
+      operationId: GetOauth2CredentialHashCollection
       description: |
         Retrieve a list of OAuth2 credentials
       responses:
@@ -1069,6 +1090,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Create OAuth2 credential
+      operationId: PostOauth2CredentialHash
       description: |
         Begins the creation of an OAuth2 credential that can be re-used within
         webhooks.  The result will be a `RedirectUrl` that the user must
@@ -1100,6 +1122,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Retrieve an OAuth2 credential
+      operationId: GetOauth2CredentialHash
       description: |
         Retrieve an OAuth2 credential with specified token identifier string
       responses:
@@ -1124,6 +1147,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Update an OAuth2 credential with specified token identifier string
+      operationId: PatchOauth2CredentialHash
       description: |
         Update an OAuth2 credential with specified token identifier string
       requestBody:
@@ -1157,6 +1181,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Retrieve a list of root items available for specified credential
+      operationId: GetOauth2CredentialHashItemCollection
       description: |
         Retrieve a list of root items available for specified credential
       responses:
@@ -1188,6 +1213,7 @@ paths:
       tags:
         - Email Credentials
       summary: Create a Postmark credential
+      operationId: PostPostmarkCredentialHash
       description: |
         Create a Postmark credential
       requestBody:
@@ -1247,6 +1273,7 @@ paths:
       tags:
         - Email Credentials
       summary: Retrieve a Postmark credential
+      operationId: GetPostmarkCredentialHash
       description: |
         Retrieve a Postmark credential with specified token identifier string
       responses:
@@ -1271,6 +1298,7 @@ paths:
       tags:
         - Email Credentials
       summary: Update a Postmark credential
+      operationId: PatchPostmarkCredentialHash
       description: |
         Update a Postmark credential with specified token identifier string
       requestBody:
@@ -1305,6 +1333,7 @@ paths:
       tags:
         - Email Credentials
       summary: Create a SendGrid credential
+      operationId: PostSendGridCredentialHash
       description: |
         Create a SendGrid credential
       requestBody:
@@ -1364,6 +1393,7 @@ paths:
       tags:
         - Email Credentials
       summary: Retrieve a SendGrid credential
+      operationId: GetSendGridCredentialHash
       description: |
         Retrieve a SendGrid credential with specified token identifier string
       responses:
@@ -1388,6 +1418,7 @@ paths:
       tags:
         - Email Credentials
       summary: Update a SendGrid credential
+      operationId: PatchSendGridCredentialHash
       description: |
         Update a SendGrid credential with specified token identifier string
       requestBody:
@@ -1422,6 +1453,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Create a webhook credential
+      operationId: PostWebhookCredentialHash
       description: |
         Create a webhook credential
       requestBody:
@@ -1481,6 +1513,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Retrieve a webhook credential
+      operationId: GetWebhookCredentialHash
       description: |
         Retrieve a webhook credential with specified token identifier string
       responses:
@@ -1505,6 +1538,7 @@ paths:
       tags:
         - Webhook Credentials
       summary: Update a webhook credential
+      operationId: PatchWebhookCredentialHash
       description: |
         Update a webhook credential with specified token identifier string
       requestBody:
@@ -1539,6 +1573,7 @@ paths:
       tags:
         - Custom Events
       summary: Retrieve a list of custom events
+      operationId: GetCustomEventCollection
       description: |
         Retrieve a list of custom events
       parameters:
@@ -1588,6 +1623,7 @@ paths:
       tags:
         - Custom Events
       summary: Create a custom event
+      operationId: PostCustomEvent
       description: |
         Create a custom event
       requestBody:
@@ -1617,6 +1653,7 @@ paths:
       tags:
         - Custom Events
       summary: Retrieve a custom event
+      operationId: GetCustomEvent
       description: |
         Retrieve a custom event with predefined identifier string
       responses:
@@ -1641,6 +1678,7 @@ paths:
       tags:
         - Custom Events
       summary: Create a custom event with predefined ID
+      operationId: PutCustomEvent
       description: |
         Create a custom event with predefined identifier string
       requestBody:
@@ -1673,6 +1711,7 @@ paths:
       tags:
         - Custom Events
       summary: Delete a custom event
+      operationId: DeleteCustomEvent
       description: |
         Delete a custom event with predefined identifier string
       responses:
@@ -1702,6 +1741,7 @@ paths:
       tags:
         - Custom Event Rules
       summary: Retrieve a list of rules for custom event
+      operationId: GetCustomEventRuleCollection
       responses:
         '200':
           description: Rules were retrieved successfully
@@ -1724,6 +1764,7 @@ paths:
       tags:
         - Custom Event Rules
       summary: Update the rules for custom event
+      operationId: PutCustomEventRuleCollection
       responses:
         '200':
           description: Rules were updated
@@ -1757,6 +1798,7 @@ paths:
       tags:
         - Custom Event Rules
       summary: Retrieve the change history of the set of rules for a custom event
+      operationId: GetCustomEventRuleHistoryCollection
       description: |
         Retrieve the change history of the set of rules for the selected custom event.
         The history is updated each time you change the rules.
@@ -1802,6 +1844,7 @@ paths:
       tags:
         - Custom Event Rules
       summary: Retrieve the record from the change history of the set of rules for a custom event
+      operationId: GetCustomEventRuleHistoryVersion
       description: |
         Retrieve the record from the change history of the set of rules for the selected custom event.
         A history record is created each time you change the rules.
@@ -1834,6 +1877,7 @@ paths:
       tags:
         - Custom Event Rules
       summary: Retrieve the version of the set of rules for a custom event
+      operationId: GetCustomEventRuleVersion
       description: |
         Retrieve the version of the selected set of rules for the selected custom event.
         The versions are created each time you change the rules.
@@ -1863,6 +1907,7 @@ paths:
       tags:
         - Email Messages
       summary: Retrieve a list of email messages
+      operationId: GetEmailMessageCollection
       description: |
         Retrieve a list of email messages
       responses:
@@ -1893,6 +1938,7 @@ paths:
       tags:
         - Email Messages
       summary: Create an email message
+      operationId: PostEmailMessage
       description: |
         Create an email message
       responses:
@@ -1927,6 +1973,7 @@ paths:
       tags:
         - Email Messages
       summary: Retrieve an email message
+      operationId: GetEmailMessage
       description: |
         Retrieve an email message
       responses:
@@ -1951,6 +1998,7 @@ paths:
       tags:
         - Email Messages
       summary: Delete an email message
+      operationId: DeleteEmailMessage
       description: |
         Delete an email message
       responses:
@@ -1969,6 +2017,7 @@ paths:
       tags:
         - Email Messages
       summary: Send an email message
+      operationId: PatchEmailMessage
       description: |
         Send an email message
       responses:
@@ -2011,6 +2060,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve a list of existing events
+      operationId: GetEventCollection
       responses:
         '200':
           description: A list of System Events was retrieved successfully
@@ -2042,6 +2092,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve the event information
+      operationId: GetEvent
       responses:
         '200':
           description: Rules were retrieved successfully
@@ -2067,6 +2118,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve a list of rules for event
+      operationId: GetEventRuleCollection
       responses:
         '200':
           description: Rules were retrieved successfully
@@ -2089,6 +2141,7 @@ paths:
       tags:
         - Rules
       summary: Update the rules for event
+      operationId: PutEventRuleCollection
       responses:
         '200':
           description: Rules were updated
@@ -2122,6 +2175,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve the change history of the set of rules
+      operationId: GetEventRuleHistoryCollection
       description: |
         Retrieve the change history of the selected set of rules.
         The history is updated each time you change the rules.
@@ -2167,6 +2221,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve the record from the change history of the set of rules
+      operationId: GetEventRuleHistoryVersion
       description: |
         Retrieve the record from the change history of the selected set of rules.
         A history record is created each time you change the rules.
@@ -2199,6 +2254,7 @@ paths:
       tags:
         - Rules
       summary: Retrieve the version of the set of rules
+      operationId: GetEventRuleVersion
       description: |
         Retrieve the version of the selected set of rules.
         The versions are created each time you change the rules.
@@ -2228,6 +2284,7 @@ paths:
       tags:
         - Reset password
       summary: Request password reset
+      operationId: PostForgotPasswordRequest
       description: |
         Sends an email with a link containing a token to reset user password
       responses:
@@ -2269,6 +2326,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a list of gateway accounts
+      operationId: GetGatewayAccountCollection
       description: |
         Retrieve a list of gateway accounts
       parameters:
@@ -2308,6 +2366,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Create a Gateway Account
+      operationId: PostGatewayAccount
       description: |
         Create a Gateway Account
       requestBody:
@@ -2372,6 +2431,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a Gateway Account
+      operationId: GetGatewayAccount
       description: |
         Retrieve a Gateway Account with specified identifier string
       responses:
@@ -2400,6 +2460,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Create or update a Gateway Account with predefined ID
+      operationId: PutGatewayAccount
       description: |
         Create or update a GatewayAccount with predefined identifier string
       requestBody:
@@ -2476,6 +2537,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Update a Gateway Account with predefined ID
+      operationId: PatchGatewayAccount
       description: |
         Update a GatewayAccount with predefined identifier string
       requestBody:
@@ -2508,6 +2570,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Delete a Gateway Account
+      operationId: DeleteGatewayAccount
       description: |
         Delete a Gateway Account with predefined identifier string
       responses:
@@ -2541,6 +2604,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Close a Gateway Account
+      operationId: PostGatewayAccountClosure
       description: |
         Close a gateway account with specified identifier string.
         Also known as archiving. Closing a Gateway Account cannot be undone, so use with caution. It will no longer be able
@@ -2570,6 +2634,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Disable a Gateway Account
+      operationId: PostGatewayAccountDisablement
       description: |
         Disable a gateway account with specified identifier string.
         Disabled gateway accounts have their "status" attribute set to "inactive" and cannot process transactions.
@@ -2600,6 +2665,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a list of gateway account downtime schedules
+      operationId: GetGatewayAccountDowntimeScheduleCollection
       description: |
         Retrieve a list of gateway account downtime schedules
       parameters:
@@ -2633,6 +2699,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Create a Gateway Account downtime schedule.
+      operationId: PostGatewayAccountDowntimeSchedule
       description: |
         Create a Gateway Account downtime schedule
       responses:
@@ -2674,6 +2741,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a Gateway Downtime schedule
+      operationId: GetGatewayAccountDowntimeSchedule
       description: |
         Retrieve a Gateway Downtime schedule with specified identifier string
       responses:
@@ -2698,6 +2766,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Update a Gateway Account downtime schedule
+      operationId: PutGatewayAccountDowntimeSchedule
       description: |
         Update a Gateway Account downtime schedule with predefined identifier string
       responses:
@@ -2732,6 +2801,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Delete a Gateway Account downtime schedule
+      operationId: DeleteGatewayAccountDowntimeSchedule
       description: |
         Delete a Gateway Account downtime schedule
       responses:
@@ -2755,6 +2825,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Enable a Gateway Account
+      operationId: PostGatewayAccountEnablement
       description: |
         Enable a gateway account with specified identifier string.
         Enabled gateway accounts have their "status" attribute set to "active" and can process transactions.
@@ -2785,6 +2856,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a list of gateway account timeline messages
+      operationId: GetGatewayAccountTimelineCollection
       description: |
         Retrieve a list of gateway account timeline messages
       parameters:
@@ -2819,6 +2891,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Create a Gateway Account Timeline comment
+      operationId: PostGatewayAccountTimeline
       description: |
         Create a Gateway Account Timeline comment
       requestBody:
@@ -2863,6 +2936,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Retrieve a Gateway Timeline message
+      operationId: GetGatewayAccountTimeline
       description: |
         Retrieve a Gateway Timeline message with specified identifier string
       responses:
@@ -2887,6 +2961,7 @@ paths:
       tags:
         - Gateway Accounts
       summary: Delete a Gateway Timeline message
+      operationId: DeleteGatewayAccountTimeline
       description: |
         Delete a Gateway Timeline message with predefined identifier string
       responses:
@@ -2910,7 +2985,7 @@ paths:
       tags:
         - Segments
       summary: Retrieve a user's Segments
-      operationId: getSegments
+      operationId: GetGridSegmentCollection
       description: |
         Retrieve a user's UI Segments
       parameters:
@@ -2942,7 +3017,7 @@ paths:
       tags:
         - Segments
       summary: Create a new UI Segment
-      operationId: createSegment
+      operationId: PostGridSegment
       description: |
         Create a new Segment for oneself or to share with others within the
         organization
@@ -2971,7 +3046,7 @@ paths:
       tags:
         - Segments
       summary: Retrieve a specific Segment
-      operationId: getSegment
+      operationId: GetGridSegment
       description: |
         Retrieve a specific UI Segment
       responses:
@@ -3000,7 +3075,7 @@ paths:
       tags:
         - Segments
       summary: Update a Segment's visibility
-      operationId: toggleSegmentsVisibility
+      operationId: PatchGridSegment
       description: |
         Toggle the visibility of the current Segment for the authenticated user
       responses:
@@ -3030,7 +3105,7 @@ paths:
       tags:
         - Segments
       summary: Update a Segment
-      operationId: updateSegment
+      operationId: PutGridSegment
       description: |
         Update a Segment
       responses:
@@ -3067,7 +3142,7 @@ paths:
       tags:
         - Segments
       summary: Delete a Segment
-      operationId: deleteSegment
+      operationId: DeleteGridSegment
       description: |
         Delete a Segment. This will also remove all shares. Only the owner may perform this.
       responses:
@@ -3094,6 +3169,7 @@ paths:
       tags:
         - Integrations
       summary: Retrieve a list of integrations
+      operationId: GetIntegrationCollection
       description: |
         Retrieve a list of integrations
       responses:
@@ -3127,6 +3203,7 @@ paths:
       tags:
         - Integrations
       summary: Retrieve an integration for specific label
+      operationId: GetIntegration
       description: |
         Retrieve an integration for specific label
       responses:
@@ -3152,6 +3229,7 @@ paths:
       tags:
         - Layouts
       summary: Retrieve a layout list
+      operationId: GetLayoutCollection
       description: |
         Retrieve a layout list
       parameters:
@@ -3191,6 +3269,7 @@ paths:
       tags:
         - Layouts
       summary: Create a layout
+      operationId: PostLayout
       description: |
         Create a layout
       requestBody:
@@ -3239,6 +3318,7 @@ paths:
       tags:
         - Layouts
       summary: Retrieve a layout
+      operationId: GetLayout
       description: |
         Retrieve a layout with specified identifier string
       responses:
@@ -3267,6 +3347,7 @@ paths:
       tags:
         - Layouts
       summary: Create or update a layout with predefined ID
+      operationId: PutLayout
       description: |
         Create or update a layout with predefined identifier string
       requestBody:
@@ -3327,6 +3408,7 @@ paths:
       tags:
         - Layouts
       summary: Delete a layout
+      operationId: DeleteLayout
       description: |
         Delete a layout with predefined identifier string
       responses:
@@ -3352,6 +3434,7 @@ paths:
       tags:
         - Lists
       summary: Retrieve a collection of Lists (latest version of each List)
+      operationId: GetListCollection
       description: |
         Retrieve a collection of Lists
       parameters:
@@ -3387,6 +3470,7 @@ paths:
       tags:
         - Lists
       summary: Create a List
+      operationId: PostList
       description: |
         Create a List
       responses:
@@ -3420,6 +3504,7 @@ paths:
       tags:
         - Lists
       summary: Retrieve list's latest version
+      operationId: GetList
       description: |
         Retrieve latest version of List with specified identifier string
       responses:
@@ -3444,6 +3529,7 @@ paths:
       tags:
         - Lists
       summary: Create or update a list with predefined ID
+      operationId: PutList
       description: |
         Create or update a list with predefined identifier string
       requestBody:
@@ -3485,6 +3571,7 @@ paths:
       tags:
         - Lists
       summary: Delete a list
+      operationId: DeleteList
       description: |
         Delete a list with predefined identifier string
       responses:
@@ -3517,6 +3604,7 @@ paths:
       tags:
         - Lists
       summary: Retrieve List's exact version
+      operationId: GetListVersion
       responses:
         '200':
           description: List's exact version was retrieved successfully
@@ -3533,6 +3621,7 @@ paths:
       tags:
         - JWT Session
       summary: Destroys the user's current session
+      operationId: PostLogoutRequest
       description: |
         Destroys the user's current session. Endpoint must be accessed with valid JWT Authorization header.
       responses:
@@ -3552,6 +3641,7 @@ paths:
       tags:
         - Notes
       summary: Retrieve a list of notes
+      operationId: GetNoteCollection
       description: |
         Retrieve a list of notes
       parameters:
@@ -3591,6 +3681,7 @@ paths:
       tags:
         - Notes
       summary: Create a note
+      operationId: PostNote
       description: |
         Create a note
       requestBody:
@@ -3637,6 +3728,7 @@ paths:
       tags:
         - Notes
       summary: Retrieve a note
+      operationId: GetNote
       description: |
         Retrieve a note with specified identifier string
       responses:
@@ -3665,6 +3757,7 @@ paths:
       tags:
         - Notes
       summary: Create or update a note with predefined ID
+      operationId: PutNote
       description: |
         Create or update a note with predefined identifier string
       requestBody:
@@ -3724,6 +3817,7 @@ paths:
       tags:
         - Organizations
       summary: Retrieve a list of organizations
+      operationId: GetOrganizationCollection
       description: |
         Retrieve a list of organizations
       parameters:
@@ -3763,6 +3857,7 @@ paths:
       tags:
         - Organizations
       summary: Create a organization
+      operationId: PostOrganization
       description: |
         Create a organization
       requestBody:
@@ -3810,6 +3905,7 @@ paths:
       tags:
         - Organizations
       summary: Retrieve a organization
+      operationId: GetOrganization
       description: |
         Retrieve a organization with specified identifier string
       responses:
@@ -3838,6 +3934,7 @@ paths:
       tags:
         - Organizations
       summary: Create or update a organization with predefined ID
+      operationId: PutOrganization
       description: |
         Create or update a organization with predefined identifier string
       requestBody:
@@ -3895,6 +3992,7 @@ paths:
       tags:
         - Organizations
       summary: Delete a organization
+      operationId: DeleteOrganization
       description: |
         Delete a organization with predefined identifier string
       responses:
@@ -3922,7 +4020,7 @@ paths:
       tags:
         - Payment Cards
       summary: Retrieve a list of payment card issuing bank names
-      operationId: getBankNames
+      operationId: GetPaymentCardBankNameCollection
       description: |
         Retrieve a list of payment card issuing bank names
       parameters:
@@ -3961,7 +4059,7 @@ paths:
       tags:
         - Payment Cards
       summary: Migrate payment cards to another gateway account
-      operationId: migratePaymentCards
+      operationId: PostPaymentCardMigration
       description: |
         Migrate payment cards to another gateway account
       requestBody:
@@ -3991,6 +4089,7 @@ paths:
       tags:
         - Rules
       summary: Send a test email
+      operationId: PostPreviewRuleActionEmailSending
       description: |
         Send a test email
       requestBody:
@@ -4027,6 +4126,7 @@ paths:
       tags:
         - Rules
       summary: Trigger a test webhook
+      operationId: PostPreviewRuleActionWebhookTrigger
       description: |
         Trigger a test webhook
       requestBody:
@@ -4063,6 +4163,7 @@ paths:
       tags:
         - Webhooks
       summary: Trigger a test webhook
+      operationId: PostPreviewWebhook
       description: |
         Trigger a test webhook
       requestBody:
@@ -4090,6 +4191,7 @@ paths:
       tags:
         - Profile
       summary: Retrieve user's profile
+      operationId: GetProfile
       description: |
         Retrieve user's profile
       responses:
@@ -4114,6 +4216,7 @@ paths:
       tags:
         - Profile
       summary: Update user's profile
+      operationId: PutProfile
       description: |
         Update user's profile
       requestBody:
@@ -4148,6 +4251,7 @@ paths:
       tags:
         - Profile
       summary: Change password
+      operationId: PostProfilePasswordChange
       description: |
         Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
       requestBody:
@@ -4177,6 +4281,7 @@ paths:
       tags:
         - Profile
       summary: Reset (renew) totpSecret
+      operationId: PostProfileTotpReset
       description: |
         Reset (renew) totpSecret
       responses:
@@ -4200,6 +4305,7 @@ paths:
       tags:
         - Scheduled Custom Events
       summary: Retrieve a list of scheduled custom events
+      operationId: GetQueueCustomEventCollection
       description: |
         Retrieve a list of scheduled custom events
       parameters:
@@ -4236,6 +4342,7 @@ paths:
       tags:
         - Scheduled Custom Events
       summary: Retrieve a scheduled custom event
+      operationId: GetQueueCustomEvent
       description: |
         Retrieve a scheduled custom event with predefined identifier string
       responses:
@@ -4273,6 +4380,7 @@ paths:
       tags:
         - Scheduled Custom Events
       summary: Delete a scheduled custom event
+      operationId: DeleteQueueCustomEvent
       description: |
         Delete a scheduled custom event with predefined identifier string
       responses:
@@ -4301,6 +4409,7 @@ paths:
       tags:
         - Reset password
       summary: Read token information
+      operationId: GetPasswordResetToken
       responses:
         '200':
           description: Token was retrieved successfully
@@ -4321,6 +4430,7 @@ paths:
       tags:
         - Reset password
       summary: Finish password reset
+      operationId: PostPasswordReset
       description: |
         Reset user password
       requestBody:
@@ -4366,6 +4476,7 @@ paths:
       tags:
         - JWT Session
       summary: Create a session with email and password
+      operationId: PostSigninRequest
       description: |
         Create a session with email and password
       security: []
@@ -4415,6 +4526,7 @@ paths:
       tags:
         - Profile
       summary: Register and create new profile
+      operationId: PostSignupRequest
       description: |
         Creates a new user and sends an email confirmation
       requestBody:
@@ -4464,6 +4576,7 @@ paths:
       tags:
         - Status
       summary: Retrieve API current status
+      operationId: GetStatus
       description: |
         Retrieve API current status
       security: []
@@ -4486,6 +4599,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a list of tracking API logs
+      operationId: GetTrackingApiCollection
       parameters:
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
@@ -4535,6 +4649,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a tracking API log with specified identifier string
+      operationId: GetTrackingApi
       responses:
         '200':
           description: Tracking API log was retrieved successfully
@@ -4562,6 +4677,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve Lists changes history
+      operationId: GetTrackingListCollection
       parameters:
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
@@ -4594,6 +4710,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a list of tracking subscription logs
+      operationId: GetTrackingSubscriptionCollection
       parameters:
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
@@ -4628,6 +4745,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a tracking subscription log with specified identifier string
+      operationId: GetTrackingSubscription
       responses:
         '200':
           description: Tracking subscription log was retrieved successfully
@@ -4644,6 +4762,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a list of tracking webhook notifications
+      operationId: GetTrackingWebhookCollection
       parameters:
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
@@ -4680,6 +4799,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve a tracking webhook notification with specified identifier string
+      operationId: GetTrackingWebhook
       responses:
         '200':
           description: Tracking webhook notification was retrieved successfully
@@ -4698,6 +4818,7 @@ paths:
       tags:
         - Tracking
       summary: Retrieve related webhook attempts for specified webhook tracking.
+      operationId: GetTrackingWebhookHistoryCollection
       responses:
         '200':
           description: Webhook tracking related attempts were retrieved successfully.
@@ -4723,6 +4844,7 @@ paths:
       tags:
         - Tracking
       summary: Schedules webhook resend attempt for specified webhook tracking.
+      operationId: PostTrackingWebhookResendRequest
       responses:
         '204':
           description: Webhook resend attempt was scheduled
@@ -4742,6 +4864,7 @@ paths:
       tags:
         - Users
       summary: Retrieve a list of users
+      operationId: GetUserCollection
       description: |
         Retrieve a list of users
       parameters:
@@ -4781,6 +4904,7 @@ paths:
       tags:
         - Users
       summary: Create an user
+      operationId: PostUser
       description: |
         Create an user
       requestBody:
@@ -4827,6 +4951,7 @@ paths:
       tags:
         - Users
       summary: Retrieve user
+      operationId: GetUser
       description: |
         Retrieve user with specified identifier string
       responses:
@@ -4855,6 +4980,7 @@ paths:
       tags:
         - Users
       summary: Create or update user with predefined ID
+      operationId: PutUser
       description: |
         Create or update user with predefined identifier string
       requestBody:
@@ -4909,6 +5035,7 @@ paths:
       tags:
         - Users
       summary: Delete user
+      operationId: DeleteUser
       description: |
         Delete user with predefined identifier string
       responses:
@@ -4946,6 +5073,7 @@ paths:
       tags:
         - Users
       summary: Change a user's password
+      operationId: PostUserPasswordChange
       description: |
         Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
       requestBody:
@@ -4989,6 +5117,7 @@ paths:
       tags:
         - Users
       summary: Reset (renew) totpSecret
+      operationId: PostUserTotpReset
       description: |
         Reset (renew) totpSecret
       responses:
@@ -5016,6 +5145,7 @@ paths:
       tags:
         - Webhooks
       summary: Retrieve a list of webhooks
+      operationId: GetWebhookCollection
       description: |
         Retrieve a list of webhooks
       parameters:
@@ -5049,6 +5179,7 @@ paths:
       tags:
         - Webhooks
       summary: Create a webhook
+      operationId: PostWebhook
       description: |
         Create a webhook
       requestBody:
@@ -5082,6 +5213,7 @@ paths:
       tags:
         - Webhooks
       summary: Retrieve a webhook
+      operationId: GetWebhook
       description: |
         Retrieve a webhook with specified identifier string
       responses:
@@ -5106,6 +5238,7 @@ paths:
       tags:
         - Webhooks
       summary: Create or update a webhook with predefined ID
+      operationId: PutWebhook
       description: |
         Create or update a webhook with predefined identifier string
       requestBody:
@@ -5150,6 +5283,7 @@ paths:
       tags:
         - Websites
       summary: Retrieve a list of websites
+      operationId: GetWebsiteCollection
       description: |
         Retrieve a list of websites
       parameters:
@@ -5203,6 +5337,7 @@ paths:
       tags:
         - Websites
       summary: Create a website
+      operationId: PostWebsite
       description: |
         Create a website
       requestBody:
@@ -5250,6 +5385,7 @@ paths:
       tags:
         - Websites
       summary: Retrieve a website
+      operationId: GetWebsite
       description: |
         Retrieve a website with specified identifier string
       responses:
@@ -5278,6 +5414,7 @@ paths:
       tags:
         - Websites
       summary: Create or update a website with predefined ID
+      operationId: PutWebsite
       description: |
         Create or update a website with predefined identifier string
       requestBody:
@@ -5337,6 +5474,7 @@ paths:
       tags:
         - Websites
       summary: Delete a website
+      operationId: DeleteWebsite
       description: |
         Delete a website with predefined identifier string
       responses:
@@ -7430,18 +7568,11 @@ components:
             settings:
               type: object
               properties:
-                payoutMethod:
-                  type: string
-                  description: Payout method
-                  enum:
-                    - e-transfer
-                    - ACH
                 sandbox:
                   type: boolean
                   description: True if gateway account is in sandbox mode
                   default: false
               required:
-                - payoutMethod
                 - sandbox
     GlobalOne:
       description: GlobalOne Gateway config
@@ -7764,9 +7895,16 @@ components:
                   enum:
                     - miglite
                     - w88asiapay
+                platform:
+                  type: string
+                  description: Platform which IpayOptions will process.
+                  enum:
+                    - SOAP
+                    - TxHandler
               required:
                 - extraStep
                 - subdomain
+                - platform
     Jeton:
       description: Jeton Gateway config
       allOf:
@@ -8230,7 +8368,6 @@ components:
         - type: object
           required:
             - credentials
-            - settings
           properties:
             credentials:
               type: object
@@ -8240,16 +8377,6 @@ components:
                   description: PayPal Gateway merchant id
               required:
                 - merchantIdInPayPal
-            settings:
-              type: object
-              description: PayPal settings object
-              properties:
-                redirectUrl:
-                  type: string
-                  description: PayPal Gateway redirect url
-                  format: url
-              required:
-                - redirectUrl
     Payr:
       description: Payr Gateway config
       allOf:
