@@ -2,6 +2,7 @@ post:
   tags:
     - Rules
   summary: Trigger a test webhook
+  operationId: PostPreviewRuleActionWebhookTrigger
   description: |
     Trigger a test webhook
   requestBody:

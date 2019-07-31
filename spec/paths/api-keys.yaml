@@ -2,6 +2,7 @@ get:
   tags:
     - API Keys
   summary: Retrieve a list of api keys
+  operationId: GetApiKeyCollection
   description: |
     Retrieve a list of api keys
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - API Keys
   summary: Create an api key
+  operationId: PostApiKey
   description: |
     Create an api key
   requestBody:

@@ -5,6 +5,7 @@ get:
   tags:
     - Custom Event Rules
   summary: Retrieve the version of the set of rules for a custom event
+  operationId: GetCustomEventRuleVersion
   description: |
     Retrieve the version of the selected set of rules for the selected custom event.
     The versions are created each time you change the rules.

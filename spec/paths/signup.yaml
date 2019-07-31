@@ -2,6 +2,7 @@ post:
   tags:
     - Profile
   summary: Register and create new profile
+  operationId: PostSignupRequest
   description: |
     Creates a new user and sends an email confirmation
   requestBody:

@@ -4,6 +4,7 @@ get:
   tags:
     - API Keys
   summary: Retrieve api key
+  operationId: GetApiKey
   description: |
     Retrieve api key with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - API Keys
   summary: Create or update api key with predefined ID
+  operationId: PutApiKey
   description: |
     Create or update api key with predefined identifier string
   responses:
@@ -69,6 +71,7 @@ delete:
   tags:
     - API Keys
   summary: Delete api key
+  operationId: DeleteApiKey
   description: |
     Delete api key with predefined identifier string
   responses:

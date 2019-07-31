@@ -4,6 +4,7 @@ get:
   tags:
     - Webhooks
   summary: Retrieve a webhook
+  operationId: GetWebhook
   description: |
     Retrieve a webhook with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Webhooks
   summary: Create or update a webhook with predefined ID
+  operationId: PutWebhook
   description: |
     Create or update a webhook with predefined identifier string
   requestBody:

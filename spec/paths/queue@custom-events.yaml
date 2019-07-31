@@ -2,6 +2,7 @@ get:
   tags:
     - Scheduled Custom Events
   summary: Retrieve a list of scheduled custom events
+  operationId: GetQueueCustomEventCollection
   description: |
     Retrieve a list of scheduled custom events
   parameters:

@@ -4,6 +4,7 @@ get:
   tags:
     - Layouts
   summary: Retrieve a layout
+  operationId: GetLayout
   description: |
     Retrieve a layout with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Layouts
   summary: Create or update a layout with predefined ID
+  operationId: PutLayout
   description: |
     Create or update a layout with predefined identifier string
   requestBody:
@@ -69,6 +71,7 @@ delete:
   tags:
     - Layouts
   summary: Delete a layout
+  operationId: DeleteLayout
   description: |
     Delete a layout with predefined identifier string
   responses:

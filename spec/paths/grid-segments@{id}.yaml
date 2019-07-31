@@ -4,7 +4,7 @@ get:
   tags:
     - Segments
   summary: Retrieve a specific Segment
-  operationId: getSegment
+  operationId: GetGridSegment
   description: |
     Retrieve a specific UI Segment
   responses:
@@ -33,7 +33,7 @@ patch:
   tags:
     - Segments
   summary: Update a Segment's visibility
-  operationId: toggleSegmentsVisibility
+  operationId: PatchGridSegment
   description: |
     Toggle the visibility of the current Segment for the authenticated user
   responses:
@@ -63,7 +63,7 @@ put:
   tags:
     - Segments
   summary: Update a Segment
-  operationId: updateSegment
+  operationId: PutGridSegment
   description: |
     Update a Segment
   responses:
@@ -100,7 +100,7 @@ delete:
   tags:
     - Segments
   summary: Delete a Segment
-  operationId: deleteSegment
+  operationId: DeleteGridSegment
   description: |
     Delete a Segment. This will also remove all shares. Only the owner may perform this.
   responses:

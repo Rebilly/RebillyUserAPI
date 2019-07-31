@@ -2,6 +2,7 @@ get:
   tags:
     - Email Messages
   summary: Retrieve a list of email messages
+  operationId: GetEmailMessageCollection
   description: |
     Retrieve a list of email messages
   responses:
@@ -32,6 +33,7 @@ post:
   tags:
     - Email Messages
   summary: Create an email message
+  operationId: PostEmailMessage
   description: |
     Create an email message
   responses:
