@@ -11410,11 +11410,20 @@
                       "miglite",
                       "w88asiapay"
                     ]
+                  },
+                  "platform": {
+                    "type": "string",
+                    "description": "Platform which IpayOptions will process.",
+                    "enum": [
+                      "SOAP",
+                      "TxHandler"
+                    ]
                   }
                 },
                 "required": [
                   "extraStep",
-                  "subdomain"
+                  "subdomain",
+                  "platform"
                 ]
               }
             }

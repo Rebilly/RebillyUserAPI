@@ -7895,9 +7895,16 @@ components:
                   enum:
                     - miglite
                     - w88asiapay
+                platform:
+                  type: string
+                  description: Platform which IpayOptions will process.
+                  enum:
+                    - SOAP
+                    - TxHandler
               required:
                 - extraStep
                 - subdomain
+                - platform
     Jeton:
       description: Jeton Gateway config
       allOf:
