@@ -8992,12 +8992,16 @@ components:
                 endpointId:
                   type: string
                   description: Zotapay's endpoint ID
+                username:
+                  type: string
+                  description: Zotapay's login username
                 controlKey:
                   type: string
                   description: Zotapay's merchant control key
                   format: password
               required:
                 - endpointId
+                - username
                 - controlKey
     GatewayAccountDowntimeSchedule:
       type: object
