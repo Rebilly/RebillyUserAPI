@@ -13350,6 +13350,7 @@
           "subscription-trial-ended",
           "subscription-activated",
           "subscription-canceled",
+          "subscription-reactivated",
           "subscription-renewed",
           "transaction-processed",
           "transaction-timeout-resolved",
