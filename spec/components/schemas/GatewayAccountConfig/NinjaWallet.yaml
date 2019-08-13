@@ -11,9 +11,19 @@ allOf:
       type: object
       description: NinjaWallet credentials object
       properties:
-        authorizationToken:
+        apiKey:
           type: string
-          description: NinjaWallet authorization token
+          description: NinjaWallet api key
+          format: password
+        secret:
+          type: string
+          description: NinjaWallet secret
+          format: password
+        passphrase:
+          type: string
+          description: NinjaWallet passphrase
           format: password
       required:
-      - "authorizationToken"
+      - "apiKey"
+      - "secret"
+      - "passphrase"
