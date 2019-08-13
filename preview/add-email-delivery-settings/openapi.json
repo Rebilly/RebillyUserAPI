@@ -2707,7 +2707,7 @@
         ],
         "summary": "Create an email delivery setting",
         "operationId": "PostEmailDeliverySetting",
-        "description": "Create an email dlivery setting\n",
+        "description": "Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails. \n",
         "responses": {
           "201": {
             "description": "Email delivery setting was created",
