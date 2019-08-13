@@ -1,0 +1,50 @@
+type: object
+required:
+  - from
+  - name
+properties:
+  id:
+    description: The email delivery setting's identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/ResourceId"
+  from:
+    description: The sender's email address
+    type: string
+    format: email
+    maxLength: 254
+    example: "from-example@rebilly.com"
+  name:
+    description: The sender's name
+    type: string
+    example: "John Doe"
+  status:
+    description: The email message's status
+    type: string
+    enum:
+      - pending
+      - verified
+  credentialHash:
+    type: string
+    description: SMTP or any Email Service Provider credential identifier string.
+    example: "b120c2ca-6c2b-4690-9dff-3b0d87852dc7"
+  provider:
+    readOnly: true
+    description: The service provider name
+    type: string
+    enum:
+      - Rebilly
+      - Smtp
+      - AwsSes
+      - Mailgun
+      - Postmark
+      - Sendgrid
+    example: "Rebilly"
+  createdTime:
+    description: The created time
+    allOf:
+      - $ref: "#/components/schemas/ServerTimestamp"
+  updatedTime:
+    description: The updated time
+    allOf:
+      - $ref: "#/components/schemas/ServerTimestamp"
