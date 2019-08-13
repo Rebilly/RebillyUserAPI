@@ -11429,12 +11429,7 @@
                       "TxHandler"
                     ]
                   }
-                },
-                "required": [
-                  "extraStep",
-                  "subdomain",
-                  "platform"
-                ]
+                }
               }
             }
           }

@@ -7908,10 +7908,6 @@ components:
                   enum:
                     - SOAP
                     - TxHandler
-              required:
-                - extraStep
-                - subdomain
-                - platform
     Jeton:
       description: Jeton Gateway config
       allOf:
