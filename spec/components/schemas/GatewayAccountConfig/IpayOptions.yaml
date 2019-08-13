@@ -41,7 +41,3 @@ allOf:
             enum:
               - SOAP
               - TxHandler
-        required:
-          - "extraStep"
-          - "subdomain"
-          - "platform"
