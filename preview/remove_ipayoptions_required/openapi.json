@@ -10138,6 +10138,16 @@
                   "merchantUsername",
                   "merchantPassword"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "skipAmountSelection": {
+                    "type": "boolean",
+                    "description": "Skip amount selection screen",
+                    "default": false
+                  }
+                }
               }
             }
           }
