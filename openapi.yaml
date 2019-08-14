@@ -7428,20 +7428,18 @@ components:
                   type: string
                   description: FinTecSystems api key
                   format: password
+              required:
+                - apiKey
+            settings:
+              type: object
+              description: FinTecSystems settings object
+              properties:
                 recipientIBAN:
                   type: string
                   description: IBAN of the recipient account
                 recipientBIC:
                   type: string
                   description: BIC of the recipient account
-              required:
-                - apiKey
-                - recipientIBAN
-                - recipientBIC
-            settings:
-              type: object
-              description: FinTecSystems settings object
-              properties:
                 recipientCountry:
                   type: string
                   description: Two letter country code
@@ -7453,6 +7451,8 @@ components:
                   type: string
                   description: Account holder of the recipient account
               required:
+                - recipientIBAN
+                - recipientBIC
                 - recipientHolder
                 - recipientCountry
     Flexepin:
