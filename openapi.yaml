@@ -8141,6 +8141,7 @@ components:
                 apiKey:
                   type: string
                   description: Onlineueberweisen API Key
+                  format: password
               required:
                 - apiKey
             settings:

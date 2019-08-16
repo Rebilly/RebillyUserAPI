@@ -11791,7 +11791,8 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "Onlineueberweisen API Key"
+                    "description": "Onlineueberweisen API Key",
+                    "format": "password"
                   }
                 },
                 "required": [
