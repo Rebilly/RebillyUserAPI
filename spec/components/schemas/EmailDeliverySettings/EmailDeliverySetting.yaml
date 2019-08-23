@@ -20,6 +20,7 @@ properties:
     example: "John Doe"
   status:
     description: The email message's status
+    readOnly: true
     type: string
     enum:
       - pending
@@ -33,13 +34,13 @@ properties:
     description: The service provider name
     type: string
     enum:
-      - Rebilly
-      - Smtp
-      - AwsSes
-      - Mailgun
-      - Postmark
-      - Sendgrid
-    example: "Rebilly"
+      - rebilly
+      - smtp
+      - awsses
+      - mailgun
+      - postmark
+      - sendgrid
+    example: "rebilly"
   createdTime:
     description: The created time
     allOf:
