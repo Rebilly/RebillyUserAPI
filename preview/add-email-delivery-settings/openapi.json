@@ -15229,6 +15229,7 @@
             ],
             "enum": [
               "PayvisionMpi",
+              "Payvision3DS2",
               "CardinalCommerce",
               "PaayMpi",
               "Other"
