@@ -9421,7 +9421,7 @@
             "enum": [
               "rebilly",
               "smtp",
-              "awsses",
+              "aws-ses",
               "mailgun",
               "postmark",
               "sendgrid"
