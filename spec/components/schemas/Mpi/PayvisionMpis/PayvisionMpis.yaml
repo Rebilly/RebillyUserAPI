@@ -10,6 +10,7 @@ properties:
       - $ref: "#/components/schemas/MpiName"
     enum:
      - PayvisionMpi
+     - Payvision3DS2
      - CardinalCommerce
      - PaayMpi
      - Other
