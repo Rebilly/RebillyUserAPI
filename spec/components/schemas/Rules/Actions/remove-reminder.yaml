@@ -9,6 +9,6 @@ allOf:
           - all
           - renewal
           - trial
-        description: The role of Reminder (Available only on Subscription events, other should use `all`).
+        description: The role of Reminder (available only on Subscription events, other events should use `all`).
     required:
       - role
