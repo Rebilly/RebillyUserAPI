@@ -10843,6 +10843,21 @@ components:
               $ref: '#/components/schemas/GatewayAccountPickInstruction'
           required:
             - pickInstruction
+    remove-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+          required:
+            - role
     request-kyc:
       description: Request KYC page to verify customer identity
       allOf:
@@ -10906,6 +10921,21 @@ components:
             - rejectedBeforeTransactionProcessPolicy
             - rejectedAfterTransactionProcessPolicy
             - optionalPolicy
+    reset-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+          required:
+            - role
     schedule-invoice-retry:
       description: Schedule an invoice retry
       allOf:
@@ -10966,6 +10996,23 @@ components:
           required:
             - scheduleInstruction
             - amountPolicy
+    schedule-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+            schedule:
+              $ref: '#/components/schemas/ReminderSchedule'
+          required:
+            - role
     send-email:
       description: ''
       allOf:
@@ -11193,6 +11240,9 @@ components:
             - tag-or-untag-customer
             - display-other-choices
             - offer-purchase-bump
+            - schedule-reminder
+            - reset-reminder
+            - remove-reminder
         status:
           $ref: '#/components/schemas/OnOff'
       required:
@@ -11473,6 +11523,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/BillingScheduleInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             duration:
@@ -11491,6 +11542,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             day:
@@ -11510,6 +11562,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             day:
@@ -11547,6 +11600,37 @@ components:
           required:
             - duration
             - unit
+    ReminderSchedule:
+      type: object
+      description: Schedule Instructions Collection
+      properties:
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReminderScheduleInstruction'
+        chronology:
+          type: string
+          enum:
+            - before
+            - after
+      required:
+        - instructions
+        - chronology
+    ReminderScheduleInstruction:
+      type: object
+      description: The calculation instruction of scheduled time
+      discriminator:
+        propertyName: method
+      properties:
+        method:
+          type: string
+          default: '1'
+          enum:
+            - date-interval
+            - day-of-month
+            - day-of-week
+      required:
+        - method
     ServicePeriodAnchorInstruction:
       type: object
       description: |
