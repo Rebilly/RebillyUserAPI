@@ -1,0 +1,14 @@
+description: ""
+allOf:
+  - $ref: "#/components/schemas/RuleAction"
+  - type: object
+    properties:
+      role:
+        type: string
+        enum:
+          - all
+          - renewal
+          - trial
+        description: The role of Reminder (available only on Subscription events, other events should use `all`).
+    required:
+      - role
