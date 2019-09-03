@@ -7,7 +7,8 @@ enum:
   - transaction-processed
   - subscription-activated
   - subscription-canceled
-  - subscription-created
+  # subscription-created is the source of much user confusion and bugs
+  # - subscription-created
   - subscription-renewed
   # - subscription-ended
   # - subscription-trial-ended
@@ -20,3 +21,4 @@ enum:
   - transaction-discrepancy-found
   - transaction-amount-discrepancy-found
   - renewal-invoice-payment-declined
+# missing reminder events
