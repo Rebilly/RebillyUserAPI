@@ -6529,6 +6529,10 @@ components:
         - transaction-discrepancy-found
         - transaction-amount-discrepancy-found
         - renewal-invoice-payment-declined
+        - subscription-trial-end-reminder
+        - subscription-renewal-reminder
+        - payment-card-expiration-reminder
+        - invoice-past-due-reminder
     ForgotPassword:
       type: object
       required:
