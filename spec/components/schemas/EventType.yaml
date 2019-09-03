@@ -21,4 +21,7 @@ enum:
   - transaction-discrepancy-found
   - transaction-amount-discrepancy-found
   - renewal-invoice-payment-declined
-# missing reminder events
+  - subscription-trial-end-reminder
+  - subscription-renewal-reminder
+  - payment-card-expiration-reminder
+  - invoice-past-due-reminder
