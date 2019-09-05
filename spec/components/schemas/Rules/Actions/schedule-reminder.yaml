@@ -8,7 +8,7 @@ allOf:
         enum:
           - all
           - renewal
-          - trial
+          - trial-end
         description: The role of Reminder (available only on Subscription events, other events should use `all`).
       schedule:
         $ref: "#/components/schemas/ReminderSchedule"
