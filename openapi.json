@@ -9325,7 +9325,6 @@
           "transaction-processed",
           "subscription-activated",
           "subscription-canceled",
-          "subscription-created",
           "subscription-renewed",
           "payment-card-expired",
           "invoice-past-due",
@@ -9335,7 +9334,11 @@
           "risk-score-changed",
           "transaction-discrepancy-found",
           "transaction-amount-discrepancy-found",
-          "renewal-invoice-payment-declined"
+          "renewal-invoice-payment-declined",
+          "subscription-trial-end-reminder",
+          "subscription-renewal-reminder",
+          "payment-card-expiration-reminder",
+          "invoice-past-due-reminder"
         ]
       },
       "ForgotPassword": {
@@ -16050,7 +16053,7 @@
                 "enum": [
                   "all",
                   "renewal",
-                  "trial"
+                  "trial-end"
                 ],
                 "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
               }
@@ -16160,7 +16163,7 @@
                 "enum": [
                   "all",
                   "renewal",
-                  "trial"
+                  "trial-end"
                 ],
                 "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
               }
@@ -16282,7 +16285,7 @@
                 "enum": [
                   "all",
                   "renewal",
-                  "trial"
+                  "trial-end"
                 ],
                 "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
               },
