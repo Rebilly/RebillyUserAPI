@@ -5261,7 +5261,7 @@
         },
         "responses": {
           "201": {
-            "description": "Membershop was created",
+            "description": "Membership was created",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -14657,7 +14657,7 @@
             "maxLength": 100
           },
           "lastName": {
-            "description": "The merchang user's last name",
+            "description": "The merchant user's last name",
             "type": "string"
           },
           "firstName": {
@@ -14670,7 +14670,7 @@
             "type": "string"
           },
           "status": {
-            "description": "The user status",
+            "description": "The merchant status",
             "type": "string",
             "enum": [
               "active",
