@@ -44,7 +44,7 @@ put:
     $ref: '#/components/requestBodies/Membership'
   responses:
     201:
-      description: Membershop was created
+      description: Membership was created
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"

@@ -17,7 +17,7 @@ properties:
     format: email
     maxLength: 100
   lastName:
-    description: The merchang user's last name
+    description: The merchant user's last name
     type: string
   firstName:
     description: The merchant user's first name
@@ -27,7 +27,7 @@ properties:
     readOnly: true
     type: string
   status:
-    description: The user status
+    description: The merchant status
     type: string
     enum:
       - "active"
