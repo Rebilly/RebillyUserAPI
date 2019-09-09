@@ -21,6 +21,9 @@ properties:
       - tag-or-untag-customer
       - display-other-choices
       - offer-purchase-bump
+      - schedule-reminder
+      - reset-reminder
+      - remove-reminder
   status:
     $ref: "#/components/schemas/OnOff"
 required:

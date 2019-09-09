@@ -4,6 +4,7 @@ post:
   tags:
     - Tracking
   summary: Schedules webhook resend attempt for specified webhook tracking.
+  operationId: PostTrackingWebhookResendRequest
   responses:
     204:
       description: Webhook resend attempt was scheduled

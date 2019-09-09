@@ -2,7 +2,7 @@ post:
   tags:
     - Payment Cards
   summary: Migrate payment cards to another gateway account
-  operationId: migratePaymentCards
+  operationId: PostPaymentCardMigration
   description: |
     Migrate payment cards to another gateway account
   requestBody:

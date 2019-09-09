@@ -4,6 +4,7 @@ get:
   tags:
     - Custom Event Rules
   summary: Retrieve the change history of the set of rules for a custom event
+  operationId: GetCustomEventRuleHistoryCollection
   description: |
     Retrieve the change history of the set of rules for the selected custom event.
     The history is updated each time you change the rules.

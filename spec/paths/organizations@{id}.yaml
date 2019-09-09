@@ -4,6 +4,7 @@ get:
   tags:
     - Organizations
   summary: Retrieve a organization
+  operationId: GetOrganization
   description: |
     Retrieve a organization with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Organizations
   summary: Create or update a organization with predefined ID
+  operationId: PutOrganization
   description: |
     Create or update a organization with predefined identifier string
   requestBody:
@@ -73,6 +75,7 @@ delete:
   tags:
     - Organizations
   summary: Delete a organization
+  operationId: DeleteOrganization
   description: |
     Delete a organization with predefined identifier string
   responses:

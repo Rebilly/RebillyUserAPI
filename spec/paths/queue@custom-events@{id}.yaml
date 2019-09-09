@@ -4,6 +4,7 @@ get:
   tags:
     - Scheduled Custom Events
   summary: Retrieve a scheduled custom event
+  operationId: GetQueueCustomEvent
   description: |
     Retrieve a scheduled custom event with predefined identifier string
   responses:
@@ -41,6 +42,7 @@ delete:
   tags:
     - Scheduled Custom Events
   summary: Delete a scheduled custom event
+  operationId: DeleteQueueCustomEvent
   description: |
     Delete a scheduled custom event with predefined identifier string
   responses:

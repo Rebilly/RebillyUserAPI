@@ -2,6 +2,7 @@ post:
   tags:
     - Rules
   summary: Send a test email
+  operationId: PostPreviewRuleActionEmailSending
   description: |
     Send a test email
   requestBody:

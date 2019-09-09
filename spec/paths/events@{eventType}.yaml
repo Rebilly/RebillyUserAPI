@@ -4,6 +4,7 @@ get:
   tags:
     - Rules
   summary: Retrieve the event information
+  operationId: GetEvent
   responses:
     200:
       description: Rules were retrieved successfully

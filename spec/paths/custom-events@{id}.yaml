@@ -4,6 +4,7 @@ get:
   tags:
     - Custom Events
   summary: Retrieve a custom event
+  operationId: GetCustomEvent
   description: |
     Retrieve a custom event with predefined identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Custom Events
   summary: Create a custom event with predefined ID
+  operationId: PutCustomEvent
   description: |
     Create a custom event with predefined identifier string
   requestBody:
@@ -60,6 +62,7 @@ delete:
   tags:
     - Custom Events
   summary: Delete a custom event
+  operationId: DeleteCustomEvent
   description: |
     Delete a custom event with predefined identifier string
   responses:

@@ -2,6 +2,7 @@ get:
   tags:
   - Integrations
   summary: Retrieve a list of integrations
+  operationId: GetIntegrationCollection
   description: |
     Retrieve a list of integrations
   responses:

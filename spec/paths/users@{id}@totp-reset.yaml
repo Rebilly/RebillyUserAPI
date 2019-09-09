@@ -4,6 +4,7 @@ post:
   tags:
     - Users
   summary: Reset (renew) totpSecret
+  operationId: PostUserTotpReset
   description: |
     Reset (renew) totpSecret
   responses:

@@ -6,7 +6,6 @@ allOf:
     type: "object"
     required:
      - "credentials"
-     - "settings"
     properties:
       credentials:
         type: object
@@ -16,13 +15,3 @@ allOf:
             description: PayPal Gateway merchant id
         required:
          - "merchantIdInPayPal"
-      settings:
-        type: object
-        description: PayPal settings object
-        properties:
-          redirectUrl:
-            type: string
-            description: PayPal Gateway redirect url
-            format: url
-        required:
-          - "redirectUrl"
