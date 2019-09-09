@@ -1,0 +1,10 @@
+content:
+  application/json:
+    schema:
+      properties:
+        merchantId:
+          $ref: '#/components/schemas/ResourceId'
+        userId:
+          $ref: '#/components/schemas/ResourceId'
+description: Membership resource
+required: true

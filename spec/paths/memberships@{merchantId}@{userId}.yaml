@@ -1,0 +1,53 @@
+parameters:
+  - name: merchantId
+    $ref: '#/components/parameters/resourceId'
+  - name: userId
+    $ref: '#/components/parameters/resourceId'
+get:
+  tags:
+    - Memberships
+  summary: Retrieve the membership
+  operationId: GetMembership
+  description: |
+    Retrieve the membership using merchant and user identifiers
+  responses:
+    200:
+      description: Membership was retrieved successfully
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Membership'
+    401:
+      $ref: '#/components/responses/AccessForbidden'
+    404:
+      $ref: '#/components/responses/NotFound'
+delete:
+  tags:
+    - Memberships
+  summary: Delete the membership
+  operationId: DeleteMembership
+  description: |
+    Delete the membership using merchant and user identifiers
+  responses:
+    204:
+      description: Gateway Account Timeline message was deleted
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+    401:
+      $ref: '#/components/responses/AccessForbidden'
+    404:
+      $ref: '#/components/responses/NotFound'
+    409:
+      $ref: '#/components/responses/Conflict'

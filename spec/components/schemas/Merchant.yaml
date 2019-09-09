@@ -1,0 +1,36 @@
+type: object
+required:
+  - name
+  - email
+properties:
+  id:
+    description: The merchant identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/ResourceId"
+  name:
+    description: The merchant name
+    type: string
+  email:
+    description: The merchant email
+    type: string
+    format: email
+    maxLength: 100
+  lastName:
+    description: The merchang user's last name
+    type: string
+  firstName:
+    description: The merchant user's first name
+    type: string
+  reportCurrency:
+    description: The user's ISO Alpha-3 code used for reports
+    readOnly: true
+    type: string
+  status:
+    description: The user status
+    type: string
+    enum:
+      - "active"
+      - "inactive"
+      - "pending-confirmation"
+    readOnly: true
