@@ -14609,10 +14609,16 @@
               }
             ]
           },
-          "isOwner": {
-            "description": "User is owner of merchant",
-            "type": "boolean",
-            "readOnly": true
+          "roles": {
+            "description": "User roles for the merchant",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "enum": [
+                "owner"
+              ]
+            }
           },
           "isDefault": {
             "description": "This merchant is default for membership user",
