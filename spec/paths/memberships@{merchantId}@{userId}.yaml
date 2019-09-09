@@ -1,8 +1,16 @@
 parameters:
   - name: merchantId
-    $ref: '#/components/parameters/resourceId'
+    in: path
+    required: true
+    description: Merchant identifier
+    schema:
+      $ref: '#/components/parameters/resourceId'
   - name: userId
-    $ref: '#/components/parameters/resourceId'
+    in: path
+    required: true
+    description: User identifier
+    schema:
+      $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Memberships
