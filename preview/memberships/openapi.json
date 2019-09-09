@@ -119,6 +119,10 @@
     {
       "name": "Segments",
       "description": "Segments are grid UI settings that can be shared with other users. They are like a custom view.\nFor example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with\nothers in their organization.\n"
+    },
+    {
+      "name": "Memberships",
+      "description": "Membership describe the relationships between merchants and users.\nFor example, one user could have more than one merchants.\n"
     }
   ],
   "x-tagGroups": [
@@ -168,6 +172,7 @@
         "Gateway Accounts",
         "Layouts",
         "Payment Cards",
+        "Memperships",
         "Notes",
         "Organizations",
         "Segments",
