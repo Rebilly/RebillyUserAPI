@@ -11059,11 +11059,11 @@
                   },
                   "publicKey": {
                     "type": "string",
-                    "description": "iCanPay Gateway API secret key"
+                    "description": "iCanPay Gateway API public key"
                   },
                   "secretKey": {
                     "type": "string",
-                    "description": "iCanPay Gateway API public key",
+                    "description": "iCanPay Gateway API secret key",
                     "format": "password"
                   }
                 },
