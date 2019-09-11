@@ -22,7 +22,7 @@ allOf:
             description: iCanPay Gateway API secret key
           secretKey:
             type: string
-            description: iCanPay Gateway API public key
+            description: iCanPay Gateway API secret key
             format: password
         required:
           - "authenticateId"
