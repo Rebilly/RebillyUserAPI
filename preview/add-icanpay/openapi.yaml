@@ -7647,6 +7647,36 @@ components:
                 - clientId
                 - clientSecret
                 - locationId
+    iCanPay:
+      description: iCanPay Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                authenticateId:
+                  type: string
+                  description: iCanPay Gateway authenticate ID
+                authenticatePw:
+                  type: string
+                  description: iCanPay Gateway authenticate password
+                  format: password
+                publicKey:
+                  type: string
+                  description: iCanPay Gateway API secret key
+                secretKey:
+                  type: string
+                  description: iCanPay Gateway API public key
+                  format: password
+              required:
+                - authenticateId
+                - authenticatePw
+                - publicKey
+                - secretKey
     iCheque:
       description: iCheque Gateway config
       allOf:
