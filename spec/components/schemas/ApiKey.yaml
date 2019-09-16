@@ -23,9 +23,9 @@ properties:
       - secret
       - publishable
   permissions:
-    description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
+    description: Specify permissions here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
-      - $ref: "#/components/schemas/AclPermissions"
+        - $ref: "#/components/schemas/ApiKeyPermissions"
   apiUser:
     description: API user name
     type: string
