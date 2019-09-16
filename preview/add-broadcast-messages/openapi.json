@@ -9926,7 +9926,6 @@
           "transaction-processed",
           "subscription-activated",
           "subscription-canceled",
-          "subscription-created",
           "subscription-renewed",
           "payment-card-expired",
           "invoice-past-due",
@@ -9936,7 +9935,11 @@
           "risk-score-changed",
           "transaction-discrepancy-found",
           "transaction-amount-discrepancy-found",
-          "renewal-invoice-payment-declined"
+          "renewal-invoice-payment-declined",
+          "subscription-trial-end-reminder",
+          "subscription-renewal-reminder",
+          "payment-card-expiration-reminder",
+          "invoice-past-due-reminder"
         ]
       },
       "ForgotPassword": {
@@ -11625,6 +11628,51 @@
                   "clientId",
                   "clientSecret",
                   "locationId"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "iCanPay": {
+        "description": "iCanPay Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "authenticateId": {
+                    "type": "string",
+                    "description": "iCanPay Gateway authenticate ID"
+                  },
+                  "authenticatePw": {
+                    "type": "string",
+                    "description": "iCanPay Gateway authenticate password",
+                    "format": "password"
+                  },
+                  "publicKey": {
+                    "type": "string",
+                    "description": "iCanPay Gateway API public key"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "iCanPay Gateway API secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "authenticateId",
+                  "authenticatePw",
+                  "publicKey",
+                  "secretKey"
                 ]
               }
             }
@@ -16637,6 +16685,31 @@
           }
         ]
       },
+      "remove-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        ]
+      },
       "request-kyc": {
         "description": "Request KYC page to verify customer identity",
         "allOf": [
@@ -16718,6 +16791,31 @@
               "rejectedBeforeTransactionProcessPolicy",
               "rejectedAfterTransactionProcessPolicy",
               "optionalPolicy"
+            ]
+          }
+        ]
+      },
+      "reset-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              }
+            },
+            "required": [
+              "role"
             ]
           }
         ]
@@ -16815,6 +16913,34 @@
             "required": [
               "scheduleInstruction",
               "amountPolicy"
+            ]
+          }
+        ]
+      },
+      "schedule-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              },
+              "schedule": {
+                "$ref": "#/components/schemas/ReminderSchedule"
+              }
+            },
+            "required": [
+              "role"
             ]
           }
         ]
@@ -17156,7 +17282,10 @@
               "request-kyc",
               "tag-or-untag-customer",
               "display-other-choices",
-              "offer-purchase-bump"
+              "offer-purchase-bump",
+              "schedule-reminder",
+              "reset-reminder",
+              "remove-reminder"
             ]
           },
           "status": {
@@ -17545,6 +17674,9 @@
             "$ref": "#/components/schemas/BillingScheduleInstruction"
           },
           {
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
+          },
+          {
             "type": "object",
             "properties": {
               "duration": {
@@ -17582,6 +17714,9 @@
             "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
           },
           {
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
+          },
+          {
             "type": "object",
             "properties": {
               "day": {
@@ -17610,6 +17745,9 @@
           },
           {
             "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
+          },
+          {
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
           },
           {
             "type": "object",
@@ -17681,6 +17819,50 @@
               "unit"
             ]
           }
+        ]
+      },
+      "ReminderSchedule": {
+        "type": "object",
+        "description": "Schedule Instructions Collection",
+        "properties": {
+          "instructions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReminderScheduleInstruction"
+            }
+          },
+          "chronology": {
+            "type": "string",
+            "enum": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        "required": [
+          "instructions",
+          "chronology"
+        ]
+      },
+      "ReminderScheduleInstruction": {
+        "type": "object",
+        "description": "The calculation instruction of scheduled time",
+        "discriminator": {
+          "propertyName": "method"
+        },
+        "properties": {
+          "method": {
+            "type": "string",
+            "default": "1",
+            "enum": [
+              "date-interval",
+              "day-of-month",
+              "day-of-week"
+            ]
+          }
+        },
+        "required": [
+          "method"
         ]
       },
       "ServicePeriodAnchorInstruction": {

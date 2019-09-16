@@ -6922,7 +6922,6 @@ components:
         - transaction-processed
         - subscription-activated
         - subscription-canceled
-        - subscription-created
         - subscription-renewed
         - payment-card-expired
         - invoice-past-due
@@ -6933,6 +6932,10 @@ components:
         - transaction-discrepancy-found
         - transaction-amount-discrepancy-found
         - renewal-invoice-payment-declined
+        - subscription-trial-end-reminder
+        - subscription-renewal-reminder
+        - payment-card-expiration-reminder
+        - invoice-past-due-reminder
     ForgotPassword:
       type: object
       required:
@@ -8047,6 +8050,36 @@ components:
                 - clientId
                 - clientSecret
                 - locationId
+    iCanPay:
+      description: iCanPay Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                authenticateId:
+                  type: string
+                  description: iCanPay Gateway authenticate ID
+                authenticatePw:
+                  type: string
+                  description: iCanPay Gateway authenticate password
+                  format: password
+                publicKey:
+                  type: string
+                  description: iCanPay Gateway API public key
+                secretKey:
+                  type: string
+                  description: iCanPay Gateway API secret key
+                  format: password
+              required:
+                - authenticateId
+                - authenticatePw
+                - publicKey
+                - secretKey
     iCheque:
       description: iCheque Gateway config
       allOf:
@@ -11246,6 +11279,21 @@ components:
               $ref: '#/components/schemas/GatewayAccountPickInstruction'
           required:
             - pickInstruction
+    remove-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial-end
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+          required:
+            - role
     request-kyc:
       description: Request KYC page to verify customer identity
       allOf:
@@ -11309,6 +11357,21 @@ components:
             - rejectedBeforeTransactionProcessPolicy
             - rejectedAfterTransactionProcessPolicy
             - optionalPolicy
+    reset-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial-end
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+          required:
+            - role
     schedule-invoice-retry:
       description: Schedule an invoice retry
       allOf:
@@ -11369,6 +11432,23 @@ components:
           required:
             - scheduleInstruction
             - amountPolicy
+    schedule-reminder:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            role:
+              type: string
+              enum:
+                - all
+                - renewal
+                - trial-end
+              description: 'The role of Reminder (available only on Subscription events, other events should use `all`).'
+            schedule:
+              $ref: '#/components/schemas/ReminderSchedule'
+          required:
+            - role
     send-email:
       description: ''
       allOf:
@@ -11596,6 +11676,9 @@ components:
             - tag-or-untag-customer
             - display-other-choices
             - offer-purchase-bump
+            - schedule-reminder
+            - reset-reminder
+            - remove-reminder
         status:
           $ref: '#/components/schemas/OnOff'
       required:
@@ -11876,6 +11959,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/BillingScheduleInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             duration:
@@ -11894,6 +11978,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             day:
@@ -11913,6 +11998,7 @@ components:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
         - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
+        - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
           properties:
             day:
@@ -11950,6 +12036,37 @@ components:
           required:
             - duration
             - unit
+    ReminderSchedule:
+      type: object
+      description: Schedule Instructions Collection
+      properties:
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReminderScheduleInstruction'
+        chronology:
+          type: string
+          enum:
+            - before
+            - after
+      required:
+        - instructions
+        - chronology
+    ReminderScheduleInstruction:
+      type: object
+      description: The calculation instruction of scheduled time
+      discriminator:
+        propertyName: method
+      properties:
+        method:
+          type: string
+          default: '1'
+          enum:
+            - date-interval
+            - day-of-month
+            - day-of-week
+      required:
+        - method
     ServicePeriodAnchorInstruction:
       type: object
       description: |
