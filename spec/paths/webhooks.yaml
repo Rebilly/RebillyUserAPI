@@ -2,6 +2,7 @@ get:
   tags:
     - Webhooks
   summary: Retrieve a list of webhooks
+  operationId: GetWebhookCollection
   description: |
     Retrieve a list of webhooks
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Webhooks
   summary: Create a webhook
+  operationId: PostWebhook
   description: |
     Create a webhook
   requestBody:

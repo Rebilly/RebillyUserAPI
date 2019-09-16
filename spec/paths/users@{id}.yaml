@@ -4,6 +4,7 @@ get:
   tags:
     - Users
   summary: Retrieve user
+  operationId: GetUser
   description: |
     Retrieve user with specified identifier string
   responses:
@@ -28,6 +29,7 @@ put:
   tags:
     - Users
   summary: Create or update user with predefined ID
+  operationId: PutUser
   description: |
     Create or update user with predefined identifier string
   requestBody:
@@ -69,6 +71,7 @@ delete:
   tags:
     - Users
   summary: Delete user
+  operationId: DeleteUser
   description: |
     Delete user with predefined identifier string
   responses:

@@ -4,6 +4,7 @@ post:
   tags:
     - Gateway Accounts
   summary: Enable a Gateway Account
+  operationId: PostGatewayAccountEnablement
   description: |
     Enable a gateway account with specified identifier string.
     Enabled gateway accounts have their "status" attribute set to "active" and can process transactions.

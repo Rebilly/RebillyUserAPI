@@ -204,6 +204,11 @@ tags:
       Webhooks are designed to notify your systems when certain/all registered events happen in near real-time.
       They allow you to collect information about those events. Rebilly can send these information via
       POST to an URL of your choice.
+  - name: Segments
+    description: |
+      Segments are grid UI settings that can be shared with other users. They are like a custom view.
+      For example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with
+      others in their organization.
 ################################################################################
 x-tagGroups:
   - name: Security
@@ -238,6 +243,7 @@ x-tagGroups:
       - Payment Cards
       - Notes
       - Organizations
+      - Segments
       - Status
       - Tracking
       - Websites

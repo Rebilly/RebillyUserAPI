@@ -2,6 +2,7 @@ get:
   tags:
     - Notes
   summary: Retrieve a list of notes
+  operationId: GetNoteCollection
   description: |
     Retrieve a list of notes
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Notes
   summary: Create a note
+  operationId: PostNote
   description: |
     Create a note
   requestBody:

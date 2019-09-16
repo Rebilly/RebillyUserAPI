@@ -2,6 +2,7 @@ get:
   tags:
     - Users
   summary: Retrieve a list of users
+  operationId: GetUserCollection
   description: |
     Retrieve a list of users
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Users
   summary: Create an user
+  operationId: PostUser
   description: |
     Create an user
   requestBody:

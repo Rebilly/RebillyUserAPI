@@ -2,6 +2,7 @@ allOf:
   - $ref: "#/components/schemas/CommonScheduleInstruction"
   - $ref: "#/components/schemas/CustomEventScheduleInstruction"
   - $ref: "#/components/schemas/ServicePeriodAnchorInstruction"
+  - $ref: "#/components/schemas/ReminderScheduleInstruction"
   - type: object
     properties:
       day:

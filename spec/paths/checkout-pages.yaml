@@ -2,6 +2,7 @@ get:
   tags:
     - Checkout Pages
   summary: Browse a list of checkout pages
+  operationId: GetCheckoutPageCollection
   description: |
     Browse a list of checkout pages
   responses:
@@ -32,6 +33,7 @@ post:
   tags:
     - Checkout Pages
   summary: Add a Checkout Page
+  operationId: PostCheckoutPage
   description: |
     Add a Checkout Page
   responses:

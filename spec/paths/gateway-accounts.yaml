@@ -2,6 +2,7 @@ get:
   tags:
     - Gateway Accounts
   summary: Retrieve a list of gateway accounts
+  operationId: GetGatewayAccountCollection
   description: |
     Retrieve a list of gateway accounts
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Gateway Accounts
   summary: Create a Gateway Account
+  operationId: PostGatewayAccount
   description: |
     Create a Gateway Account
   requestBody:

@@ -4,6 +4,7 @@ get:
   tags:
     - Tracking
   summary: Retrieve related webhook attempts for specified webhook tracking.
+  operationId: GetTrackingWebhookHistoryCollection
   responses:
     200:
       description: Webhook tracking related attempts were retrieved successfully.

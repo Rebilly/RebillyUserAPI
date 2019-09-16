@@ -5,6 +5,7 @@ get:
   tags:
     - Rules
   summary: Retrieve the version of the set of rules
+  operationId: GetEventRuleVersion
   description: |
     Retrieve the version of the selected set of rules.
     The versions are created each time you change the rules.

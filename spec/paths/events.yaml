@@ -2,6 +2,7 @@ get:
   tags:
     - Rules
   summary: Retrieve a list of existing events
+  operationId: GetEventCollection
   responses:
     200:
       description: A list of System Events was retrieved successfully

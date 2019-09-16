@@ -2,6 +2,7 @@ post:
   tags:
     - Profile
   summary: Reset (renew) totpSecret
+  operationId: PostProfileTotpReset
   description: |
     Reset (renew) totpSecret
   responses:

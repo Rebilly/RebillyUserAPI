@@ -1,0 +1,7 @@
+type: object
+required:
+  - isVisible
+properties:
+  isVisible:
+    description: Toggle whether this Segment is visible to the current user
+    type: boolean

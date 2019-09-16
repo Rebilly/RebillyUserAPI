@@ -2,6 +2,7 @@ get:
   tags:
     - Organizations
   summary: Retrieve a list of organizations
+  operationId: GetOrganizationCollection
   description: |
     Retrieve a list of organizations
   parameters:
@@ -35,6 +36,7 @@ post:
   tags:
     - Organizations
   summary: Create a organization
+  operationId: PostOrganization
   description: |
     Create a organization
   requestBody:

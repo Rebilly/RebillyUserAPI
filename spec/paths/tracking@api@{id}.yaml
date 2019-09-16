@@ -4,6 +4,7 @@ get:
   tags:
     - Tracking
   summary: Retrieve a tracking API log with specified identifier string
+  operationId: GetTrackingApi
   responses:
     200:
       description: Tracking API log was retrieved successfully

@@ -4,6 +4,7 @@ get:
   tags:
     - Custom Event Rules
   summary: Retrieve a list of rules for custom event
+  operationId: GetCustomEventRuleCollection
   responses:
     200:
       description: Rules were retrieved successfully
@@ -26,6 +27,7 @@ put:
   tags:
     - Custom Event Rules
   summary: Update the rules for custom event
+  operationId: PutCustomEventRuleCollection
   responses:
     200:
       description: Rules were updated
