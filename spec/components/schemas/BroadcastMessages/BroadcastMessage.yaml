@@ -1,0 +1,31 @@
+type: object
+required:
+  - emails
+  - startSendingTime
+properties:
+  criteria:
+    $ref: "#/components/schemas/Condition"
+  title:
+    type: string
+    description: The title of the messages. (This title will appear in reports.)
+  emails:
+    type: array
+    description: The list of messages.
+    minItems: 1
+    items:
+      $ref: "#/components/schemas/RulesEmailNotification"
+  splitTestStartTime:
+    type: string
+    format: date-time
+    description: The split test start time
+  startSendingTime:
+    type: string
+    format: date-time
+    description: The start sending time
+  _links:
+    type: array
+    description: The links related to the resource
+    readOnly: true
+    minItems: 1
+    items:
+      $ref: "#/components/schemas/SelfLink"
