@@ -25,7 +25,7 @@ properties:
   permissions:
     description: Specify permissions here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
-       - $ref: "#/components/schemas/ApiKeyPermissions"
+      - $ref: "#/components/schemas/ApiKeyPermissions"
   apiUser:
     description: API user name
     type: string
