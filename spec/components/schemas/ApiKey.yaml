@@ -23,7 +23,7 @@ properties:
       - secret
       - publishable
   acl:
-    description: Specify acess control list here if creating a restricted API key. Send `null` to allow all permissions.
+    description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
        - $ref: "#/components/schemas/Acl"
   apiUser:
