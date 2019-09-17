@@ -22,10 +22,10 @@ properties:
     enum:
       - secret
       - publishable
-  permissions:
-    description: Specify permissions here if creating a restricted API key. Send `null` to allow all permissions.
+  acl:
+    description: Specify acess control list here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
-       - $ref: "#/components/schemas/ApiKeyPermissions"
+       - $ref: "#/components/schemas/Acl"
   apiUser:
     description: API user name
     type: string
