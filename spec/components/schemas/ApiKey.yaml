@@ -25,7 +25,7 @@ properties:
   acl:
     description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
     allOf:
-       - $ref: "#/components/schemas/Acl"
+      - $ref: "#/components/schemas/Acl"
   apiUser:
     description: API user name
     type: string
