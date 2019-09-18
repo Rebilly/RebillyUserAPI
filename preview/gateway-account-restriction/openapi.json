@@ -9451,8 +9451,8 @@
             "type": "boolean",
             "readOnly": true
           },
-          "restriction": {
-            "description": "Set restriction conditions on transaction",
+          "additionalCriteria": {
+            "description": "The additional criteria that allows to check whether the transaction can be processed.\n",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Condition"
