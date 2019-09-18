@@ -90,8 +90,9 @@ properties:
     description: True if gateway is currently in downtime period.
     type: boolean
     readOnly: true
-  restriction:
-    description: Set restriction conditions on transaction
+  additionalCriteria:
+    description: |
+      The additional criteria that allows to check whether the transaction can be processed.
     allOf:
       - $ref: "#/components/schemas/Condition"
   timeout:
