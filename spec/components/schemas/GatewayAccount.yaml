@@ -52,13 +52,6 @@ properties:
     description: Organization ID
     allOf:
       - $ref: "#/components/schemas/ResourceId"
-  websites:
-    description: Websites IDs
-    type: array
-    items:
-      description: Website ID
-      allOf:
-        - $ref: "#/components/schemas/ResourceId"
   excludedDccQuoteCurrencies:
     description: Excluded Dynamic Currency Conversion Quote Currencies
     type: array
@@ -97,11 +90,6 @@ properties:
     description: True if gateway is currently in downtime period.
     type: boolean
     readOnly: true
-  amountRestrictions:
-    description: Set restrictions on allowed amounts per currency
-    type: array
-    items:
-      $ref: "#/components/schemas/AmountRestrictions"
   restriction:
     description: Set restriction conditions on transaction
     allOf:
