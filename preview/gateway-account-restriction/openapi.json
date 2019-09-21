@@ -9452,7 +9452,7 @@
             "readOnly": true
           },
           "additionalCriteria": {
-            "description": "The additional criteria that allows to check whether the transaction can be processed.\n",
+            "description": "The additional criteria that allows to check whether the gateway account can be selected for the transaction to be processed.\n",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Condition"
