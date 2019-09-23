@@ -1,6 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/token'
-patch:
+put:
   tags:
     - Email Delivery Settings
   summary: Verify an email delivery setting
