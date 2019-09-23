@@ -7,13 +7,6 @@ patch:
   operationId: VerifyEmailDeliverySettings
   description: |
     Verify an email delivery setting
-  requestBody:
-    content:
-      application/json:
-        schema:
-          $ref: '#/components/schemas/EmailDeliverySetting'
-    description: Email delivery setting resource
-    required: true
   responses:
     200:
       description: Email delivery setting was verified successfully
