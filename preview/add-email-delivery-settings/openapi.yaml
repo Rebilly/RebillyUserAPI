@@ -1902,6 +1902,34 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+  '/email-delivery-setting-verifications/{token}':
+    parameters:
+      - $ref: '#/components/parameters/token'
+    put:
+      tags:
+        - Email Delivery Settings
+      summary: Verify an email delivery setting
+      operationId: VerifyEmailDeliverySettings
+      description: |
+        Verify an email delivery setting
+      responses:
+        '200':
+          description: Email delivery setting was verified successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /email-delivery-settings:
     get:
       tags:
@@ -5283,34 +5311,6 @@ paths:
         - lang: PHP
           source: |
             $user = $client->users()->resetTotp('userId');
-  '/verify/email-delivery-settings/{token}':
-    parameters:
-      - $ref: '#/components/parameters/token'
-    put:
-      tags:
-        - Email Delivery Settings
-      summary: Verify an email delivery setting
-      operationId: VerifyEmailDeliverySettings
-      description: |
-        Verify an email delivery setting
-      responses:
-        '200':
-          description: Email delivery setting was verified successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmailDeliverySetting'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
   /webhooks:
     get:
       tags:
