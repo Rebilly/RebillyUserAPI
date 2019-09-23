@@ -5511,8 +5511,8 @@ components:
           - scope
           - permissions
         properties:
-          scope:
-            description: Api key scope
+          scopes:
+            description: Array of api key scopes
             allOf:
               - $ref: '#/components/schemas/ApiKeyScope'
           permissions:
@@ -5699,13 +5699,13 @@ components:
       items:
         type: object
         properties:
-          merchantId:
-            description: The merchant identifier string
+          accountId:
+            description: The account identifier string
             readOnly: true
             allOf:
               - $ref: '#/components/schemas/ResourceId'
       example:
-        - merchantId: merchant-id-1
+        - merchantId: account-id-1
     AstroPayBanks:
       type: string
       enum:
