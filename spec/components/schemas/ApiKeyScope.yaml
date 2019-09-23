@@ -2,10 +2,10 @@ type: array
 items:
   type: object
   properties:
-    merchantId:
-      description: The merchant identifier string
+    accountId:
+      description: The account identifier string
       readOnly: true
       allOf:
         - $ref: "#/components/schemas/ResourceId"
 example:
-  - merchantId: 'merchant-id-1'
+  - merchantId: 'account-id-1'

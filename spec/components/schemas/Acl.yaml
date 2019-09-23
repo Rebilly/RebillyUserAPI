@@ -5,8 +5,8 @@ items:
     - scope
     - permissions
   properties:
-    scope:
-      description: Api key scope
+    scopes:
+      description: Array of api key scopes
       allOf:
         - $ref: "#/components/schemas/ApiKeyScope"
     permissions:
