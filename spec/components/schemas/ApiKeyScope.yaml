@@ -8,4 +8,4 @@ items:
       allOf:
         - $ref: "#/components/schemas/ResourceId"
 example:
-  - merchantId: 'account-id-1'
+  - accountId: 'account-id-1'
