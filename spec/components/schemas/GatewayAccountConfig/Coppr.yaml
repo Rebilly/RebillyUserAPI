@@ -6,7 +6,6 @@ allOf:
     type: "object"
     required:
       - "credentials"
-      - "settings"
     properties:
       credentials:
         type: object
@@ -22,15 +21,3 @@ allOf:
         required:
           - "organizationId"
           - "apiKey"
-      settings:
-        type: object
-        properties:
-          product:
-            type: string
-            description: Coppr's product
-            enum:
-              - copper
-              - zinc
-              - aluminium
-        required:
-          - "product"
