@@ -36,6 +36,46 @@ get:
       $ref: '#/components/responses/AccessForbidden'
     404:
       $ref: '#/components/responses/NotFound'
+put:
+  tags:
+    - Memberships
+  summary: Create or update membership
+  operationId: PutMembership
+  description: |
+    Create or update membership using merchant and user identifiers
+  requestBody:
+    $ref: '#/components/requestBodies/Membership'
+  responses:
+    200:
+      description: Membership was updated
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Membership'
+    201:
+      description: Membership was created
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Membership'
+    401:
+      $ref: '#/components/responses/AccessForbidden'
+    409:
+      $ref: '#/components/responses/Conflict'
 delete:
   tags:
     - Memberships
@@ -45,7 +85,7 @@ delete:
     Delete the membership using merchant and user identifiers
   responses:
     204:
-      description: Gateway Account Timeline message was deleted
+      description: Membership message was deleted
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"

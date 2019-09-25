@@ -6,5 +6,7 @@ content:
           $ref: '#/components/schemas/ResourceId'
         userId:
           $ref: '#/components/schemas/ResourceId'
+        isOwner:
+          type: boolean
 description: Membership resource
 required: true

@@ -33,11 +33,11 @@ get:
               $ref: '#/components/schemas/Membership'
     401:
       $ref: '#/components/responses/AccessForbidden'
-put:
+post:
   tags:
     - Memberships
-  summary: Create or update membership
-  operationId: PutMembership
+  summary: Create membership
+  operationId: PostMembership
   description: |
     Create or update membership using merchant and user identifiers
   requestBody:
@@ -56,15 +56,6 @@ put:
         application/json:
           schema:
             $ref: '#/components/schemas/Membership'
-    204:
-      description: Membership was deleted
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/components/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/components/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/components/headers/Rate-Limit-Reset"
     401:
       $ref: '#/components/responses/AccessForbidden'
     409:
