@@ -12083,6 +12083,41 @@
           }
         ]
       },
+      "LPG": {
+        "description": "LPG config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "LPG credentials object",
+                "properties": {
+                  "publicKey": {
+                    "type": "string",
+                    "description": "LPG public API key"
+                  },
+                  "secureKey": {
+                    "type": "string",
+                    "description": "LPG secure API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "publicKey",
+                  "secureKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Moneris": {
         "description": "Moneris Gateway config",
         "allOf": [
@@ -14985,6 +15020,8 @@
           "invoice",
           "Jeton",
           "Klarna",
+          "LPG-online",
+          "LPG-payment-card",
           "miscellaneous",
           "Neteller",
           "Nordea-Solo",
