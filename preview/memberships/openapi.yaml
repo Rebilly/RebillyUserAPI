@@ -3704,12 +3704,12 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '409':
           $ref: '#/components/responses/Conflict'
-  '/memberships/{merchantId}/{userId}':
+  '/memberships/{accountId}/{userId}':
     parameters:
-      - name: merchantId
+      - name: accountId
         in: path
         required: true
-        description: Merchant identifier
+        description: Account identifier
         schema:
           $ref: '#/components/parameters/resourceId'
       - name: userId
@@ -9956,17 +9956,19 @@ components:
     Membership:
       type: object
       required:
-        - merchant
+        - account
         - user
       properties:
-        merchant:
-          description: Membership merchant
+        account:
+          description: Membership account
           allOf:
             - $ref: '#/components/schemas/Merchant'
+          readOnly: true
         user:
           description: Membership user
           allOf:
             - $ref: '#/components/schemas/User'
+          readOnly: true
         isOwner:
           description: User is owner of merchant
           type: boolean
@@ -13050,7 +13052,7 @@ components:
         application/json:
           schema:
             properties:
-              merchantId:
+              accountId:
                 $ref: '#/components/schemas/ResourceId'
               userId:
                 $ref: '#/components/schemas/ResourceId'

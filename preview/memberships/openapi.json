@@ -5290,13 +5290,13 @@
         }
       }
     },
-    "/memberships/{merchantId}/{userId}": {
+    "/memberships/{accountId}/{userId}": {
       "parameters": [
         {
-          "name": "merchantId",
+          "name": "accountId",
           "in": "path",
           "required": true,
-          "description": "Merchant identifier",
+          "description": "Account identifier",
           "schema": {
             "$ref": "#/components/parameters/resourceId"
           }
@@ -14636,17 +14636,18 @@
       "Membership": {
         "type": "object",
         "required": [
-          "merchant",
+          "account",
           "user"
         ],
         "properties": {
-          "merchant": {
-            "description": "Membership merchant",
+          "account": {
+            "description": "Membership account",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Merchant"
               }
-            ]
+            ],
+            "readOnly": true
           },
           "user": {
             "description": "Membership user",
@@ -14654,7 +14655,8 @@
               {
                 "$ref": "#/components/schemas/User"
               }
-            ]
+            ],
+            "readOnly": true
           },
           "isOwner": {
             "description": "User is owner of merchant",
@@ -19323,7 +19325,7 @@
           "application/json": {
             "schema": {
               "properties": {
-                "merchantId": {
+                "accountId": {
                   "$ref": "#/components/schemas/ResourceId"
                 },
                 "userId": {
