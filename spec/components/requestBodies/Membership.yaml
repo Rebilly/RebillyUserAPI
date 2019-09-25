@@ -2,7 +2,7 @@ content:
   application/json:
     schema:
       properties:
-        merchantId:
+        accountId:
           $ref: '#/components/schemas/ResourceId'
         userId:
           $ref: '#/components/schemas/ResourceId'

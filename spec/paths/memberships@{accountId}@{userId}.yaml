@@ -1,8 +1,8 @@
 parameters:
-  - name: merchantId
+  - name: accountId
     in: path
     required: true
-    description: Merchant identifier
+    description: Account identifier
     schema:
       $ref: '#/components/parameters/resourceId'
   - name: userId
