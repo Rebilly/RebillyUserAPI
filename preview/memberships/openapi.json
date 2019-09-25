@@ -5362,6 +5362,14 @@
                 "properties": {
                   "isOwner": {
                     "type": "boolean"
+                  },
+                  "permissions": {
+                    "description": "The memberships's permissions. See the format in example",
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/AclPermissions"
+                      }
+                    ]
                   }
                 }
               }
@@ -19344,6 +19352,14 @@
                 },
                 "isOwner": {
                   "type": "boolean"
+                },
+                "permissions": {
+                  "description": "The memberships's permissions. See the format in example",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/AclPermissions"
+                    }
+                  ]
                 }
               }
             }
