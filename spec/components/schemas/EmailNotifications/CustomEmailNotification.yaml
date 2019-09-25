@@ -1,0 +1,8 @@
+x-rebillyMerge:
+  - $ref: "#/components/schemas/EmailNotification"
+  - type: object
+    description: The custom email notification event
+    readOnly: true
+    properties:
+      eventType:
+        $ref: "#/components/schemas/CustomEventType"
