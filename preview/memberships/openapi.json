@@ -5249,12 +5249,12 @@
           }
         }
       },
-      "put": {
+      "post": {
         "tags": [
           "Memberships"
         ],
-        "summary": "Create or update membership",
-        "operationId": "PutMembership",
+        "summary": "Create membership",
+        "operationId": "PostMembership",
         "description": "Create or update membership using merchant and user identifiers\n",
         "requestBody": {
           "$ref": "#/components/requestBodies/Membership"
@@ -5278,20 +5278,6 @@
                 "schema": {
                   "$ref": "#/components/schemas/Membership"
                 }
-              }
-            }
-          },
-          "204": {
-            "description": "Membership was deleted",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
               }
             }
           },
@@ -5362,6 +5348,67 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Create or update membership",
+        "operationId": "PutMembership",
+        "description": "Create or update membership using merchant and user identifiers\n",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Membership"
+        },
+        "responses": {
+          "200": {
+            "description": "Membership was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Membership was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Memberships"
@@ -5371,7 +5418,7 @@
         "description": "Delete the membership using merchant and user identifiers\n",
         "responses": {
           "204": {
-            "description": "Gateway Account Timeline message was deleted",
+            "description": "Membership message was deleted",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -19281,6 +19328,9 @@
                 },
                 "userId": {
                   "$ref": "#/components/schemas/ResourceId"
+                },
+                "isOwner": {
+                  "type": "boolean"
                 }
               }
             }
