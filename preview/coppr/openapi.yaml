@@ -7517,7 +7517,6 @@ components:
         - type: object
           required:
             - credentials
-            - settings
           properties:
             credentials:
               type: object
@@ -7533,18 +7532,6 @@ components:
               required:
                 - organizationId
                 - apiKey
-            settings:
-              type: object
-              properties:
-                product:
-                  type: string
-                  description: Coppr's product
-                  enum:
-                    - copper
-                    - zinc
-                    - aluminium
-              required:
-                - product
     Credorax:
       description: Credorax Gateway config
       allOf:

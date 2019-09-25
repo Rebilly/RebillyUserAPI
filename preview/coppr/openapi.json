@@ -10814,8 +10814,7 @@
           {
             "type": "object",
             "required": [
-              "credentials",
-              "settings"
+              "credentials"
             ],
             "properties": {
               "credentials": {
@@ -10835,23 +10834,6 @@
                 "required": [
                   "organizationId",
                   "apiKey"
-                ]
-              },
-              "settings": {
-                "type": "object",
-                "properties": {
-                  "product": {
-                    "type": "string",
-                    "description": "Coppr's product",
-                    "enum": [
-                      "copper",
-                      "zinc",
-                      "aluminium"
-                    ]
-                  }
-                },
-                "required": [
-                  "product"
                 ]
               }
             }
