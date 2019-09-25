@@ -11,14 +11,9 @@ properties:
     description: Membership user
     allOf:
       - $ref: "#/components/schemas/User"
-  roles:
-    description: User roles for the merchant
-    type: array
-    minItems: 0
-    items:
-      type: string
-      enum:
-        - "owner"
+  isOwner:
+    description: User is owner of merchant
+    type: boolean
   isDefault:
     description: This merchant is default for membership user
     type: boolean
