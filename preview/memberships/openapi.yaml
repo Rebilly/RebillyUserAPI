@@ -1573,6 +1573,35 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+  /custom-email-notifications:
+    get:
+      tags:
+        - Email Notifications
+      summary: Retrieve a list of custom email notification events
+      responses:
+        '200':
+          description: A list of custom email notification events was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomEmailNotification'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
   /custom-events:
     get:
       tags:
@@ -1907,6 +1936,177 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+  '/email-delivery-setting-verifications/{token}':
+    parameters:
+      - $ref: '#/components/parameters/token'
+    put:
+      tags:
+        - Email Delivery Settings
+      summary: Verify an email delivery setting
+      operationId: VerifyEmailDeliverySettings
+      description: |
+        Verify an email delivery setting
+      responses:
+        '200':
+          description: Email delivery setting was verified successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /email-delivery-settings:
+    get:
+      tags:
+        - Email Delivery Settings
+      summary: Retrieve a list of email delivery settings
+      operationId: GetEmailDeliverySettingCollection
+      responses:
+        '200':
+          description: A list of email delivery settings was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+    post:
+      tags:
+        - Email Delivery Settings
+      summary: Create an email delivery setting
+      operationId: PostEmailDeliverySetting
+      description: |
+        Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails. 
+      responses:
+        '201':
+          description: Email delivery setting was created
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDeliverySetting'
+        description: Email delivery setting resource
+        required: true
+  '/email-delivery-settings/{id}':
+    parameters:
+      - $ref: '#/components/parameters/resourceId'
+    get:
+      tags:
+        - Email Delivery Settings
+      summary: Retrieve an email delivery setting
+      operationId: GetEmailDeliverySetting
+      description: |
+        Retrieve an email delivery setting
+      responses:
+        '200':
+          description: Email delivery setting with specified identifier was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags:
+        - Email Delivery Settings
+      summary: Delete an email delivery setting
+      operationId: DeleteEmailDeliverySetting
+      description: |
+        Delete an email delivery setting
+      responses:
+        '204':
+          description: Email delivery setting was deleted
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+        '409':
+          $ref: '#/components/responses/Conflict'
+    patch:
+      tags:
+        - Email Delivery Settings
+      summary: Update an email delivery setting
+      operationId: PatchEmailDeliverySettings
+      description: |
+        Update an email delivery setting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailDeliverySetting'
+        description: Email delivery setting resource
+        required: true
+      responses:
+        '200':
+          description: Email delivery setting was updated successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '422':
+          $ref: '#/components/responses/InvalidDataError'
   /email-messages:
     get:
       tags:
@@ -2060,6 +2260,35 @@ paths:
                     - outbox
         description: Email message status
         required: true
+  /email-notifications:
+    get:
+      tags:
+        - Email Notifications
+      summary: Retrieve a list of email notification events
+      responses:
+        '200':
+          description: A list of email notification events was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailNotification'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
   /events:
     get:
       tags:
@@ -6412,14 +6641,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/ResourceId'
         eventType:
-          type: string
-          description: The system event type
-          enum:
-            - subscription-ended
-            - subscription-trial-ended
-            - subscription-renewed
-            - payment-card-expired
-            - invoice-past-due
+          $ref: '#/components/schemas/CustomEventType'
         title:
           type: string
           description: The custom event title
@@ -6447,6 +6669,16 @@ components:
         - title
         - chronology
         - scheduleInstruction
+    CustomEventType:
+      type: string
+      description: Rebilly custom event type
+      readOnly: true
+      enum:
+        - subscription-ended
+        - subscription-trial-ended
+        - subscription-renewed
+        - payment-card-expired
+        - invoice-past-due
     SmtpAuthorization:
       type: object
       discriminator:
@@ -6534,6 +6766,58 @@ components:
       required:
         - username
         - password
+    EmailDeliverySetting:
+      type: object
+      required:
+        - from
+        - name
+      properties:
+        id:
+          description: The email delivery setting's identifier string
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/ResourceId'
+        from:
+          description: The sender's email address
+          type: string
+          format: email
+          maxLength: 254
+          example: from-example@rebilly.com
+        name:
+          description: The sender's name
+          type: string
+          example: John Doe
+        status:
+          description: The email message's status
+          readOnly: true
+          type: string
+          enum:
+            - pending
+            - verified
+        credentialId:
+          type: string
+          description: SMTP or any Email Service Provider credential identifier string.
+          example: b120c2ca-6c2b-4690-9dff-3b0d87852dc7
+        provider:
+          readOnly: true
+          description: The service provider name
+          type: string
+          enum:
+            - rebilly
+            - smtp
+            - aws-ses
+            - mailgun
+            - postmark
+            - sendgrid
+          example: rebilly
+        createdTime:
+          description: The created time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
+        updatedTime:
+          description: The updated time
+          allOf:
+            - $ref: '#/components/schemas/ServerTimestamp'
     EmailMessage:
       type: object
       required:
@@ -6645,6 +6929,76 @@ components:
         _links:
           type: array
           description: The links related to the resource
+          readOnly: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SelfLink'
+    CustomEmailNotification:
+      type: object
+      description: The custom email notification event
+      readOnly: true
+      properties:
+        eventType:
+          $ref: '#/components/schemas/CustomEventType'
+        count:
+          type: integer
+          readOnly: true
+          description: The count of binds with `send-email` actions per event
+        notifications:
+          readOnly: true
+          type: array
+          minItems: 1
+          description: The list of notifications
+          items:
+            type: object
+            properties:
+              labels:
+                description: The notification labels
+                type: array
+                minItems: 1
+                items:
+                  type: string
+              title:
+                type: string
+                description: The notification title
+        _links:
+          type: array
+          description: The links related to resource
+          readOnly: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SelfLink'
+    EmailNotification:
+      type: object
+      description: The email notification event
+      readOnly: true
+      properties:
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        count:
+          type: integer
+          readOnly: true
+          description: The count of binds with `send-email` actions per event
+        notifications:
+          readOnly: true
+          type: array
+          minItems: 1
+          description: The list of notifications
+          items:
+            type: object
+            properties:
+              labels:
+                description: The notification labels
+                type: array
+                minItems: 1
+                items:
+                  type: string
+              title:
+                type: string
+                description: The notification title
+        _links:
+          type: array
+          description: The links related to resource
           readOnly: true
           minItems: 1
           items:
@@ -7827,6 +8181,36 @@ components:
                 - clientId
                 - clientSecret
                 - locationId
+    iCanPay:
+      description: iCanPay Gateway config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              properties:
+                authenticateId:
+                  type: string
+                  description: iCanPay Gateway authenticate ID
+                authenticatePw:
+                  type: string
+                  description: iCanPay Gateway authenticate password
+                  format: password
+                publicKey:
+                  type: string
+                  description: iCanPay Gateway API public key
+                secretKey:
+                  type: string
+                  description: iCanPay Gateway API secret key
+                  format: password
+              required:
+                - authenticateId
+                - authenticatePw
+                - publicKey
+                - secretKey
     iCheque:
       description: iCheque Gateway config
       allOf:
@@ -8137,6 +8521,28 @@ components:
                   description: JetPay Gateway terminal ID
               required:
                 - TerminalID
+    LPG:
+      description: LPG config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: LPG credentials object
+              properties:
+                publicKey:
+                  type: string
+                  description: LPG public API key
+                secureKey:
+                  type: string
+                  description: LPG secure API key
+                  format: password
+              required:
+                - publicKey
+                - secureKey
     Moneris:
       description: Moneris Gateway config
       allOf:
@@ -10069,6 +10475,8 @@ components:
         - invoice
         - Jeton
         - Klarna
+        - LPG-online
+        - LPG-payment-card
         - miscellaneous
         - Neteller
         - Nordea-Solo
@@ -12970,6 +13378,13 @@ components:
       name: eventType
       in: path
       description: The event type
+      required: true
+      schema:
+        type: string
+    token:
+      name: token
+      in: path
+      description: The token string
       required: true
       schema:
         type: string
