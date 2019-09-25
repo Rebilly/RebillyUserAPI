@@ -5356,7 +5356,18 @@
         "operationId": "PutMembership",
         "description": "Create or update membership using merchant and user identifiers\n",
         "requestBody": {
-          "$ref": "#/components/requestBodies/Membership"
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "isOwner": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
         },
         "responses": {
           "200": {
