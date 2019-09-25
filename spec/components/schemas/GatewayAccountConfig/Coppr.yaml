@@ -1,0 +1,36 @@
+description: Coppr config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+      - "credentials"
+    properties:
+      credentials:
+        type: object
+        description: Coppr credentials object
+        properties:
+          organizationId:
+            type: string
+            description: Coppr organization's ID
+          apiKey:
+            type: string
+            description: Coppr api key
+            format: password
+        required:
+          - "organizationId"
+          - "apiKey"
+      settings:
+        type: object
+        description: Coppr settings object
+        properties:
+          product:
+            type: string
+            description: Coppr product
+            enum:
+              - copper
+              - zinc
+              - aluminium
+          required:
+            - "product"
