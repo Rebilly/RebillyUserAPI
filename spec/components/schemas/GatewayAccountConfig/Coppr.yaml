@@ -6,6 +6,7 @@ allOf:
     type: "object"
     required:
       - "credentials"
+      - "settings"
     properties:
       credentials:
         type: object
@@ -13,7 +14,7 @@ allOf:
         properties:
           organizationId:
             type: string
-            description: Coppr organization's ID
+            description: Coppr Organization's ID
           apiKey:
             type: string
             description: Coppr api key
@@ -23,14 +24,13 @@ allOf:
           - "apiKey"
       settings:
         type: object
-        description: Coppr settings object
         properties:
           product:
             type: string
-            description: Coppr product
+            description: Coppr's product
             enum:
               - copper
               - zinc
               - aluminium
-          required:
-            - "product"
+        required:
+          - "product"
