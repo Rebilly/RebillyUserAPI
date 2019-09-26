@@ -5840,25 +5840,6 @@ components:
             - DELETE
         - resourceName: invoices
           methods: null
-    AmountRestrictions:
-      type: object
-      required:
-        - currency
-        - min
-      properties:
-        currency:
-          description: Currency (three letter ISO 4217 code)
-          type: string
-        min:
-          description: The minimum amount allowed
-          type: number
-          format: double
-          minimum: 0
-        max:
-          description: The maximum amount allowed
-          type: number
-          format: double
-          minimum: 0
     ApiKey:
       type: object
       description: API secret Key.
@@ -6951,13 +6932,6 @@ components:
           description: Organization ID
           allOf:
             - $ref: '#/components/schemas/ResourceId'
-        websites:
-          description: Websites IDs
-          type: array
-          items:
-            description: Website ID
-            allOf:
-              - $ref: '#/components/schemas/ResourceId'
         excludedDccQuoteCurrencies:
           description: Excluded Dynamic Currency Conversion Quote Currencies
           type: array
@@ -6996,13 +6970,9 @@ components:
           description: True if gateway is currently in downtime period.
           type: boolean
           readOnly: true
-        amountRestrictions:
-          description: Set restrictions on allowed amounts per currency
-          type: array
-          items:
-            $ref: '#/components/schemas/AmountRestrictions'
-        restriction:
-          description: Set restriction conditions on transaction
+        additionalCriteria:
+          description: |
+            The additional criteria that allows to check whether the gateway account can be selected for the transaction to be processed.
           allOf:
             - $ref: '#/components/schemas/Condition'
         timeout:
