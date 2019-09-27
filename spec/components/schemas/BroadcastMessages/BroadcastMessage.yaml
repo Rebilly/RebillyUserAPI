@@ -3,18 +3,71 @@ required:
   - emails
   - startSendingTime
 properties:
+  id:
+    description: The broadcast message's identifier string
+    readOnly: true
+    allOf:
+      - $ref: "#/components/schemas/ResourceId"
   criteria:
     $ref: "#/components/schemas/Condition"
   title:
     type: string
     description: The title of the messages. (This title will appear in reports.)
-  emails:
+  messages:
     type: array
     description: The list of messages.
     minItems: 1
     items:
-      $ref: "#/components/schemas/RulesEmailNotification"
+      type: object
+      properties:
+        credentialId:
+          type: string
+          description: SMTP or Mailgun credential identifier string.
+        version:
+          type: string
+          description: The message title. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
+        from:
+          type: string
+          description: The sender address.
+          maxLength: 254
+        subject:
+          type: string
+          description: The message subject. The template placeholders are allowed.
+          maxLength: 998
+        text:
+          type: string
+          description: |
+            The message's text body.
+            Leave empty to use content from "html".
+            The template placeholders are allowed.
+        html:
+          type: string
+          description: |
+            The message's html body.
+            Leave empty to use content from "text".
+            The template placeholders are allowed.
+        language:
+          type: string
+          description: The message's ISO 639-1 two-letter language code.
+        unsubscribeLink:
+          type: boolean
+          description: Whether to add or not the message's unsubscribe link.
+          default: false
+        weight:
+          type: integer
+          description: The message's weight.
+          minimum: 0
+          maximum: 100
+          example: 75
+          default: 100
+      required:
+        - from
+        - subject
+        - text
+        - html
+        - language
   splitTestStartTime:
+    readOnly: true
     type: string
     format: date-time
     description: The split test start time
@@ -22,6 +75,14 @@ properties:
     type: string
     format: date-time
     description: The start sending time
+  createdTime:
+    description: The broadcast message's created time
+    allOf:
+      - $ref: "#/components/schemas/ServerTimestamp"
+  updatedTime:
+    description: The broadcast message's updated time
+    allOf:
+      - $ref: "#/components/schemas/ServerTimestamp"
   _links:
     type: array
     description: The links related to the resource
