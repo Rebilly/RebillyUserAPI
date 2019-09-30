@@ -6083,7 +6083,7 @@ components:
                 description: SMTP or Mailgun credential identifier string.
               version:
                 type: string
-                description: 'The message title. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)'
+                description: 'The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)'
               from:
                 type: string
                 description: The sender address.
