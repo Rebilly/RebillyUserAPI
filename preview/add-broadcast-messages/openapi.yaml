@@ -6133,6 +6133,15 @@ components:
           type: string
           format: date-time
           description: The start sending time
+        status:
+          readOnly: true
+          type: string
+          description: The broadcast message's status
+          enum:
+            - draft
+            - sending
+            - sent
+            - archived
         createdTime:
           description: The broadcast message's created time
           allOf:
