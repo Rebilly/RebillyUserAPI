@@ -1,3 +1,5 @@
+parameters:
+  - $ref: '#/components/parameters/resourceId'
 get:
   tags:
     - Memberships
@@ -33,30 +35,3 @@ get:
               $ref: '#/components/schemas/Membership'
     401:
       $ref: '#/components/responses/AccessForbidden'
-post:
-  tags:
-    - Memberships
-  summary: Create membership
-  operationId: PostMembership
-  description: |
-    Create or update membership using merchant and user identifiers
-  requestBody:
-    $ref: '#/components/requestBodies/Membership'
-  responses:
-    201:
-      description: Membership was created
-      headers:
-        Rate-Limit-Limit:
-          $ref: "#/components/headers/Rate-Limit-Limit"
-        Rate-Limit-Remaining:
-          $ref: "#/components/headers/Rate-Limit-Remaining"
-        Rate-Limit-Reset:
-          $ref: "#/components/headers/Rate-Limit-Reset"
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Membership'
-    401:
-      $ref: '#/components/responses/AccessForbidden'
-    409:
-      $ref: '#/components/responses/Conflict'

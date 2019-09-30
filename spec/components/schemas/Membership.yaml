@@ -1,10 +1,10 @@
 type: object
 required:
-  - account
+  - organization
   - user
 properties:
-  account:
-    description: Membership account
+  organization:
+    description: Membership organization
     allOf:
       - $ref: "#/components/schemas/Merchant"
     readOnly: true

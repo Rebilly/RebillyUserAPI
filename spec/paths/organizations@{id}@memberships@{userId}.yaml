@@ -1,10 +1,5 @@
 parameters:
-  - name: accountId
-    in: path
-    required: true
-    description: Account identifier
-    schema:
-      $ref: '#/components/parameters/resourceId'
+  - $ref: '#/components/parameters/resourceId'
   - name: userId
     in: path
     required: true
@@ -42,7 +37,8 @@ put:
   summary: Create or update membership
   operationId: PutMembership
   description: |
-    Create or update membership using merchant and user identifiers
+    Create or update membership using organization and user identifiers.
+    Only membership's owner can add other users in the membership.
   requestBody:
     content:
       application/json:
@@ -92,7 +88,7 @@ delete:
   summary: Delete the membership
   operationId: DeleteMembership
   description: |
-    Delete the membership using merchant and user identifiers
+    Delete the membership using organization and user identifiers
   responses:
     204:
       description: Membership message was deleted
