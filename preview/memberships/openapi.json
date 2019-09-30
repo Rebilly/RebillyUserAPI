@@ -8613,31 +8613,6 @@
           }
         ]
       },
-      "AmountRestrictions": {
-        "type": "object",
-        "required": [
-          "currency",
-          "min"
-        ],
-        "properties": {
-          "currency": {
-            "description": "Currency (three letter ISO 4217 code)",
-            "type": "string"
-          },
-          "min": {
-            "description": "The minimum amount allowed",
-            "type": "number",
-            "format": "double",
-            "minimum": 0
-          },
-          "max": {
-            "description": "The maximum amount allowed",
-            "type": "number",
-            "format": "double",
-            "minimum": 0
-          }
-        }
-      },
       "ApiKey": {
         "type": "object",
         "description": "API secret Key.",
@@ -10186,18 +10161,6 @@
               }
             ]
           },
-          "websites": {
-            "description": "Websites IDs",
-            "type": "array",
-            "items": {
-              "description": "Website ID",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/ResourceId"
-                }
-              ]
-            }
-          },
           "excludedDccQuoteCurrencies": {
             "description": "Excluded Dynamic Currency Conversion Quote Currencies",
             "type": "array",
@@ -10248,15 +10211,8 @@
             "type": "boolean",
             "readOnly": true
           },
-          "amountRestrictions": {
-            "description": "Set restrictions on allowed amounts per currency",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AmountRestrictions"
-            }
-          },
-          "restriction": {
-            "description": "Set restriction conditions on transaction",
+          "additionalCriteria": {
+            "description": "The additional criteria that allows to check whether the gateway account can be selected for the transaction to be processed.\n",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Condition"
@@ -11034,6 +10990,41 @@
                   "coNumber",
                   "divisionId",
                   "partialAuth"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Coppr": {
+        "description": "Coppr config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Coppr credentials object",
+                "properties": {
+                  "organizationId": {
+                    "type": "string",
+                    "description": "Coppr Organization's ID"
+                  },
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Coppr api key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "organizationId",
+                  "apiKey"
                 ]
               }
             }
