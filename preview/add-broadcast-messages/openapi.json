@@ -8749,7 +8749,7 @@
                   "type": "string",
                   "description": "The message's ISO 639-1 two-letter language code."
                 },
-                "unsubscribeLink": {
+                "includeUnsubscribeLink": {
                   "type": "boolean",
                   "description": "Whether to add or not the message's unsubscribe link.",
                   "default": false
