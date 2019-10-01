@@ -10348,6 +10348,9 @@ components:
               type: string
               allOf:
                 - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: Organization name
+              type: string
         user:
           description: Membership user
           readOnly: true
@@ -10358,6 +10361,9 @@ components:
               type: string
               allOf:
                 - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: First and last name
+              type: string
         isOwner:
           description: User is owner of merchant
           type: boolean

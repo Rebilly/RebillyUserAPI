@@ -15227,6 +15227,10 @@
                     "$ref": "#/components/schemas/ResourceId"
                   }
                 ]
+              },
+              "name": {
+                "description": "Organization name",
+                "type": "string"
               }
             }
           },
@@ -15243,6 +15247,10 @@
                     "$ref": "#/components/schemas/ResourceId"
                   }
                 ]
+              },
+              "name": {
+                "description": "First and last name",
+                "type": "string"
               }
             }
           },
