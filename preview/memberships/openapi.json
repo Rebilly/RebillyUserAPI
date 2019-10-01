@@ -15216,21 +15216,35 @@
         "properties": {
           "organization": {
             "description": "Membership organization",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Merchant"
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
               }
-            ],
-            "readOnly": true
+            }
           },
           "user": {
             "description": "Membership user",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/User"
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
               }
-            ],
-            "readOnly": true
+            }
           },
           "isOwner": {
             "description": "User is owner of merchant",
