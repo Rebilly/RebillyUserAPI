@@ -1,0 +1,40 @@
+type: object
+description: The email notification send through attribution
+readOnly: true
+properties:
+  eventType:
+    $ref: "#/components/schemas/EventType"
+  title:
+    type: string
+    description: The email notification's title
+  labels:
+    type: array
+    uniqueItems: true
+    example: ["test-rule", "category:foo"]
+    items:
+      type: string
+      pattern: "[a-zA-Z][a-zA-Z0-9:-]*"
+  versions:
+    type: array
+    minItems: 1
+    description: The list of versions
+    items:
+      type: object
+      properties:
+        version:
+          type: string
+          description: The email notification version
+        sent:
+          type: integer
+          minimum: 0
+          description: The email notification send number
+        goal:
+          type: integer
+          minimum: 0
+          description: The email notification goal number
+        rate:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+          description: The email notification success rate
