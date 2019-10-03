@@ -6756,7 +6756,12 @@
         ]
       }
     },
-    "/send-through-attribution": {
+    "/send-through-attribution/{eventType}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/systemEventType"
+        }
+      ],
       "get": {
         "tags": [
           "Email Notifications"
