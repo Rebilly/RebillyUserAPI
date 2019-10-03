@@ -6842,9 +6842,6 @@ components:
       properties:
         eventType:
           $ref: '#/components/schemas/EventType'
-        title:
-          type: string
-          description: The email notification's title
         labels:
           description: The email notification's labels
           type: array
@@ -6862,19 +6859,10 @@ components:
           items:
             type: object
             properties:
-              labels:
-                description: The email notification version's labels
-                type: array
-                uniqueItems: true
-                example:
-                  - test-rule
-                  - 'category:foo'
-                items:
-                  type: string
-                  pattern: '[a-zA-Z][a-zA-Z0-9:-]*'
-              version:
+              id:
                 type: string
-                description: The email notification version
+                format: uuid
+                description: The email notification version's identifier number
               sent:
                 type: integer
                 minimum: 0
@@ -6883,12 +6871,6 @@ components:
                 type: integer
                 minimum: 0
                 description: The email notification goal number
-              rate:
-                type: number
-                format: float
-                minimum: 0
-                maximum: 100
-                description: The email notification success rate
     Error:
       type: object
       properties:
