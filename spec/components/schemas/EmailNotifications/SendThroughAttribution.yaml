@@ -8,6 +8,7 @@ properties:
     type: string
     description: The email notification's title
   labels:
+    description: The email notification's labels
     type: array
     uniqueItems: true
     example: ["test-rule", "category:foo"]
@@ -21,6 +22,14 @@ properties:
     items:
       type: object
       properties:
+        labels:
+          description: The email notification version's labels
+          type: array
+          uniqueItems: true
+          example: ["test-rule", "category:foo"]
+          items:
+            type: string
+            pattern: "[a-zA-Z][a-zA-Z0-9:-]*"
         version:
           type: string
           description: The email notification version
