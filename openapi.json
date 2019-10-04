@@ -14980,6 +14980,7 @@
           "ach",
           "bank-account",
           "cash",
+          "check",
           "paypal",
           "Alipay",
           "AstroPay-Card",
