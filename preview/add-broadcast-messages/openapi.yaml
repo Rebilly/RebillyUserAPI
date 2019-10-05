@@ -217,6 +217,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Email Delivery Settings
       - Email Messages
   - name: Rules
     tags:
@@ -10432,6 +10433,7 @@ components:
         - ach
         - bank-account
         - cash
+        - check
         - paypal
         - Alipay
         - AstroPay-Card
@@ -11407,6 +11409,100 @@ components:
       description: ''
       allOf:
         - $ref: '#/components/schemas/RuleAction'
+    create-infusionsoft-order:
+      description: Create a Keap Infusionsoft order along with a contact
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            contactBody:
+              description: The list of contact attributes that will be used during Keap Infusionsoft creation process
+              type: object
+              properties:
+                email_addresses:
+                  description: The contact email addresses that will be used during Keap Infusionsoft creation process
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      email:
+                        description: The contact email address that will be used during Keap Infusionsoft creation process
+                        type: string
+                        example: '{{ invoice.customer.email }}'
+                      field:
+                        description: The contact email field type that will be used during Keap Infusionsoft creation process
+                        type: string
+                        enum:
+                          - EMAIL1
+                          - EMAIL2
+                          - EMAIL3
+                        example: EMAIL1
+                phone_numbers:
+                  description: The contact phone numbers that will be used during Keap Infusionsoft creation process
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      number:
+                        description: The contact phone number that will be used during Keap Infusionsoft creation process
+                        type: string
+                        example: '{{ invoice.customer.customFields.phoneNumber }}'
+                      field:
+                        description: The contact phone field type that will be used during Keap Infusionsoft creation process
+                        type: string
+                        enum:
+                          - PHONE1
+                          - PHONE2
+                          - PHONE3
+                          - PHONE4
+                          - PHONE5
+                        example: PHONE1
+            orderBody:
+              description: The list of order attributes that will be used during Keap Infusionsoft creation process except `contact_id`
+              type: object
+              properties:
+                order_date:
+                  description: The order date that will be used during Keap Infusionsoft creation process
+                  type: string
+                  example: '{{ invoice.issuedTime }}'
+                order_title:
+                  description: The order title that will be used during Keap Infusionsoft creation process
+                  type: string
+                  example: '{{ invoice.id }}'
+                order_type:
+                  description: The order type that will be used during Keap Infusionsoft creation process
+                  type: string
+                  enum:
+                    - Offline
+                    - Online
+                  example: Offline
+              required:
+                - order_date
+                - order_title
+                - order_type
+            credentialHash:
+              type: string
+              description: OAuth2 credential identifier string
+          required:
+            - credentialHash
+            - contactBody
+            - orderBody
+    create-infusionsoft-payment:
+      description: Create a Keap Infusionsoft payment
+      allOf:
+        - $ref: '#/components/schemas/RuleAction'
+        - type: object
+          properties:
+            paymentBody:
+              description: The list of payment attributes that will be used during Keap Infusionsoft creation process
+              type: object
+            credentialHash:
+              type: string
+              description: OAuth2 credential identifier string
+          required:
+            - credentialHash
     display-other-choices:
       description: Display Other Choices
       allOf:
@@ -11889,6 +11985,8 @@ components:
             - schedule-reminder
             - reset-reminder
             - remove-reminder
+            - create-infusionsoft-order
+            - create-infusionsoft-payment
         status:
           $ref: '#/components/schemas/OnOff'
       required:
