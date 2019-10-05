@@ -6108,10 +6108,6 @@ components:
               language:
                 type: string
                 description: The message's ISO 639-1 two-letter language code.
-              includeUnsubscribeLink:
-                type: boolean
-                description: Whether to add or not the message's unsubscribe link.
-                default: false
               weight:
                 type: integer
                 description: The message's weight.
