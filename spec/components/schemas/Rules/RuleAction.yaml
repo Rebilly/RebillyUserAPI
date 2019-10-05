@@ -24,6 +24,8 @@ properties:
       - schedule-reminder
       - reset-reminder
       - remove-reminder
+      - create-infusionsoft-order
+      - create-infusionsoft-payment
   status:
     $ref: "#/components/schemas/OnOff"
 required:
