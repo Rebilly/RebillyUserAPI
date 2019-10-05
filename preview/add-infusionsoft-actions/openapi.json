@@ -134,6 +134,7 @@
       "name": "Email",
       "tags": [
         "Email Credentials",
+        "Email Delivery Settings",
         "Email Messages"
       ]
     },
@@ -14980,6 +14981,7 @@
           "ach",
           "bank-account",
           "cash",
+          "check",
           "paypal",
           "Alipay",
           "AstroPay-Card",

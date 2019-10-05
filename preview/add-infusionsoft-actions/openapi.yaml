@@ -217,6 +217,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Email Delivery Settings
       - Email Messages
   - name: Rules
     tags:
@@ -10189,6 +10190,7 @@ components:
         - ach
         - bank-account
         - cash
+        - check
         - paypal
         - Alipay
         - AstroPay-Card
