@@ -10280,7 +10280,7 @@ components:
             - PaayMpi
             - Other
     ClearhausMpi:
-      description: Wirecard Integrated
+      description: Clearhaus Integrated
       allOf:
         - $ref: '#/components/schemas/ClearhausMpis'
     ClearhausMpis:
