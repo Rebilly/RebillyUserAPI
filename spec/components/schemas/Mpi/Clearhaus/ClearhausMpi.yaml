@@ -1,4 +1,4 @@
-description: Wirecard Integrated
+description: Clearhaus Integrated
 allOf:
   -
     $ref: "#/components/schemas/ClearhausMpis"
