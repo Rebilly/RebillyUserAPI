@@ -11101,6 +11101,37 @@
           }
         ]
       },
+      "Clearhaus": {
+        "description": "Clearhaus Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Clearhaus api key"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/ClearhausMpis"
+              }
+            }
+          }
+        ]
+      },
       "Coppr": {
         "description": "Coppr config",
         "allOf": [
@@ -15398,6 +15429,36 @@
             "enum": [
               "PaayMpi",
               "Other"
+            ]
+          }
+        }
+      },
+      "ClearhausMpi": {
+        "description": "Clearhaus Integrated",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ClearhausMpis"
+          }
+        ]
+      },
+      "ClearhausMpis": {
+        "description": "Clearhaus Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "ClearhausMpi"
             ]
           }
         }
