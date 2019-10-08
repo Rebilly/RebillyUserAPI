@@ -1,0 +1,15 @@
+type: array
+items:
+  type: object
+  required:
+    - scope
+    - permissions
+  properties:
+    scopes:
+      description: Array of api key scopes
+      allOf:
+        - $ref: "#/components/schemas/ApiKeyScope"
+    permissions:
+      description: Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.
+      allOf:
+        - $ref: "#/components/schemas/AclPermissions"
