@@ -8507,7 +8507,7 @@
         "items": {
           "type": "object",
           "properties": {
-            "accountId": {
+            "organizationId": {
               "description": "The account identifier string",
               "readOnly": true,
               "allOf": [
@@ -8520,7 +8520,7 @@
         },
         "example": [
           {
-            "accountId": "account-id-1"
+            "organizationId": "organizationId-id-1"
           }
         ]
       },
