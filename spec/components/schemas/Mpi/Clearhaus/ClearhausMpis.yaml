@@ -10,3 +10,4 @@ properties:
       - $ref: "#/components/schemas/MpiName"
     enum:
      - ClearhausMpi
+
