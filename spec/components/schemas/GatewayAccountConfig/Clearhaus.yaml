@@ -13,6 +13,7 @@ allOf:
           apiKey:
             type: string
             description: Clearhaus api key
+            format: password
         required:
           - "apiKey"
       mpi:
