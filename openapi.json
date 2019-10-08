@@ -11118,7 +11118,8 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "Clearhaus api key"
+                    "description": "Clearhaus api key",
+                    "format": "password"
                   }
                 },
                 "required": [
@@ -15434,10 +15435,33 @@
         }
       },
       "ClearhausMpi": {
-        "description": "Clearhaus Integrated",
+        "description": "Clearhaus Mpi Credentials",
         "allOf": [
           {
             "$ref": "#/components/schemas/ClearhausMpis"
+          },
+          {
+            "type": "object",
+            "required": [
+              "merchantId",
+              "acquirerBin",
+              "apiKey"
+            ],
+            "properties": {
+              "merchantId": {
+                "type": "string",
+                "description": "Merchant account ID or Card Acceptor ID provided by the acquiring bank."
+              },
+              "acquirerBin": {
+                "type": "string",
+                "description": "Acquiring institution identification code."
+              },
+              "apiKey": {
+                "type": "string",
+                "format": "password",
+                "description": "Mpi Api key"
+              }
+            }
           }
         ]
       },
