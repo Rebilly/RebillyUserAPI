@@ -5883,6 +5883,22 @@ paths:
             }
 components:
   schemas:
+    Acl:
+      type: array
+      items:
+        type: object
+        required:
+          - scope
+          - permissions
+        properties:
+          scopes:
+            description: Array of api key scopes
+            allOf:
+              - $ref: '#/components/schemas/ApiKeyScope'
+          permissions:
+            description: Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.
+            allOf:
+              - $ref: '#/components/schemas/AclPermissions'
     AclPermissions:
       type: array
       items:
@@ -6016,10 +6032,10 @@ components:
           enum:
             - secret
             - publishable
-        permissions:
-          description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
+        acl:
+          description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
           allOf:
-            - $ref: '#/components/schemas/AclPermissions'
+            - $ref: '#/components/schemas/Acl'
         apiUser:
           description: API user name
           type: string
@@ -6039,6 +6055,18 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+    ApiKeyScope:
+      type: array
+      items:
+        type: object
+        properties:
+          organizationId:
+            description: The account identifier string
+            readOnly: true
+            allOf:
+              - $ref: '#/components/schemas/ResourceId'
+      example:
+        - organizationId: organizationId-id-1
     AstroPayBanks:
       type: string
       enum:
