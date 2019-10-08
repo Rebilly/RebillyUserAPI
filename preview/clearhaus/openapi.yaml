@@ -10526,8 +10526,7 @@ components:
         - type: object
           required:
             - merchantId
-            - visaBin
-            - mcBin
+            - acquirerBin
             - apiKey
           properties:
             merchantId:
