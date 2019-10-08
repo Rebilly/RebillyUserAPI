@@ -539,6 +539,218 @@
         ]
       }
     },
+    "/broadcast-messages": {
+      "get": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Retrieve a list of broadcast messages",
+        "operationId": "GetBroadcastMessageCollection",
+        "description": "Retrieve a list of broadcast messages\n",
+        "responses": {
+          "200": {
+            "description": "A list of broadcast messages was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BroadcastMessage"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Create a broadcast message",
+        "operationId": "PostBroadcastMessage",
+        "description": "Create a broadcast message\n",
+        "responses": {
+          "201": {
+            "description": "Broadcast message was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastMessage"
+              }
+            }
+          },
+          "description": "Broadcast message resource",
+          "required": true
+        }
+      }
+    },
+    "/broadcast-messages/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Retrieve a broadcast message",
+        "operationId": "GetBroadcastMessage",
+        "description": "Retrieve a broadcast message\n",
+        "responses": {
+          "200": {
+            "description": "Broadcast message with specified identifier was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Delete a broadcast message",
+        "operationId": "DeleteBroadcastMessage",
+        "description": "Delete a broadcast message\n",
+        "responses": {
+          "204": {
+            "description": "Broadcast message was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Update a broadcast message",
+        "operationId": "PatchBroadcastMessage",
+        "description": "Update a broadcast message\n",
+        "responses": {
+          "200": {
+            "description": "Broadcast message was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastMessage"
+              }
+            }
+          },
+          "description": "Broadcast message resource",
+          "required": true
+        }
+      }
+    },
     "/checkout-pages": {
       "get": {
         "tags": [
@@ -8477,6 +8689,133 @@
           "NB",
           "UI"
         ]
+      },
+      "BroadcastMessage": {
+        "type": "object",
+        "required": [
+          "emails",
+          "startSendingTime"
+        ],
+        "properties": {
+          "id": {
+            "description": "The broadcast message's identifier string",
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/Condition"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the messages. (This title will appear in reports.)"
+          },
+          "messages": {
+            "type": "array",
+            "description": "The list of messages.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "credentialId": {
+                  "type": "string",
+                  "description": "SMTP or Mailgun credential identifier string."
+                },
+                "version": {
+                  "type": "string",
+                  "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
+                },
+                "from": {
+                  "type": "string",
+                  "description": "The sender address.",
+                  "maxLength": 254
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "The message subject. The template placeholders are allowed.",
+                  "maxLength": 998
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                },
+                "html": {
+                  "type": "string",
+                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "The message's ISO 639-1 two-letter language code."
+                },
+                "weight": {
+                  "type": "integer",
+                  "description": "The message's weight.",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "example": 75,
+                  "default": 100
+                }
+              },
+              "required": [
+                "from",
+                "subject",
+                "text",
+                "html",
+                "language"
+              ]
+            }
+          },
+          "splitTestStartTime": {
+            "readOnly": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "The split test start time"
+          },
+          "startSendingTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The start sending time"
+          },
+          "status": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The broadcast message's status",
+            "enum": [
+              "draft",
+              "sending",
+              "sent",
+              "archived"
+            ]
+          },
+          "createdTime": {
+            "description": "The broadcast message's created time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "updatedTime": {
+            "description": "The broadcast message's updated time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to the resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
       },
       "CheckoutPage": {
         "type": "object",
