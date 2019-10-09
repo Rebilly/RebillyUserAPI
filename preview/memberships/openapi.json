@@ -15304,6 +15304,14 @@
               }
             }
           },
+          "permissions": {
+            "description": "The user's permissions. See the format in example",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AclPermissions"
+              }
+            ]
+          },
           "isOwner": {
             "description": "User is owner of merchant",
             "type": "boolean"
@@ -18496,6 +18504,13 @@
                 "$ref": "#/components/schemas/AclPermissions"
               }
             ]
+          },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
           },
           "userId": {
             "description": "The user identifier string",

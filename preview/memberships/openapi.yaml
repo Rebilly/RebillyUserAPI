@@ -10392,6 +10392,10 @@ components:
             name:
               description: First and last name
               type: string
+        permissions:
+          description: The user's permissions. See the format in example
+          allOf:
+            - $ref: '#/components/schemas/AclPermissions'
         isOwner:
           description: User is owner of merchant
           type: boolean
@@ -12496,6 +12500,11 @@ components:
           description: The session's permissions. See the format in example
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
+        memberships:
+          description: The user memberships.
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
         userId:
           description: The user identifier string
           readOnly: true
