@@ -18463,7 +18463,7 @@
             "type": "object"
           },
           "isStarred": {
-            "description": "Toggle whether this Segment is visible to the current user",
+            "description": "Toggle whether this Segment is starred by the current user",
             "type": "boolean",
             "readOnly": true
           },
