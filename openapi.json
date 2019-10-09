@@ -18406,9 +18406,14 @@
       "PatchSegment": {
         "type": "object",
         "required": [
+          "isStarred",
           "isVisible"
         ],
         "properties": {
+          "isStarred": {
+            "description": "Toggle the starring of this segment for the current user",
+            "type": "boolean"
+          },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
             "type": "boolean"
@@ -18456,6 +18461,11 @@
           "data": {
             "description": "An object containing schema to set up the UI for the segment. This schema is built\nand consumed by the frontend. It includes such information as Segment name, UI settings, etc.\n",
             "type": "object"
+          },
+          "isStarred": {
+            "description": "Toggle whether this Segment is starred by the current user",
+            "type": "boolean",
+            "readOnly": true
           },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
