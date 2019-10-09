@@ -28,6 +28,10 @@ properties:
       An object containing schema to set up the UI for the segment. This schema is built
       and consumed by the frontend. It includes such information as Segment name, UI settings, etc.
     type: object
+  isStarred:
+    description: Toggle whether this Segment is visible to the current user
+    type: boolean
+    readOnly: true
   isVisible:
     description: Toggle whether this Segment is visible to the current user
     type: boolean
