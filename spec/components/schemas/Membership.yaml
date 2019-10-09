@@ -29,6 +29,10 @@ properties:
       name:
         description: First and last name
         type: string
+  permissions:
+    description: The user's permissions. See the format in example
+    allOf:
+      - $ref: "#/components/schemas/AclPermissions"
   isOwner:
     description: User is owner of merchant
     type: boolean
