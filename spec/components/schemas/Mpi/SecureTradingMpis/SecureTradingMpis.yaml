@@ -9,4 +9,4 @@ properties:
     allOf:
       - $ref: "#/components/schemas/MpiName"
     enum:
-     - SecureTradingMpi
+      - SecureTradingMpi
