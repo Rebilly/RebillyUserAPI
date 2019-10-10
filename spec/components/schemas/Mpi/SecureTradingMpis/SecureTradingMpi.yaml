@@ -1,0 +1,4 @@
+description: Clearhaus Mpi Credentials
+allOf:
+  -
+    $ref: "#/components/schemas/ClearhausMpis"

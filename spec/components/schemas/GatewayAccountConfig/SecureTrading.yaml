@@ -25,3 +25,5 @@ allOf:
           - "websiteId"
           - "username"
           - "password"
+      mpi:
+        $ref: "#/components/schemas/SecureTradingMpis"
