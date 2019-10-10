@@ -13670,6 +13670,9 @@
                   "username",
                   "password"
                 ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/SecureTradingMpis"
               }
             }
           }
@@ -14274,6 +14277,8 @@
           "PaayMpi",
           "Panamerican",
           "eMerchantPayMpi",
+          "SecureTradingMpi",
+          "ClearhausMpi",
           "Other"
         ]
       },
@@ -15985,6 +15990,36 @@
             ],
             "enum": [
               "RebillySandboxMpi"
+            ]
+          }
+        }
+      },
+      "SecureTradingMpi": {
+        "description": "Clearhaus Mpi Credentials",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ClearhausMpis"
+          }
+        ]
+      },
+      "SecureTradingMpis": {
+        "description": "SecureTrading Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "SecureTradingMpi"
             ]
           }
         }
