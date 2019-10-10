@@ -10846,9 +10846,9 @@ components:
           enum:
             - RebillySandboxMpi
     SecureTradingMpi:
-      description: Clearhaus Mpi Credentials
+      description: SecureTrading Mpi
       allOf:
-        - $ref: '#/components/schemas/ClearhausMpis'
+        - $ref: '#/components/schemas/SecureTradingMpis'
     SecureTradingMpis:
       description: SecureTrading Mpis
       discriminator:

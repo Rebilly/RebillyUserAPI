@@ -15995,10 +15995,10 @@
         }
       },
       "SecureTradingMpi": {
-        "description": "Clearhaus Mpi Credentials",
+        "description": "SecureTrading Mpi",
         "allOf": [
           {
-            "$ref": "#/components/schemas/ClearhausMpis"
+            "$ref": "#/components/schemas/SecureTradingMpis"
           }
         ]
       },
