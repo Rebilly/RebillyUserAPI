@@ -9379,6 +9379,8 @@ components:
                 - websiteId
                 - username
                 - password
+            mpi:
+              $ref: '#/components/schemas/SecureTradingMpis'
     Skrill:
       description: Skrill config
       allOf:
@@ -9766,6 +9768,8 @@ components:
         - PaayMpi
         - Panamerican
         - eMerchantPayMpi
+        - SecureTradingMpi
+        - ClearhausMpi
         - Other
     GlobalWebhook:
       type: object
@@ -10841,6 +10845,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - RebillySandboxMpi
+    SecureTradingMpi:
+      description: SecureTrading Mpi
+      allOf:
+        - $ref: '#/components/schemas/SecureTradingMpis'
+    SecureTradingMpis:
+      description: SecureTrading Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - SecureTradingMpi
     SmartInvoiceMpi:
       description: SmartInvoice Integrated
       allOf:
