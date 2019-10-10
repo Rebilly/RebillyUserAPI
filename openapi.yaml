@@ -9353,6 +9353,32 @@ components:
               required:
                 - publicKey
                 - secretKey
+    SecureTrading:
+      description: SecureTrading config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SecureTrading credentials object
+              properties:
+                websiteId:
+                  type: string
+                  description: Website ID
+                username:
+                  type: string
+                  description: SecureTrading web service username
+                password:
+                  type: string
+                  description: SecureTrading web service password
+                  format: password
+              required:
+                - websiteId
+                - username
+                - password
     Skrill:
       description: Skrill config
       allOf:
