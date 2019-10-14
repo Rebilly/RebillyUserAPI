@@ -223,6 +223,7 @@ x-tagGroups:
   - name: Email
     tags:
       - Email Credentials
+      - Email Delivery Settings
       - Email Messages
   - name: Rules
     tags:

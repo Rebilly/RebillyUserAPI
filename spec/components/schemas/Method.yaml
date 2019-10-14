@@ -7,6 +7,7 @@ enum:
   - ach
   - bank-account
   - cash
+  - check
   # Seems to be wallet service name (need to capitalize the name)
   - paypal
   # The wallet service names
@@ -48,6 +49,7 @@ enum:
   - OchaPay
   - online-bank-transfer
   - Onlineueberweisen
+  - Pagsmile-lottery
   - Paysafecard
   - Pay4Fun
   - PinPay

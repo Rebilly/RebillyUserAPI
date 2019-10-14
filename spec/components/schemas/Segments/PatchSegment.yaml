@@ -1,7 +1,11 @@
 type: object
 required:
+  - isStarred
   - isVisible
 properties:
+  isStarred:
+    description: Toggle the starring of this segment for the current user
+    type: boolean
   isVisible:
     description: Toggle whether this Segment is visible to the current user
     type: boolean
