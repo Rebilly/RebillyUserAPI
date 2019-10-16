@@ -34,10 +34,10 @@ properties:
     allOf:
       - $ref: "#/components/schemas/AclPermissions"
   isOwner:
-    description: User is owner of merchant
+    description: User is owner of organization
     type: boolean
   isDefault:
-    description: This merchant is default for membership user
+    description: This organization is default for membership user
     type: boolean
     readOnly: true
   _links:

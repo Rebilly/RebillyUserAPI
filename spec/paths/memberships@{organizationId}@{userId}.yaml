@@ -17,7 +17,7 @@ get:
   summary: Retrieve the membership
   operationId: GetMembership
   description: |
-    Retrieve the membership using merchant and user identifiers
+    Retrieve the membership using organization and user identifiers
   responses:
     200:
       description: Membership was retrieved successfully

@@ -211,8 +211,8 @@ tags:
       others in their organization.
   - name: Memberships
     description: |
-      Membership describe the relationships between merchants and users.
-      For example, one user could have more than one merchants.
+      Membership describe the relationships between organizations and users.
+      For example, one user could have more than one organization.
 ################################################################################
 x-tagGroups:
   - name: Security
