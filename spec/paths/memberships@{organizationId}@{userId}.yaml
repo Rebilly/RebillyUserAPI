@@ -1,5 +1,10 @@
 parameters:
-  - $ref: '#/components/parameters/resourceId'
+  - name: organizationId
+    in: path
+    required: true
+    description: Organization identifier
+    schema:
+      $ref: '#/components/parameters/resourceId'
   - name: userId
     in: path
     required: true
