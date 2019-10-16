@@ -122,7 +122,7 @@
     },
     {
       "name": "Memberships",
-      "description": "Membership describe the relationships between merchants and users.\nFor example, one user could have more than one merchants.\n"
+      "description": "Membership describe the relationships between organizations and users.\nFor example, one user could have more than one organization.\n"
     }
   ],
   "x-tagGroups": [
@@ -5843,7 +5843,7 @@
         ],
         "summary": "Retrieve the membership",
         "operationId": "GetMembership",
-        "description": "Retrieve the membership using merchant and user identifiers\n",
+        "description": "Retrieve the membership using organization and user identifiers\n",
         "responses": {
           "200": {
             "description": "Membership was retrieved successfully",
@@ -15740,11 +15740,11 @@
             ]
           },
           "isOwner": {
-            "description": "User is owner of merchant",
+            "description": "User is owner of organization",
             "type": "boolean"
           },
           "isDefault": {
-            "description": "This merchant is default for membership user",
+            "description": "This organization is default for membership user",
             "type": "boolean",
             "readOnly": true
           },
