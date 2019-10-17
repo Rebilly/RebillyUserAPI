@@ -24,11 +24,13 @@ properties:
       - publishable
   permissions:
     description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
+    nullable: true
     deprecated: true
     allOf:
       - $ref: "#/components/schemas/AclPermissions"
   acl:
     description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
+    nullable: true
     allOf:
       - $ref: "#/components/schemas/Acl"
   apiUser:
