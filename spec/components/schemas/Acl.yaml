@@ -2,7 +2,7 @@ type: array
 items:
   type: object
   required:
-    - scope
+    - scopes
     - permissions
   properties:
     scopes:
