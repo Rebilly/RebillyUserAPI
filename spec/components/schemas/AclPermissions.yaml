@@ -8,6 +8,7 @@ items:
     resourceName:
       description: The ACL resource name. Send `null` to match all resources.
       type: string
+      nullable: true
       enum:
         - "3dsecure"
         - "activity-feed"
@@ -88,6 +89,7 @@ items:
     methods:
       description: The HTTP methods allowed for this resource. Send `null` to match all methods.
       type: array
+      nullable: true
       items:
         type: string
         enum:
