@@ -8709,7 +8709,7 @@
         "items": {
           "type": "object",
           "required": [
-            "scope",
+            "scopes",
             "permissions"
           ],
           "properties": {
