@@ -8723,6 +8723,7 @@
             },
             "permissions": {
               "description": "Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.",
+              "nullable": true,
               "allOf": [
                 {
                   "$ref": "#/components/schemas/AclPermissions"
@@ -8744,6 +8745,7 @@
             "resourceName": {
               "description": "The ACL resource name. Send `null` to match all resources.",
               "type": "string",
+              "nullable": true,
               "enum": [
                 "3dsecure",
                 "activity-feed",
@@ -8826,6 +8828,7 @@
             "methods": {
               "description": "The HTTP methods allowed for this resource. Send `null` to match all methods.",
               "type": "array",
+              "nullable": true,
               "items": {
                 "type": "string",
                 "enum": [
@@ -8891,6 +8894,7 @@
           },
           "permissions": {
             "description": "Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.",
+            "nullable": true,
             "deprecated": true,
             "allOf": [
               {
@@ -8900,6 +8904,7 @@
           },
           "acl": {
             "description": "Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.",
+            "nullable": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/Acl"
