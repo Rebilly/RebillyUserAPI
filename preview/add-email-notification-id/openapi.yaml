@@ -208,6 +208,10 @@ tags:
       Segments are grid UI settings that can be shared with other users. They are like a custom view.
       For example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with
       others in their organization.
+  - name: Memberships
+    description: |
+      Membership describe the relationships between organizations and users.
+      For example, one user could have more than one organization.
 x-tagGroups:
   - name: Security
     tags:
@@ -240,6 +244,7 @@ x-tagGroups:
       - Gateway Accounts
       - Layouts
       - Payment Cards
+      - Memberships
       - Notes
       - Organizations
       - Segments
@@ -4007,6 +4012,155 @@ paths:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+  /memberships:
+    get:
+      tags:
+        - Memberships
+      summary: Retrieve a list of memberships
+      operationId: GetMembershipCollection
+      description: |
+        Retrieve a list of memberships
+      parameters:
+        - $ref: '#/components/parameters/collectionLimit'
+        - $ref: '#/components/parameters/collectionOffset'
+        - $ref: '#/components/parameters/collectionFilter'
+      responses:
+        '200':
+          description: A list of memberships was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+  '/memberships/{organizationId}/{userId}':
+    parameters:
+      - name: organizationId
+        in: path
+        required: true
+        description: Organization identifier
+        schema:
+          $ref: '#/components/parameters/resourceId'
+      - name: userId
+        in: path
+        required: true
+        description: User identifier
+        schema:
+          $ref: '#/components/parameters/resourceId'
+    get:
+      tags:
+        - Memberships
+      summary: Retrieve the membership
+      operationId: GetMembership
+      description: |
+        Retrieve the membership using organization and user identifiers
+      responses:
+        '200':
+          description: Membership was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      tags:
+        - Memberships
+      summary: Create or update membership
+      operationId: PutMembership
+      description: |
+        Create or update membership using organization and user identifiers.
+        Only membership's owner can add other users in the membership.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                isOwner:
+                  type: boolean
+                permissions:
+                  description: The memberships's permissions. See the format in example
+                  allOf:
+                    - $ref: '#/components/schemas/AclPermissions'
+        required: true
+      responses:
+        '200':
+          description: Membership was updated
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '201':
+          description: Membership was created
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+    delete:
+      tags:
+        - Memberships
+      summary: Delete the membership
+      operationId: DeleteMembership
+      description: |
+        Delete the membership using organization and user identifiers
+      responses:
+        '204':
+          description: Membership message was deleted
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /notes:
     get:
       tags:
@@ -5879,7 +6033,7 @@ components:
       items:
         type: object
         required:
-          - scope
+          - scopes
           - permissions
         properties:
           scopes:
@@ -5888,6 +6042,7 @@ components:
               - $ref: '#/components/schemas/ApiKeyScope'
           permissions:
             description: Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.
+            nullable: true
             allOf:
               - $ref: '#/components/schemas/AclPermissions'
     AclPermissions:
@@ -5901,6 +6056,7 @@ components:
           resourceName:
             description: The ACL resource name. Send `null` to match all resources.
             type: string
+            nullable: true
             enum:
               - 3dsecure
               - activity-feed
@@ -5981,6 +6137,7 @@ components:
           methods:
             description: The HTTP methods allowed for this resource. Send `null` to match all methods.
             type: array
+            nullable: true
             items:
               type: string
               enum:
@@ -6025,11 +6182,13 @@ components:
             - publishable
         permissions:
           description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
+          nullable: true
           deprecated: true
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
         acl:
           description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
+          nullable: true
           allOf:
             - $ref: '#/components/schemas/Acl'
         apiUser:
@@ -10503,6 +10662,56 @@ components:
         - emailFrom
         - apiKey
         - domain
+    Membership:
+      type: object
+      required:
+        - organization
+        - user
+      properties:
+        organization:
+          description: Membership organization
+          readOnly: true
+          type: object
+          properties:
+            id:
+              description: Organization ID
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: Organization name
+              type: string
+        user:
+          description: Membership user
+          readOnly: true
+          type: object
+          properties:
+            id:
+              description: Organization ID
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: First and last name
+              type: string
+        permissions:
+          description: The user's permissions. See the format in example
+          allOf:
+            - $ref: '#/components/schemas/AclPermissions'
+        isOwner:
+          description: User is owner of organization
+          type: boolean
+        isDefault:
+          description: This organization is default for membership user
+          type: boolean
+          readOnly: true
+        _links:
+          type: array
+          description: The links related to resource
+          readOnly: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SelfLink'
     Method:
       type: string
       description: The payment method
@@ -12720,6 +12929,11 @@ components:
           description: The session's permissions. See the format in example
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
+        memberships:
+          description: The user memberships.
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
         userId:
           description: The user identifier string
           readOnly: true
@@ -13702,6 +13916,23 @@ components:
           schema:
             $ref: '#/components/schemas/List'
       description: List resource
+      required: true
+    Membership:
+      content:
+        application/json:
+          schema:
+            properties:
+              organizationId:
+                $ref: '#/components/schemas/ResourceId'
+              userId:
+                $ref: '#/components/schemas/ResourceId'
+              isOwner:
+                type: boolean
+              permissions:
+                description: The memberships's permissions. See the format in example
+                allOf:
+                  - $ref: '#/components/schemas/AclPermissions'
+      description: Membership resource
       required: true
     Note:
       content:
