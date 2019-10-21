@@ -1,4 +1,5 @@
 get:
+  deprecated: true
   tags:
     - Organizations
   summary: Retrieve a list of organizations
@@ -33,6 +34,7 @@ get:
     401:
       $ref: '#/components/responses/AccessForbidden'
 post:
+  deprecated: true
   tags:
     - Organizations
   summary: Create a organization

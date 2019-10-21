@@ -1,6 +1,7 @@
 parameters:
   - $ref: '#/components/parameters/resourceId'
 get:
+  deprecated: true
   tags:
     - Organizations
   summary: Retrieve a organization
@@ -26,6 +27,7 @@ get:
     404:
       $ref: '#/components/responses/NotFound'
 put:
+  deprecated: true
   tags:
     - Organizations
   summary: Create or update a organization with predefined ID
@@ -72,6 +74,7 @@ put:
     422:
       $ref: '#/components/responses/InvalidDataError'
 delete:
+  deprecated: true
   tags:
     - Organizations
   summary: Delete a organization
