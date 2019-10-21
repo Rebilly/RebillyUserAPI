@@ -12099,6 +12099,10 @@ components:
         - $ref: '#/components/schemas/RuleAction'
         - type: object
           properties:
+            id:
+              type: string
+              format: uuid
+              description: The action identifier string.
             title:
               type: string
               description: The title of the messages. (This title will appear in reports.)
@@ -12332,6 +12336,10 @@ components:
     RulesEmailNotification:
       type: object
       properties:
+        id:
+          type: string
+          format: uuid
+          description: The message identifier string.
         credentialHash:
           type: string
           description: SMTP or Mailgun credential identifier string.
