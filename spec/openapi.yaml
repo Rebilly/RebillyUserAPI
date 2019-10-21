@@ -209,6 +209,10 @@ tags:
       Segments are grid UI settings that can be shared with other users. They are like a custom view.
       For example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with
       others in their organization.
+  - name: Memberships
+    description: |
+      Membership describe the relationships between organizations and users.
+      For example, one user could have more than one organization.
 ################################################################################
 x-tagGroups:
   - name: Security
@@ -242,6 +246,7 @@ x-tagGroups:
       - Gateway Accounts
       - Layouts
       - Payment Cards
+      - Memberships
       - Notes
       - Organizations
       - Segments

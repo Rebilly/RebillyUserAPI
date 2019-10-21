@@ -1,0 +1,16 @@
+content:
+  application/json:
+    schema:
+      properties:
+        organizationId:
+          $ref: '#/components/schemas/ResourceId'
+        userId:
+          $ref: '#/components/schemas/ResourceId'
+        isOwner:
+          type: boolean
+        permissions:
+          description: The memberships's permissions. See the format in example
+          allOf:
+            - $ref: "#/components/schemas/AclPermissions"
+description: Membership resource
+required: true
