@@ -14159,6 +14159,36 @@
           }
         ]
       },
+      "ToditoCash": {
+        "description": "ToditoCash config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "ToditoCash credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "ToditoCash API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "UPayCard": {
         "description": "UPayCard Gateway config",
         "allOf": [
@@ -15826,6 +15856,7 @@
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
           "SparkPay",
+          "ToditoCash-card",
           "Trustly",
           "UPayCard",
           "voucher",
