@@ -1,5 +1,9 @@
 type: object
 properties:
+  id:
+    type: string
+    format: uuid
+    description: The message identifier string.
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
