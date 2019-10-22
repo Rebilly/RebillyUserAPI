@@ -17264,6 +17264,13 @@
             "readOnly": true,
             "type": "string"
           },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
+          },
           "availableCurrencies": {
             "type": "array",
             "description": "An array of reporting currencies enabled for the merchant",
