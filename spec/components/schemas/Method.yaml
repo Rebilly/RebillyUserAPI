@@ -63,6 +63,7 @@ enum:
   - Skrill-Rapid-Transfer
   - SMSVoucher
   - SparkPay
+  - ToditoCash-card
   - Trustly
   - UPayCard
   - voucher
