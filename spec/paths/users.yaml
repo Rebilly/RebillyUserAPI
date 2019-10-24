@@ -1,5 +1,5 @@
 parameters:
-  - $ref: '#/components/parameters/organizationId'
+  - $ref: '#/components/parameters/merchantId'
 get:
   tags:
     - Users
@@ -8,7 +8,7 @@ get:
   description: |
     Retrieve a list of users
   parameters:
-    - $ref: '#/components/parameters/organizationId'
+    - $ref: '#/components/parameters/merchantId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
   responses:
@@ -43,7 +43,7 @@ post:
   description: |
     Create an user
   parameters:
-    - $ref: '#/components/parameters/organizationId'
+    - $ref: '#/components/parameters/merchantId'
   requestBody:
     $ref: '#/components/requestBodies/User'
   responses:

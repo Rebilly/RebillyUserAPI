@@ -4,7 +4,7 @@ get:
   summary: Retrieve a list of tracking webhook notifications
   operationId: GetTrackingWebhookCollection
   parameters:
-    - $ref: '#/components/parameters/organizationId'
+    - $ref: '#/components/parameters/merchantId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
     - $ref: '#/components/parameters/collectionSort'

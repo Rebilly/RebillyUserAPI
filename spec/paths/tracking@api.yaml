@@ -4,7 +4,7 @@ get:
   summary: Retrieve a list of tracking API logs
   operationId: GetTrackingApiCollection
   parameters:
-    - $ref: '#/components/parameters/organizationId'
+    - $ref: '#/components/parameters/merchantId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
     - name: Accept

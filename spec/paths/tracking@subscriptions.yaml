@@ -4,7 +4,7 @@ get:
   summary: Retrieve a list of tracking subscription logs
   operationId: GetTrackingSubscriptionCollection
   parameters:
-    - $ref: '#/components/parameters/organizationId'
+    - $ref: '#/components/parameters/merchantId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
   responses:
