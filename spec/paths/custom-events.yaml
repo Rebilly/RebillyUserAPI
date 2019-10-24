@@ -1,3 +1,5 @@
+parameters:
+  - $ref: '#/components/parameters/organizationId'
 get:
   tags:
     - Custom Events
@@ -49,7 +51,6 @@ post:
     Create a custom event
   requestBody:
     $ref: '#/components/requestBodies/CustomEvent'
-
   responses:
     202:
       description: Custom event was accepted
