@@ -5,8 +5,6 @@ get:
     - Custom Event Rules
   summary: Retrieve a list of rules for custom event
   operationId: GetCustomEventRuleCollection
-  parameters:
-    - $ref: '#/components/parameters/organizationId'
   responses:
     200:
       description: Rules were retrieved successfully
@@ -30,8 +28,6 @@ put:
     - Custom Event Rules
   summary: Update the rules for custom event
   operationId: PutCustomEventRuleCollection
-  parameters:
-    - $ref: '#/components/parameters/organizationId'
   responses:
     200:
       description: Rules were updated
