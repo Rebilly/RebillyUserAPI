@@ -10721,6 +10721,10 @@ components:
             name:
               description: Organization name
               type: string
+            createdTime:
+              description: The organization created time
+              allOf:
+                - $ref: '#/components/schemas/ServerTimestamp'
         user:
           description: Membership user
           readOnly: true
