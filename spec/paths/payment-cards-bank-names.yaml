@@ -6,7 +6,6 @@ get:
   description: |
     Retrieve a list of payment card issuing bank names
   parameters:
-    - $ref: '#/components/parameters/organizationId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionQuery'
   responses:

@@ -4,7 +4,6 @@ get:
   summary: Retrieve Lists changes history
   operationId: GetTrackingListCollection
   parameters:
-    - $ref: '#/components/parameters/organizationId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
   responses:
