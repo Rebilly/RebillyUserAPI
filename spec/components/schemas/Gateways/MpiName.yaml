@@ -12,4 +12,6 @@ enum:
  - PaayMpi
  - Panamerican
  - eMerchantPayMpi
+ - SecureTradingMpi
+ - ClearhausMpi
  - Other

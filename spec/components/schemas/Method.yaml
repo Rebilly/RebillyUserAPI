@@ -49,6 +49,7 @@ enum:
   - OchaPay
   - online-bank-transfer
   - Onlineueberweisen
+  - Pagsmile-lottery
   - Paysafecard
   - Pay4Fun
   - PinPay
@@ -62,6 +63,7 @@ enum:
   - Skrill-Rapid-Transfer
   - SMSVoucher
   - SparkPay
+  - ToditoCash-card
   - Trustly
   - UPayCard
   - voucher

@@ -1,0 +1,4 @@
+description: SecureTrading Mpi
+allOf:
+  -
+    $ref: "#/components/schemas/SecureTradingMpis"
