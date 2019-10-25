@@ -119,6 +119,10 @@
     {
       "name": "Segments",
       "description": "Segments are grid UI settings that can be shared with other users. They are like a custom view.\nFor example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with\nothers in their organization.\n"
+    },
+    {
+      "name": "Memberships",
+      "description": "Membership describe the relationships between organizations and users.\nFor example, one user could have more than one organization.\n"
     }
   ],
   "x-tagGroups": [
@@ -169,6 +173,7 @@
         "Gateway Accounts",
         "Layouts",
         "Payment Cards",
+        "Memberships",
         "Notes",
         "Organizations",
         "Segments",
@@ -5752,6 +5757,237 @@
         }
       }
     },
+    "/memberships": {
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Retrieve a list of memberships",
+        "operationId": "GetMembershipCollection",
+        "description": "Retrieve a list of memberships\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionOffset"
+          },
+          {
+            "$ref": "#/components/parameters/collectionFilter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of memberships was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Membership"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
+    "/memberships/{organizationId}/{userId}": {
+      "parameters": [
+        {
+          "name": "organizationId",
+          "in": "path",
+          "required": true,
+          "description": "Organization identifier",
+          "schema": {
+            "$ref": "#/components/parameters/resourceId"
+          }
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "User identifier",
+          "schema": {
+            "$ref": "#/components/parameters/resourceId"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Retrieve the membership",
+        "operationId": "GetMembership",
+        "description": "Retrieve the membership using organization and user identifiers\n",
+        "responses": {
+          "200": {
+            "description": "Membership was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Create or update membership",
+        "operationId": "PutMembership",
+        "description": "Create or update membership using organization and user identifiers.\nOnly membership's owner can add other users in the membership.\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "isOwner": {
+                    "type": "boolean"
+                  },
+                  "permissions": {
+                    "description": "The memberships's permissions. See the format in example",
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/AclPermissions"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Membership was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Membership was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Delete the membership",
+        "operationId": "DeleteMembership",
+        "description": "Delete the membership using organization and user identifiers\n",
+        "responses": {
+          "204": {
+            "description": "Membership message was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      }
+    },
     "/notes": {
       "get": {
         "tags": [
@@ -8519,6 +8755,35 @@
   },
   "components": {
     "schemas": {
+      "Acl": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "scopes",
+            "permissions"
+          ],
+          "properties": {
+            "scopes": {
+              "description": "Array of api key scopes",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ApiKeyScope"
+                }
+              ]
+            },
+            "permissions": {
+              "description": "Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.",
+              "nullable": true,
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AclPermissions"
+                }
+              ]
+            }
+          }
+        }
+      },
       "AclPermissions": {
         "type": "array",
         "items": {
@@ -8531,6 +8796,7 @@
             "resourceName": {
               "description": "The ACL resource name. Send `null` to match all resources.",
               "type": "string",
+              "nullable": true,
               "enum": [
                 "3dsecure",
                 "activity-feed",
@@ -8613,6 +8879,7 @@
             "methods": {
               "description": "The HTTP methods allowed for this resource. Send `null` to match all methods.",
               "type": "array",
+              "nullable": true,
               "items": {
                 "type": "string",
                 "enum": [
@@ -8678,9 +8945,20 @@
           },
           "permissions": {
             "description": "Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.",
+            "nullable": true,
+            "deprecated": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/AclPermissions"
+              }
+            ]
+          },
+          "acl": {
+            "description": "Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Acl"
               }
             ]
           },
@@ -8712,6 +8990,28 @@
             }
           }
         }
+      },
+      "ApiKeyScope": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "description": "The account identifier string",
+              "readOnly": true,
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          }
+        },
+        "example": [
+          {
+            "organizationId": "organizationId-id-1"
+          }
+        ]
       },
       "AstroPayBanks": {
         "type": "string",
@@ -11177,6 +11477,38 @@
           }
         ]
       },
+      "Clearhaus": {
+        "description": "Clearhaus Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Clearhaus api key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/ClearhausMpis"
+              }
+            }
+          }
+        ]
+      },
       "Coppr": {
         "description": "Coppr config",
         "allOf": [
@@ -13402,6 +13734,41 @@
           }
         ]
       },
+      "Prosa": {
+        "description": "Prosa config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Prosa credentials object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "description": "Entity ID"
+                  },
+                  "accessToken": {
+                    "type": "string",
+                    "description": "Access token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "accessToken"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Realex": {
         "description": "Realex Gateway config",
         "allOf": [
@@ -13679,6 +14046,49 @@
           }
         ]
       },
+      "SecureTrading": {
+        "description": "SecureTrading config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "SecureTrading credentials object",
+                "properties": {
+                  "websiteId": {
+                    "type": "string",
+                    "description": "Website ID"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "SecureTrading web service username"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "SecureTrading web service password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "websiteId",
+                  "username",
+                  "password"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/SecureTradingMpis"
+              }
+            }
+          }
+        ]
+      },
       "Skrill": {
         "description": "Skrill config",
         "allOf": [
@@ -13854,6 +14264,36 @@
                 },
                 "required": [
                   "redirectUrl"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ToditoCash": {
+        "description": "ToditoCash config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "ToditoCash credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "ToditoCash API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
                 ]
               }
             }
@@ -14278,6 +14718,8 @@
           "PaayMpi",
           "Panamerican",
           "eMerchantPayMpi",
+          "SecureTradingMpi",
+          "ClearhausMpi",
           "Other"
         ]
       },
@@ -15388,6 +15830,81 @@
           "domain"
         ]
       },
+      "Membership": {
+        "type": "object",
+        "required": [
+          "organization",
+          "user"
+        ],
+        "properties": {
+          "organization": {
+            "description": "Membership organization",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Organization name",
+                "type": "string"
+              }
+            }
+          },
+          "user": {
+            "description": "Membership user",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "First and last name",
+                "type": "string"
+              }
+            }
+          },
+          "permissions": {
+            "description": "The user's permissions. See the format in example",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AclPermissions"
+              }
+            ]
+          },
+          "isOwner": {
+            "description": "User is owner of organization",
+            "type": "boolean"
+          },
+          "isDefault": {
+            "description": "This organization is default for membership user",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
+      },
       "Method": {
         "type": "string",
         "description": "The payment method",
@@ -15436,6 +15953,7 @@
           "OchaPay",
           "online-bank-transfer",
           "Onlineueberweisen",
+          "Pagsmile-lottery",
           "Paysafecard",
           "Pay4Fun",
           "PinPay",
@@ -15449,6 +15967,7 @@
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
           "SparkPay",
+          "ToditoCash-card",
           "Trustly",
           "UPayCard",
           "voucher",
@@ -15474,6 +15993,59 @@
             "enum": [
               "PaayMpi",
               "Other"
+            ]
+          }
+        }
+      },
+      "ClearhausMpi": {
+        "description": "Clearhaus Mpi Credentials",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ClearhausMpis"
+          },
+          {
+            "type": "object",
+            "required": [
+              "merchantId",
+              "acquirerBin",
+              "apiKey"
+            ],
+            "properties": {
+              "merchantId": {
+                "type": "string",
+                "description": "Merchant account ID or Card Acceptor ID provided by the acquiring bank."
+              },
+              "acquirerBin": {
+                "type": "string",
+                "description": "Acquiring institution identification code."
+              },
+              "apiKey": {
+                "type": "string",
+                "format": "password",
+                "description": "Mpi Api key"
+              }
+            }
+          }
+        ]
+      },
+      "ClearhausMpis": {
+        "description": "Clearhaus Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "ClearhausMpi"
             ]
           }
         }
@@ -15935,6 +16507,36 @@
             ],
             "enum": [
               "RebillySandboxMpi"
+            ]
+          }
+        }
+      },
+      "SecureTradingMpi": {
+        "description": "SecureTrading Mpi",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SecureTradingMpis"
+          }
+        ]
+      },
+      "SecureTradingMpis": {
+        "description": "SecureTrading Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "SecureTradingMpi"
             ]
           }
         }
@@ -16773,6 +17375,13 @@
             "readOnly": true,
             "type": "string"
           },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
+          },
           "availableCurrencies": {
             "type": "array",
             "description": "An array of reporting currencies enabled for the merchant",
@@ -17457,6 +18066,11 @@
           {
             "type": "object",
             "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "The action identifier string."
+              },
               "title": {
                 "type": "string",
                 "description": "The title of the messages. (This title will appear in reports.)"
@@ -17804,6 +18418,11 @@
       "RulesEmailNotification": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The message identifier string."
+          },
           "credentialHash": {
             "type": "string",
             "description": "SMTP or Mailgun credential identifier string."
@@ -18397,9 +19016,14 @@
       "PatchSegment": {
         "type": "object",
         "required": [
+          "isStarred",
           "isVisible"
         ],
         "properties": {
+          "isStarred": {
+            "description": "Toggle the starring of this segment for the current user",
+            "type": "boolean"
+          },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
             "type": "boolean"
@@ -18447,6 +19071,11 @@
           "data": {
             "description": "An object containing schema to set up the UI for the segment. This schema is built\nand consumed by the frontend. It includes such information as Segment name, UI settings, etc.\n",
             "type": "object"
+          },
+          "isStarred": {
+            "description": "Toggle whether this Segment is starred by the current user",
+            "type": "boolean",
+            "readOnly": true
           },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
@@ -18646,6 +19275,13 @@
                 "$ref": "#/components/schemas/AclPermissions"
               }
             ]
+          },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
           },
           "userId": {
             "description": "The user identifier string",
@@ -20125,6 +20761,35 @@
           }
         },
         "description": "List resource",
+        "required": true
+      },
+      "Membership": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "organizationId": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "userId": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "isOwner": {
+                  "type": "boolean"
+                },
+                "permissions": {
+                  "description": "The memberships's permissions. See the format in example",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/AclPermissions"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Membership resource",
         "required": true
       },
       "Note": {
