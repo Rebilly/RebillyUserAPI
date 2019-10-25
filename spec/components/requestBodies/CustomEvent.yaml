@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: '#/components/schemas/CustomEvent'
-description: Custom event resource
-required: true

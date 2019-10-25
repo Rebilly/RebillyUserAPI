@@ -1,6 +1,5 @@
 allOf:
   - $ref: "#/components/schemas/CommonScheduleInstruction"
-  - $ref: "#/components/schemas/CustomEventScheduleInstruction"
   - $ref: "#/components/schemas/BillingScheduleInstruction"
   - $ref: "#/components/schemas/ReminderScheduleInstruction"
   - type: object
