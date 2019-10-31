@@ -6733,6 +6733,8 @@ components:
         - subscription-renewal-reminder
         - payment-card-expiration-reminder
         - invoice-past-due-reminder
+        - kyc-document-accepted
+        - kyc-document-rejected
     ForgotPassword:
       type: object
       required:
@@ -9519,6 +9521,8 @@ components:
         - transaction-declined
         - transaction-discrepancy-found
         - transaction-amount-discrepancy-found
+        - kyc-document-accepted
+        - kyc-document-rejected
     Integration:
       type: object
       properties:

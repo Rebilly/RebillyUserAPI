@@ -9622,7 +9622,9 @@
           "subscription-trial-end-reminder",
           "subscription-renewal-reminder",
           "payment-card-expiration-reminder",
-          "invoice-past-due-reminder"
+          "invoice-past-due-reminder",
+          "kyc-document-accepted",
+          "kyc-document-rejected"
         ]
       },
       "ForgotPassword": {
@@ -13899,7 +13901,9 @@
           "transaction-timeout-resolved",
           "transaction-declined",
           "transaction-discrepancy-found",
-          "transaction-amount-discrepancy-found"
+          "transaction-amount-discrepancy-found",
+          "kyc-document-accepted",
+          "kyc-document-rejected"
         ]
       },
       "Integration": {
