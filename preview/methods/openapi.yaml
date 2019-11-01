@@ -82,31 +82,9 @@ tags:
     description: |
       Hosted checkout pages can be configured here.  You can customize the theme
       and content and more that appears on your hosted checkout pages.
-  - name: Custom Events
-    description: |
-      If system events can't solve your problems, you are able to create a custom event
-      that can fit your requirements, and use it to solve your own business logic.
-
-      "Don't conform to the rules. Create the rules."
-      Rather than adapt your workflow and business, Rebilly can align with your business
-      objectives by giving you the power to automate certain behaviors when key events happen.
-      You can use this to your advantage to mitigate risk, maximize conversions and minimize costs.
-      You have the controls at your fingertips here. If you need more control,
-      or help dialing in on a strategy, feel free to contact us.
-
-      When an event happens, it triggers the evaluation of conditions (that you set up),
-      in order from top to bottom. If the condition is met, the corresponding actions are executed.
-      The conditions continue to be checked until either all of the conditions have been executed,
-      or a special "stop" action is executed.
-  - name: Custom Event Rules
-    description: |
-      Custom Events Rules description
   - name: Email Credentials
     description: |
       Get and create SMTP credential hashes.
-  - name: Scheduled Custom Events
-    description: |
-      Scheduled Custom Events description
   - name: Gateway Accounts
     description: |
       Gateway accounts connect payment request to third party networks and platforms.
@@ -208,6 +186,10 @@ tags:
       Segments are grid UI settings that can be shared with other users. They are like a custom view.
       For example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with
       others in their organization.
+  - name: Memberships
+    description: |
+      Membership describe the relationships between organizations and users.
+      For example, one user could have more than one organization.
 x-tagGroups:
   - name: Security
     tags:
@@ -223,9 +205,6 @@ x-tagGroups:
     tags:
       - Rules
       - Lists
-      - Custom Events
-      - Custom Event Rules
-      - Scheduled Custom Events
   - name: Users
     tags:
       - Profile
@@ -240,6 +219,7 @@ x-tagGroups:
       - Gateway Accounts
       - Layouts
       - Payment Cards
+      - Memberships
       - Notes
       - Organizations
       - Segments
@@ -1710,369 +1690,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
-  /custom-email-notifications:
-    get:
-      tags:
-        - Email Notifications
-      summary: Retrieve a list of custom email notification events
-      responses:
-        '200':
-          description: A list of custom email notification events was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-            Pagination-Total:
-              $ref: '#/components/headers/Pagination-Total'
-            Pagination-Limit:
-              $ref: '#/components/headers/Pagination-Limit'
-            Pagination-Offset:
-              $ref: '#/components/headers/Pagination-Offset'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CustomEmailNotification'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-  /custom-events:
-    get:
-      tags:
-        - Custom Events
-      summary: Retrieve a list of custom events
-      operationId: GetCustomEventCollection
-      description: |
-        Retrieve a list of custom events
-      parameters:
-        - $ref: '#/components/parameters/collectionLimit'
-        - $ref: '#/components/parameters/collectionOffset'
-        - name: sort
-          in: query
-          description: The collection items sort field and order (prefix with "-" for descending sort).
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - createdTime
-                - '-createdTime'
-                - handledTime
-                - '-handledTime'
-                - scheduledTime
-                - '-scheduledTime'
-      responses:
-        '200':
-          description: A list of custom events was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-            Pagination-Total:
-              $ref: '#/components/headers/Pagination-Total'
-            Pagination-Limit:
-              $ref: '#/components/headers/Pagination-Limit'
-            Pagination-Offset:
-              $ref: '#/components/headers/Pagination-Offset'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-    post:
-      tags:
-        - Custom Events
-      summary: Create a custom event
-      operationId: PostCustomEvent
-      description: |
-        Create a custom event
-      requestBody:
-        $ref: '#/components/requestBodies/CustomEvent'
-      responses:
-        '202':
-          description: Custom event was accepted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '422':
-          $ref: '#/components/responses/InvalidDataError'
-  '/custom-events/{id}':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-    get:
-      tags:
-        - Custom Events
-      summary: Retrieve a custom event
-      operationId: GetCustomEvent
-      description: |
-        Retrieve a custom event with predefined identifier string
-      responses:
-        '200':
-          description: Custom event was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    put:
-      tags:
-        - Custom Events
-      summary: Create a custom event with predefined ID
-      operationId: PutCustomEvent
-      description: |
-        Create a custom event with predefined identifier string
-      requestBody:
-        $ref: '#/components/requestBodies/CustomEvent'
-      responses:
-        '202':
-          description: Custom event was accepted
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '409':
-          description: Custom event can't be modified
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '422':
-          $ref: '#/components/responses/InvalidDataError'
-    delete:
-      tags:
-        - Custom Events
-      summary: Delete a custom event
-      operationId: DeleteCustomEvent
-      description: |
-        Delete a custom event with predefined identifier string
-      responses:
-        '204':
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          description: Custom event was deleted
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
-          description: Custom event has related rules and cannot be deleted
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  '/custom-events/{id}/rules':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-    get:
-      tags:
-        - Custom Event Rules
-      summary: Retrieve a list of rules for custom event
-      operationId: GetCustomEventRuleCollection
-      responses:
-        '200':
-          description: Rules were retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RuleSet'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    put:
-      tags:
-        - Custom Event Rules
-      summary: Update the rules for custom event
-      operationId: PutCustomEventRuleCollection
-      responses:
-        '200':
-          description: Rules were updated
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RuleSet'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '422':
-          description: Invalid data was sent
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidError'
-      requestBody:
-        $ref: '#/components/requestBodies/RuleSet'
-  '/custom-events/{id}/rules/history':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-    get:
-      tags:
-        - Custom Event Rules
-      summary: Retrieve the change history of the set of rules for a custom event
-      operationId: GetCustomEventRuleHistoryCollection
-      description: |
-        Retrieve the change history of the set of rules for the selected custom event.
-        The history is updated each time you change the rules.
-      parameters:
-        - $ref: '#/components/parameters/collectionLimit'
-        - $ref: '#/components/parameters/collectionOffset'
-        - $ref: '#/components/parameters/collectionFilter'
-        - $ref: '#/components/parameters/collectionQuery'
-        - $ref: '#/components/parameters/collectionSort'
-        - $ref: '#/components/parameters/collectionFields'
-        - $ref: '#/components/parameters/collectionExpand'
-      responses:
-        '200':
-          description: History was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-            Pagination-Total:
-              $ref: '#/components/headers/Pagination-Total'
-            Pagination-Limit:
-              $ref: '#/components/headers/Pagination-Limit'
-            Pagination-Offset:
-              $ref: '#/components/headers/Pagination-Offset'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RuleSetHistoryItem'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  '/custom-events/{id}/rules/history/{version}':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-      - $ref: '#/components/parameters/rulesVersion'
-    get:
-      tags:
-        - Custom Event Rules
-      summary: Retrieve the record from the change history of the set of rules for a custom event
-      operationId: GetCustomEventRuleHistoryVersion
-      description: |
-        Retrieve the record from the change history of the set of rules for the selected custom event.
-        A history record is created each time you change the rules.
-      parameters:
-        - $ref: '#/components/parameters/collectionFields'
-        - $ref: '#/components/parameters/collectionExpand'
-      responses:
-        '200':
-          description: Rules version was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RuleSetHistoryItem'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  '/custom-events/{id}/rules/versions/{version}':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-      - $ref: '#/components/parameters/rulesVersion'
-    get:
-      tags:
-        - Custom Event Rules
-      summary: Retrieve the version of the set of rules for a custom event
-      operationId: GetCustomEventRuleVersion
-      description: |
-        Retrieve the version of the selected set of rules for the selected custom event.
-        The versions are created each time you change the rules.
-      parameters:
-        - $ref: '#/components/parameters/collectionFields'
-        - $ref: '#/components/parameters/collectionExpand'
-      responses:
-        '200':
-          description: Rules version was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RuleSetVersion'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
   '/email-delivery-setting-verifications/{token}':
     parameters:
       - $ref: '#/components/parameters/token'
@@ -4007,6 +3624,155 @@ paths:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+  /memberships:
+    get:
+      tags:
+        - Memberships
+      summary: Retrieve a list of memberships
+      operationId: GetMembershipCollection
+      description: |
+        Retrieve a list of memberships
+      parameters:
+        - $ref: '#/components/parameters/collectionLimit'
+        - $ref: '#/components/parameters/collectionOffset'
+        - $ref: '#/components/parameters/collectionFilter'
+      responses:
+        '200':
+          description: A list of memberships was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+            Pagination-Total:
+              $ref: '#/components/headers/Pagination-Total'
+            Pagination-Limit:
+              $ref: '#/components/headers/Pagination-Limit'
+            Pagination-Offset:
+              $ref: '#/components/headers/Pagination-Offset'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+  '/memberships/{organizationId}/{userId}':
+    parameters:
+      - name: organizationId
+        in: path
+        required: true
+        description: Organization identifier
+        schema:
+          $ref: '#/components/parameters/resourceId'
+      - name: userId
+        in: path
+        required: true
+        description: User identifier
+        schema:
+          $ref: '#/components/parameters/resourceId'
+    get:
+      tags:
+        - Memberships
+      summary: Retrieve the membership
+      operationId: GetMembership
+      description: |
+        Retrieve the membership using organization and user identifiers
+      responses:
+        '200':
+          description: Membership was retrieved successfully
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      tags:
+        - Memberships
+      summary: Create or update membership
+      operationId: PutMembership
+      description: |
+        Create or update membership using organization and user identifiers.
+        Only membership's owner can add other users in the membership.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                isOwner:
+                  type: boolean
+                permissions:
+                  description: The memberships's permissions. See the format in example
+                  allOf:
+                    - $ref: '#/components/schemas/AclPermissions'
+        required: true
+      responses:
+        '200':
+          description: Membership was updated
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '201':
+          description: Membership was created
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+    delete:
+      tags:
+        - Memberships
+      summary: Delete the membership
+      operationId: DeleteMembership
+      description: |
+        Delete the membership using organization and user identifiers
+      responses:
+        '204':
+          description: Membership message was deleted
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+        '401':
+          $ref: '#/components/responses/AccessForbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /notes:
     get:
       tags:
@@ -4669,103 +4435,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Profile'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /queue/custom-events:
-    get:
-      tags:
-        - Scheduled Custom Events
-      summary: Retrieve a list of scheduled custom events
-      operationId: GetQueueCustomEventCollection
-      description: |
-        Retrieve a list of scheduled custom events
-      parameters:
-        - $ref: '#/components/parameters/collectionLimit'
-        - $ref: '#/components/parameters/collectionOffset'
-      responses:
-        '200':
-          description: A list of scheduled custom events was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-            Pagination-Total:
-              $ref: '#/components/headers/Pagination-Total'
-            Pagination-Limit:
-              $ref: '#/components/headers/Pagination-Limit'
-            Pagination-Offset:
-              $ref: '#/components/headers/Pagination-Offset'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-  '/queue/custom-events/{id}':
-    parameters:
-      - $ref: '#/components/parameters/resourceId'
-    get:
-      tags:
-        - Scheduled Custom Events
-      summary: Retrieve a scheduled custom event
-      operationId: GetQueueCustomEvent
-      description: |
-        Retrieve a scheduled custom event with predefined identifier string
-      responses:
-        '200':
-          description: Scheduled custom event was retrieved successfully
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CustomEvent'
-        '303':
-          description: Custom event was successfully processed and moved out from queue
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CustomEvent'
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    delete:
-      tags:
-        - Scheduled Custom Events
-      summary: Delete a scheduled custom event
-      operationId: DeleteQueueCustomEvent
-      description: |
-        Delete a scheduled custom event with predefined identifier string
-      responses:
-        '204':
-          headers:
-            Rate-Limit-Limit:
-              $ref: '#/components/headers/Rate-Limit-Limit'
-            Rate-Limit-Remaining:
-              $ref: '#/components/headers/Rate-Limit-Remaining'
-            Rate-Limit-Reset:
-              $ref: '#/components/headers/Rate-Limit-Reset'
-          description: Scheduled custom event was deleted
-        '401':
-          $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/reset-password/{token}':
@@ -5874,6 +5543,23 @@ paths:
             }
 components:
   schemas:
+    Acl:
+      type: array
+      items:
+        type: object
+        required:
+          - scopes
+          - permissions
+        properties:
+          scopes:
+            description: Array of api key scopes
+            allOf:
+              - $ref: '#/components/schemas/ApiKeyScope'
+          permissions:
+            description: Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.
+            nullable: true
+            allOf:
+              - $ref: '#/components/schemas/AclPermissions'
     AclPermissions:
       type: array
       items:
@@ -5885,6 +5571,7 @@ components:
           resourceName:
             description: The ACL resource name. Send `null` to match all resources.
             type: string
+            nullable: true
             enum:
               - 3dsecure
               - activity-feed
@@ -5965,6 +5652,7 @@ components:
           methods:
             description: The HTTP methods allowed for this resource. Send `null` to match all methods.
             type: array
+            nullable: true
             items:
               type: string
               enum:
@@ -6009,8 +5697,15 @@ components:
             - publishable
         permissions:
           description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
+          nullable: true
+          deprecated: true
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
+        acl:
+          description: Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/Acl'
         apiUser:
           description: API user name
           type: string
@@ -6030,6 +5725,18 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
+    ApiKeyScope:
+      type: array
+      items:
+        type: object
+        properties:
+          organizationId:
+            description: The account identifier string
+            readOnly: true
+            allOf:
+              - $ref: '#/components/schemas/ResourceId'
+      example:
+        - organizationId: organizationId-id-1
     AstroPayBanks:
       type: string
       enum:
@@ -6673,53 +6380,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/Condition'
         - $ref: '#/components/schemas/logical'
-    CustomEvent:
-      type: object
-      properties:
-        id:
-          description: The custom event identifier string
-          readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/ResourceId'
-        eventType:
-          $ref: '#/components/schemas/CustomEventType'
-        title:
-          type: string
-          description: The custom event title
-        description:
-          type: string
-          description: The custom event description
-        chronology:
-          type: string
-          description: The emitting time of the custom event relatively to the system event
-          enum:
-            - before
-            - after
-        scheduleInstruction:
-          $ref: '#/components/schemas/CustomEventScheduleInstruction'
-        createdTime:
-          $ref: '#/components/schemas/ServerTimestamp'
-        rulesCount:
-          type: integer
-          readOnly: true
-        bindsCount:
-          type: integer
-          readOnly: true
-      required:
-        - eventType
-        - title
-        - chronology
-        - scheduleInstruction
-    CustomEventType:
-      type: string
-      description: Rebilly custom event type
-      readOnly: true
-      enum:
-        - subscription-ended
-        - subscription-trial-ended
-        - subscription-renewed
-        - payment-card-expired
-        - invoice-past-due
     SmtpAuthorization:
       type: object
       discriminator:
@@ -6974,41 +6634,6 @@ components:
           minItems: 1
           items:
             $ref: '#/components/schemas/SelfLink'
-    CustomEmailNotification:
-      type: object
-      description: The custom email notification event
-      readOnly: true
-      properties:
-        eventType:
-          $ref: '#/components/schemas/CustomEventType'
-        count:
-          type: integer
-          readOnly: true
-          description: The count of binds with `send-email` actions per event
-        notifications:
-          readOnly: true
-          type: array
-          minItems: 1
-          description: The list of notifications
-          items:
-            type: object
-            properties:
-              labels:
-                description: The notification labels
-                type: array
-                minItems: 1
-                items:
-                  type: string
-              title:
-                type: string
-                description: The notification title
-        _links:
-          type: array
-          description: The links related to resource
-          readOnly: true
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/SelfLink'
     EmailNotification:
       type: object
       description: The email notification event
@@ -7108,6 +6733,8 @@ components:
         - subscription-renewal-reminder
         - payment-card-expiration-reminder
         - invoice-past-due-reminder
+        - kyc-document-accepted
+        - kyc-document-rejected
     ForgotPassword:
       type: object
       required:
@@ -8812,6 +8439,11 @@ components:
                   type: string
                   description: Onlineueberweisen payform code to use customized Payform template
                   default: default
+                delay:
+                  type: integer
+                  description: Gateway time delay to capture a transaction
+              required:
+                - delay
     Optimal:
       description: Optimal Gateway config
       allOf:
@@ -9180,6 +8812,28 @@ components:
               required:
                 - publisher-name
                 - publisher-password
+    Prosa:
+      description: Prosa config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Prosa credentials object
+              properties:
+                entityId:
+                  type: string
+                  description: Entity ID
+                accessToken:
+                  type: string
+                  description: Access token
+                  format: password
+              required:
+                - entityId
+                - accessToken
     Realex:
       description: Realex Gateway config
       allOf:
@@ -9353,6 +9007,34 @@ components:
               required:
                 - publicKey
                 - secretKey
+    SecureTrading:
+      description: SecureTrading config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: SecureTrading credentials object
+              properties:
+                websiteId:
+                  type: string
+                  description: Website ID
+                username:
+                  type: string
+                  description: SecureTrading web service username
+                password:
+                  type: string
+                  description: SecureTrading web service password
+                  format: password
+              required:
+                - websiteId
+                - username
+                - password
+            mpi:
+              $ref: '#/components/schemas/SecureTradingMpis'
     Skrill:
       description: Skrill config
       allOf:
@@ -9463,6 +9145,24 @@ components:
                   format: url
               required:
                 - redirectUrl
+    ToditoCash:
+      description: ToditoCash config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: ToditoCash credentials object
+              properties:
+                apiKey:
+                  type: string
+                  description: ToditoCash API key
+                  format: password
+              required:
+                - apiKey
     UPayCard:
       description: UPayCard Gateway config
       allOf:
@@ -9740,6 +9440,8 @@ components:
         - PaayMpi
         - Panamerican
         - eMerchantPayMpi
+        - SecureTradingMpi
+        - ClearhausMpi
         - Other
     GlobalWebhook:
       type: object
@@ -9824,6 +9526,8 @@ components:
         - transaction-declined
         - transaction-discrepancy-found
         - transaction-amount-discrepancy-found
+        - kyc-document-accepted
+        - kyc-document-rejected
     Integration:
       type: object
       properties:
@@ -10440,6 +10144,60 @@ components:
         - emailFrom
         - apiKey
         - domain
+    Membership:
+      type: object
+      required:
+        - organization
+        - user
+      properties:
+        organization:
+          description: Membership organization
+          readOnly: true
+          type: object
+          properties:
+            id:
+              description: Organization ID
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: Organization name
+              type: string
+            createdTime:
+              description: The organization created time
+              allOf:
+                - $ref: '#/components/schemas/ServerTimestamp'
+        user:
+          description: Membership user
+          readOnly: true
+          type: object
+          properties:
+            id:
+              description: Organization ID
+              type: string
+              allOf:
+                - $ref: '#/components/schemas/ResourceId'
+            name:
+              description: First and last name
+              type: string
+        permissions:
+          description: The user's permissions. See the format in example
+          allOf:
+            - $ref: '#/components/schemas/AclPermissions'
+        isOwner:
+          description: User is owner of organization
+          type: boolean
+        isDefault:
+          description: This organization is default for membership user
+          type: boolean
+          readOnly: true
+        _links:
+          type: array
+          description: The links related to resource
+          readOnly: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/SelfLink'
     Method:
       type: string
       description: The payment method
@@ -10451,6 +10209,7 @@ components:
         - check
         - paypal
         - Alipay
+        - ApplePay
         - AstroPay-Card
         - bank-transfer
         - bitcoin
@@ -10459,6 +10218,7 @@ components:
         - CASHlib
         - CashToCode
         - China-UnionPay
+        - Conekta-oxxo
         - domestic-cards
         - echeck
         - ecoPayz
@@ -10467,6 +10227,7 @@ components:
         - ePay-bg
         - Flexepin
         - Giropay
+        - GooglePay
         - Gpaysafe
         - iDebit
         - iDEAL
@@ -10489,6 +10250,9 @@ components:
         - online-bank-transfer
         - Onlineueberweisen
         - Pagsmile-lottery
+        - Pagsmile-deposit-express
+        - Pagsmile-boleto
+        - PayCash
         - Paysafecard
         - Pay4Fun
         - PinPay
@@ -10502,6 +10266,8 @@ components:
         - Skrill-Rapid-Transfer
         - SMSVoucher
         - SparkPay
+        - swift-dbt
+        - ToditoCash-card
         - Trustly
         - UPayCard
         - voucher
@@ -10815,6 +10581,23 @@ components:
             - $ref: '#/components/schemas/MpiName'
           enum:
             - RebillySandboxMpi
+    SecureTradingMpi:
+      description: SecureTrading Mpi
+      allOf:
+        - $ref: '#/components/schemas/SecureTradingMpis'
+    SecureTradingMpis:
+      description: SecureTrading Mpis
+      discriminator:
+        propertyName: name
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          allOf:
+            - $ref: '#/components/schemas/MpiName'
+          enum:
+            - SecureTradingMpi
     SmartInvoiceMpi:
       description: SmartInvoice Integrated
       allOf:
@@ -11353,6 +11136,11 @@ components:
           description: The user mobile phone number
           readOnly: true
           type: string
+        memberships:
+          description: The user memberships.
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
         availableCurrencies:
           type: array
           description: An array of reporting currencies enabled for the merchant
@@ -11810,6 +11598,10 @@ components:
         - $ref: '#/components/schemas/RuleAction'
         - type: object
           properties:
+            id:
+              type: string
+              format: uuid
+              description: The action identifier string.
             title:
               type: string
               description: The title of the messages. (This title will appear in reports.)
@@ -12043,6 +11835,10 @@ components:
     RulesEmailNotification:
       type: object
       properties:
+        id:
+          type: string
+          format: uuid
+          description: The message identifier string.
         credentialHash:
           type: string
           description: SMTP or Mailgun credential identifier string.
@@ -12278,20 +12074,6 @@ components:
             - day-of-week
       required:
         - method
-    CustomEventScheduleInstruction:
-      type: object
-      description: The calculation instruction of scheduled time
-      discriminator:
-        propertyName: method
-      properties:
-        method:
-          type: string
-          enum:
-            - date-interval
-            - day-of-month
-            - day-of-week
-      required:
-        - method
     InvoiceRetryScheduleInstruction:
       type: object
       description: The calculation instruction of scheduled time
@@ -12314,7 +12096,6 @@ components:
     date-interval:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
-        - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/BillingScheduleInstruction'
         - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
@@ -12333,7 +12114,6 @@ components:
     day-of-month:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
-        - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
         - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
@@ -12353,7 +12133,6 @@ components:
     day-of-week:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
-        - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - $ref: '#/components/schemas/ServicePeriodAnchorInstruction'
         - $ref: '#/components/schemas/ReminderScheduleInstruction'
         - type: object
@@ -12379,7 +12158,6 @@ components:
     intelligent:
       allOf:
         - $ref: '#/components/schemas/CommonScheduleInstruction'
-        - $ref: '#/components/schemas/CustomEventScheduleInstruction'
         - type: object
           properties:
             duration:
@@ -12632,6 +12410,11 @@ components:
           description: The session's permissions. See the format in example
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
+        memberships:
+          description: The user memberships.
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
         userId:
           description: The user identifier string
           readOnly: true
@@ -13573,13 +13356,6 @@ components:
             $ref: '#/components/schemas/CheckoutPage'
       description: Checkout Page resource
       required: true
-    CustomEvent:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CustomEvent'
-      description: Custom event resource
-      required: true
     GatewayAccount:
       content:
         application/json:
@@ -13614,6 +13390,23 @@ components:
           schema:
             $ref: '#/components/schemas/List'
       description: List resource
+      required: true
+    Membership:
+      content:
+        application/json:
+          schema:
+            properties:
+              organizationId:
+                $ref: '#/components/schemas/ResourceId'
+              userId:
+                $ref: '#/components/schemas/ResourceId'
+              isOwner:
+                type: boolean
+              permissions:
+                description: The memberships's permissions. See the format in example
+                allOf:
+                  - $ref: '#/components/schemas/AclPermissions'
+      description: Membership resource
       required: true
     Note:
       content:
