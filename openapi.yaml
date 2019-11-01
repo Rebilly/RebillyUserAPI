@@ -8611,6 +8611,28 @@ components:
                 - merchantId
                 - merchantSecret
                 - merchantKey
+    PayCash:
+      description: PayCash config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: PayCash credentials object
+              properties:
+                emisor:
+                  type: string
+                  description: Identify of the company
+                token:
+                  type: string
+                  description: Token
+                  format: password
+              required:
+                - emisor
+                - token
     Payeezy:
       description: Payeezy Gateway config
       allOf:
