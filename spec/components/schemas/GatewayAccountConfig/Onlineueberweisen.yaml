@@ -29,3 +29,5 @@ allOf:
           delay:
             type: integer
             description: Gateway time delay to capture a transaction
+        required:
+          - "delay"
