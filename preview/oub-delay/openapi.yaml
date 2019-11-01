@@ -8442,6 +8442,8 @@ components:
                 delay:
                   type: integer
                   description: Gateway time delay to capture a transaction
+              required:
+                - delay
     Optimal:
       description: Optimal Gateway config
       allOf:
