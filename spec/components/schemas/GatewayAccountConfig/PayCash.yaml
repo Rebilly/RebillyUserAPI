@@ -1,0 +1,23 @@
+description: PayCash config
+allOf:
+  -
+    $ref: "#/components/schemas/GatewayAccount"
+  -
+    type: "object"
+    required:
+      - "credentials"
+    properties:
+      credentials:
+        type: object
+        description: PayCash credentials object
+        properties:
+          emisor:
+            type: string
+            description:
+          token:
+            type: string
+            description: Token
+            format: password
+        required:
+          - "emisor"
+          - "token"
