@@ -12224,8 +12224,15 @@
                     "type": "string",
                     "description": "Onlineueberweisen payform code to use customized Payform template",
                     "default": "default"
+                  },
+                  "delay": {
+                    "type": "integer",
+                    "description": "Gateway time delay to capture a transaction"
                   }
-                }
+                },
+                "required": [
+                  "delay"
+                ]
               }
             }
           }
