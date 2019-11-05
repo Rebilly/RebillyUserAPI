@@ -29,20 +29,8 @@
       "description": "Hosted checkout pages can be configured here.  You can customize the theme\nand content and more that appears on your hosted checkout pages.\n"
     },
     {
-      "name": "Custom Events",
-      "description": "If system events can't solve your problems, you are able to create a custom event\nthat can fit your requirements, and use it to solve your own business logic.\n\n\"Don't conform to the rules. Create the rules.\"\nRather than adapt your workflow and business, Rebilly can align with your business\nobjectives by giving you the power to automate certain behaviors when key events happen.\nYou can use this to your advantage to mitigate risk, maximize conversions and minimize costs.\nYou have the controls at your fingertips here. If you need more control,\nor help dialing in on a strategy, feel free to contact us.\n\nWhen an event happens, it triggers the evaluation of conditions (that you set up),\nin order from top to bottom. If the condition is met, the corresponding actions are executed.\nThe conditions continue to be checked until either all of the conditions have been executed,\nor a special \"stop\" action is executed.\n"
-    },
-    {
-      "name": "Custom Event Rules",
-      "description": "Custom Events Rules description\n"
-    },
-    {
       "name": "Email Credentials",
       "description": "Get and create SMTP credential hashes.\n"
-    },
-    {
-      "name": "Scheduled Custom Events",
-      "description": "Scheduled Custom Events description\n"
     },
     {
       "name": "Gateway Accounts",
@@ -146,10 +134,7 @@
       "name": "Rules",
       "tags": [
         "Rules",
-        "Lists",
-        "Custom Events",
-        "Custom Event Rules",
-        "Scheduled Custom Events"
+        "Lists"
       ]
     },
     {
@@ -2337,584 +2322,6 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
-          }
-        }
-      }
-    },
-    "/custom-email-notifications": {
-      "get": {
-        "tags": [
-          "Email Notifications"
-        ],
-        "summary": "Retrieve a list of custom email notification events",
-        "responses": {
-          "200": {
-            "description": "A list of custom email notification events was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CustomEmailNotification"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
-    "/custom-events": {
-      "get": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Retrieve a list of custom events",
-        "operationId": "GetCustomEventCollection",
-        "description": "Retrieve a list of custom events\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "description": "The collection items sort field and order (prefix with \"-\" for descending sort).",
-            "style": "form",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "createdTime",
-                  "-createdTime",
-                  "handledTime",
-                  "-handledTime",
-                  "scheduledTime",
-                  "-scheduledTime"
-                ]
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of custom events was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CustomEvent"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Create a custom event",
-        "operationId": "PostCustomEvent",
-        "description": "Create a custom event\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CustomEvent"
-        },
-        "responses": {
-          "202": {
-            "description": "Custom event was accepted",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "422": {
-            "$ref": "#/components/responses/InvalidDataError"
-          }
-        }
-      }
-    },
-    "/custom-events/{id}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Retrieve a custom event",
-        "operationId": "GetCustomEvent",
-        "description": "Retrieve a custom event with predefined identifier string\n",
-        "responses": {
-          "200": {
-            "description": "Custom event was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Create a custom event with predefined ID",
-        "operationId": "PutCustomEvent",
-        "description": "Create a custom event with predefined identifier string\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CustomEvent"
-        },
-        "responses": {
-          "202": {
-            "description": "Custom event was accepted",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "409": {
-            "description": "Custom event can't be modified",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/components/responses/InvalidDataError"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Delete a custom event",
-        "operationId": "DeleteCustomEvent",
-        "description": "Delete a custom event with predefined identifier string\n",
-        "responses": {
-          "204": {
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "description": "Custom event was deleted"
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "409": {
-            "description": "Custom event has related rules and cannot be deleted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve a list of rules for custom event",
-        "operationId": "GetCustomEventRuleCollection",
-        "responses": {
-          "200": {
-            "description": "Rules were retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSet"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Update the rules for custom event",
-        "operationId": "PutCustomEventRuleCollection",
-        "responses": {
-          "200": {
-            "description": "Rules were updated",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSet"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "422": {
-            "description": "Invalid data was sent",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/RuleSet"
-        }
-      }
-    },
-    "/custom-events/{id}/rules/history": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the change history of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleHistoryCollection",
-        "description": "Retrieve the change history of the set of rules for the selected custom event.\nThe history is updated each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          },
-          {
-            "$ref": "#/components/parameters/collectionFilter"
-          },
-          {
-            "$ref": "#/components/parameters/collectionQuery"
-          },
-          {
-            "$ref": "#/components/parameters/collectionSort"
-          },
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "History was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RuleSetHistoryItem"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules/history/{version}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        },
-        {
-          "$ref": "#/components/parameters/rulesVersion"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the record from the change history of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleHistoryVersion",
-        "description": "Retrieve the record from the change history of the set of rules for the selected custom event.\nA history record is created each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rules version was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSetHistoryItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules/versions/{version}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        },
-        {
-          "$ref": "#/components/parameters/rulesVersion"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the version of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleVersion",
-        "description": "Retrieve the version of the selected set of rules for the selected custom event.\nThe versions are created each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rules version was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSetVersion"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -6950,157 +6357,6 @@
         }
       }
     },
-    "/queue/custom-events": {
-      "get": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Retrieve a list of scheduled custom events",
-        "operationId": "GetQueueCustomEventCollection",
-        "description": "Retrieve a list of scheduled custom events\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of scheduled custom events was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CustomEvent"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
-    "/queue/custom-events/{id}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Retrieve a scheduled custom event",
-        "operationId": "GetQueueCustomEvent",
-        "description": "Retrieve a scheduled custom event with predefined identifier string\n",
-        "responses": {
-          "200": {
-            "description": "Scheduled custom event was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "303": {
-            "description": "Custom event was successfully processed and moved out from queue",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Delete a scheduled custom event",
-        "operationId": "DeleteQueueCustomEvent",
-        "description": "Delete a scheduled custom event with predefined identifier string\n",
-        "responses": {
-          "204": {
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "description": "Scheduled custom event was deleted"
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
     "/reset-password/{token}": {
       "parameters": [
         {
@@ -9918,71 +9174,6 @@
           }
         ]
       },
-      "CustomEvent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The custom event identifier string",
-            "readOnly": true,
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ResourceId"
-              }
-            ]
-          },
-          "eventType": {
-            "$ref": "#/components/schemas/CustomEventType"
-          },
-          "title": {
-            "type": "string",
-            "description": "The custom event title"
-          },
-          "description": {
-            "type": "string",
-            "description": "The custom event description"
-          },
-          "chronology": {
-            "type": "string",
-            "description": "The emitting time of the custom event relatively to the system event",
-            "enum": [
-              "before",
-              "after"
-            ]
-          },
-          "scheduleInstruction": {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
-          },
-          "createdTime": {
-            "$ref": "#/components/schemas/ServerTimestamp"
-          },
-          "rulesCount": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "bindsCount": {
-            "type": "integer",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "eventType",
-          "title",
-          "chronology",
-          "scheduleInstruction"
-        ]
-      },
-      "CustomEventType": {
-        "type": "string",
-        "description": "Rebilly custom event type",
-        "readOnly": true,
-        "enum": [
-          "subscription-ended",
-          "subscription-trial-ended",
-          "subscription-renewed",
-          "payment-card-expired",
-          "invoice-past-due"
-        ]
-      },
       "SmtpAuthorization": {
         "type": "object",
         "discriminator": {
@@ -10357,53 +9548,6 @@
           }
         }
       },
-      "CustomEmailNotification": {
-        "type": "object",
-        "description": "The custom email notification event",
-        "readOnly": true,
-        "properties": {
-          "eventType": {
-            "$ref": "#/components/schemas/CustomEventType"
-          },
-          "count": {
-            "type": "integer",
-            "readOnly": true,
-            "description": "The count of binds with `send-email` actions per event"
-          },
-          "notifications": {
-            "readOnly": true,
-            "type": "array",
-            "minItems": 1,
-            "description": "The list of notifications",
-            "items": {
-              "type": "object",
-              "properties": {
-                "labels": {
-                  "description": "The notification labels",
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "title": {
-                  "type": "string",
-                  "description": "The notification title"
-                }
-              }
-            }
-          },
-          "_links": {
-            "type": "array",
-            "description": "The links related to resource",
-            "readOnly": true,
-            "minItems": 1,
-            "items": {
-              "$ref": "#/components/schemas/SelfLink"
-            }
-          }
-        }
-      },
       "EmailNotification": {
         "type": "object",
         "description": "The email notification event",
@@ -10554,7 +9698,9 @@
           "subscription-trial-end-reminder",
           "subscription-renewal-reminder",
           "payment-card-expiration-reminder",
-          "invoice-past-due-reminder"
+          "invoice-past-due-reminder",
+          "kyc-document-accepted",
+          "kyc-document-rejected"
         ]
       },
       "ForgotPassword": {
@@ -11933,6 +11079,52 @@
           }
         ]
       },
+      "EPG": {
+        "description": "EPG config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "EPG credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Merchant ID"
+                  },
+                  "productId": {
+                    "type": "string",
+                    "description": "Product ID"
+                  },
+                  "merchantPassword": {
+                    "type": "string",
+                    "description": "Merchant password",
+                    "format": "password"
+                  },
+                  "merchantKey": {
+                    "type": "string",
+                    "description": "Merchant key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "productId",
+                  "merchantPassword",
+                  "merchantKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "FinTecSystems": {
         "description": "FinTecSystems config",
         "allOf": [
@@ -13154,8 +12346,15 @@
                     "type": "string",
                     "description": "Onlineueberweisen payform code to use customized Payform template",
                     "default": "default"
+                  },
+                  "delay": {
+                    "type": "integer",
+                    "description": "Gateway time delay to capture a transaction"
                   }
-                }
+                },
+                "required": [
+                  "delay"
+                ]
               }
             }
           }
@@ -13412,6 +12611,41 @@
                   "merchantId",
                   "merchantSecret",
                   "merchantKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PayCash": {
+        "description": "PayCash config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "PayCash credentials object",
+                "properties": {
+                  "emisor": {
+                    "type": "string",
+                    "description": "Identify of the company"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "Token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "emisor",
+                  "token"
                 ]
               }
             }
@@ -14831,7 +14065,9 @@
           "transaction-timeout-resolved",
           "transaction-declined",
           "transaction-discrepancy-found",
-          "transaction-amount-discrepancy-found"
+          "transaction-amount-discrepancy-found",
+          "kyc-document-accepted",
+          "kyc-document-rejected"
         ]
       },
       "Integration": {
@@ -15854,6 +15090,14 @@
               "name": {
                 "description": "Organization name",
                 "type": "string"
+              },
+              "createdTime": {
+                "description": "The organization created time",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ServerTimestamp"
+                  }
+                ]
               }
             }
           },
@@ -15916,6 +15160,7 @@
           "check",
           "paypal",
           "Alipay",
+          "ApplePay",
           "AstroPay-Card",
           "bank-transfer",
           "bitcoin",
@@ -15924,6 +15169,7 @@
           "CASHlib",
           "CashToCode",
           "China-UnionPay",
+          "Conekta-oxxo",
           "domestic-cards",
           "echeck",
           "ecoPayz",
@@ -15932,6 +15178,7 @@
           "ePay-bg",
           "Flexepin",
           "Giropay",
+          "GooglePay",
           "Gpaysafe",
           "iDebit",
           "iDEAL",
@@ -15954,6 +15201,9 @@
           "online-bank-transfer",
           "Onlineueberweisen",
           "Pagsmile-lottery",
+          "Pagsmile-deposit-express",
+          "Pagsmile-boleto",
+          "PayCash",
           "Paysafecard",
           "Pay4Fun",
           "PinPay",
@@ -15967,6 +15217,7 @@
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
           "SparkPay",
+          "swift-dbt",
           "ToditoCash-card",
           "Trustly",
           "UPayCard",
@@ -18737,26 +17988,6 @@
           "method"
         ]
       },
-      "CustomEventScheduleInstruction": {
-        "type": "object",
-        "description": "The calculation instruction of scheduled time",
-        "discriminator": {
-          "propertyName": "method"
-        },
-        "properties": {
-          "method": {
-            "type": "string",
-            "enum": [
-              "date-interval",
-              "day-of-month",
-              "day-of-week"
-            ]
-          }
-        },
-        "required": [
-          "method"
-        ]
-      },
       "InvoiceRetryScheduleInstruction": {
         "type": "object",
         "description": "The calculation instruction of scheduled time",
@@ -18790,9 +18021,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/CommonScheduleInstruction"
-          },
-          {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
           },
           {
             "$ref": "#/components/schemas/BillingScheduleInstruction"
@@ -18832,9 +18060,6 @@
             "$ref": "#/components/schemas/CommonScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
-          },
-          {
             "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
           },
           {
@@ -18863,9 +18088,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/CommonScheduleInstruction"
-          },
-          {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
           },
           {
             "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
@@ -18915,9 +18137,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/CommonScheduleInstruction"
-          },
-          {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
           },
           {
             "type": "object",
@@ -20695,17 +19914,6 @@
           }
         },
         "description": "Checkout Page resource",
-        "required": true
-      },
-      "CustomEvent": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/CustomEvent"
-            }
-          }
-        },
-        "description": "Custom event resource",
         "required": true
       },
       "GatewayAccount": {
