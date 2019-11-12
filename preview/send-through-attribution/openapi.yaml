@@ -8510,6 +8510,13 @@ components:
                   type: string
                   description: Onlineueberweisen API Key
                   format: password
+                nuaPayApiKey:
+                  type: string
+                  description: NuaPay API Key for reconciliation
+                  format: password
+                nuaPayAccountId:
+                  type: string
+                  description: NuaPay account ID for reconciliation
               required:
                 - apiKey
             settings:
