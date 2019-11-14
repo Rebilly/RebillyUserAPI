@@ -221,9 +221,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -274,9 +271,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -306,6 +300,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -331,9 +328,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -362,6 +356,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -392,9 +389,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -415,6 +409,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -438,9 +435,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -461,9 +455,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -488,6 +479,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -514,9 +508,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -540,6 +531,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -564,9 +558,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -597,6 +588,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -613,9 +607,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -637,6 +628,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -672,9 +666,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -695,6 +686,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -711,9 +705,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -739,9 +730,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -762,6 +750,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -792,9 +783,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -824,6 +812,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -846,9 +837,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -877,6 +865,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -919,6 +910,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -942,9 +936,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -965,9 +956,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -999,6 +987,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -1024,9 +1015,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1044,6 +1032,9 @@
           },
           "409": {
             "description": "Checkout page cannot be deleted"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -1068,9 +1059,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1129,6 +1117,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -1164,9 +1155,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1187,6 +1175,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -1215,9 +1206,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1241,6 +1229,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1270,9 +1261,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1331,6 +1319,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1355,9 +1346,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1378,6 +1366,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -1406,9 +1397,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1432,6 +1420,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1461,9 +1452,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1522,6 +1510,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1546,9 +1537,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1569,6 +1557,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -1597,9 +1588,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1623,6 +1611,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1641,9 +1632,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1674,6 +1662,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -1693,9 +1684,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1717,6 +1705,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1741,9 +1732,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -1764,6 +1752,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -1783,9 +1774,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1813,6 +1801,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1836,9 +1827,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1869,6 +1857,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1898,9 +1889,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -1959,6 +1947,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -1983,9 +1974,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2006,6 +1994,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2034,9 +2025,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2060,6 +2048,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2089,9 +2080,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2150,6 +2138,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2174,9 +2165,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2197,6 +2185,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2225,9 +2216,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2251,6 +2239,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2280,9 +2271,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2341,6 +2329,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2365,9 +2356,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2388,6 +2376,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2416,9 +2407,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2442,6 +2430,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2466,9 +2457,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2489,6 +2477,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2506,9 +2497,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2539,6 +2527,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2555,9 +2546,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2579,6 +2567,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -2614,9 +2605,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2637,6 +2625,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2653,9 +2644,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2695,9 +2683,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2721,6 +2706,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -2739,9 +2727,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2772,6 +2757,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2788,9 +2776,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2812,6 +2797,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -2847,9 +2835,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2870,6 +2855,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -2886,9 +2874,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -2917,9 +2902,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -2943,6 +2925,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -2983,9 +2968,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3015,6 +2997,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3032,9 +3017,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -3065,6 +3047,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3088,9 +3073,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3111,6 +3093,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3134,9 +3119,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3157,6 +3139,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -3172,9 +3157,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -3206,6 +3188,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -3256,9 +3241,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3291,6 +3273,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3326,9 +3311,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3349,6 +3331,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3384,9 +3369,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3407,6 +3389,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3425,9 +3410,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -3490,9 +3472,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3522,6 +3501,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -3547,9 +3529,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -3578,6 +3557,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -3608,9 +3590,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3631,6 +3610,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -3657,9 +3639,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3680,9 +3659,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -3714,6 +3690,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -3740,9 +3719,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3773,6 +3749,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -3790,9 +3769,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3809,6 +3785,9 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -3839,9 +3818,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3862,6 +3838,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3886,9 +3865,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3912,6 +3888,9 @@
           },
           "409": {
             "description": "Gateway account is pending activation and cannot be disabled."
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -3944,9 +3923,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -3976,6 +3952,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -3992,9 +3971,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -4026,6 +4002,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -4062,9 +4041,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4085,6 +4061,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -4101,9 +4080,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -4138,6 +4114,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -4158,9 +4137,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4174,6 +4150,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4198,9 +4177,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4224,6 +4200,9 @@
           },
           "409": {
             "description": "Gateway account is pending activation and cannot be enabled."
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4259,9 +4238,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4291,6 +4267,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -4319,9 +4298,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4349,6 +4325,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4382,9 +4361,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4405,6 +4381,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -4422,9 +4401,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4441,6 +4417,9 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4466,10 +4445,7 @@
             "description": "Segments were retrieved successfully",
             "headers": {
               "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After",
+                "$ref": "#/components/headers/Rate-Limit-Limit",
                 "Rate-Limit-Remaining": {
                   "$ref": "#/components/headers/Rate-Limit-Remaining"
                 },
@@ -4512,10 +4488,7 @@
             "description": "Segment was created successfully",
             "headers": {
               "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After",
+                "$ref": "#/components/headers/Rate-Limit-Limit",
                 "Rate-Limit-Remaining": {
                   "$ref": "#/components/headers/Rate-Limit-Remaining"
                 },
@@ -4561,9 +4534,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4606,9 +4576,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -4655,9 +4622,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -4715,9 +4679,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4757,9 +4718,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4789,6 +4747,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4813,9 +4774,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4836,6 +4794,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -4862,9 +4823,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -4895,6 +4853,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -4921,9 +4882,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4944,6 +4902,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -4974,9 +4935,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -4997,6 +4955,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5023,9 +4984,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5046,9 +5004,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5073,6 +5028,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5096,9 +5054,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5112,6 +5067,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5151,9 +5109,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5183,6 +5138,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -5199,9 +5157,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5230,6 +5185,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "requestBody": {
@@ -5257,9 +5215,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5280,6 +5235,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -5299,9 +5257,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5323,9 +5278,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5350,6 +5302,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -5367,9 +5322,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5386,6 +5338,9 @@
           },
           "409": {
             "description": "List is used in Rules and cannot be deleted"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -5428,6 +5383,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -5447,9 +5405,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5460,6 +5415,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -5490,9 +5448,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5522,6 +5477,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -5561,9 +5519,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5584,6 +5539,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -5623,9 +5581,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5647,9 +5602,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5670,6 +5622,9 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -5687,9 +5642,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5706,6 +5658,9 @@
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -5732,9 +5687,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5765,6 +5717,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5790,9 +5745,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5821,6 +5773,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5851,9 +5806,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5874,6 +5826,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5900,9 +5855,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -5923,9 +5875,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -5957,6 +5906,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -5990,9 +5942,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6022,6 +5971,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -6047,9 +5999,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6081,6 +6030,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -6111,9 +6063,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6134,6 +6083,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -6160,9 +6112,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6183,9 +6132,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6217,6 +6163,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -6239,9 +6188,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6266,6 +6212,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6292,9 +6241,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6331,6 +6277,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6377,6 +6326,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6407,9 +6359,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6437,6 +6386,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6467,9 +6419,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6497,6 +6446,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6519,9 +6471,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6542,6 +6491,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6560,9 +6512,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6584,6 +6533,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -6612,9 +6564,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6638,6 +6587,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6660,9 +6612,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6686,6 +6635,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -6704,9 +6656,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6754,9 +6703,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6801,9 +6747,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6866,9 +6809,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -6896,6 +6836,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -6931,9 +6874,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -6984,9 +6924,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7041,9 +6978,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7073,6 +7007,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7102,9 +7039,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7125,6 +7059,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7157,9 +7094,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7189,6 +7123,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7214,9 +7151,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7247,6 +7181,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7279,6 +7216,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7311,9 +7251,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7343,6 +7280,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7375,6 +7315,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7398,9 +7341,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7421,6 +7361,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7444,9 +7387,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7460,6 +7400,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -7486,9 +7429,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7519,6 +7459,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7544,9 +7487,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7575,6 +7515,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7605,9 +7548,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7628,6 +7568,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7654,9 +7597,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7677,9 +7617,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7704,6 +7641,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7726,9 +7666,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7753,6 +7690,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7786,9 +7726,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7812,6 +7749,9 @@
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -7841,9 +7781,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7895,9 +7832,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -7927,6 +7861,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -7946,9 +7883,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -7977,6 +7911,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -8001,9 +7938,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -8024,6 +7958,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       },
@@ -8043,9 +7980,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -8067,9 +8001,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -8098,6 +8029,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         }
       }
@@ -8138,9 +8072,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -8178,6 +8109,9 @@
           },
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -8203,9 +8137,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -8234,6 +8165,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -8264,9 +8198,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -8287,6 +8218,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -8313,9 +8247,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -8336,9 +8267,6 @@
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
               },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
@@ -8370,6 +8298,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -8393,9 +8324,6 @@
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
               },
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "Rate-Limit-Remaining": {
                 "$ref": "#/components/headers/Rate-Limit-Remaining"
               },
@@ -8412,6 +8340,9 @@
           },
           "409": {
             "description": "Website has related resources and cannot be deleted"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
           }
         },
         "x-code-samples": [
@@ -20156,6 +20087,17 @@
             }
           }
         }
+      },
+      "TooManyRequests": {
+        "description": "You sent too many requests in a given amount of time",
+        "headers": {
+          "Retry-After": {
+            "description": "The number of seconds to wait until next try",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        }
       }
     },
     "parameters": {
@@ -20334,12 +20276,6 @@
         "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
         "schema": {
           "type": "string"
-        }
-      },
-      "Retry-After": {
-        "description": "The number of seconds to wait until next try",
-        "schema": {
-          "type": "integer"
         }
       }
     },

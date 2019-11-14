@@ -261,8 +261,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -298,8 +296,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -318,6 +314,8 @@ paths:
                   $ref: '#/components/schemas/ApiKey'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -339,8 +337,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -357,6 +353,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -385,8 +383,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -399,6 +395,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -416,8 +414,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -431,8 +427,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -447,6 +441,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/ApiKey'
       x-code-samples:
@@ -474,8 +470,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -490,6 +484,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -508,8 +504,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -528,6 +522,8 @@ paths:
                   $ref: '#/components/schemas/BroadcastMessage'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Broadcast Messages
@@ -541,8 +537,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -555,6 +549,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -578,8 +574,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -592,6 +586,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Broadcast Messages
@@ -605,8 +601,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -624,8 +618,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -638,6 +630,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -659,8 +653,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -679,6 +671,8 @@ paths:
                   $ref: '#/components/schemas/CheckoutPage'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -698,8 +692,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -716,6 +708,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/CheckoutPage'
       x-code-samples:
@@ -753,6 +747,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -770,8 +766,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -785,8 +779,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -805,6 +797,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/CheckoutPage'
       x-code-samples:
@@ -833,8 +827,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -846,6 +838,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           description: Checkout page cannot be deleted
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -864,8 +858,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -903,6 +895,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -926,8 +920,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -940,6 +932,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Email Credentials
@@ -960,8 +954,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -976,6 +968,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/emails:
     post:
       tags:
@@ -997,8 +991,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1036,6 +1028,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/emails/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1052,8 +1046,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1066,6 +1058,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Email Credentials
@@ -1086,8 +1080,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1102,6 +1094,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/mailgun:
     post:
       tags:
@@ -1123,8 +1117,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1162,6 +1154,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/mailgun/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1178,8 +1172,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1192,6 +1184,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Email Credentials
@@ -1212,8 +1206,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1228,6 +1220,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/oauth2:
     get:
       tags:
@@ -1242,8 +1236,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1262,6 +1254,8 @@ paths:
                   $ref: '#/components/schemas/OAuth2Credential'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Webhook Credentials
@@ -1279,8 +1273,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1293,6 +1285,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/oauth2/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1309,8 +1303,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1323,6 +1315,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Webhook Credentials
@@ -1338,8 +1332,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1356,6 +1348,8 @@ paths:
           $ref: '#/components/responses/Conflict'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/oauth2/{hash}/items':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1372,8 +1366,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1392,6 +1384,8 @@ paths:
                   $ref: '#/components/schemas/GoogleSpreadsheet'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/postmark:
     post:
       tags:
@@ -1413,8 +1407,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1452,6 +1444,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/postmark/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1468,8 +1462,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1482,6 +1474,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Email Credentials
@@ -1502,8 +1496,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1518,6 +1510,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/sendgrid:
     post:
       tags:
@@ -1539,8 +1533,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1578,6 +1570,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/sendgrid/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1594,8 +1588,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1608,6 +1600,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Email Credentials
@@ -1628,8 +1622,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1644,6 +1636,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /credential-hashes/webhooks:
     post:
       tags:
@@ -1665,8 +1659,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1704,6 +1696,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/credential-hashes/webhooks/{hash}':
     parameters:
       - $ref: '#/components/parameters/hash'
@@ -1720,8 +1714,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1734,6 +1726,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     patch:
       tags:
         - Webhook Credentials
@@ -1754,8 +1748,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1770,6 +1762,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/email-delivery-setting-verifications/{token}':
     parameters:
       - $ref: '#/components/parameters/token'
@@ -1786,8 +1780,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1800,6 +1792,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /email-delivery-settings:
     get:
       tags:
@@ -1812,8 +1806,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1832,6 +1824,8 @@ paths:
                   $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Email Delivery Settings
@@ -1845,8 +1839,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1859,6 +1851,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -1882,8 +1876,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1896,6 +1888,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Email Delivery Settings
@@ -1909,8 +1903,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1937,8 +1929,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1953,6 +1943,8 @@ paths:
           $ref: '#/components/responses/Conflict'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /email-messages:
     get:
       tags:
@@ -1967,8 +1959,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -1987,6 +1977,8 @@ paths:
                   $ref: '#/components/schemas/EmailMessage'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Email Messages
@@ -2000,8 +1992,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2014,6 +2004,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -2037,8 +2029,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2051,6 +2041,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Email Messages
@@ -2064,8 +2056,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2085,8 +2075,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2101,6 +2089,8 @@ paths:
           $ref: '#/components/responses/Conflict'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         content:
           application/json:
@@ -2127,8 +2117,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2147,6 +2135,8 @@ paths:
                   $ref: '#/components/schemas/EmailNotification'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /events:
     get:
       tags:
@@ -2159,8 +2149,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2179,6 +2167,8 @@ paths:
                   $ref: '#/components/schemas/SystemEvent'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/events/{eventType}':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
@@ -2193,8 +2183,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2207,6 +2195,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/events/{eventType}/rules':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
@@ -2221,8 +2211,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2235,6 +2223,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Rules
@@ -2246,8 +2236,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2266,6 +2254,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/RuleSet'
   '/events/{eventType}/rules/history':
@@ -2293,8 +2283,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2315,6 +2303,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/events/{eventType}/rules/history/{version}':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
@@ -2336,8 +2326,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2350,6 +2338,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/events/{eventType}/rules/versions/{version}':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
@@ -2371,8 +2361,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2385,6 +2373,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /forgot-password:
     post:
       tags:
@@ -2399,8 +2389,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2446,8 +2434,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2466,6 +2452,8 @@ paths:
                   $ref: '#/components/schemas/GatewayAccount'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2487,8 +2475,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2505,6 +2491,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2552,8 +2540,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2566,6 +2552,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2585,8 +2573,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2600,8 +2586,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2620,6 +2604,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2666,8 +2652,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2686,6 +2670,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Gateway Accounts
@@ -2699,8 +2685,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2711,6 +2695,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2737,8 +2723,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2751,6 +2735,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/gateway-accounts/{id}/disable':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -2768,8 +2754,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2784,6 +2768,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           description: Gateway account is pending activation and cannot be disabled.
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/gateway-accounts/{id}/downtime-schedules':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -2803,8 +2789,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2823,6 +2807,8 @@ paths:
                   $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Gateway Accounts
@@ -2836,8 +2822,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2856,6 +2840,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/GatewayAccountDowntimeSchedule'
   '/gateway-accounts/{id}/downtime-schedules/{downtimeId}':
@@ -2880,8 +2866,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2894,6 +2878,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Gateway Accounts
@@ -2907,8 +2893,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2929,6 +2913,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/GatewayAccountDowntimeSchedule'
     delete:
@@ -2944,8 +2930,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2954,6 +2938,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/gateway-accounts/{id}/enable':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -2971,8 +2957,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -2987,6 +2971,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           description: Gateway account is pending activation and cannot be enabled.
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/gateway-accounts/{id}/timeline':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -3007,8 +2993,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3027,6 +3011,8 @@ paths:
                   $ref: '#/components/schemas/GatewayAccountTimeline'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Gateway Accounts
@@ -3047,8 +3033,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3065,6 +3049,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/gateway-accounts/{id}/timeline/{messageId}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -3087,8 +3073,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3101,6 +3085,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Gateway Accounts
@@ -3114,8 +3100,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3126,6 +3110,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /grid-segments:
     get:
       tags:
@@ -3143,8 +3129,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
               Rate-Limit-Remaining:
                 $ref: '#/components/headers/Rate-Limit-Remaining'
               Rate-Limit-Reset:
@@ -3175,8 +3159,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
               Rate-Limit-Remaining:
                 $ref: '#/components/headers/Rate-Limit-Remaining'
               Rate-Limit-Reset:
@@ -3205,8 +3187,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3236,8 +3216,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3268,8 +3246,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3307,8 +3283,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3336,8 +3310,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3356,6 +3328,8 @@ paths:
                   $ref: '#/components/schemas/Integration'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/integrations/{label}':
     parameters:
       - $ref: '#/components/parameters/integrationLabel'
@@ -3372,8 +3346,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3386,6 +3358,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /layouts:
     get:
       tags:
@@ -3403,8 +3377,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3423,6 +3395,8 @@ paths:
                   $ref: '#/components/schemas/Layout'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3444,8 +3418,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3458,6 +3430,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3493,8 +3467,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3507,6 +3479,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3526,8 +3500,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3541,8 +3513,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3557,6 +3527,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3589,8 +3561,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3599,6 +3569,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3622,8 +3594,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3642,6 +3612,8 @@ paths:
                   $ref: '#/components/schemas/List'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Lists
@@ -3655,8 +3627,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3673,6 +3643,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       requestBody:
         $ref: '#/components/requestBodies/List'
   '/lists/{id}':
@@ -3691,8 +3663,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3705,6 +3675,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Lists
@@ -3720,8 +3692,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3735,8 +3705,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3751,6 +3719,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Lists
@@ -3764,8 +3734,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3776,6 +3744,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           description: List is used in Rules and cannot be deleted
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/lists/{id}/{version}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -3802,6 +3772,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /logout:
     post:
       tags:
@@ -3816,14 +3788,14 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /memberships:
     get:
       tags:
@@ -3842,8 +3814,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3862,6 +3832,8 @@ paths:
                   $ref: '#/components/schemas/Membership'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/memberships/{organizationId}/{userId}':
     parameters:
       - name: organizationId
@@ -3889,8 +3861,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3903,6 +3873,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Memberships
@@ -3929,8 +3901,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3944,8 +3914,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3958,6 +3926,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '409':
           $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     delete:
       tags:
         - Memberships
@@ -3971,8 +3941,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -3983,6 +3951,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /notes:
     get:
       tags:
@@ -4000,8 +3970,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4020,6 +3988,8 @@ paths:
                   $ref: '#/components/schemas/Note'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4041,8 +4011,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4059,6 +4027,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4088,8 +4058,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4102,6 +4070,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4121,8 +4091,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4136,8 +4104,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4156,6 +4122,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4186,8 +4154,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4206,6 +4172,8 @@ paths:
                   $ref: '#/components/schemas/Organization'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4227,8 +4195,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4247,6 +4213,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4275,8 +4243,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4289,6 +4255,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4308,8 +4276,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4323,8 +4289,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4343,6 +4307,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4368,8 +4334,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4384,6 +4348,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /payment-cards-bank-names:
     get:
       tags:
@@ -4401,8 +4367,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4425,6 +4389,8 @@ paths:
                       type: string
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /payment-cards-migrations:
     post:
       tags:
@@ -4455,6 +4421,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /previews/rule-actions/send-email:
     post:
       tags:
@@ -4476,8 +4444,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4494,6 +4460,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /previews/rule-actions/trigger-webhook:
     post:
       tags:
@@ -4515,8 +4483,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4533,6 +4499,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /previews/webhooks:
     post:
       tags:
@@ -4549,8 +4517,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4563,6 +4529,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /profile:
     get:
       tags:
@@ -4577,8 +4545,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4591,6 +4557,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Profile
@@ -4611,8 +4579,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4627,6 +4593,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /profile/password:
     post:
       tags:
@@ -4643,8 +4611,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4659,6 +4625,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /profile/totp-reset:
     post:
       tags:
@@ -4673,8 +4641,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4704,8 +4670,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4736,8 +4700,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4785,8 +4747,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4803,6 +4763,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4836,8 +4798,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4882,8 +4842,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4916,8 +4874,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4936,6 +4892,8 @@ paths:
                   $ref: '#/components/schemas/ApiTracking'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4956,8 +4914,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -4970,6 +4926,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4989,8 +4947,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5009,6 +4965,8 @@ paths:
                   $ref: '#/components/schemas/List'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /tracking/subscriptions:
     get:
       tags:
@@ -5024,8 +4982,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5044,6 +5000,8 @@ paths:
                   $ref: '#/components/schemas/SubscriptionTracking'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/tracking/subscriptions/{id}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -5063,6 +5021,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /tracking/webhooks:
     get:
       tags:
@@ -5080,8 +5040,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5100,6 +5058,8 @@ paths:
                   $ref: '#/components/schemas/WebhookTracking'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/tracking/webhooks/{id}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -5119,6 +5079,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/tracking/webhooks/{id}/history':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -5133,8 +5095,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5147,6 +5107,8 @@ paths:
                   $ref: '#/components/schemas/WebhookTracking'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/tracking/webhooks/{id}/resend':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -5161,8 +5123,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5171,6 +5131,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /users:
     get:
       tags:
@@ -5188,8 +5150,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5208,6 +5168,8 @@ paths:
                   $ref: '#/components/schemas/User'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5229,8 +5191,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5247,6 +5207,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5276,8 +5238,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5290,6 +5250,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5309,8 +5271,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5324,8 +5284,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5340,6 +5298,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5366,8 +5326,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5382,6 +5340,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5408,8 +5368,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5424,6 +5382,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5452,8 +5412,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5485,8 +5443,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5505,6 +5461,8 @@ paths:
                   $ref: '#/components/schemas/GlobalWebhook'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     post:
       tags:
         - Webhooks
@@ -5520,8 +5478,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5538,6 +5494,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   '/webhooks/{id}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -5554,8 +5512,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5568,6 +5524,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
     put:
       tags:
         - Webhooks
@@ -5583,8 +5541,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5598,8 +5554,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5616,6 +5570,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /websites:
     get:
       tags:
@@ -5642,8 +5598,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5667,6 +5621,8 @@ paths:
                   $ref: '#/components/schemas/Website'
         '401':
           $ref: '#/components/responses/AccessForbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5688,8 +5644,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5706,6 +5660,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5736,8 +5692,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5750,6 +5704,8 @@ paths:
           $ref: '#/components/responses/AccessForbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5769,8 +5725,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5784,8 +5738,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5804,6 +5756,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5831,8 +5785,6 @@ paths:
           headers:
             Rate-Limit-Limit:
               $ref: '#/components/headers/Rate-Limit-Limit'
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             Rate-Limit-Remaining:
               $ref: '#/components/headers/Rate-Limit-Remaining'
             Rate-Limit-Reset:
@@ -5843,6 +5795,8 @@ paths:
           $ref: '#/components/responses/NotFound'
         '409':
           description: Website has related resources and cannot be deleted
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -13605,6 +13559,13 @@ components:
             The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset
           schema:
             type: string
+    TooManyRequests:
+      description: You sent too many requests in a given amount of time
+      headers:
+        Retry-After:
+          description: The number of seconds to wait until next try
+          schema:
+            type: integer
   parameters:
     collectionExpand:
       name: expand
@@ -13742,10 +13703,6 @@ components:
         when the current period will reset
       schema:
         type: string
-    Retry-After:
-      description: The number of seconds to wait until next try
-      schema:
-        type: integer
   requestBodies:
     ApiKey:
       content:
