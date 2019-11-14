@@ -4812,6 +4812,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4850,6 +4852,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Status'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
   /tracking/api:
     get:
       tags:
@@ -5422,6 +5426,8 @@ paths:
                 $ref: '#/components/schemas/User'
         '404':
           $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
       x-code-samples:
         - lang: PHP
           source: |
