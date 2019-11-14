@@ -20,3 +20,6 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/Status'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
+

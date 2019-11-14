@@ -23,3 +23,5 @@ post:
             $ref: '#/components/schemas/User'
     404:
       $ref: '#/components/responses/NotFound'
+    429:
+      $ref: '#/components/responses/TooManyRequests'

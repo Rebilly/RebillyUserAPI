@@ -32,3 +32,5 @@ post:
         application/json:
           schema:
             $ref: '#/components/schemas/InvalidError'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
