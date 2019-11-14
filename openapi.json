@@ -9624,7 +9624,8 @@
           "payment-card-expiration-reminder",
           "invoice-past-due-reminder",
           "kyc-document-accepted",
-          "kyc-document-rejected"
+          "kyc-document-rejected",
+          "renewal-invoice-issued"
         ]
       },
       "ForgotPassword": {
