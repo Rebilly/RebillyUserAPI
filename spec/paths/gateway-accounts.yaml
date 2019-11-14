@@ -32,6 +32,8 @@ get:
               $ref: '#/components/schemas/GatewayAccount'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
 post:
   tags:
     - Gateway Accounts
@@ -57,6 +59,8 @@ post:
             $ref: '#/components/schemas/GatewayAccount'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
     422:
       description: Invalid data was sent
       content:

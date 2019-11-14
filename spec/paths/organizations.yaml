@@ -32,6 +32,8 @@ get:
               $ref: '#/components/schemas/Organization'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
 post:
   tags:
     - Organizations
@@ -57,6 +59,8 @@ post:
             $ref: '#/components/schemas/Organization'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
     409:
       description: The similar organization already exists
       content:

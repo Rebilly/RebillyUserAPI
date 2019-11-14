@@ -23,6 +23,8 @@ get:
             $ref: '#/components/schemas/BroadcastMessage'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
     404:
       $ref: '#/components/responses/NotFound'
 delete:
@@ -65,6 +67,8 @@ patch:
             $ref: '#/components/schemas/BroadcastMessage'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
     422:
       $ref: '#/components/responses/InvalidDataError'
   requestBody:

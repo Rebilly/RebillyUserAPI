@@ -28,6 +28,8 @@ post:
             $ref: '#/components/schemas/SendPreviewWebhook'
     401:
       $ref: '#/components/responses/AccessForbidden'
+    429:
+      $ref: '#/components/responses/TooManyRequests'
     422:
       description: Invalid data was sent
       content:
