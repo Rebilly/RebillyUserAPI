@@ -13,6 +13,8 @@ get:
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
+        Retry-After:
+          $ref: "#/components/headers/Retry-After"
         Rate-Limit-Remaining:
           $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
@@ -42,6 +44,8 @@ patch:
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
+        Retry-After:
+          $ref: "#/components/headers/Retry-After"
         Rate-Limit-Remaining:
           $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
@@ -72,6 +76,8 @@ put:
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
+        Retry-After:
+          $ref: "#/components/headers/Retry-After"
         Rate-Limit-Remaining:
           $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
@@ -109,6 +115,8 @@ delete:
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
+        Retry-After:
+          $ref: "#/components/headers/Retry-After"
         Rate-Limit-Remaining:
           $ref: "#/components/headers/Rate-Limit-Remaining"
         Rate-Limit-Reset:
