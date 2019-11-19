@@ -14110,6 +14110,7 @@
           "invoice-past-due",
           "offsite-payment-completed",
           "payment-card-expired",
+          "renewal-invoice-issued",
           "renewal-invoice-payment-declined",
           "subscription-trial-ended",
           "subscription-activated",
