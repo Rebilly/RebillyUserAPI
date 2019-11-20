@@ -7447,6 +7447,24 @@ components:
                 - apiKey
             mpi:
               $ref: '#/components/schemas/ClearhausMpis'
+    Conekta:
+      description: Conekta config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Conekta credentials object
+              properties:
+                apiKey:
+                  type: string
+                  description: Conekta private API key
+                  format: password
+              required:
+                - apiKey
     Coppr:
       description: Coppr config
       allOf:
