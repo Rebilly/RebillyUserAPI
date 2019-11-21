@@ -10057,6 +10057,41 @@
           }
         ]
       },
+      "AsiaPaymentGateway": {
+        "description": "AsiaPaymentGateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "AsiaPaymentGateway credentials object",
+                "properties": {
+                  "merchantNumber": {
+                    "type": "string",
+                    "description": "AsiaPaymentGateway merchant number"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "AsiaPaymentGateway secret key for hash",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantNumber",
+                  "secretKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "AstroPay": {
         "description": "AstroPay config",
         "allOf": [
