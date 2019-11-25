@@ -11,7 +11,7 @@ allOf:
       type: object
       description: Wallet88 credentials object
       properties:
-        user:
+        username:
           type: string
           description: Wallet88 API user
         password:
@@ -19,5 +19,5 @@ allOf:
           description: Wallet88 API password
           format: password
       required:
-      - "user"
+      - "username"
       - "password"
