@@ -9459,7 +9459,7 @@ components:
               type: object
               description: Wallet88 credentials object
               properties:
-                user:
+                username:
                   type: string
                   description: Wallet88 API user
                 password:
@@ -9467,7 +9467,7 @@ components:
                   description: Wallet88 API password
                   format: password
               required:
-                - user
+                - username
                 - password
     Walpay:
       description: Walpay Gateway config

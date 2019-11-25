@@ -13831,7 +13831,7 @@
                 "type": "object",
                 "description": "Wallet88 credentials object",
                 "properties": {
-                  "user": {
+                  "username": {
                     "type": "string",
                     "description": "Wallet88 API user"
                   },
@@ -13842,7 +13842,7 @@
                   }
                 },
                 "required": [
-                  "user",
+                  "username",
                   "password"
                 ]
               }
