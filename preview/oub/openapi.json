@@ -12471,14 +12471,14 @@
                     "type": "integer",
                     "description": "Gateway time delay to capture a transaction"
                   },
-                  "autoDeclinedHour": {
+                  "autoDeclineTtl": {
                     "type": "integer",
                     "description": "Auto-decline if transaction is not reconciled after x hours"
                   }
                 },
                 "required": [
                   "delay",
-                  "autoDeclinedHour"
+                  "autoDeclineTtl"
                 ]
               }
             }
