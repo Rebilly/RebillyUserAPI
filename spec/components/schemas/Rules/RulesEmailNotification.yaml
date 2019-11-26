@@ -37,24 +37,39 @@ properties:
     type: string
     description: The message subject. The template placeholders are allowed.
     maxLength: 998
-  text:
-    type: string
-    description: |
-      The message's text body.
-      Leave empty to use content from "bodyHtml".
-      The template placeholders are allowed.
-  html:
-    type: string
-    description: |
-      The message's html body.
-      Leave empty to use content from "bodyText".
-      The template placeholders are allowed.
-  editor:
-    type: string
-    description: |
-      The source of the message required for the email editor.
-      Not used for sending emails.
-      Used by the editor to reproduce the message for future updates.
+  body:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        text:
+          type: string
+          description: |
+            The message's text body.
+            Leave empty to use content from "html".
+            The template placeholders are allowed.
+        html:
+          type: string
+          description: |
+            The message's html body.
+            Leave empty to use content from "text".
+            The template placeholders are allowed.
+        editor:
+          type: string
+          description: |
+            The source of the message required for the email editor.
+            Not used for sending emails.
+            Used by the editor to reproduce the message for future updates.
+    description: An array of body objects maped to the language locale indetifiers according to RFC 4646
+    example:
+      en-US:
+        text: Demo text
+        html: <p>Demo text</p>
+        editor: <div class="block">Demo text</div>
+      fr-FR:
+        text: Texte de démonstration
+        html: <p>Texte de démonstration</p>
+        editor: <div class="block">Texte de démonstration</div>
   attachments:
     description: The message's attachments
     type: array
