@@ -5,8 +5,8 @@ allOf:
   -
     type: "object"
     required:
-     - "credentials"
-     - "settings"
+      - "credentials"
+      - "settings"
     properties:
       credentials:
         type: object
