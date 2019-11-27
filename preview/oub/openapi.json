@@ -12477,7 +12477,8 @@
                   }
                 },
                 "required": [
-                  "delay"
+                  "delay",
+                  "autoAbandonTtl"
                 ]
               }
             }

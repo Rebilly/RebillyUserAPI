@@ -8606,6 +8606,7 @@ components:
                   description: Auto-abandon if transaction is not reconciled after x hours
               required:
                 - delay
+                - autoAbandonTtl
     Optimal:
       description: Optimal Gateway config
       allOf:
