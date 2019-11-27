@@ -5,8 +5,8 @@ allOf:
   -
     type: "object"
     required:
-    - "credentials"
-    - "settings"
+     - "credentials"
+     - "settings"
     properties:
       credentials:
         type: object
@@ -33,12 +33,8 @@ allOf:
             type: string
             description: Onlineueberweisen payform code to use customized Payform template
             default: "default"
-          delay:
-            type: integer
-            description: Gateway time delay to capture a transaction
           autoAbandonTtl:
             type: integer
             description: Auto-abandon if transaction is not reconciled after x hours
         required:
-          - "delay"
           - "autoAbandonTtl"
