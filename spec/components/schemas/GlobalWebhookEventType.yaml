@@ -26,6 +26,7 @@ enum:
   - subscription-renewed
   - subscription-trial-end-reminder
   - subscription-renewal-reminder
+  - order-completed
   - transaction-processed
   - transaction-timeout-resolved
   - transaction-declined

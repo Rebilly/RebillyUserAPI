@@ -28,3 +28,4 @@ enum:
   - kyc-document-accepted
   - kyc-document-rejected
   - renewal-invoice-issued
+  - order-completed
