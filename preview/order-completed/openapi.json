@@ -12468,13 +12468,13 @@
                     "description": "Onlineueberweisen payform code to use customized Payform template",
                     "default": "default"
                   },
-                  "delay": {
+                  "autoAbandonTtl": {
                     "type": "integer",
-                    "description": "Gateway time delay to capture a transaction"
+                    "description": "Auto-abandon if transaction is not reconciled after x hours"
                   }
                 },
                 "required": [
-                  "delay"
+                  "autoAbandonTtl"
                 ]
               }
             }
@@ -13832,7 +13832,7 @@
                 "type": "object",
                 "description": "Wallet88 credentials object",
                 "properties": {
-                  "user": {
+                  "username": {
                     "type": "string",
                     "description": "Wallet88 API user"
                   },
@@ -13843,7 +13843,7 @@
                   }
                 },
                 "required": [
-                  "user",
+                  "username",
                   "password"
                 ]
               }
