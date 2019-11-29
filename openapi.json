@@ -9701,7 +9701,8 @@
           "invoice-past-due-reminder",
           "kyc-document-accepted",
           "kyc-document-rejected",
-          "renewal-invoice-issued"
+          "renewal-invoice-issued",
+          "order-completed"
         ]
       },
       "ForgotPassword": {
@@ -14221,6 +14222,7 @@
           "subscription-renewed",
           "subscription-trial-end-reminder",
           "subscription-renewal-reminder",
+          "order-completed",
           "transaction-processed",
           "transaction-timeout-resolved",
           "transaction-declined",
