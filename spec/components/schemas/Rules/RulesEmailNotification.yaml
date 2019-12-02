@@ -10,6 +10,10 @@ properties:
   version:
     type: string
     description: The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
+  locale:
+    type: string
+    description: The language locale identifier according to RFC 4646
+    example: en-US
   from:
     type: string
     description: The sender address. The template placeholders are allowed.
