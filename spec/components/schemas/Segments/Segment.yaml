@@ -76,3 +76,8 @@ properties:
       - private
       - public
       - shared
+  systemId:
+    description: |
+      If the segment is based off of a system segment, this will be the id of the system segment from which it was
+      derived. This will be `null` if it is a regular user-defined segment.
+    type: string
