@@ -82,3 +82,4 @@ properties:
       derived. This will be `null` if it is a regular user-defined segment. This can only be non-null if the scope is
       `private`.
     type: string
+    nullable: true
