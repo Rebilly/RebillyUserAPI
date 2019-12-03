@@ -86,7 +86,7 @@ properties:
     default: 100
   localization:
     type: object
-    description: An array of body objects mapped to the language locale identifiers according to RFC 5646
+    description: A map of body objects mapped to the language locale identifiers according to RFC 5646
     additionalProperties:
       type: object
       properties:
