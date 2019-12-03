@@ -2,11 +2,16 @@ type: array
 items:
   type: object
   required:
-    - scopes
+    - scope
     - permissions
   properties:
     scopes:
+      deprecated: true
       description: Array of api key scopes
+      allOf:
+        - $ref: "#/components/schemas/ApiKeyScopes"
+    scope:
+      description: Api Key scope
       allOf:
         - $ref: "#/components/schemas/ApiKeyScope"
     permissions:
