@@ -112,12 +112,12 @@ properties:
             The source of the message required for the email editor.
             Not used for sending emails.
             Used by the editor to reproduce the message for future updates.
-  example:
-    fr-FR:
-      subject: Sujet de démonstration
-      text: Texte de démonstration
-      html: <p>Texte de démonstration</p>
-      editor: <div class="block">Texte de démonstration</div>
+    example:
+      fr-FR:
+        subject: Sujet de démonstration
+        text: Texte de démonstration
+        html: <p>Texte de démonstration</p>
+        editor: <div class="block">Texte de démonstration</div>
 required:
   - from
   - to
