@@ -17844,10 +17844,10 @@
             "type": "string",
             "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
           },
-          "locale": {
+          "defaultLocale": {
             "type": "string",
-            "description": "The language locale identifier according to RFC 4646",
-            "example": "en-US"
+            "description": "The language locale identifier according to RFC 5646",
+            "default": "en-US"
           },
           "from": {
             "type": "string",
@@ -17927,6 +17927,40 @@
             "maximum": 100,
             "example": 75,
             "default": 100
+          },
+          "localization": {
+            "type": "object",
+            "description": "An array of body objects mapped to the language locale identifiers according to RFC 5646",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "subject": {
+                  "type": "string",
+                  "description": "The message subject. The template placeholders are allowed.",
+                  "maxLength": 998
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                },
+                "html": {
+                  "type": "string",
+                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                },
+                "editor": {
+                  "type": "string",
+                  "description": "The source of the message required for the email editor.\nNot used for sending emails.\nUsed by the editor to reproduce the message for future updates.\n"
+                }
+              }
+            },
+            "example": {
+              "fr-FR": {
+                "subject": "Sujet de démonstration",
+                "text": "Texte de démonstration",
+                "html": "<p>Texte de démonstration</p>",
+                "editor": "<div class=\"block\">Texte de démonstration</div>"
+              }
+            }
           }
         },
         "required": [
