@@ -12165,11 +12165,20 @@ components:
           example: 75
           default: 100
         localization:
-          type: object
-          description: A map of body objects mapped to the language locale identifiers according to RFC 5646
-          additionalProperties:
+          description: An array of body objects mapped to the language locale identifiers according to RFC 5646
+          type: array
+          items:
             type: object
+            required:
+              - locale
+              - subject
+              - text
+              - html
             properties:
+              locale:
+                type: string
+                description: The language locale identifier according to RFC 5646
+                example: fr-FR
               subject:
                 type: string
                 description: The message subject. The template placeholders are allowed.
