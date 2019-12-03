@@ -18572,7 +18572,7 @@
             ]
           },
           "systemId": {
-            "description": "If the segment is based off of a system segment, this will be the id of the system segment from which it was\nderived. This will be `null` if it is a regular user-defined segment.\n",
+            "description": "If the segment is based off of a system segment, this will be the id of the system segment from which it was\nderived. This will be `null` if it is a regular user-defined segment. This can only be non-null if the scope is\n`private`.\n",
             "type": "string"
           }
         }
