@@ -8016,12 +8016,21 @@
         "items": {
           "type": "object",
           "required": [
-            "scopes",
+            "scope",
             "permissions"
           ],
           "properties": {
             "scopes": {
+              "deprecated": true,
               "description": "Array of api key scopes",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ApiKeyScopes"
+                }
+              ]
+            },
+            "scope": {
+              "description": "Api Key scope",
               "allOf": [
                 {
                   "$ref": "#/components/schemas/ApiKeyScope"
@@ -8210,8 +8219,7 @@
             ]
           },
           "acl": {
-            "description": "Specify access control list here if creating a restricted API key. Send `null` to allow all permissions.",
-            "nullable": true,
+            "description": "Specify access control list here if creating a restricted API key. Send all matching permission with an empty scope to allow all permissions.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Acl"
@@ -8248,6 +8256,58 @@
         }
       },
       "ApiKeyScope": {
+        "type": "object",
+        "properties": {
+          "organizationId": {
+            "description": "The array of account identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "productId": {
+            "description": "The array of product identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "planId": {
+            "description": "The array of plan identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "customFieldName": {
+            "description": "The array of custom field names",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 60,
+              "pattern": "^[\\w-]+$"
+            }
+          }
+        },
+        "example": {
+          "organizationId": [
+            "organizationId-id-1"
+          ]
+        }
+      },
+      "ApiKeyScopes": {
         "type": "array",
         "items": {
           "type": "object",
