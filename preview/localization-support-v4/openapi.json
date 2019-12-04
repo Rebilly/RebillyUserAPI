@@ -17915,6 +17915,7 @@
           "templates": {
             "description": "An array of message templates with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646). A language will be selected based on the customer's locale.\n\nIf there is no locale set for the customer, then `en-US` (US English) will be used as the locale.\n\nIf there is no template with the customer's locale,  then a template locale will be selected by Rebilly using a closest match algorithm (which may be random at worst).\n\nIf your email message templates are localized into more than one language,  you SHOULD set a customer locale.\n\nAn invalid placeholder will render to an empty string. For example, `Hello {{invalid.placeholder}}!`  will be rendered to `Hello !`.\n",
             "type": "array",
+            "minItems": 1,
             "items": {
               "type": "object",
               "required": [
