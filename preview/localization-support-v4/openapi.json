@@ -17931,12 +17931,12 @@
                 },
                 "from": {
                   "type": "string",
-                  "description": "The sender address. Template placeholders are allowed.",
+                  "description": "The sender address. Template placeholders are allowed.  If a placeholder does not resolve to a **verified** from address, then the default verified from address will be used instead.   # todo add a link to help docs on how to verify an email address\n",
                   "maxLength": 254
                 },
                 "to": {
                   "type": "array",
-                  "description": "The recipients addresses. Template placeholders are allowed.",
+                  "description": "The recipients addresses. Template placeholders are allowed. If a placeholder does not resolve to an email address, then no email will be sent.\n",
                   "minItems": 1,
                   "items": {
                     "type": "string",
@@ -17945,7 +17945,7 @@
                 },
                 "cc": {
                   "type": "array",
-                  "description": "The recipients addresses. Template placeholders are allowed.",
+                  "description": "The recipients to be carbon copied addresses. Template placeholders are allowed. If a placeholder does not resolve to an email address, then they will not be added to the cc.\n",
                   "items": {
                     "type": "string",
                     "maxLength": 254
@@ -17953,7 +17953,7 @@
                 },
                 "bcc": {
                   "type": "array",
-                  "description": "The blind carbon copy recipients addresses. Template placeholders are allowed.",
+                  "description": "The blind carbon copy recipients addresses. Template placeholders are allowed. If a placeholder does not resolve to an email address, then they will not be added to the cc.\n",
                   "items": {
                     "type": "string",
                     "maxLength": 254
