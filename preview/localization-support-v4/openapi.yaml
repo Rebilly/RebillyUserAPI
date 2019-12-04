@@ -12109,7 +12109,7 @@ components:
 
             If your email message templates are localized into more than one language,  you SHOULD set a customer locale.
 
-            It should be noted that an invalid placeholder will render to an empty string. For example, `Hello {{invalid.placeholder}}!`  will be rendered to `Hello !`.
+            An invalid placeholder will render to an empty string. For example, `Hello {{invalid.placeholder}}!`  will be rendered to `Hello !`.
           type: array
           items:
             type: object
