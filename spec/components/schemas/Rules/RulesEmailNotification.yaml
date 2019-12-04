@@ -17,7 +17,11 @@ properties:
       The value for random-weighted picking of a template in the case of a split test.
 
       The split test algorithm does not factor localization when
-      making a weighted-random template selection. 
+      making a weighted-random template selection.  Therefore, a version
+      will be selected first, and then after a version is selected a specific
+      localization will be selected.  Take the case where two versions have 
+      different locale content -- the locales of the content is not considered
+      when selecting the version.  
     minimum: 0
     maximum: 100
     example: 75
@@ -132,7 +136,7 @@ properties:
                     type: string
                     example: "invoice"
                   resourceId:
-                    description: The attachment's resource identifier string. The template placeholders are allowed.
+                    description: The attachment's resource identifier string. Template placeholders are allowed.
                     type: string
                     maxLength: 255
                     example: "INV-1"
