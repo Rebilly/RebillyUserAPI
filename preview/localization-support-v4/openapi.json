@@ -17929,6 +17929,36 @@
                   "description": "The language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646).",
                   "example": "fr-FR"
                 },
+                "from": {
+                  "type": "string",
+                  "description": "The sender address. Template placeholders are allowed.",
+                  "maxLength": 254
+                },
+                "to": {
+                  "type": "array",
+                  "description": "The recipients addresses. Template placeholders are allowed.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "maxLength": 254
+                  }
+                },
+                "cc": {
+                  "type": "array",
+                  "description": "The recipients addresses. Template placeholders are allowed.",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 254
+                  }
+                },
+                "bcc": {
+                  "type": "array",
+                  "description": "The blind carbon copy recipients addresses. Template placeholders are allowed.",
+                  "items": {
+                    "type": "string",
+                    "maxLength": 254
+                  }
+                },
                 "subject": {
                   "type": "string",
                   "description": "The message subject. Template placeholders are allowed.",
