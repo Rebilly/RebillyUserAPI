@@ -4,7 +4,6 @@ properties:
     type: string
     format: uuid
     description: The message identifier string.
-    # is this readOnly?
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
