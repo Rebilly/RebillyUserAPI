@@ -4,79 +4,13 @@ properties:
     type: string
     format: uuid
     description: The message identifier string.
+    # is this readOnly?
   credentialHash:
     type: string
     description: SMTP or Mailgun credential identifier string.
   version:
     type: string
     description: The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)
-  defaultLocale:
-    type: string
-    description: The language locale identifier according to RFC 5646
-    default: en-US
-  from:
-    type: string
-    description: The sender address. The template placeholders are allowed.
-    maxLength: 254
-  to:
-    type: array
-    description: The recipients addresses. The template placeholders are allowed.
-    minItems: 1
-    items:
-      type: string
-      maxLength: 254
-  cc:
-    type: array
-    description: The recipients addresses. The template placeholders are allowed.
-    items:
-      type: string
-      maxLength: 254
-  bcc:
-    type: array
-    description: The hidden recipients addresses. The template placeholders are allowed.
-    items:
-      type: string
-      maxLength: 254
-  subject:
-    type: string
-    description: The message subject. The template placeholders are allowed.
-    maxLength: 998
-  text:
-    type: string
-    description: |
-      The message's text body.
-      Leave empty to use content from "bodyHtml".
-      The template placeholders are allowed.
-  html:
-    type: string
-    description: |
-      The message's html body.
-      Leave empty to use content from "bodyText".
-      The template placeholders are allowed.
-  editor:
-    type: string
-    description: |
-      The source of the message required for the email editor.
-      Not used for sending emails.
-      Used by the editor to reproduce the message for future updates.
-  attachments:
-    description: The message's attachments
-    type: array
-    items:
-      type: object
-      required:
-        - resourceType
-        - resourceId
-      properties:
-        resourceType:
-          description: The attachment's resource type.
-          type: string
-          example: "invoice"
-        resourceId:
-          description: The attachment's resource identifier string. The template placeholders are allowed.
-          type: string
-          maxLength: 255
-          example: "INV-1"
   weight:
     type: integer
     description: The message's weight.
@@ -84,8 +18,22 @@ properties:
     maximum: 100
     example: 75
     default: 100
-  localization:
-    description: An array of body objects mapped to the language locale identifiers according to RFC 5646
+  defaultLocale:
+    type: string
+    description: >
+      The value should be a language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646). 
+      
+      This property will be used as a surrogate for the recipient's locale in two cases:
+        
+        1. When the recipient has no locale set. 
+        2. When the recipient's locale has no matching corresponding message. 
+      
+      There SHOULD be a message with a matching locale value, or else
+      another message will be sent.
+
+    default: en-US
+  message:
+    description: An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646).
     type: array
     items:
       type: object
@@ -97,11 +45,11 @@ properties:
       properties:
         locale:
           type: string
-          description: The language locale identifier according to RFC 5646
+          description: The language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646).
           example: fr-FR
         subject:
           type: string
-          description: The message subject. The template placeholders are allowed.
+          description: The message subject. Template placeholders are allowed.
           maxLength: 998
         text:
           type: string
@@ -122,14 +70,11 @@ properties:
             Not used for sending emails.
             Used by the editor to reproduce the message for future updates.
     example:
-      fr-FR:
+        locale: fr-FR
         subject: Sujet de démonstration
         text: Texte de démonstration
         html: <p>Texte de démonstration</p>
         editor: <div class="block">Texte de démonstration</div>
 required:
   - from
-  - to
-  - subject
-  - text
-  - html
+  - message
