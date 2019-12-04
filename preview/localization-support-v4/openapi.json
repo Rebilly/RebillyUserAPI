@@ -18002,10 +18002,12 @@
               },
               "example": {
                 "locale": "fr-FR",
-                "from": "example@example.com",
-                "to": {
-                  "[object Object]": null
-                },
+                "from": [
+                  "example@example.com"
+                ],
+                "to": [
+                  "{{ invoice.customer.email }}"
+                ],
                 "subject": "Sujet de démonstration",
                 "text": "Texte de démonstration",
                 "html": "<p>Texte de démonstration</p>",

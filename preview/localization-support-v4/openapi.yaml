@@ -12193,9 +12193,10 @@ components:
                       example: INV-1
             example:
               locale: fr-FR
-              from: example@example.com
+              from:
+                - example@example.com
               to:
-                '[object Object]': null
+                - '{{ invoice.customer.email }}'
               subject: Sujet de démonstration
               text: Texte de démonstration
               html: <p>Texte de démonstration</p>
