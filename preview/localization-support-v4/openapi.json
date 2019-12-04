@@ -17902,18 +17902,18 @@
           },
           "version": {
             "type": "string",
-            "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
+            "description": "The message version (useful for split tests). (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
           },
           "weight": {
             "type": "integer",
-            "description": "The message's weight.",
+            "description": "The value for random-weighted picking of a template in the case of a split test.\nThe split test algorithm does not factor localization when making a weighted-random template selection. \n",
             "minimum": 0,
             "maximum": 100,
             "example": 75,
             "default": 100
           },
-          "message": {
-            "description": "An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646). A language will be selected based on the customer's locale.\n\nIf there is no locale set for the customer, then `en-US` (US English) will be used as the locale.\n\nIf there is no message with the customer's locale,  then a message locale will be selected by Rebilly using a closest match algorithm (which may be random at worst).\n\nIf your email messages are localized into more than one language,  you SHOULD set a customer locale.\n",
+          "templates": {
+            "description": "An array of message templates with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646). A language will be selected based on the customer's locale.\n\nIf there is no locale set for the customer, then `en-US` (US English) will be used as the locale.\n\nIf there is no template with the customer's locale,  then a template locale will be selected by Rebilly using a closest match algorithm (which may be random at worst).\n\nIf your email message templates are localized into more than one language,  you SHOULD set a customer locale.\n\nIt should be noted that an invalid placeholder will render to an empty string. For example, `Hello {{invalid.placeholder}}!`  will be rendered to `Hello !`.\n",
             "type": "array",
             "items": {
               "type": "object",
@@ -17921,7 +17921,9 @@
                 "locale",
                 "subject",
                 "text",
-                "html"
+                "html",
+                "from",
+                "to"
               ],
               "properties": {
                 "locale": {
@@ -17966,11 +17968,11 @@
                 },
                 "text": {
                   "type": "string",
-                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nTemplate placeholders are allowed.\n"
                 },
                 "html": {
                   "type": "string",
-                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nTemplate placeholders are allowed.\n"
                 },
                 "editor": {
                   "type": "string",
@@ -18012,8 +18014,7 @@
           }
         },
         "required": [
-          "from",
-          "message"
+          "templates"
         ]
       },
       "RuleSet": {
