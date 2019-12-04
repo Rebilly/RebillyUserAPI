@@ -12084,9 +12084,6 @@ components:
           type: string
           format: uuid
           description: The message identifier string.
-        credentialHash:
-          type: string
-          description: SMTP or Mailgun credential identifier string.
         version:
           type: string
           description: 'The message version (useful for split tests). (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)'
