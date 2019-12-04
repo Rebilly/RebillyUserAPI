@@ -21,15 +21,19 @@ properties:
   message:
     description: >
       An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646).
+      A language will be selected based on the customer's locale.
+
       
-      A language will be selected based on the customer's locale. If there is 
-      no locale set, then `en-US` will be used as the default locale.
+      If there is no locale set for the customer, then `en-US` (US English) will be used as the locale.
 
-      If there is no message with that `en-US` locale, then a message
-      will be sent and the locale may be selected at random.  
 
-      To provide the best experience for customers, if you're email messages 
-      are localized into more than one language, you SHOULD set a customer locale.
+      If there is no message with the customer's locale, 
+      then a message locale will be selected by Rebilly using a closest
+      match algorithm (which may be random at worst).
+
+
+      If your email messages are localized into more than one language, 
+      you SHOULD set a customer locale.
     type: array
     items:
       type: object
@@ -65,7 +69,25 @@ properties:
             The source of the message required for the email editor.
             Not used for sending emails.
             Used by the editor to reproduce the message for future updates.
-    example:
+        attachments:
+              description: The message's attachments
+              type: array
+              items:
+                type: object
+                required:
+                  - resourceType
+                  - resourceId
+                properties:
+                  resourceType:
+                    description: The attachment's resource type.
+                    type: string
+                    example: "invoice"
+                  resourceId:
+                    description: The attachment's resource identifier string. The template placeholders are allowed.
+                    type: string
+                    maxLength: 255
+                    example: "INV-1"
+      example:
         locale: fr-FR
         subject: Sujet de démonstration
         text: Texte de démonstration
