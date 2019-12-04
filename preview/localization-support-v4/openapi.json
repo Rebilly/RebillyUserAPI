@@ -9391,7 +9391,7 @@
             ]
           },
           "from": {
-            "description": "The sender's email address",
+            "description": "The sender's email address.  It must be unique within your account.\n",
             "type": "string",
             "format": "email",
             "maxLength": 254,
