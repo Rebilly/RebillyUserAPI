@@ -18,22 +18,18 @@ properties:
     maximum: 100
     example: 75
     default: 100
-  defaultLocale:
-    type: string
-    description: >
-      The value should be a language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646). 
-      
-      This property will be used as a surrogate for the recipient's locale in two cases:
-        
-        1. When the recipient has no locale set. 
-        2. When the recipient's locale has no matching corresponding message. 
-      
-      There SHOULD be a message with a matching locale value, or else
-      another message will be sent.
-
-    default: en-US
   message:
-    description: An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646).
+    description: >
+      An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646).
+      
+      A language will be selected based on the customer's locale. If there is 
+      no locale set, then `en-US` will be used as the default locale.
+
+      If there is no message with that `en-US` locale, then a message
+      will be sent and the locale may be selected at random.  
+
+      To provide the best experience for customers, if you're email messages 
+      are localized into more than one language, you SHOULD set a customer locale.
     type: array
     items:
       type: object
