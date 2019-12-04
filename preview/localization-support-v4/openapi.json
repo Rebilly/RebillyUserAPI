@@ -17913,7 +17913,7 @@
             "default": 100
           },
           "message": {
-            "description": "An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646).\nA language will be selected based on the customer's locale. If there is  no locale set, then `en-US` will be used as the default locale.\nIf there is no message with that `en-US` locale, then a message will be sent and the locale may be selected at random.  \nTo provide the best experience for customers, if you're email messages  are localized into more than one language, you SHOULD set a customer locale.\n",
+            "description": "An array of messages with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646). A language will be selected based on the customer's locale.\n\nIf there is no locale set for the customer, then `en-US` (US English) will be used as the locale.\n\nIf there is no message with the customer's locale,  then a message locale will be selected by Rebilly using a closest match algorithm (which may be random at worst).\n\nIf your email messages are localized into more than one language,  you SHOULD set a customer locale.\n",
             "type": "array",
             "items": {
               "type": "object",
@@ -17945,15 +17945,39 @@
                 "editor": {
                   "type": "string",
                   "description": "The source of the message required for the email editor.\nNot used for sending emails.\nUsed by the editor to reproduce the message for future updates.\n"
+                },
+                "attachments": {
+                  "description": "The message's attachments",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "resourceType",
+                      "resourceId"
+                    ],
+                    "properties": {
+                      "resourceType": {
+                        "description": "The attachment's resource type.",
+                        "type": "string",
+                        "example": "invoice"
+                      },
+                      "resourceId": {
+                        "description": "The attachment's resource identifier string. The template placeholders are allowed.",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "INV-1"
+                      }
+                    }
+                  }
                 }
+              },
+              "example": {
+                "locale": "fr-FR",
+                "subject": "Sujet de démonstration",
+                "text": "Texte de démonstration",
+                "html": "<p>Texte de démonstration</p>",
+                "editor": "<div class=\"block\">Texte de démonstration</div>"
               }
-            },
-            "example": {
-              "locale": "fr-FR",
-              "subject": "Sujet de démonstration",
-              "text": "Texte de démonstration",
-              "html": "<p>Texte de démonstration</p>",
-              "editor": "<div class=\"block\">Texte de démonstration</div>"
             }
           }
         },
