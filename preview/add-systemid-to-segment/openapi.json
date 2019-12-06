@@ -12313,6 +12313,41 @@
           }
         ]
       },
+      "Netbanking": {
+        "description": "Netbanking config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Netbanking credentials object",
+                "properties": {
+                  "midcode": {
+                    "type": "string",
+                    "description": "Netbanking MID code"
+                  },
+                  "midsecret": {
+                    "type": "string",
+                    "description": "Netbanking MID secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "midcode",
+                  "midsecret"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Neteller": {
         "description": "Neteller Gateway config",
         "allOf": [
@@ -18572,7 +18607,7 @@
             ]
           },
           "systemId": {
-            "description": "If the segment is based off of a system segment, this will be the id of the system segment from which it was\nderived. This will be `null` if it is a regular user-defined segment. This can only be non-null if the scope is\n`private`.\n",
+            "description": "If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was\nderived. This will be `null` if it is a regular user-defined Segment. This can only be non-null if the scope is\n`private`. If this Segment is updated, `systemId` will become `null` again, turning this into a regular Segment,\nand the original system Segment will reappear when retrieving the entire collection.\n",
             "type": "string",
             "nullable": true
           }
