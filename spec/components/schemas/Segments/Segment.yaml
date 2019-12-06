@@ -78,8 +78,9 @@ properties:
       - shared
   systemId:
     description: |
-      If the segment is based off of a system segment, this will be the id of the system segment from which it was
-      derived. This will be `null` if it is a regular user-defined segment. This can only be non-null if the scope is
-      `private`.
+      If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was
+      derived. This will be `null` if it is a regular user-defined Segment. This can only be non-null if the scope is
+      `private`. If this Segment is updated, `systemId` will become `null` again, turning this into a regular Segment,
+      and the original system Segment will reappear when retrieving the entire collection.
     type: string
     nullable: true
