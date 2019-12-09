@@ -29,20 +29,8 @@
       "description": "Hosted checkout pages can be configured here.  You can customize the theme\nand content and more that appears on your hosted checkout pages.\n"
     },
     {
-      "name": "Custom Events",
-      "description": "If system events can't solve your problems, you are able to create a custom event\nthat can fit your requirements, and use it to solve your own business logic.\n\n\"Don't conform to the rules. Create the rules.\"\nRather than adapt your workflow and business, Rebilly can align with your business\nobjectives by giving you the power to automate certain behaviors when key events happen.\nYou can use this to your advantage to mitigate risk, maximize conversions and minimize costs.\nYou have the controls at your fingertips here. If you need more control,\nor help dialing in on a strategy, feel free to contact us.\n\nWhen an event happens, it triggers the evaluation of conditions (that you set up),\nin order from top to bottom. If the condition is met, the corresponding actions are executed.\nThe conditions continue to be checked until either all of the conditions have been executed,\nor a special \"stop\" action is executed.\n"
-    },
-    {
-      "name": "Custom Event Rules",
-      "description": "Custom Events Rules description\n"
-    },
-    {
       "name": "Email Credentials",
       "description": "Get and create SMTP credential hashes.\n"
-    },
-    {
-      "name": "Scheduled Custom Events",
-      "description": "Scheduled Custom Events description\n"
     },
     {
       "name": "Gateway Accounts",
@@ -119,6 +107,10 @@
     {
       "name": "Segments",
       "description": "Segments are grid UI settings that can be shared with other users. They are like a custom view.\nFor example, one may set up a transaction grid to show specific columns and sort a certain way, and share it with\nothers in their organization.\n"
+    },
+    {
+      "name": "Memberships",
+      "description": "Membership describe the relationships between organizations and users.\nFor example, one user could have more than one organization.\n"
     }
   ],
   "x-tagGroups": [
@@ -134,6 +126,7 @@
       "name": "Email",
       "tags": [
         "Email Credentials",
+        "Email Delivery Settings",
         "Email Messages"
       ]
     },
@@ -141,10 +134,7 @@
       "name": "Rules",
       "tags": [
         "Rules",
-        "Lists",
-        "Custom Events",
-        "Custom Event Rules",
-        "Scheduled Custom Events"
+        "Lists"
       ]
     },
     {
@@ -168,6 +158,7 @@
         "Gateway Accounts",
         "Layouts",
         "Payment Cards",
+        "Memberships",
         "Notes",
         "Organizations",
         "Segments",
@@ -536,6 +527,218 @@
             "source": "$client->apiKeys()->delete('apiKeyID');\n"
           }
         ]
+      }
+    },
+    "/broadcast-messages": {
+      "get": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Retrieve a list of broadcast messages",
+        "operationId": "GetBroadcastMessageCollection",
+        "description": "Retrieve a list of broadcast messages\n",
+        "responses": {
+          "200": {
+            "description": "A list of broadcast messages was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BroadcastMessage"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Create a broadcast message",
+        "operationId": "PostBroadcastMessage",
+        "description": "Create a broadcast message\n",
+        "responses": {
+          "201": {
+            "description": "Broadcast message was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastMessage"
+              }
+            }
+          },
+          "description": "Broadcast message resource",
+          "required": true
+        }
+      }
+    },
+    "/broadcast-messages/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/resourceId"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Retrieve a broadcast message",
+        "operationId": "GetBroadcastMessage",
+        "description": "Retrieve a broadcast message\n",
+        "responses": {
+          "200": {
+            "description": "Broadcast message with specified identifier was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Delete a broadcast message",
+        "operationId": "DeleteBroadcastMessage",
+        "description": "Delete a broadcast message\n",
+        "responses": {
+          "204": {
+            "description": "Broadcast message was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Broadcast Messages"
+        ],
+        "summary": "Update a broadcast message",
+        "operationId": "PatchBroadcastMessage",
+        "description": "Update a broadcast message\n",
+        "responses": {
+          "200": {
+            "description": "Broadcast message was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BroadcastMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "422": {
+            "$ref": "#/components/responses/InvalidDataError"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastMessage"
+              }
+            }
+          },
+          "description": "Broadcast message resource",
+          "required": true
+        }
       }
     },
     "/checkout-pages": {
@@ -2123,46 +2326,60 @@
         }
       }
     },
-    "/custom-events": {
-      "get": {
+    "/email-delivery-setting-verifications/{token}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/token"
+        }
+      ],
+      "put": {
         "tags": [
-          "Custom Events"
+          "Email Delivery Settings"
         ],
-        "summary": "Retrieve a list of custom events",
-        "operationId": "GetCustomEventCollection",
-        "description": "Retrieve a list of custom events\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "description": "The collection items sort field and order (prefix with \"-\" for descending sort).",
-            "style": "form",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "createdTime",
-                  "-createdTime",
-                  "handledTime",
-                  "-handledTime",
-                  "scheduledTime",
-                  "-scheduledTime"
-                ]
-              }
-            }
-          }
-        ],
+        "summary": "Verify an email delivery setting",
+        "operationId": "VerifyEmailDeliverySettings",
+        "description": "Verify an email delivery setting\n",
         "responses": {
           "200": {
-            "description": "A list of custom events was retrieved successfully",
+            "description": "Email delivery setting was verified successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailDeliverySetting"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/email-delivery-settings": {
+      "get": {
+        "tags": [
+          "Email Delivery Settings"
+        ],
+        "summary": "Retrieve a list of email delivery settings",
+        "operationId": "GetEmailDeliverySettingCollection",
+        "responses": {
+          "200": {
+            "description": "A list of email delivery settings was retrieved successfully",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -2188,7 +2405,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CustomEvent"
+                    "$ref": "#/components/schemas/EmailDeliverySetting"
                   }
                 }
               }
@@ -2201,17 +2418,14 @@
       },
       "post": {
         "tags": [
-          "Custom Events"
+          "Email Delivery Settings"
         ],
-        "summary": "Create a custom event",
-        "operationId": "PostCustomEvent",
-        "description": "Create a custom event\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CustomEvent"
-        },
+        "summary": "Create an email delivery setting",
+        "operationId": "PostEmailDeliverySetting",
+        "description": "Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails. \n",
         "responses": {
-          "202": {
-            "description": "Custom event was accepted",
+          "201": {
+            "description": "Email delivery setting was created",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -2226,7 +2440,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
+                  "$ref": "#/components/schemas/EmailDeliverySetting"
                 }
               }
             }
@@ -2237,10 +2451,21 @@
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
           }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDeliverySetting"
+              }
+            }
+          },
+          "description": "Email delivery setting resource",
+          "required": true
         }
       }
     },
-    "/custom-events/{id}": {
+    "/email-delivery-settings/{id}": {
       "parameters": [
         {
           "$ref": "#/components/parameters/resourceId"
@@ -2248,14 +2473,14 @@
       ],
       "get": {
         "tags": [
-          "Custom Events"
+          "Email Delivery Settings"
         ],
-        "summary": "Retrieve a custom event",
-        "operationId": "GetCustomEvent",
-        "description": "Retrieve a custom event with predefined identifier string\n",
+        "summary": "Retrieve an email delivery setting",
+        "operationId": "GetEmailDeliverySetting",
+        "description": "Retrieve an email delivery setting\n",
         "responses": {
           "200": {
-            "description": "Custom event was retrieved successfully",
+            "description": "Email delivery setting with specified identifier was retrieved successfully",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -2270,7 +2495,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
+                  "$ref": "#/components/schemas/EmailDeliverySetting"
                 }
               }
             }
@@ -2280,68 +2505,19 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Custom Events"
-        ],
-        "summary": "Create a custom event with predefined ID",
-        "operationId": "PutCustomEvent",
-        "description": "Create a custom event with predefined identifier string\n",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/CustomEvent"
-        },
-        "responses": {
-          "202": {
-            "description": "Custom event was accepted",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "409": {
-            "description": "Custom event can't be modified",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "422": {
-            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       },
       "delete": {
         "tags": [
-          "Custom Events"
+          "Email Delivery Settings"
         ],
-        "summary": "Delete a custom event",
-        "operationId": "DeleteCustomEvent",
-        "description": "Delete a custom event with predefined identifier string\n",
+        "summary": "Delete an email delivery setting",
+        "operationId": "DeleteEmailDeliverySetting",
+        "description": "Delete an email delivery setting\n",
         "responses": {
           "204": {
+            "description": "Email delivery setting was deleted",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -2352,79 +2528,34 @@
               "Rate-Limit-Reset": {
                 "$ref": "#/components/headers/Rate-Limit-Reset"
               }
-            },
-            "description": "Custom event was deleted"
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            }
           },
           "409": {
-            "description": "Custom event has related rules and cannot be deleted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve a list of rules for custom event",
-        "operationId": "GetCustomEventRuleCollection",
-        "responses": {
-          "200": {
-            "description": "Rules were retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSet"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            "$ref": "#/components/responses/Conflict"
           }
         }
       },
-      "put": {
+      "patch": {
         "tags": [
-          "Custom Event Rules"
+          "Email Delivery Settings"
         ],
-        "summary": "Update the rules for custom event",
-        "operationId": "PutCustomEventRuleCollection",
+        "summary": "Update an email delivery setting",
+        "operationId": "PatchEmailDeliverySettings",
+        "description": "Update an email delivery setting\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailDeliverySetting"
+              }
+            }
+          },
+          "description": "Email delivery setting resource",
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "Rules were updated",
+            "description": "Email delivery setting was updated successfully",
             "headers": {
               "Rate-Limit-Limit": {
                 "$ref": "#/components/headers/Rate-Limit-Limit"
@@ -2439,7 +2570,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RuleSet"
+                  "$ref": "#/components/schemas/EmailDeliverySetting"
                 }
               }
             }
@@ -2447,210 +2578,11 @@
           "401": {
             "$ref": "#/components/responses/AccessForbidden"
           },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+          "409": {
+            "$ref": "#/components/responses/Conflict"
           },
           "422": {
-            "description": "Invalid data was sent",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InvalidError"
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/RuleSet"
-        }
-      }
-    },
-    "/custom-events/{id}/rules/history": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the change history of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleHistoryCollection",
-        "description": "Retrieve the change history of the set of rules for the selected custom event.\nThe history is updated each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          },
-          {
-            "$ref": "#/components/parameters/collectionFilter"
-          },
-          {
-            "$ref": "#/components/parameters/collectionQuery"
-          },
-          {
-            "$ref": "#/components/parameters/collectionSort"
-          },
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "History was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RuleSetHistoryItem"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules/history/{version}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        },
-        {
-          "$ref": "#/components/parameters/rulesVersion"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the record from the change history of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleHistoryVersion",
-        "description": "Retrieve the record from the change history of the set of rules for the selected custom event.\nA history record is created each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rules version was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSetHistoryItem"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/custom-events/{id}/rules/versions/{version}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        },
-        {
-          "$ref": "#/components/parameters/rulesVersion"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Custom Event Rules"
-        ],
-        "summary": "Retrieve the version of the set of rules for a custom event",
-        "operationId": "GetCustomEventRuleVersion",
-        "description": "Retrieve the version of the selected set of rules for the selected custom event.\nThe versions are created each time you change the rules.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionFields"
-          },
-          {
-            "$ref": "#/components/parameters/collectionExpand"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Rules version was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RuleSetVersion"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            "$ref": "#/components/responses/InvalidDataError"
           }
         }
       }
@@ -2882,6 +2814,52 @@
           },
           "description": "Email message status",
           "required": true
+        }
+      }
+    },
+    "/email-notifications": {
+      "get": {
+        "tags": [
+          "Email Notifications"
+        ],
+        "summary": "Retrieve a list of email notification events",
+        "responses": {
+          "200": {
+            "description": "A list of email notification events was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmailNotification"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
         }
       }
     },
@@ -5186,6 +5164,237 @@
         }
       }
     },
+    "/memberships": {
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Retrieve a list of memberships",
+        "operationId": "GetMembershipCollection",
+        "description": "Retrieve a list of memberships\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/components/parameters/collectionOffset"
+          },
+          {
+            "$ref": "#/components/parameters/collectionFilter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of memberships was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Membership"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
+      }
+    },
+    "/memberships/{organizationId}/{userId}": {
+      "parameters": [
+        {
+          "name": "organizationId",
+          "in": "path",
+          "required": true,
+          "description": "Organization identifier",
+          "schema": {
+            "$ref": "#/components/parameters/resourceId"
+          }
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "User identifier",
+          "schema": {
+            "$ref": "#/components/parameters/resourceId"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Retrieve the membership",
+        "operationId": "GetMembership",
+        "description": "Retrieve the membership using organization and user identifiers\n",
+        "responses": {
+          "200": {
+            "description": "Membership was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Create or update membership",
+        "operationId": "PutMembership",
+        "description": "Create or update membership using organization and user identifiers.\nOnly membership's owner can add other users in the membership.\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "isOwner": {
+                    "type": "boolean"
+                  },
+                  "permissions": {
+                    "description": "The memberships's permissions. See the format in example",
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/AclPermissions"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Membership was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Membership was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Membership"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Memberships"
+        ],
+        "summary": "Delete the membership",
+        "operationId": "DeleteMembership",
+        "description": "Delete the membership using organization and user identifiers\n",
+        "responses": {
+          "204": {
+            "description": "Membership message was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          }
+        }
+      }
+    },
     "/notes": {
       "get": {
         "tags": [
@@ -6148,157 +6357,6 @@
         }
       }
     },
-    "/queue/custom-events": {
-      "get": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Retrieve a list of scheduled custom events",
-        "operationId": "GetQueueCustomEventCollection",
-        "description": "Retrieve a list of scheduled custom events\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/collectionLimit"
-          },
-          {
-            "$ref": "#/components/parameters/collectionOffset"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "A list of scheduled custom events was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              },
-              "Pagination-Total": {
-                "$ref": "#/components/headers/Pagination-Total"
-              },
-              "Pagination-Limit": {
-                "$ref": "#/components/headers/Pagination-Limit"
-              },
-              "Pagination-Offset": {
-                "$ref": "#/components/headers/Pagination-Offset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CustomEvent"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          }
-        }
-      }
-    },
-    "/queue/custom-events/{id}": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/resourceId"
-        }
-      ],
-      "get": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Retrieve a scheduled custom event",
-        "operationId": "GetQueueCustomEvent",
-        "description": "Retrieve a scheduled custom event with predefined identifier string\n",
-        "responses": {
-          "200": {
-            "description": "Scheduled custom event was retrieved successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "303": {
-            "description": "Custom event was successfully processed and moved out from queue",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomEvent"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Scheduled Custom Events"
-        ],
-        "summary": "Delete a scheduled custom event",
-        "operationId": "DeleteQueueCustomEvent",
-        "description": "Delete a scheduled custom event with predefined identifier string\n",
-        "responses": {
-          "204": {
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "description": "Scheduled custom event was deleted"
-          },
-          "401": {
-            "$ref": "#/components/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
     "/reset-password/{token}": {
       "parameters": [
         {
@@ -6401,6 +6459,57 @@
             "source": "$resetPasswordForm = new Rebilly\\Entities\\ResetPassword();\n$resetPasswordForm->setNewPassword('1234');\n\ntry {\n    $user = $client->users()->resetPassword('token', $resetPasswordForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ]
+      }
+    },
+    "/send-through-attribution/{eventType}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/systemEventType"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Email Notifications"
+        ],
+        "summary": "Retrieve a list of email notification send through attributions",
+        "responses": {
+          "200": {
+            "description": "A list of email notification send through attributions was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "$ref": "#/components/headers/Rate-Limit-Limit"
+              },
+              "Rate-Limit-Remaining": {
+                "$ref": "#/components/headers/Rate-Limit-Remaining"
+              },
+              "Rate-Limit-Reset": {
+                "$ref": "#/components/headers/Rate-Limit-Reset"
+              },
+              "Pagination-Total": {
+                "$ref": "#/components/headers/Pagination-Total"
+              },
+              "Pagination-Limit": {
+                "$ref": "#/components/headers/Pagination-Limit"
+              },
+              "Pagination-Offset": {
+                "$ref": "#/components/headers/Pagination-Offset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SendThroughAttribution"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/AccessForbidden"
+          }
+        }
       }
     },
     "/signin": {
@@ -7902,6 +8011,44 @@
   },
   "components": {
     "schemas": {
+      "Acl": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "scope",
+            "permissions"
+          ],
+          "properties": {
+            "scopes": {
+              "deprecated": true,
+              "description": "Array of api key scopes",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ApiKeyScopes"
+                }
+              ]
+            },
+            "scope": {
+              "description": "Api Key scope",
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ApiKeyScope"
+                }
+              ]
+            },
+            "permissions": {
+              "description": "Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.",
+              "nullable": true,
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AclPermissions"
+                }
+              ]
+            }
+          }
+        }
+      },
       "AclPermissions": {
         "type": "array",
         "items": {
@@ -7914,6 +8061,7 @@
             "resourceName": {
               "description": "The ACL resource name. Send `null` to match all resources.",
               "type": "string",
+              "nullable": true,
               "enum": [
                 "3dsecure",
                 "activity-feed",
@@ -7996,6 +8144,7 @@
             "methods": {
               "description": "The HTTP methods allowed for this resource. Send `null` to match all methods.",
               "type": "array",
+              "nullable": true,
               "items": {
                 "type": "string",
                 "enum": [
@@ -8024,31 +8173,6 @@
             "methods": null
           }
         ]
-      },
-      "AmountRestrictions": {
-        "type": "object",
-        "required": [
-          "currency",
-          "min"
-        ],
-        "properties": {
-          "currency": {
-            "description": "Currency (three letter ISO 4217 code)",
-            "type": "string"
-          },
-          "min": {
-            "description": "The minimum amount allowed",
-            "type": "number",
-            "format": "double",
-            "minimum": 0
-          },
-          "max": {
-            "description": "The maximum amount allowed",
-            "type": "number",
-            "format": "double",
-            "minimum": 0
-          }
-        }
       },
       "ApiKey": {
         "type": "object",
@@ -8086,9 +8210,19 @@
           },
           "permissions": {
             "description": "Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.",
+            "nullable": true,
+            "deprecated": true,
             "allOf": [
               {
                 "$ref": "#/components/schemas/AclPermissions"
+              }
+            ]
+          },
+          "acl": {
+            "description": "Specify access control list here if creating a restricted API key. Send all matching permission with an empty scope to allow all permissions.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Acl"
               }
             ]
           },
@@ -8121,6 +8255,80 @@
           }
         }
       },
+      "ApiKeyScope": {
+        "type": "object",
+        "properties": {
+          "organizationId": {
+            "description": "The array of account identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "productId": {
+            "description": "The array of product identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "planId": {
+            "description": "The array of plan identifier strings",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          },
+          "customFieldName": {
+            "description": "The array of custom field names",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 60,
+              "pattern": "^[\\w-]+$"
+            }
+          }
+        },
+        "example": {
+          "organizationId": [
+            "organizationId-id-1"
+          ]
+        }
+      },
+      "ApiKeyScopes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "organizationId": {
+              "description": "The account identifier string",
+              "readOnly": true,
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ResourceId"
+                }
+              ]
+            }
+          }
+        },
+        "example": [
+          {
+            "organizationId": "organizationId-id-1"
+          }
+        ]
+      },
       "AstroPayBanks": {
         "type": "string",
         "enum": [
@@ -8148,6 +8356,133 @@
           "NB",
           "UI"
         ]
+      },
+      "BroadcastMessage": {
+        "type": "object",
+        "required": [
+          "emails",
+          "startSendingTime"
+        ],
+        "properties": {
+          "id": {
+            "description": "The broadcast message's identifier string",
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/Condition"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the messages. (This title will appear in reports.)"
+          },
+          "messages": {
+            "type": "array",
+            "description": "The list of messages.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "credentialId": {
+                  "type": "string",
+                  "description": "SMTP or Mailgun credential identifier string."
+                },
+                "version": {
+                  "type": "string",
+                  "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
+                },
+                "from": {
+                  "type": "string",
+                  "description": "The sender address.",
+                  "maxLength": 254
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "The message subject. The template placeholders are allowed.",
+                  "maxLength": 998
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                },
+                "html": {
+                  "type": "string",
+                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "The message's ISO 639-1 two-letter language code."
+                },
+                "weight": {
+                  "type": "integer",
+                  "description": "The message's weight.",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "example": 75,
+                  "default": 100
+                }
+              },
+              "required": [
+                "from",
+                "subject",
+                "text",
+                "html",
+                "language"
+              ]
+            }
+          },
+          "splitTestStartTime": {
+            "readOnly": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "The split test start time"
+          },
+          "startSendingTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The start sending time"
+          },
+          "status": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The broadcast message's status",
+            "enum": [
+              "draft",
+              "sending",
+              "sent",
+              "archived"
+            ]
+          },
+          "createdTime": {
+            "description": "The broadcast message's created time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "updatedTime": {
+            "description": "The broadcast message's updated time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to the resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
       },
       "CheckoutPage": {
         "type": "object",
@@ -8899,67 +9234,6 @@
           }
         ]
       },
-      "CustomEvent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The custom event identifier string",
-            "readOnly": true,
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ResourceId"
-              }
-            ]
-          },
-          "eventType": {
-            "type": "string",
-            "description": "The system event type",
-            "enum": [
-              "subscription-ended",
-              "subscription-trial-ended",
-              "subscription-renewed",
-              "payment-card-expired",
-              "invoice-past-due"
-            ]
-          },
-          "title": {
-            "type": "string",
-            "description": "The custom event title"
-          },
-          "description": {
-            "type": "string",
-            "description": "The custom event description"
-          },
-          "chronology": {
-            "type": "string",
-            "description": "The emitting time of the custom event relatively to the system event",
-            "enum": [
-              "before",
-              "after"
-            ]
-          },
-          "scheduleInstruction": {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
-          },
-          "createdTime": {
-            "$ref": "#/components/schemas/ServerTimestamp"
-          },
-          "rulesCount": {
-            "type": "integer",
-            "readOnly": true
-          },
-          "bindsCount": {
-            "type": "integer",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "eventType",
-          "title",
-          "chronology",
-          "scheduleInstruction"
-        ]
-      },
       "SmtpAuthorization": {
         "type": "object",
         "discriminator": {
@@ -9099,6 +9373,80 @@
           "username",
           "password"
         ]
+      },
+      "EmailDeliverySetting": {
+        "type": "object",
+        "required": [
+          "from",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "description": "The email delivery setting's identifier string",
+            "readOnly": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ResourceId"
+              }
+            ]
+          },
+          "from": {
+            "description": "The sender's email address",
+            "type": "string",
+            "format": "email",
+            "maxLength": 254,
+            "example": "from-example@rebilly.com"
+          },
+          "name": {
+            "description": "The sender's name",
+            "type": "string",
+            "example": "John Doe"
+          },
+          "status": {
+            "description": "The email message's status",
+            "readOnly": true,
+            "type": "string",
+            "enum": [
+              "pending",
+              "verified"
+            ]
+          },
+          "credentialId": {
+            "type": "string",
+            "description": "SMTP or any Email Service Provider credential identifier string.",
+            "example": "b120c2ca-6c2b-4690-9dff-3b0d87852dc7"
+          },
+          "provider": {
+            "readOnly": true,
+            "description": "The service provider name",
+            "type": "string",
+            "enum": [
+              "rebilly",
+              "smtp",
+              "aws-ses",
+              "mailgun",
+              "postmark",
+              "sendgrid"
+            ],
+            "example": "rebilly"
+          },
+          "createdTime": {
+            "description": "The created time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          },
+          "updatedTime": {
+            "description": "The updated time",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServerTimestamp"
+              }
+            ]
+          }
+        }
       },
       "EmailMessage": {
         "type": "object",
@@ -9260,6 +9608,78 @@
           }
         }
       },
+      "EmailNotification": {
+        "type": "object",
+        "description": "The email notification event",
+        "readOnly": true,
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/EventType"
+          },
+          "count": {
+            "type": "integer",
+            "readOnly": true,
+            "description": "The count of binds with `send-email` actions per event"
+          },
+          "notifications": {
+            "readOnly": true,
+            "type": "array",
+            "minItems": 1,
+            "description": "The list of notifications",
+            "items": {
+              "type": "object",
+              "properties": {
+                "labels": {
+                  "description": "The notification labels",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "title": {
+                  "type": "string",
+                  "description": "The notification title"
+                }
+              }
+            }
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
+      },
+      "SendThroughAttribution": {
+        "type": "object",
+        "description": "The email notification send through attribution",
+        "readOnly": true,
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/EventType"
+          },
+          "actionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The email notification action's identifier number"
+          },
+          "sent": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "The email notification send number"
+          },
+          "goal": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "The email notification goal number"
+          }
+        }
+      },
       "Error": {
         "type": "object",
         "properties": {
@@ -9325,7 +9745,6 @@
           "transaction-processed",
           "subscription-activated",
           "subscription-canceled",
-          "subscription-created",
           "subscription-renewed",
           "payment-card-expired",
           "invoice-past-due",
@@ -9335,7 +9754,15 @@
           "risk-score-changed",
           "transaction-discrepancy-found",
           "transaction-amount-discrepancy-found",
-          "renewal-invoice-payment-declined"
+          "renewal-invoice-payment-declined",
+          "subscription-trial-end-reminder",
+          "subscription-renewal-reminder",
+          "payment-card-expiration-reminder",
+          "invoice-past-due-reminder",
+          "kyc-document-accepted",
+          "kyc-document-rejected",
+          "renewal-invoice-issued",
+          "order-completed"
         ]
       },
       "ForgotPassword": {
@@ -9423,18 +9850,6 @@
               }
             ]
           },
-          "websites": {
-            "description": "Websites IDs",
-            "type": "array",
-            "items": {
-              "description": "Website ID",
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/ResourceId"
-                }
-              ]
-            }
-          },
           "excludedDccQuoteCurrencies": {
             "description": "Excluded Dynamic Currency Conversion Quote Currencies",
             "type": "array",
@@ -9485,15 +9900,8 @@
             "type": "boolean",
             "readOnly": true
           },
-          "amountRestrictions": {
-            "description": "Set restrictions on allowed amounts per currency",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AmountRestrictions"
-            }
-          },
-          "restriction": {
-            "description": "Set restriction conditions on transaction",
+          "additionalCriteria": {
+            "description": "The additional criteria that allows to check whether the gateway account can be selected for the transaction to be processed.\n",
             "allOf": [
               {
                 "$ref": "#/components/schemas/Condition"
@@ -9704,6 +10112,41 @@
                 },
                 "required": [
                   "method"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "AsiaPaymentGateway": {
+        "description": "AsiaPaymentGateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "AsiaPaymentGateway credentials object",
+                "properties": {
+                  "merchantNumber": {
+                    "type": "string",
+                    "description": "AsiaPaymentGateway merchant number"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "AsiaPaymentGateway secret key for hash",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantNumber",
+                  "secretKey"
                 ]
               }
             }
@@ -10138,6 +10581,16 @@
                   "merchantUsername",
                   "merchantPassword"
                 ]
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "skipAmountSelection": {
+                    "type": "boolean",
+                    "description": "Skip amount selection screen",
+                    "default": false
+                  }
+                }
               }
             }
           }
@@ -10261,6 +10714,148 @@
                   "coNumber",
                   "divisionId",
                   "partialAuth"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Citadel": {
+        "description": "Citadel config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Citadel credentials object",
+                "properties": {
+                  "storeName": {
+                    "type": "string",
+                    "description": "Store name"
+                  },
+                  "storeId": {
+                    "type": "string",
+                    "description": "Store ID"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Username"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "storeName",
+                  "storeId",
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Clearhaus": {
+        "description": "Clearhaus Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Clearhaus api key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/ClearhausMpis"
+              }
+            }
+          }
+        ]
+      },
+      "Conekta": {
+        "description": "Conekta config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Conekta credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Conekta private API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "Coppr": {
+        "description": "Coppr config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Coppr credentials object",
+                "properties": {
+                  "organizationId": {
+                    "type": "string",
+                    "description": "Coppr Organization's ID"
+                  },
+                  "apiKey": {
+                    "type": "string",
+                    "description": "Coppr api key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "organizationId",
+                  "apiKey"
                 ]
               }
             }
@@ -10656,6 +11251,52 @@
           }
         ]
       },
+      "EPG": {
+        "description": "EPG config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "EPG credentials object",
+                "properties": {
+                  "merchantId": {
+                    "type": "string",
+                    "description": "Merchant ID"
+                  },
+                  "productId": {
+                    "type": "string",
+                    "description": "Product ID"
+                  },
+                  "merchantPassword": {
+                    "type": "string",
+                    "description": "Merchant password",
+                    "format": "password"
+                  },
+                  "merchantKey": {
+                    "type": "string",
+                    "description": "Merchant key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "merchantId",
+                  "productId",
+                  "merchantPassword",
+                  "merchantKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "FinTecSystems": {
         "description": "FinTecSystems config",
         "allOf": [
@@ -10677,7 +11318,16 @@
                     "type": "string",
                     "description": "FinTecSystems api key",
                     "format": "password"
-                  },
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              },
+              "settings": {
+                "type": "object",
+                "description": "FinTecSystems settings object",
+                "properties": {
                   "recipientIBAN": {
                     "type": "string",
                     "description": "IBAN of the recipient account"
@@ -10685,18 +11335,7 @@
                   "recipientBIC": {
                     "type": "string",
                     "description": "BIC of the recipient account"
-                  }
-                },
-                "required": [
-                  "apiKey",
-                  "recipientIBAN",
-                  "recipientBIC"
-                ]
-              },
-              "settings": {
-                "type": "object",
-                "description": "FinTecSystems settings object",
-                "properties": {
+                  },
                   "recipientCountry": {
                     "type": "string",
                     "description": "Two letter country code",
@@ -10712,6 +11351,8 @@
                   }
                 },
                 "required": [
+                  "recipientIBAN",
+                  "recipientBIC",
                   "recipientHolder",
                   "recipientCountry"
                 ]
@@ -11014,6 +11655,51 @@
                   "clientId",
                   "clientSecret",
                   "locationId"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "iCanPay": {
+        "description": "iCanPay Gateway config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "authenticateId": {
+                    "type": "string",
+                    "description": "iCanPay Gateway authenticate ID"
+                  },
+                  "authenticatePw": {
+                    "type": "string",
+                    "description": "iCanPay Gateway authenticate password",
+                    "format": "password"
+                  },
+                  "publicKey": {
+                    "type": "string",
+                    "description": "iCanPay Gateway API public key"
+                  },
+                  "secretKey": {
+                    "type": "string",
+                    "description": "iCanPay Gateway API secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "authenticateId",
+                  "authenticatePw",
+                  "publicKey",
+                  "secretKey"
                 ]
               }
             }
@@ -11419,12 +12105,7 @@
                       "TxHandler"
                     ]
                   }
-                },
-                "required": [
-                  "extraStep",
-                  "subdomain",
-                  "platform"
-                ]
+                }
               }
             }
           }
@@ -11499,6 +12180,41 @@
                 },
                 "required": [
                   "TerminalID"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "LPG": {
+        "description": "LPG config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "LPG credentials object",
+                "properties": {
+                  "publicKey": {
+                    "type": "string",
+                    "description": "LPG public API key"
+                  },
+                  "secureKey": {
+                    "type": "string",
+                    "description": "LPG secure API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "publicKey",
+                  "secureKey"
                 ]
               }
             }
@@ -11597,6 +12313,41 @@
           }
         ]
       },
+      "Netbanking": {
+        "description": "Netbanking config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Netbanking credentials object",
+                "properties": {
+                  "midcode": {
+                    "type": "string",
+                    "description": "Netbanking MID code"
+                  },
+                  "midsecret": {
+                    "type": "string",
+                    "description": "Netbanking MID secret key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "midcode",
+                  "midsecret"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Neteller": {
         "description": "Neteller Gateway config",
         "allOf": [
@@ -11664,14 +12415,26 @@
                 "type": "object",
                 "description": "NinjaWallet credentials object",
                 "properties": {
-                  "authorizationToken": {
+                  "apiKey": {
                     "type": "string",
-                    "description": "NinjaWallet authorization token",
+                    "description": "NinjaWallet api key",
+                    "format": "password"
+                  },
+                  "secret": {
+                    "type": "string",
+                    "description": "NinjaWallet secret",
+                    "format": "password"
+                  },
+                  "passphrase": {
+                    "type": "string",
+                    "description": "NinjaWallet passphrase",
                     "format": "password"
                   }
                 },
                 "required": [
-                  "authorizationToken"
+                  "apiKey",
+                  "secret",
+                  "passphrase"
                 ]
               }
             }
@@ -11774,7 +12537,17 @@
                 "properties": {
                   "apiKey": {
                     "type": "string",
-                    "description": "Onlineueberweisen API Key"
+                    "description": "Onlineueberweisen API Key",
+                    "format": "password"
+                  },
+                  "nuaPayApiKey": {
+                    "type": "string",
+                    "description": "NuaPay API Key for reconciliation",
+                    "format": "password"
+                  },
+                  "nuaPayAccountId": {
+                    "type": "string",
+                    "description": "NuaPay account ID for reconciliation"
                   }
                 },
                 "required": [
@@ -11789,8 +12562,15 @@
                     "type": "string",
                     "description": "Onlineueberweisen payform code to use customized Payform template",
                     "default": "default"
+                  },
+                  "autoAbandonTtl": {
+                    "type": "integer",
+                    "description": "Auto-abandon if transaction is not reconciled after x hours"
                   }
-                }
+                },
+                "required": [
+                  "autoAbandonTtl"
+                ]
               }
             }
           }
@@ -12047,6 +12827,41 @@
                   "merchantId",
                   "merchantSecret",
                   "merchantKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "PayCash": {
+        "description": "PayCash config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "PayCash credentials object",
+                "properties": {
+                  "emisor": {
+                    "type": "string",
+                    "description": "Identify of the company"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "Token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "emisor",
+                  "token"
                 ]
               }
             }
@@ -12369,6 +13184,41 @@
           }
         ]
       },
+      "Prosa": {
+        "description": "Prosa config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Prosa credentials object",
+                "properties": {
+                  "entityId": {
+                    "type": "string",
+                    "description": "Entity ID"
+                  },
+                  "accessToken": {
+                    "type": "string",
+                    "description": "Access token",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "entityId",
+                  "accessToken"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Realex": {
         "description": "Realex Gateway config",
         "allOf": [
@@ -12646,6 +13496,49 @@
           }
         ]
       },
+      "SecureTrading": {
+        "description": "SecureTrading config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "SecureTrading credentials object",
+                "properties": {
+                  "websiteId": {
+                    "type": "string",
+                    "description": "Website ID"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "SecureTrading web service username"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "SecureTrading web service password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "websiteId",
+                  "username",
+                  "password"
+                ]
+              },
+              "mpi": {
+                "$ref": "#/components/schemas/SecureTradingMpis"
+              }
+            }
+          }
+        ]
+      },
       "Skrill": {
         "description": "Skrill config",
         "allOf": [
@@ -12827,6 +13720,36 @@
           }
         ]
       },
+      "ToditoCash": {
+        "description": "ToditoCash config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "ToditoCash credentials object",
+                "properties": {
+                  "apiKey": {
+                    "type": "string",
+                    "description": "ToditoCash API key",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "apiKey"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "UPayCard": {
         "description": "UPayCard Gateway config",
         "allOf": [
@@ -12988,6 +13911,41 @@
           }
         ]
       },
+      "Wallet88": {
+        "description": "Wallet88 config",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GatewayAccount"
+          },
+          {
+            "type": "object",
+            "required": [
+              "credentials"
+            ],
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "description": "Wallet88 credentials object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "description": "Wallet88 API user"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Wallet88 API password",
+                    "format": "password"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        ]
+      },
       "Walpay": {
         "description": "Walpay Gateway config",
         "allOf": [
@@ -13139,20 +14097,20 @@
                     "type": "string",
                     "description": "Zotapay's endpoint ID"
                   },
-                  "username": {
+                  "merchantID": {
                     "type": "string",
-                    "description": "Zotapay's login username"
+                    "description": "Zotapay's merchant ID"
                   },
-                  "controlKey": {
+                  "merchantSecretKey": {
                     "type": "string",
-                    "description": "Zotapay's merchant control key",
+                    "description": "Zotapay's merchant secret key",
                     "format": "password"
                   }
                 },
                 "required": [
                   "endpointId",
-                  "username",
-                  "controlKey"
+                  "merchantID",
+                  "merchantSecretKey"
                 ]
               }
             }
@@ -13245,6 +14203,8 @@
           "PaayMpi",
           "Panamerican",
           "eMerchantPayMpi",
+          "SecureTradingMpi",
+          "ClearhausMpi",
           "Other"
         ]
       },
@@ -13344,18 +14304,27 @@
           "invoice-voided",
           "invoice-issued",
           "invoice-past-due",
+          "invoice-past-due-reminder",
           "offsite-payment-completed",
           "payment-card-expired",
+          "payment-card-expiration-reminder",
+          "renewal-invoice-issued",
           "renewal-invoice-payment-declined",
           "subscription-trial-ended",
           "subscription-activated",
           "subscription-canceled",
+          "subscription-reactivated",
           "subscription-renewed",
+          "subscription-trial-end-reminder",
+          "subscription-renewal-reminder",
+          "order-completed",
           "transaction-processed",
           "transaction-timeout-resolved",
           "transaction-declined",
           "transaction-discrepancy-found",
-          "transaction-amount-discrepancy-found"
+          "transaction-amount-discrepancy-found",
+          "kyc-document-accepted",
+          "kyc-document-rejected"
         ]
       },
       "Integration": {
@@ -14354,6 +15323,89 @@
           "domain"
         ]
       },
+      "Membership": {
+        "type": "object",
+        "required": [
+          "organization",
+          "user"
+        ],
+        "properties": {
+          "organization": {
+            "description": "Membership organization",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Organization name",
+                "type": "string"
+              },
+              "createdTime": {
+                "description": "The organization created time",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ServerTimestamp"
+                  }
+                ]
+              }
+            }
+          },
+          "user": {
+            "description": "Membership user",
+            "readOnly": true,
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Organization ID",
+                "type": "string",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ResourceId"
+                  }
+                ]
+              },
+              "name": {
+                "description": "First and last name",
+                "type": "string"
+              }
+            }
+          },
+          "permissions": {
+            "description": "The user's permissions. See the format in example",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AclPermissions"
+              }
+            ]
+          },
+          "isOwner": {
+            "description": "User is owner of organization",
+            "type": "boolean"
+          },
+          "isDefault": {
+            "description": "This organization is default for membership user",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "_links": {
+            "type": "array",
+            "description": "The links related to resource",
+            "readOnly": true,
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/SelfLink"
+            }
+          }
+        }
+      },
       "Method": {
         "type": "string",
         "description": "The payment method",
@@ -14362,8 +15414,10 @@
           "ach",
           "bank-account",
           "cash",
+          "check",
           "paypal",
           "Alipay",
+          "ApplePay",
           "AstroPay-Card",
           "bank-transfer",
           "bitcoin",
@@ -14372,6 +15426,7 @@
           "CASHlib",
           "CashToCode",
           "China-UnionPay",
+          "Conekta-oxxo",
           "domestic-cards",
           "echeck",
           "ecoPayz",
@@ -14380,6 +15435,7 @@
           "ePay-bg",
           "Flexepin",
           "Giropay",
+          "GooglePay",
           "Gpaysafe",
           "iDebit",
           "iDEAL",
@@ -14393,12 +15449,18 @@
           "invoice",
           "Jeton",
           "Klarna",
+          "LPG-online",
+          "LPG-payment-card",
           "miscellaneous",
           "Neteller",
           "Nordea-Solo",
           "OchaPay",
           "online-bank-transfer",
           "Onlineueberweisen",
+          "Pagsmile-lottery",
+          "Pagsmile-deposit-express",
+          "Pagsmile-boleto",
+          "PayCash",
           "Paysafecard",
           "Pay4Fun",
           "PinPay",
@@ -14412,6 +15474,8 @@
           "Skrill-Rapid-Transfer",
           "SMSVoucher",
           "SparkPay",
+          "swift-dbt",
+          "ToditoCash-card",
           "Trustly",
           "UPayCard",
           "voucher",
@@ -14437,6 +15501,59 @@
             "enum": [
               "PaayMpi",
               "Other"
+            ]
+          }
+        }
+      },
+      "ClearhausMpi": {
+        "description": "Clearhaus Mpi Credentials",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ClearhausMpis"
+          },
+          {
+            "type": "object",
+            "required": [
+              "merchantId",
+              "acquirerBin",
+              "apiKey"
+            ],
+            "properties": {
+              "merchantId": {
+                "type": "string",
+                "description": "Merchant account ID or Card Acceptor ID provided by the acquiring bank."
+              },
+              "acquirerBin": {
+                "type": "string",
+                "description": "Acquiring institution identification code."
+              },
+              "apiKey": {
+                "type": "string",
+                "format": "password",
+                "description": "Mpi Api key"
+              }
+            }
+          }
+        ]
+      },
+      "ClearhausMpis": {
+        "description": "Clearhaus Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "ClearhausMpi"
             ]
           }
         }
@@ -14864,6 +15981,7 @@
             ],
             "enum": [
               "PayvisionMpi",
+              "Payvision3DS2",
               "CardinalCommerce",
               "PaayMpi",
               "Other"
@@ -14897,6 +16015,36 @@
             ],
             "enum": [
               "RebillySandboxMpi"
+            ]
+          }
+        }
+      },
+      "SecureTradingMpi": {
+        "description": "SecureTrading Mpi",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SecureTradingMpis"
+          }
+        ]
+      },
+      "SecureTradingMpis": {
+        "description": "SecureTrading Mpis",
+        "discriminator": {
+          "propertyName": "name"
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MpiName"
+              }
+            ],
+            "enum": [
+              "SecureTradingMpi"
             ]
           }
         }
@@ -15735,6 +16883,13 @@
             "readOnly": true,
             "type": "string"
           },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
+          },
           "availableCurrencies": {
             "type": "array",
             "description": "An array of reporting currencies enabled for the merchant",
@@ -15885,6 +17040,140 @@
           }
         ]
       },
+      "create-infusionsoft-order": {
+        "description": "Create a Keap Infusionsoft order along with a contact",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "contactBody": {
+                "description": "The list of contact attributes that will be used during Keap Infusionsoft creation process",
+                "type": "object",
+                "properties": {
+                  "email_addresses": {
+                    "description": "The contact email addresses that will be used during Keap Infusionsoft creation process",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "description": "The contact email address that will be used during Keap Infusionsoft creation process",
+                          "type": "string",
+                          "example": "{{ invoice.customer.email }}"
+                        },
+                        "field": {
+                          "description": "The contact email field type that will be used during Keap Infusionsoft creation process",
+                          "type": "string",
+                          "enum": [
+                            "EMAIL1",
+                            "EMAIL2",
+                            "EMAIL3"
+                          ],
+                          "example": "EMAIL1"
+                        }
+                      }
+                    }
+                  },
+                  "phone_numbers": {
+                    "description": "The contact phone numbers that will be used during Keap Infusionsoft creation process",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "description": "The contact phone number that will be used during Keap Infusionsoft creation process",
+                          "type": "string",
+                          "example": "{{ invoice.customer.customFields.phoneNumber }}"
+                        },
+                        "field": {
+                          "description": "The contact phone field type that will be used during Keap Infusionsoft creation process",
+                          "type": "string",
+                          "enum": [
+                            "PHONE1",
+                            "PHONE2",
+                            "PHONE3",
+                            "PHONE4",
+                            "PHONE5"
+                          ],
+                          "example": "PHONE1"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "orderBody": {
+                "description": "The list of order attributes that will be used during Keap Infusionsoft creation process except `contact_id`",
+                "type": "object",
+                "properties": {
+                  "order_date": {
+                    "description": "The order date that will be used during Keap Infusionsoft creation process",
+                    "type": "string",
+                    "example": "{{ invoice.issuedTime }}"
+                  },
+                  "order_title": {
+                    "description": "The order title that will be used during Keap Infusionsoft creation process",
+                    "type": "string",
+                    "example": "{{ invoice.id }}"
+                  },
+                  "order_type": {
+                    "description": "The order type that will be used during Keap Infusionsoft creation process",
+                    "type": "string",
+                    "enum": [
+                      "Offline",
+                      "Online"
+                    ],
+                    "example": "Offline"
+                  }
+                },
+                "required": [
+                  "order_date",
+                  "order_title",
+                  "order_type"
+                ]
+              },
+              "credentialHash": {
+                "type": "string",
+                "description": "OAuth2 credential identifier string"
+              }
+            },
+            "required": [
+              "credentialHash",
+              "contactBody",
+              "orderBody"
+            ]
+          }
+        ]
+      },
+      "create-infusionsoft-payment": {
+        "description": "Create a Keap Infusionsoft payment",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "paymentBody": {
+                "description": "The list of payment attributes that will be used during Keap Infusionsoft creation process",
+                "type": "object"
+              },
+              "credentialHash": {
+                "type": "string",
+                "description": "OAuth2 credential identifier string"
+              }
+            },
+            "required": [
+              "credentialHash"
+            ]
+          }
+        ]
+      },
       "display-other-choices": {
         "description": "Display Other Choices",
         "allOf": [
@@ -16016,6 +17305,31 @@
           }
         ]
       },
+      "remove-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        ]
+      },
       "request-kyc": {
         "description": "Request KYC page to verify customer identity",
         "allOf": [
@@ -16097,6 +17411,31 @@
               "rejectedBeforeTransactionProcessPolicy",
               "rejectedAfterTransactionProcessPolicy",
               "optionalPolicy"
+            ]
+          }
+        ]
+      },
+      "reset-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              }
+            },
+            "required": [
+              "role"
             ]
           }
         ]
@@ -16198,6 +17537,34 @@
           }
         ]
       },
+      "schedule-reminder": {
+        "description": "",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RuleAction"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "renewal",
+                  "trial-end"
+                ],
+                "description": "The role of Reminder (available only on Subscription events, other events should use `all`)."
+              },
+              "schedule": {
+                "$ref": "#/components/schemas/ReminderSchedule"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        ]
+      },
       "send-email": {
         "description": "",
         "allOf": [
@@ -16207,6 +17574,11 @@
           {
             "type": "object",
             "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "The action identifier string."
+              },
               "title": {
                 "type": "string",
                 "description": "The title of the messages. (This title will appear in reports.)"
@@ -16535,7 +17907,12 @@
               "request-kyc",
               "tag-or-untag-customer",
               "display-other-choices",
-              "offer-purchase-bump"
+              "offer-purchase-bump",
+              "schedule-reminder",
+              "reset-reminder",
+              "remove-reminder",
+              "create-infusionsoft-order",
+              "create-infusionsoft-payment"
             ]
           },
           "status": {
@@ -16549,6 +17926,11 @@
       "RulesEmailNotification": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The message identifier string."
+          },
           "credentialHash": {
             "type": "string",
             "description": "SMTP or Mailgun credential identifier string."
@@ -16863,26 +18245,6 @@
           "method"
         ]
       },
-      "CustomEventScheduleInstruction": {
-        "type": "object",
-        "description": "The calculation instruction of scheduled time",
-        "discriminator": {
-          "propertyName": "method"
-        },
-        "properties": {
-          "method": {
-            "type": "string",
-            "enum": [
-              "date-interval",
-              "day-of-month",
-              "day-of-week"
-            ]
-          }
-        },
-        "required": [
-          "method"
-        ]
-      },
       "InvoiceRetryScheduleInstruction": {
         "type": "object",
         "description": "The calculation instruction of scheduled time",
@@ -16918,10 +18280,10 @@
             "$ref": "#/components/schemas/CommonScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
+            "$ref": "#/components/schemas/BillingScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/BillingScheduleInstruction"
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
           },
           {
             "type": "object",
@@ -16955,10 +18317,10 @@
             "$ref": "#/components/schemas/CommonScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
+            "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
           },
           {
-            "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
           },
           {
             "type": "object",
@@ -16985,10 +18347,10 @@
             "$ref": "#/components/schemas/CommonScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
+            "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
           },
           {
-            "$ref": "#/components/schemas/ServicePeriodAnchorInstruction"
+            "$ref": "#/components/schemas/ReminderScheduleInstruction"
           },
           {
             "type": "object",
@@ -17034,9 +18396,6 @@
             "$ref": "#/components/schemas/CommonScheduleInstruction"
           },
           {
-            "$ref": "#/components/schemas/CustomEventScheduleInstruction"
-          },
-          {
             "type": "object",
             "properties": {
               "duration": {
@@ -17060,6 +18419,50 @@
               "unit"
             ]
           }
+        ]
+      },
+      "ReminderSchedule": {
+        "type": "object",
+        "description": "Schedule Instructions Collection",
+        "properties": {
+          "instructions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReminderScheduleInstruction"
+            }
+          },
+          "chronology": {
+            "type": "string",
+            "enum": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        "required": [
+          "instructions",
+          "chronology"
+        ]
+      },
+      "ReminderScheduleInstruction": {
+        "type": "object",
+        "description": "The calculation instruction of scheduled time",
+        "discriminator": {
+          "propertyName": "method"
+        },
+        "properties": {
+          "method": {
+            "type": "string",
+            "default": "1",
+            "enum": [
+              "date-interval",
+              "day-of-month",
+              "day-of-week"
+            ]
+          }
+        },
+        "required": [
+          "method"
         ]
       },
       "ServicePeriodAnchorInstruction": {
@@ -17089,9 +18492,14 @@
       "PatchSegment": {
         "type": "object",
         "required": [
+          "isStarred",
           "isVisible"
         ],
         "properties": {
+          "isStarred": {
+            "description": "Toggle the starring of this segment for the current user",
+            "type": "boolean"
+          },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
             "type": "boolean"
@@ -17139,6 +18547,11 @@
           "data": {
             "description": "An object containing schema to set up the UI for the segment. This schema is built\nand consumed by the frontend. It includes such information as Segment name, UI settings, etc.\n",
             "type": "object"
+          },
+          "isStarred": {
+            "description": "Toggle whether this Segment is starred by the current user",
+            "type": "boolean",
+            "readOnly": true
           },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
@@ -17338,6 +18751,13 @@
                 "$ref": "#/components/schemas/AclPermissions"
               }
             ]
+          },
+          "memberships": {
+            "description": "The user memberships.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Membership"
+            }
           },
           "userId": {
             "description": "The user identifier string",
@@ -18681,6 +20101,15 @@
         "schema": {
           "type": "string"
         }
+      },
+      "token": {
+        "name": "token",
+        "in": "path",
+        "description": "The token string",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
       }
     },
     "headers": {
@@ -18744,17 +20173,6 @@
         "description": "Checkout Page resource",
         "required": true
       },
-      "CustomEvent": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/CustomEvent"
-            }
-          }
-        },
-        "description": "Custom event resource",
-        "required": true
-      },
       "GatewayAccount": {
         "content": {
           "application/json": {
@@ -18808,6 +20226,35 @@
           }
         },
         "description": "List resource",
+        "required": true
+      },
+      "Membership": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "organizationId": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "userId": {
+                  "$ref": "#/components/schemas/ResourceId"
+                },
+                "isOwner": {
+                  "type": "boolean"
+                },
+                "permissions": {
+                  "description": "The memberships's permissions. See the format in example",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/AclPermissions"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Membership resource",
         "required": true
       },
       "Note": {
