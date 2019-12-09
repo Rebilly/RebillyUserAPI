@@ -200,6 +200,7 @@ x-tagGroups:
       - Reset password
   - name: Email
     tags:
+      - Broadcast Messages
       - Email Credentials
       - Email Delivery Settings
       - Email Messages
