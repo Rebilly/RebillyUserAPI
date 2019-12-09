@@ -14115,20 +14115,20 @@
                     "type": "string",
                     "description": "Zotapay's endpoint ID"
                   },
-                  "username": {
+                  "merchantId": {
                     "type": "string",
-                    "description": "Zotapay's login username"
+                    "description": "Zotapay's merchant ID"
                   },
-                  "controlKey": {
+                  "merchantSecretKey": {
                     "type": "string",
-                    "description": "Zotapay's merchant control key",
+                    "description": "Zotapay's merchant secret key",
                     "format": "password"
                   }
                 },
                 "required": [
                   "endpointId",
-                  "username",
-                  "controlKey"
+                  "merchantId",
+                  "merchantSecretKey"
                 ]
               }
             }
