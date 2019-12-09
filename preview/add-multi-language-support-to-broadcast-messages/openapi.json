@@ -125,6 +125,7 @@
     {
       "name": "Email",
       "tags": [
+        "Broadcast Messages",
         "Email Credentials",
         "Email Delivery Settings",
         "Email Messages"
@@ -8382,46 +8383,14 @@
           },
           "messages": {
             "type": "array",
-            "description": "An array of message templates with the language locale identifiers according to [RFC 5646](https://tools.ietf.org/html/rfc5646). A language will be selected based on the customer's locale.\n\nIf there is no locale set for the customer, then `en-US` (US English) will be used as the locale.\n\nIf there is no template with the customer's locale, then a template locale will be selected by Rebilly using a closest match algorithm (which may be random at worst).\n\nIf your email message templates are localized into more than one language, you SHOULD set a customer locale.\n\nAn invalid placeholder will render to an empty string. For example, `Hello {{invalid.placeholder}}!`  will be rendered to `Hello !`.\n",
+            "description": "The list of messages.",
             "minItems": 1,
             "items": {
               "type": "object",
-              "example": {
-                "locale": "fr-FR",
-                "version": "Version-A",
-                "from": "example@example.com",
-                "subject": "Sujet de démonstration",
-                "text": "Texte de démonstration",
-                "html": "<p>Texte de démonstration</p>",
-                "weight": 80
-              },
               "properties": {
                 "version": {
                   "type": "string",
                   "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
-                },
-                "from": {
-                  "type": "string",
-                  "description": "The sender address. It must be a **verified** address. # todo add a link to help docs on how to verify an email address\n",
-                  "maxLength": 254
-                },
-                "subject": {
-                  "type": "string",
-                  "description": "The message subject. The template placeholders are allowed.",
-                  "maxLength": 998
-                },
-                "text": {
-                  "type": "string",
-                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
-                },
-                "html": {
-                  "type": "string",
-                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
-                },
-                "locale": {
-                  "type": "string",
-                  "description": "The language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646).",
-                  "example": "fr-FR"
                 },
                 "weight": {
                   "type": "integer",
@@ -8430,14 +8399,57 @@
                   "maximum": 100,
                   "example": 75,
                   "default": 100
+                },
+                "templates": {
+                  "description": "The value for random-weighted picking of a template in the case of a split test.\nThe split test algorithm does not factor localization when making a weighted-random template selection.  Therefore, a version will be selected first, and then after a version is selected a specific localization will be selected.  Take the case where two versions have different locale content -- the locales of the content is not considered when selecting the version.\n",
+                  "example": {
+                    "locale": "fr-FR",
+                    "from": "example@example.com",
+                    "subject": "Sujet de démonstration",
+                    "text": "Texte de démonstration",
+                    "html": "<p>Texte de démonstration</p>"
+                  },
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "description": "The sender address. It must be a **verified** address. # todo add a link to help docs on how to verify an email address\n",
+                        "maxLength": 254
+                      },
+                      "subject": {
+                        "type": "string",
+                        "description": "The message subject. The template placeholders are allowed.",
+                        "maxLength": 998
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                      },
+                      "html": {
+                        "type": "string",
+                        "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                      },
+                      "locale": {
+                        "type": "string",
+                        "description": "The language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646).",
+                        "example": "fr-FR"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "subject",
+                      "text",
+                      "html",
+                      "locale"
+                    ]
+                  }
                 }
               },
               "required": [
-                "from",
-                "subject",
-                "text",
-                "html",
-                "locale"
+                "templates"
               ]
             }
           },
