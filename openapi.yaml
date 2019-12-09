@@ -9627,7 +9627,7 @@ components:
                 endpointId:
                   type: string
                   description: Zotapay's endpoint ID
-                merchantID:
+                merchantId:
                   type: string
                   description: Zotapay's merchant ID
                 merchantSecretKey:
@@ -9636,7 +9636,7 @@ components:
                   format: password
               required:
                 - endpointId
-                - merchantID
+                - merchantId
                 - merchantSecretKey
     GatewayAccountDowntimeSchedule:
       type: object

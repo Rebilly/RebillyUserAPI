@@ -14097,7 +14097,7 @@
                     "type": "string",
                     "description": "Zotapay's endpoint ID"
                   },
-                  "merchantID": {
+                  "merchantId": {
                     "type": "string",
                     "description": "Zotapay's merchant ID"
                   },
@@ -14109,7 +14109,7 @@
                 },
                 "required": [
                   "endpointId",
-                  "merchantID",
+                  "merchantId",
                   "merchantSecretKey"
                 ]
               }
