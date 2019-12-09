@@ -13,7 +13,7 @@ allOf:
           endpointId:
             type: string
             description: Zotapay's endpoint ID
-          merchantID:
+          merchantId:
             type: string
             description: Zotapay's merchant ID
           merchantSecretKey:
@@ -22,5 +22,5 @@ allOf:
             format: password
         required:
           - "endpointId"
-          - "merchantID"
+          - "merchantId"
           - "merchantSecretKey"
