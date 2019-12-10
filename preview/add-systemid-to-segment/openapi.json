@@ -14097,20 +14097,20 @@
                     "type": "string",
                     "description": "Zotapay's endpoint ID"
                   },
-                  "username": {
+                  "merchantId": {
                     "type": "string",
-                    "description": "Zotapay's login username"
+                    "description": "Zotapay's merchant ID"
                   },
-                  "controlKey": {
+                  "merchantSecretKey": {
                     "type": "string",
-                    "description": "Zotapay's merchant control key",
+                    "description": "Zotapay's merchant secret key",
                     "format": "password"
                   }
                 },
                 "required": [
                   "endpointId",
-                  "username",
-                  "controlKey"
+                  "merchantId",
+                  "merchantSecretKey"
                 ]
               }
             }
@@ -18607,9 +18607,9 @@
             ]
           },
           "systemId": {
-            "description": "If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was\nderived. This will be `null` if it is a regular user-defined Segment. This can only be non-null if the scope is\n`private`. If this Segment is updated, `systemId` will become `null` again, turning this into a regular Segment,\nand the original system Segment will reappear when retrieving the entire collection.\n",
-            "type": "string",
-            "nullable": true
+            "description": "If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was\nderived. The scope must be `private` when providing this in the request.\n",
+            "writeOnly": true,
+            "type": "string"
           }
         }
       },
