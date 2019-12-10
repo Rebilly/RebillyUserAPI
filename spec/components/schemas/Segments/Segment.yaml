@@ -79,8 +79,6 @@ properties:
   systemId:
     description: |
       If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was
-      derived. This will be `null` if it is a regular user-defined Segment. This can only be non-null if the scope is
-      `private`. If this Segment is updated, `systemId` will become `null` again, turning this into a regular Segment,
-      and the original system Segment will reappear when retrieving the entire collection.
+      derived. The scope must be `private` when providing this in the request.
+    writeOnly: true
     type: string
-    nullable: true
