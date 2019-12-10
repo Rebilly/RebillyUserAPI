@@ -22,6 +22,8 @@ put:
           schema:
             $ref: '#/components/schemas/EmailDeliverySetting'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'

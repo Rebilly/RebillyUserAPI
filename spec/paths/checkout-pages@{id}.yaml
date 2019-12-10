@@ -15,7 +15,9 @@ get:
           schema:
             $ref: '#/components/schemas/CheckoutPage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
 put:
@@ -53,7 +55,9 @@ put:
           schema:
             $ref: '#/components/schemas/CheckoutPage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
     422:
@@ -82,7 +86,9 @@ delete:
           $ref: "#/components/headers/Rate-Limit-Reset"
       description: Checkout Page was deleted
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
     409:
