@@ -8388,6 +8388,11 @@
             "items": {
               "type": "object",
               "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "The message identifier string."
+                },
                 "version": {
                   "type": "string",
                   "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
