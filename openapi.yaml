@@ -9032,6 +9032,8 @@ components:
                 merchantAccountType:
                   type: integer
                   description: Payvision merchant account type
+              required:
+                - merchantAccountType
             mpi:
               $ref: '#/components/schemas/PayvisionMpis'
     Plugnpay:
