@@ -3,13 +3,13 @@ parameters:
 post:
   tags:
     - Email Delivery Settings
-  summary: Resend verification email for an email delivery setting
+  summary: Resend verification email for an email delivery setting.
   operationId: ResendEmailDeliverySettingVerification
   description: |
-    Resend verification email for an email delivery setting
+    Resend verification email for an email delivery setting.
   responses:
     200:
-      description: Verification email was sent successfully
+      description: Verification email was sent successfully.
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
