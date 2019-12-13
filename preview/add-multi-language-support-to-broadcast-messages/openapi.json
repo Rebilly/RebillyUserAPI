@@ -18628,6 +18628,11 @@
               "public",
               "shared"
             ]
+          },
+          "systemId": {
+            "description": "If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was\nderived. The scope must be `private` when providing this in the request.\n",
+            "writeOnly": true,
+            "type": "string"
           }
         }
       },
