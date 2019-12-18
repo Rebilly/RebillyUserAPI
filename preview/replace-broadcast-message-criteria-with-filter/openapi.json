@@ -125,6 +125,7 @@
     {
       "name": "Email",
       "tags": [
+        "Broadcast Messages",
         "Email Credentials",
         "Email Delivery Settings",
         "Email Messages"
@@ -299,7 +300,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -342,7 +346,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -399,7 +406,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -463,7 +473,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -505,7 +518,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -572,7 +588,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -606,7 +625,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -661,7 +683,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -722,7 +747,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -784,7 +812,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -824,7 +855,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -873,7 +907,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -937,7 +974,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -986,7 +1026,10 @@
             "description": "Checkout Page was deleted"
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1071,7 +1114,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -1126,7 +1172,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1174,7 +1223,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1264,7 +1316,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -1308,7 +1363,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1356,7 +1414,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1446,7 +1507,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -1490,7 +1554,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1538,7 +1605,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1592,7 +1662,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -1629,7 +1702,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -1673,7 +1749,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1713,7 +1792,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1775,7 +1857,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -1859,7 +1944,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -1903,7 +1991,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1951,7 +2042,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2041,7 +2135,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -2085,7 +2182,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2133,7 +2233,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2223,7 +2326,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -2267,7 +2373,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2315,7 +2424,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2362,7 +2474,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2412,7 +2527,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -2446,7 +2564,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -2501,7 +2622,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2576,7 +2700,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
@@ -2623,7 +2750,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2677,7 +2807,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -2711,7 +2844,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -2766,7 +2902,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -2830,7 +2969,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
@@ -2905,7 +3047,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -2952,7 +3097,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -2992,7 +3140,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3035,7 +3186,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3071,7 +3225,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3163,7 +3320,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3218,7 +3378,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3273,7 +3436,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3385,7 +3551,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -3428,7 +3597,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -3485,7 +3657,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3552,7 +3727,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3608,7 +3786,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3648,7 +3829,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3701,7 +3885,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3745,7 +3932,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3812,7 +4002,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -3846,7 +4039,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
@@ -3912,7 +4108,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3949,7 +4148,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3995,7 +4197,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4039,7 +4244,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4109,7 +4317,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -4154,7 +4365,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -4214,7 +4428,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4244,7 +4461,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4577,7 +4797,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -4618,7 +4841,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4677,7 +4903,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -4720,7 +4949,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "$ref": "#/components/responses/InvalidDataError"
@@ -4770,7 +5002,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4837,7 +5072,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4876,7 +5114,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -4947,7 +5188,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -4981,7 +5225,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -5035,7 +5282,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5096,7 +5346,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5129,7 +5382,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5174,7 +5430,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5206,7 +5465,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -5265,7 +5527,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -5321,7 +5586,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5401,7 +5669,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "$ref": "#/components/responses/Conflict"
@@ -5431,7 +5702,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5493,7 +5767,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -5536,7 +5813,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -5593,7 +5873,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5660,7 +5943,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5735,7 +6021,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -5778,7 +6067,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "description": "The similar organization already exists",
@@ -5838,7 +6130,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -5905,7 +6200,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "409": {
             "description": "The similar organization already exists",
@@ -5951,7 +6249,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -6026,7 +6327,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -6062,7 +6366,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -6119,7 +6426,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -6176,7 +6486,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -6218,7 +6531,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -6264,7 +6580,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -6312,7 +6631,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -6357,7 +6679,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -6554,7 +6879,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -6602,7 +6930,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -6780,7 +7111,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -6826,7 +7160,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -6890,7 +7227,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -6945,7 +7285,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -6974,7 +7317,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7038,7 +7384,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -7067,7 +7416,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7113,7 +7465,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       }
@@ -7146,7 +7501,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7205,7 +7563,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -7248,7 +7609,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -7305,7 +7669,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7372,7 +7739,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7411,7 +7781,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7474,7 +7847,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7589,7 +7965,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         }
       },
@@ -7626,7 +8005,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -7677,7 +8059,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7738,7 +8123,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -7825,7 +8213,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
         },
         "x-code-samples": [
@@ -7868,7 +8259,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "422": {
             "description": "Invalid data was sent",
@@ -7925,7 +8319,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -7992,7 +8389,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -8038,7 +8438,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/AccessForbidden"
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -8435,51 +8838,73 @@
             "items": {
               "type": "object",
               "properties": {
-                "credentialId": {
+                "id": {
                   "type": "string",
-                  "description": "SMTP or Mailgun credential identifier string."
+                  "format": "uuid",
+                  "description": "The message identifier string."
                 },
                 "version": {
                   "type": "string",
                   "description": "The message version. (By default is empty, but if you make multiple versions, you can name or number them to distinguish them.)"
                 },
-                "from": {
-                  "type": "string",
-                  "description": "The sender address.",
-                  "maxLength": 254
-                },
-                "subject": {
-                  "type": "string",
-                  "description": "The message subject. The template placeholders are allowed.",
-                  "maxLength": 998
-                },
-                "text": {
-                  "type": "string",
-                  "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
-                },
-                "html": {
-                  "type": "string",
-                  "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
-                },
-                "language": {
-                  "type": "string",
-                  "description": "The message's ISO 639-1 two-letter language code."
-                },
                 "weight": {
                   "type": "integer",
-                  "description": "The message's weight.",
+                  "description": "The value for random-weighted picking of a template in the case of a split test.\nThe split test algorithm does not factor localization when making a weighted-random template selection.  Therefore, a version will be selected first, and then after a version is selected a specific localization will be selected.  Take the case where two versions have different locale content -- the locales of the content is not considered when selecting the version.\n",
                   "minimum": 0,
                   "maximum": 100,
                   "example": 75,
                   "default": 100
+                },
+                "templates": {
+                  "description": "The value for random-weighted picking of a template in the case of a split test.\nThe split test algorithm does not factor localization when making a weighted-random template selection.  Therefore, a version will be selected first, and then after a version is selected a specific localization will be selected.  Take the case where two versions have different locale content -- the locales of the content is not considered when selecting the version.\n",
+                  "example": {
+                    "locale": "fr-FR",
+                    "from": "example@example.com",
+                    "subject": "Sujet de démonstration",
+                    "text": "Texte de démonstration",
+                    "html": "<p>Texte de démonstration</p>"
+                  },
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "description": "The sender address. It must be a **verified** address. # todo add a link to help docs on how to verify an email address\n",
+                        "maxLength": 254
+                      },
+                      "subject": {
+                        "type": "string",
+                        "description": "The message subject. The template placeholders are allowed.",
+                        "maxLength": 998
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "The message's text body.\nLeave empty to use content from \"html\".\nThe template placeholders are allowed.\n"
+                      },
+                      "html": {
+                        "type": "string",
+                        "description": "The message's html body.\nLeave empty to use content from \"text\".\nThe template placeholders are allowed.\n"
+                      },
+                      "locale": {
+                        "type": "string",
+                        "description": "The language locale identifier according to [RFC 5646](https://tools.ietf.org/html/rfc5646).",
+                        "example": "fr-FR"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "subject",
+                      "text",
+                      "html",
+                      "locale"
+                    ]
+                  }
                 }
               },
               "required": [
-                "from",
-                "subject",
-                "text",
-                "html",
-                "language"
+                "templates"
               ]
             }
           },
@@ -19951,8 +20376,8 @@
       }
     },
     "responses": {
-      "AccessForbidden": {
-        "description": "Access forbidden, invalid API-KEY was used",
+      "Conflict": {
+        "description": "Conflict",
         "content": {
           "application/json": {
             "schema": {
@@ -19961,8 +20386,8 @@
           }
         }
       },
-      "Conflict": {
-        "description": "Conflict",
+      "Forbidden": {
+        "description": "Access forbidden",
         "content": {
           "application/json": {
             "schema": {
@@ -20027,6 +20452,16 @@
             "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset\n",
             "schema": {
               "type": "string"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized access, invalid credentials was used",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
             }
           }
         }
