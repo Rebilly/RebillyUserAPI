@@ -6145,6 +6145,7 @@ components:
             The filter that will be used on customer selection during the broadcast message processing.
             The syntax is the same as the `query` filter, without `filter=` prefix.
             For example: `firstName:John`, `firstName:John;lastName:Doe`, etc.
+          example: 'firstName:John;lastName:Doe'
         title:
           type: string
           description: The title of the messages. (This title will appear in reports.)
