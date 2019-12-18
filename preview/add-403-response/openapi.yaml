@@ -1945,6 +1945,38 @@ paths:
           $ref: '#/components/responses/Conflict'
         '422':
           $ref: '#/components/responses/InvalidDataError'
+  '/email-delivery-settings/{id}/resend-email-verification':
+    parameters:
+      - $ref: '#/components/parameters/resourceId'
+    post:
+      tags:
+        - Email Delivery Settings
+      summary: Resend verification email for an email delivery setting.
+      operationId: ResendEmailDeliverySettingVerification
+      description: |
+        Resend verification email for an email delivery setting.
+      responses:
+        '200':
+          description: Verification email was sent successfully.
+          headers:
+            Rate-Limit-Limit:
+              $ref: '#/components/headers/Rate-Limit-Limit'
+            Rate-Limit-Remaining:
+              $ref: '#/components/headers/Rate-Limit-Remaining'
+            Rate-Limit-Reset:
+              $ref: '#/components/headers/Rate-Limit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDeliverySetting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
   /email-messages:
     get:
       tags:
@@ -6843,6 +6875,10 @@ components:
             - postmark
             - sendgrid
           example: rebilly
+        isDefault:
+          type: boolean
+          description: Whether this setting will be used by default or not.
+          default: false
         createdTime:
           description: The created time
           allOf:
@@ -9294,6 +9330,8 @@ components:
                 merchantAccountType:
                   type: integer
                   description: Payvision merchant account type
+              required:
+                - merchantAccountType
             mpi:
               $ref: '#/components/schemas/PayvisionMpis'
     Plugnpay:
@@ -12845,6 +12883,12 @@ components:
             - private
             - public
             - shared
+        systemId:
+          description: |
+            If the Segment is based off of a system Segment, this will be the id of the system Segment from which it was
+            derived. The scope must be `private` when providing this in the request.
+          writeOnly: true
+          type: string
     SendGridCredential:
       type: object
       properties:
