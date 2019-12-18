@@ -313,7 +313,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ApiKey'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -344,7 +346,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiKey'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -388,7 +392,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiKey'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -430,7 +436,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiKey'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -467,7 +475,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -511,7 +521,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/BroadcastMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Broadcast Messages
@@ -534,7 +546,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/BroadcastMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       requestBody:
@@ -569,7 +583,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/BroadcastMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     delete:
@@ -611,7 +627,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/BroadcastMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       requestBody:
@@ -652,7 +670,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/CheckoutPage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -681,7 +701,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CheckoutPage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -722,7 +744,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CheckoutPage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -764,7 +788,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CheckoutPage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -807,7 +833,9 @@ paths:
               $ref: '#/components/headers/Rate-Limit-Reset'
           description: Checkout Page was deleted
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -864,7 +892,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SESCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       requestBody:
@@ -899,7 +929,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SESCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -931,7 +963,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SESCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -991,7 +1025,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmtpCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/emails/{hash}':
@@ -1019,7 +1055,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmtpCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1051,7 +1089,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SmtpCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -1111,7 +1151,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MailgunCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/mailgun/{hash}':
@@ -1139,7 +1181,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MailgunCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1171,7 +1215,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/MailgunCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -1207,7 +1253,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/OAuth2Credential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Webhook Credentials
@@ -1234,7 +1282,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuth2Credential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/oauth2/{hash}':
@@ -1262,7 +1312,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuth2Credential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1289,7 +1341,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuth2Credential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -1329,7 +1383,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GoogleSpreadsheet'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /credential-hashes/postmark:
     post:
       tags:
@@ -1385,7 +1441,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PostmarkCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/postmark/{hash}':
@@ -1413,7 +1471,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PostmarkCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1445,7 +1505,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PostmarkCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -1505,7 +1567,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendGridCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/sendgrid/{hash}':
@@ -1533,7 +1597,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendGridCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1565,7 +1631,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendGridCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -1625,7 +1693,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/webhooks/{hash}':
@@ -1653,7 +1723,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     patch:
@@ -1685,7 +1757,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookCredential'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -1715,7 +1789,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /email-delivery-settings:
@@ -1747,7 +1823,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Email Delivery Settings
@@ -1770,7 +1848,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       requestBody:
@@ -1805,7 +1885,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     delete:
@@ -1856,7 +1938,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           $ref: '#/components/responses/Conflict'
         '422':
@@ -1886,7 +1970,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailDeliverySetting'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -1922,7 +2008,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/EmailMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Email Messages
@@ -1945,7 +2033,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       requestBody:
@@ -1980,7 +2070,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     delete:
@@ -2024,7 +2116,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmailMessage'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           $ref: '#/components/responses/Conflict'
         '422':
@@ -2072,7 +2166,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/EmailNotification'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /events:
     get:
       tags:
@@ -2102,7 +2198,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/SystemEvent'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/events/{eventType}':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
@@ -2126,7 +2224,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SystemEvent'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules':
@@ -2152,7 +2252,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/RuleSet'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -2175,7 +2277,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/RuleSet'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -2228,7 +2332,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/RuleSetHistoryItem'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules/history/{version}':
@@ -2261,7 +2367,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/RuleSetHistoryItem'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules/versions/{version}':
@@ -2294,7 +2402,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/RuleSetVersion'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /forgot-password:
@@ -2373,7 +2483,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -2404,7 +2516,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -2467,7 +2581,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -2511,7 +2627,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -2575,7 +2693,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -2602,7 +2722,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -2642,7 +2764,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/gateway-accounts/{id}/disable':
@@ -2671,7 +2795,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -2712,7 +2838,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Gateway Accounts
@@ -2735,7 +2863,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           $ref: '#/components/responses/Conflict'
         '422':
@@ -2777,7 +2907,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -2802,7 +2934,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -2833,7 +2967,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/gateway-accounts/{id}/enable':
@@ -2862,7 +2998,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccount'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -2904,7 +3042,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GatewayAccountTimeline'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Gateway Accounts
@@ -2934,7 +3074,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccountTimeline'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -2972,7 +3114,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GatewayAccountTimeline'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     delete:
@@ -2993,7 +3137,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -3213,7 +3359,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Integration'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/integrations/{label}':
     parameters:
       - $ref: '#/components/parameters/integrationLabel'
@@ -3239,7 +3387,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Integration'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /layouts:
@@ -3276,7 +3426,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Layout'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3307,7 +3459,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Layout'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           $ref: '#/components/responses/InvalidDataError'
       x-code-samples:
@@ -3354,7 +3508,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Layout'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -3398,7 +3554,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Layout'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -3440,7 +3598,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -3483,7 +3643,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Lists
@@ -3506,7 +3668,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -3540,7 +3704,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -3580,7 +3746,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -3603,7 +3771,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -3631,7 +3801,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /logout:
@@ -3653,7 +3825,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /memberships:
     get:
       tags:
@@ -3689,7 +3863,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Membership'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/memberships/{organizationId}/{userId}':
     parameters:
       - name: organizationId
@@ -3726,7 +3902,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Membership'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -3777,7 +3955,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Membership'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           $ref: '#/components/responses/Conflict'
     delete:
@@ -3798,7 +3978,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -3837,7 +4019,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Note'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -3868,7 +4052,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Note'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -3913,7 +4099,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Note'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -3957,7 +4145,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Note'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -4013,7 +4203,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Organization'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4044,7 +4236,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           description: The similar organization already exists
           content:
@@ -4090,7 +4284,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -4134,7 +4330,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '409':
           description: The similar organization already exists
           content:
@@ -4173,7 +4371,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -4220,7 +4420,9 @@ paths:
                       description: Bank Name
                       type: string
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /payment-cards-migrations:
     post:
       tags:
@@ -4244,7 +4446,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaymentCardMigration'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -4281,7 +4485,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendTestEmail'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -4318,7 +4524,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendPreviewWebhook'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -4346,7 +4554,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -4376,7 +4586,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -4408,7 +4620,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -4438,7 +4652,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Profile'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -4571,7 +4787,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/SendThroughAttribution'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /signin:
     post:
       tags:
@@ -4603,7 +4821,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Session'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -4736,7 +4956,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/ApiTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -4766,7 +4988,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -4805,7 +5029,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/List'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   /tracking/subscriptions:
     get:
       tags:
@@ -4838,7 +5064,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/SubscriptionTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/tracking/subscriptions/{id}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -4855,7 +5083,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/SubscriptionTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /tracking/webhooks:
@@ -4892,7 +5122,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/WebhookTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/tracking/webhooks/{id}':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -4909,7 +5141,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/WebhookTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   '/tracking/webhooks/{id}/history':
@@ -4937,7 +5171,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/WebhookTracking'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
   '/tracking/webhooks/{id}/resend':
     parameters:
       - $ref: '#/components/parameters/resourceId'
@@ -4957,7 +5193,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
   /users:
@@ -4994,7 +5232,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5025,7 +5265,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -5070,7 +5312,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -5114,7 +5358,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -5150,7 +5396,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -5194,7 +5442,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -5275,7 +5525,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/GlobalWebhook'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
     post:
       tags:
         - Webhooks
@@ -5300,7 +5552,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWebhook'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -5332,7 +5586,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWebhook'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -5372,7 +5628,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlobalWebhook'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -5427,7 +5685,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Website'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
       x-code-samples:
         - lang: PHP
           source: |
@@ -5458,7 +5718,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Website'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '422':
           description: Invalid data was sent
           content:
@@ -5504,7 +5766,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Website'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
       x-code-samples:
@@ -5548,7 +5812,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Website'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '422':
@@ -5589,7 +5855,9 @@ paths:
             Rate-Limit-Reset:
               $ref: '#/components/headers/Rate-Limit-Reset'
         '401':
-          $ref: '#/components/responses/AccessForbidden'
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
         '409':
@@ -13462,14 +13730,14 @@ components:
               - $ref: '#/components/schemas/NotesLink'
               - $ref: '#/components/schemas/OrganizationLink'
   responses:
-    AccessForbidden:
-      description: 'Access forbidden, invalid API-KEY was used'
+    Conflict:
+      description: Conflict
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Conflict:
-      description: Conflict
+    Forbidden:
+      description: Access forbidden
       content:
         application/json:
           schema:
@@ -13513,6 +13781,12 @@ components:
             The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) when the current period will reset
           schema:
             type: string
+    Unauthorized:
+      description: 'Unauthorized access, invalid credentials was used'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     collectionExpand:
       name: expand
