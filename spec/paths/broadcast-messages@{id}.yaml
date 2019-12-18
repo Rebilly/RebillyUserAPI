@@ -22,7 +22,9 @@ get:
           schema:
             $ref: '#/components/schemas/BroadcastMessage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
 delete:
@@ -64,7 +66,9 @@ patch:
           schema:
             $ref: '#/components/schemas/BroadcastMessage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     422:
       $ref: '#/components/responses/InvalidDataError'
   requestBody:
