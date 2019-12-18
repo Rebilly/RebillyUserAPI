@@ -25,4 +25,6 @@ get:
             items:
               $ref: '#/components/schemas/EmailNotification'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'

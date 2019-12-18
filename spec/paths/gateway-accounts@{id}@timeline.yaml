@@ -34,7 +34,9 @@ get:
             items:
               $ref: '#/components/schemas/GatewayAccountTimeline'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
 post:
   tags:
     - Gateway Accounts
@@ -64,7 +66,9 @@ post:
           schema:
             $ref: '#/components/schemas/GatewayAccountTimeline'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     422:
       description: Invalid data was sent
       content:

@@ -28,7 +28,9 @@ get:
             items:
               $ref: '#/components/schemas/CheckoutPage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
 post:
   tags:
     - Checkout Pages
@@ -51,7 +53,9 @@ post:
           schema:
             $ref: '#/components/schemas/CheckoutPage'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     422:
       description: Invalid data was sent
       content:

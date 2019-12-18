@@ -26,7 +26,9 @@ get:
             items:
               $ref: '#/components/schemas/EmailDeliverySetting'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
 post:
   tags:
     - Email Delivery Settings
@@ -49,7 +51,9 @@ post:
           schema:
             $ref: '#/components/schemas/EmailDeliverySetting'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     422:
       $ref: '#/components/responses/InvalidDataError'
   requestBody:
