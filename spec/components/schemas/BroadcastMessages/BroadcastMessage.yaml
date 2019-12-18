@@ -16,6 +16,8 @@ properties:
       The syntax is the same as the `query` filter, without `filter=` prefix.
 
       For example: `firstName:John`, `firstName:John;lastName:Doe`, etc.
+
+      Attention: You should not URL encode the filter value.
     example: "firstName:John;lastName:Doe"
   title:
     type: string
