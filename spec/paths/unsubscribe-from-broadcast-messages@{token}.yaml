@@ -1,0 +1,23 @@
+parameters:
+  - $ref: '#/components/parameters/token'
+put:
+  tags:
+    - Broadcast Messages
+  summary: Unsubscribe from future broadcast messages.
+  operationId: PostBroadcastMessageCancellation
+  description: |
+    Unsubscribe from future broadcast messages.
+  responses:
+    204:
+      description: Email address was successfully unsubscribed.
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+    401:
+      $ref: '#/components/responses/Unauthorized'
+    404:
+      $ref: '#/components/responses/NotFound'
