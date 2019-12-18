@@ -4,7 +4,7 @@ put:
   tags:
     - Broadcast Messages
   summary: Unsubscribe from future broadcast messages.
-  operationId: PostBroadcastMessageCancellation
+  operationId: PutBroadcastMessageCancellation
   description: |
     Unsubscribe from future broadcast messages.
   responses:
