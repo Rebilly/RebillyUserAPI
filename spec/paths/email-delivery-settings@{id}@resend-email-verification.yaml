@@ -1,16 +1,15 @@
+parameters:
+  - $ref: '#/components/parameters/resourceId'
 post:
   tags:
-    - Profile
-  summary: Change password
-  operationId: PostProfilePasswordChange
-  description: >
-    Updates user's password with the specified newPassword. And checks if
-    currentPassword matches the actual one.
-  requestBody:
-    $ref: '#/components/requestBodies/UpdatePassword'
+    - Email Delivery Settings
+  summary: Resend verification email for an email delivery setting.
+  operationId: ResendEmailDeliverySettingVerification
+  description: |
+    Resend verification email for an email delivery setting.
   responses:
-    201:
-      description: Password updated successfully
+    200:
+      description: Verification email was sent successfully.
       headers:
         Rate-Limit-Limit:
           $ref: "#/components/headers/Rate-Limit-Limit"
@@ -21,12 +20,12 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Profile'
+            $ref: '#/components/schemas/EmailDeliverySetting'
     401:
       $ref: '#/components/responses/Unauthorized'
     403:
       $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
-    422:
-      $ref: '#/components/responses/InvalidDataError'
+    409:
+      $ref: '#/components/responses/Conflict'

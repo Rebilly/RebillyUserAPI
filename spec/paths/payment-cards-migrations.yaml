@@ -20,7 +20,9 @@ post:
           schema:
             $ref: '#/components/schemas/PaymentCardMigration'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     422:
       description: Invalid data was sent
       content:

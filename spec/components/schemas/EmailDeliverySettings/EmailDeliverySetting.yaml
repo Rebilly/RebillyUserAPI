@@ -43,6 +43,10 @@ properties:
       - postmark
       - sendgrid
     example: "rebilly"
+  isDefault:
+    type: boolean
+    description: Whether this setting will be used by default or not.
+    default: false
   createdTime:
     description: The created time
     allOf:
