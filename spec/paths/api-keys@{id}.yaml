@@ -22,7 +22,9 @@ get:
           schema:
             $ref: '#/components/schemas/ApiKey'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
 put:
@@ -60,7 +62,9 @@ put:
           schema:
             $ref: '#/components/schemas/ApiKey'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
     422:
@@ -85,7 +89,9 @@ delete:
         Rate-Limit-Reset:
           $ref: "#/components/headers/Rate-Limit-Reset"
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     404:
       $ref: '#/components/responses/NotFound'
     409:

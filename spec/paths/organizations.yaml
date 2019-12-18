@@ -31,7 +31,9 @@ get:
             items:
               $ref: '#/components/schemas/Organization'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
 post:
   tags:
     - Organizations
@@ -56,7 +58,9 @@ post:
           schema:
             $ref: '#/components/schemas/Organization'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     409:
       description: The similar organization already exists
       content:

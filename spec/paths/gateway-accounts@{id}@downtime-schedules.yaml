@@ -33,7 +33,9 @@ get:
             items:
               $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
 post:
   tags:
     - Gateway Accounts
@@ -56,7 +58,9 @@ post:
           schema:
             $ref: '#/components/schemas/GatewayAccountDowntimeSchedule'
     401:
-      $ref: '#/components/responses/AccessForbidden'
+      $ref: '#/components/responses/Unauthorized'
+    403:
+      $ref: '#/components/responses/Forbidden'
     409:
       $ref: '#/components/responses/Conflict'
     422:
