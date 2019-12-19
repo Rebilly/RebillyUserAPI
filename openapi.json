@@ -8823,8 +8823,10 @@
               }
             ]
           },
-          "criteria": {
-            "$ref": "#/components/schemas/Condition"
+          "filter": {
+            "type": "string",
+            "description": "The filter that will be used on customer selection during the broadcast message processing.\nThe syntax is the same as the `query` filter, without `filter=` prefix.\nFor example: `firstName:John`, `firstName:John;lastName:Doe`, etc.\nAttention: You should not URL encode the filter value.\n",
+            "example": "firstName:John;lastName:Doe"
           },
           "title": {
             "type": "string",
