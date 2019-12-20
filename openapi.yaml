@@ -8166,6 +8166,24 @@ components:
                 - productId
                 - merchantPassword
                 - merchantKey
+    Finrax:
+      description: Finrax config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Finrax credentials object
+              properties:
+                businessToken:
+                  type: string
+                  description: Finrax business token
+                  format: password
+              required:
+                - businessToken
     FinTecSystems:
       description: FinTecSystems config
       allOf:
