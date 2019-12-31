@@ -877,7 +877,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUriPath('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->create($checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUrlPathSegment('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->create($checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ]
       }
@@ -999,7 +999,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUriPath('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->update('checkoutPageId', $checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUrlPathSegment('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->update('checkoutPageId', $checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ]
       },
