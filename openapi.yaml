@@ -10177,7 +10177,7 @@ components:
               eventType:
                 description: The configuration event type
                 allOf:
-                  - $ref: '#/components/parameters/systemEventType'
+                  - $ref: '#/components/parameters/systemEventType/schema'
               title:
                 type: string
                 description: The configuration title
