@@ -1293,11 +1293,6 @@
           "description": "SMTP credential resource",
           "required": true
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "201": {
             "description": "SMTP credential was created",
@@ -1497,11 +1492,6 @@
           "description": "Mailgun credential resource",
           "required": true
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "201": {
             "description": "Mailgun credential was created",
@@ -1958,11 +1948,6 @@
           "description": "Postmark credential resource",
           "required": true
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "201": {
             "description": "Postmark credential was created",
@@ -2162,11 +2147,6 @@
           "description": "SendGrid credential resource",
           "required": true
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "201": {
             "description": "SendGrid credential was created",
@@ -2366,11 +2346,6 @@
           "description": "Credential resource",
           "required": true
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "201": {
             "description": "Webhook credential was created",
@@ -3147,11 +3122,6 @@
           "Email Notifications"
         ],
         "summary": "Retrieve a list of email notification events",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "responses": {
           "200": {
             "description": "A list of email notification events was retrieved successfully",
@@ -6268,7 +6238,6 @@
         ]
       },
       "post": {
-        "deprecated": true,
         "tags": [
           "Organizations"
         ],
@@ -6335,7 +6304,6 @@
         }
       ],
       "get": {
-        "deprecated": true,
         "tags": [
           "Organizations"
         ],
@@ -6382,7 +6350,6 @@
         ]
       },
       "put": {
-        "deprecated": true,
         "tags": [
           "Organizations"
         ],
@@ -6463,7 +6430,6 @@
         ]
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "Organizations"
         ],
@@ -6508,11 +6474,6 @@
       }
     },
     "/payment-cards-bank-names": {
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/organizationId"
-        }
-      ],
       "get": {
         "tags": [
           "Payment Cards"
@@ -7822,9 +7783,6 @@
         "description": "Retrieve a list of users\n",
         "parameters": [
           {
-            "$ref": "#/components/parameters/organizationId"
-          },
-          {
             "$ref": "#/components/parameters/collectionLimit"
           },
           {
@@ -7886,11 +7844,6 @@
         "summary": "Create an user",
         "operationId": "PostUser",
         "description": "Create an user\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/organizationId"
-          }
-        ],
         "requestBody": {
           "$ref": "#/components/requestBodies/User"
         },
