@@ -1,5 +1,4 @@
 get:
-  deprecated: true
   tags:
     - Organizations
   summary: Retrieve a list of organizations
