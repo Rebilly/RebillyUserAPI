@@ -6174,7 +6174,6 @@
     },
     "/organizations": {
       "get": {
-        "deprecated": true,
         "tags": [
           "Organizations"
         ],
