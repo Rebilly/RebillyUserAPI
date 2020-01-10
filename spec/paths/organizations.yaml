@@ -36,7 +36,6 @@ get:
     403:
       $ref: '#/components/responses/Forbidden'
 post:
-  deprecated: true
   tags:
     - Organizations
   summary: Create a organization

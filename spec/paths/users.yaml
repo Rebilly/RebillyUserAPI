@@ -8,7 +8,6 @@ get:
   description: |
     Retrieve a list of users
   parameters:
-    - $ref: '#/components/parameters/organizationId'
     - $ref: '#/components/parameters/collectionLimit'
     - $ref: '#/components/parameters/collectionOffset'
   responses:
@@ -44,8 +43,6 @@ post:
   operationId: PostUser
   description: |
     Create an user
-  parameters:
-    - $ref: '#/components/parameters/organizationId'
   requestBody:
     $ref: '#/components/requestBodies/User'
   responses:

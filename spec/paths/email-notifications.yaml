@@ -4,8 +4,6 @@ get:
   tags:
     - Email Notifications
   summary: Retrieve a list of email notification events
-  parameters:
-    - $ref: '#/components/parameters/organizationId'
   responses:
     200:
       description: A list of email notification events was retrieved successfully
