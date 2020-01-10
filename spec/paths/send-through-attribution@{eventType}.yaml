@@ -1,5 +1,6 @@
 parameters:
   - $ref: '#/components/parameters/systemEventType'
+  - $ref: '#/components/parameters/organizationId'
 get:
   tags:
     - Email Notifications
