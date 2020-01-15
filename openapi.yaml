@@ -10833,6 +10833,7 @@ components:
         - LPG-online
         - LPG-payment-card
         - miscellaneous
+        - Netbanking
         - Neteller
         - Nordea-Solo
         - OchaPay
