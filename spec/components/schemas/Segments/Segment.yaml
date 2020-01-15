@@ -31,11 +31,9 @@ properties:
   isStarred:
     description: Toggle whether this Segment is starred by the current user
     type: boolean
-    readOnly: true
   isVisible:
     description: Toggle whether this Segment is visible to the current user
     type: boolean
-    readOnly: true
   userIds:
     type: array
     uniqueItems: true
