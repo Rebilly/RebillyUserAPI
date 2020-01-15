@@ -4614,52 +4614,6 @@
           }
         }
       },
-      "patch": {
-        "tags": [
-          "Segments"
-        ],
-        "summary": "Update a Segment's visibility",
-        "operationId": "PatchGridSegment",
-        "description": "Toggle the visibility of the current Segment for the authenticated user\n",
-        "responses": {
-          "200": {
-            "description": "Segment was updated successfully",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "$ref": "#/components/headers/Rate-Limit-Limit"
-              },
-              "Rate-Limit-Remaining": {
-                "$ref": "#/components/headers/Rate-Limit-Remaining"
-              },
-              "Rate-Limit-Reset": {
-                "$ref": "#/components/headers/Rate-Limit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Segment"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          },
-          "422": {
-            "$ref": "#/components/responses/InvalidDataError"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PatchSegment"
-              }
-            }
-          }
-        }
-      },
       "put": {
         "tags": [
           "Segments"
@@ -19030,23 +18984,6 @@
           }
         }
       },
-      "PatchSegment": {
-        "type": "object",
-        "required": [
-          "isStarred",
-          "isVisible"
-        ],
-        "properties": {
-          "isStarred": {
-            "description": "Toggle the starring of this segment for the current user",
-            "type": "boolean"
-          },
-          "isVisible": {
-            "description": "Toggle whether this Segment is visible to the current user",
-            "type": "boolean"
-          }
-        }
-      },
       "Segment": {
         "type": "object",
         "required": [
@@ -19091,13 +19028,11 @@
           },
           "isStarred": {
             "description": "Toggle whether this Segment is starred by the current user",
-            "type": "boolean",
-            "readOnly": true
+            "type": "boolean"
           },
           "isVisible": {
             "description": "Toggle whether this Segment is visible to the current user",
-            "type": "boolean",
-            "readOnly": true
+            "type": "boolean"
           },
           "userIds": {
             "type": "array",
