@@ -5566,7 +5566,7 @@
                     "type": "boolean"
                   },
                   "permissions": {
-                    "description": "The memberships's permissions. See the format in example",
+                    "description": "The memberships's permissions. See the format in example. Use wildcard `*` for full access.",
                     "allOf": [
                       {
                         "$ref": "#/components/schemas/AclPermissions"
@@ -8442,8 +8442,7 @@
               ]
             },
             "permissions": {
-              "description": "Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.",
-              "nullable": true,
+              "description": "Specify individual permission here if creating a restricted API key. Use wildcard `*` for full access.",
               "allOf": [
                 {
                   "$ref": "#/components/schemas/AclPermissions"
@@ -8500,8 +8499,7 @@
             ]
           },
           "permissions": {
-            "description": "Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.",
-            "nullable": true,
+            "description": "Specify individual permissions here if creating a restricted API key.",
             "deprecated": true,
             "allOf": [
               {
@@ -15732,7 +15730,7 @@
             }
           },
           "permissions": {
-            "description": "The user's permissions. See the format in example",
+            "description": "The user's permissions. See the format in example. Use wildcard `*` for full access.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/AclPermissions"
@@ -19113,7 +19111,7 @@
             "type": "string"
           },
           "permissions": {
-            "description": "The session's permissions. See the format in example",
+            "description": "The session's permissions. See the format in example. Use wildcard `*` for full access.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/AclPermissions"
@@ -19938,7 +19936,7 @@
             "format": "password"
           },
           "permissions": {
-            "description": "The user's permissions. See the format in example",
+            "description": "The user's permissions. See the format in example. Use wildcard `*` for full access.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/AclPermissions"
@@ -20621,7 +20619,7 @@
                   "type": "boolean"
                 },
                 "permissions": {
-                  "description": "The memberships's permissions. See the format in example",
+                  "description": "The memberships's permissions. See the format in example. Use wildcard `*` for full access.",
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/AclPermissions"

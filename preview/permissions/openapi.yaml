@@ -3894,7 +3894,7 @@ paths:
                 isOwner:
                   type: boolean
                 permissions:
-                  description: The memberships's permissions. See the format in example
+                  description: The memberships's permissions. See the format in example. Use wildcard `*` for full access.
                   allOf:
                     - $ref: '#/components/schemas/AclPermissions'
         required: true
@@ -5861,8 +5861,7 @@ components:
             allOf:
               - $ref: '#/components/schemas/ApiKeyScope'
           permissions:
-            description: Specify individual permission here if creating a restricted API key. Send `null` to allow all permissions.
-            nullable: true
+            description: Specify individual permission here if creating a restricted API key. Use wildcard `*` for full access.
             allOf:
               - $ref: '#/components/schemas/AclPermissions'
     AclPermissions:
@@ -5900,8 +5899,7 @@ components:
             - secret
             - publishable
         permissions:
-          description: Specify individual permissions here if creating a restricted API key. Send `null` to allow all permissions.
-          nullable: true
+          description: Specify individual permissions here if creating a restricted API key.
           deprecated: true
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
@@ -10669,7 +10667,7 @@ components:
               description: First and last name
               type: string
         permissions:
-          description: The user's permissions. See the format in example
+          description: The user's permissions. See the format in example. Use wildcard `*` for full access.
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
         isOwner:
@@ -12924,7 +12922,7 @@ components:
           description: The session's token used for authentication
           type: string
         permissions:
-          description: The session's permissions. See the format in example
+          description: The session's permissions. See the format in example. Use wildcard `*` for full access.
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
         memberships:
@@ -13472,7 +13470,7 @@ components:
           type: string
           format: password
         permissions:
-          description: The user's permissions. See the format in example
+          description: The user's permissions. See the format in example. Use wildcard `*` for full access.
           allOf:
             - $ref: '#/components/schemas/AclPermissions'
         createdTime:
@@ -13926,7 +13924,7 @@ components:
               isOwner:
                 type: boolean
               permissions:
-                description: The memberships's permissions. See the format in example
+                description: The memberships's permissions. See the format in example. Use wildcard `*` for full access.
                 allOf:
                   - $ref: '#/components/schemas/AclPermissions'
       description: Membership resource
