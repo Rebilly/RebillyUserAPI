@@ -9226,6 +9226,29 @@ components:
                 - user
                 - vendor
                 - password
+    Paygate10:
+      description: Paygate10 config
+      allOf:
+        - $ref: '#/components/schemas/GatewayAccount'
+        - type: object
+          required:
+            - credentials
+          properties:
+            credentials:
+              type: object
+              description: Paygate10 credentials object
+              properties:
+                apiKey:
+                  type: string
+                  description: Paygate10 API key
+                  format: password
+                apiSecret:
+                  type: string
+                  description: Paygate10 API secret
+                  format: password
+              required:
+                - apiKey
+                - apiSecret
     PayPal:
       description: PayPal Gateway config
       allOf:
