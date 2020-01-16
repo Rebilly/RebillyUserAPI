@@ -31,7 +31,7 @@ properties:
     type: string
     format: password
   permissions:
-    description: The user's permissions. See the format in example
+    description: The user's permissions. See the format in example. Use wildcard `*` for full access.
     allOf:
       - $ref: "#/components/schemas/AclPermissions"
   createdTime:

@@ -54,7 +54,7 @@ put:
             isOwner:
               type: boolean
             permissions:
-              description: The memberships's permissions. See the format in example
+              description: The memberships's permissions. See the format in example. Use wildcard `*` for full access.
               allOf:
                 - $ref: "#/components/schemas/AclPermissions"
     required: true
