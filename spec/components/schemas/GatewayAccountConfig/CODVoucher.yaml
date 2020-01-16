@@ -1,4 +1,4 @@
-description: Paygate10 config
+description: COD Voucher config
 allOf:
 -
   $ref: "#/components/schemas/GatewayAccount"
@@ -9,15 +9,15 @@ allOf:
   properties:
     credentials:
       type: object
-      description: Paygate10 credentials object
+      description: COD Voucher credentials object
       properties:
         apiKey:
           type: string
-          description: Paygate10 API key
+          description: COD Voucher API key
           format: password
         apiSecret:
           type: string
-          description: Paygate10 API secret
+          description: COD Voucher API secret
           format: password
       required:
       - "apiKey"
