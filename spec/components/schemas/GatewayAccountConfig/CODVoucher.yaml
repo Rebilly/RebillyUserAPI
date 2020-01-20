@@ -1,0 +1,24 @@
+description: COD Voucher config
+allOf:
+-
+  $ref: "#/components/schemas/GatewayAccount"
+-
+  type: "object"
+  required:
+  - "credentials"
+  properties:
+    credentials:
+      type: object
+      description: COD Voucher credentials object
+      properties:
+        apiKey:
+          type: string
+          description: COD Voucher API key
+          format: password
+        apiSecret:
+          type: string
+          description: COD Voucher API secret
+          format: password
+      required:
+      - "apiKey"
+      - "apiSecret"
