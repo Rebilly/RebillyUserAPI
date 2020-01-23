@@ -45,7 +45,10 @@ properties:
     example: "rebilly"
   isDefault:
     type: boolean
-    description: Whether this setting will be used by default or not.
+    description: >
+      The default email is used as a fallback when the `from` email in a template is not verified.
+      The default email is also used as the pre-selected `from` email 
+      for one-off user-initiated emails within the app. 
     default: false
   createdTime:
     description: The created time
