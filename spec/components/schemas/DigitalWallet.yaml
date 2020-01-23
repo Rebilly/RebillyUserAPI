@@ -1,0 +1,5 @@
+type: string
+description: Payment Card Digital Wallet
+enum:
+  - ApplePay
+  - GooglePay

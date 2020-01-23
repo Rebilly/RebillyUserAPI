@@ -1,0 +1,6 @@
+description: ApplePay Digital Wallet
+allOf:
+  -
+    $ref: "#/components/schemas/DigitalWallet"
+  -
+    type: "object"

@@ -86,6 +86,8 @@ properties:
     type: array
     items:
       $ref: "https://rebilly.github.io/api-standards/schema/json-schema-draft-04/payment-instruments/payment-card-brands.json"
+  digitalWallets:
+    $ref: "#/components/schemas/DigitalWallet"
   isDown:
     description: True if gateway is currently in downtime period.
     type: boolean
