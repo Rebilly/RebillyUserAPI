@@ -281,6 +281,8 @@ paths:
                 echo $e->getMessage();
             }
   /api-keys:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - API Keys
@@ -370,6 +372,7 @@ paths:
             }
   '/api-keys/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -492,6 +495,8 @@ paths:
           source: |
             $client->apiKeys()->delete('apiKeyID');
   /broadcast-messages:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Broadcast Messages
@@ -561,6 +566,7 @@ paths:
         required: true
   '/broadcast-messages/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -641,6 +647,8 @@ paths:
         description: Broadcast message resource
         required: true
   /checkout-pages:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Checkout Pages
@@ -729,6 +737,7 @@ paths:
             }
   '/checkout-pages/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -846,6 +855,8 @@ paths:
           source: |
             $client->checkoutPages()->delete('checkoutPageId');
   /credential-hashes/aws-ses:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Email Credentials
@@ -907,6 +918,7 @@ paths:
         required: true
   '/credential-hashes/aws-ses/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -972,6 +984,8 @@ paths:
         '422':
           $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/emails:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Email Credentials
@@ -1033,6 +1047,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/emails/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1098,6 +1113,8 @@ paths:
         '422':
           $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/mailgun:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Email Credentials
@@ -1159,6 +1176,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/mailgun/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1224,6 +1242,8 @@ paths:
         '422':
           $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/oauth2:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Webhook Credentials
@@ -1290,6 +1310,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/oauth2/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1353,6 +1374,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/oauth2/{hash}/items':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1388,6 +1410,8 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
   /credential-hashes/postmark:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Email Credentials
@@ -1449,6 +1473,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/postmark/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1514,6 +1539,8 @@ paths:
         '422':
           $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/sendgrid:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Email Credentials
@@ -1575,6 +1602,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/sendgrid/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1640,6 +1668,8 @@ paths:
         '422':
           $ref: '#/components/responses/InvalidDataError'
   /credential-hashes/webhooks:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Webhook Credentials
@@ -1701,6 +1731,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/credential-hashes/webhooks/{hash}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/hash'
     get:
       tags:
@@ -1767,6 +1798,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/email-delivery-setting-verifications/{token}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/token'
     put:
       tags:
@@ -1796,6 +1828,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
   /email-delivery-settings:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Email Delivery Settings
@@ -1833,7 +1867,7 @@ paths:
       summary: Create an email delivery setting
       operationId: PostEmailDeliverySetting
       description: |
-        Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails. 
+        Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails.
       responses:
         '201':
           description: Email delivery setting was created
@@ -1863,6 +1897,7 @@ paths:
         required: true
   '/email-delivery-settings/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -1948,6 +1983,7 @@ paths:
           $ref: '#/components/responses/InvalidDataError'
   '/email-delivery-settings/{id}/resend-email-verification':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     post:
       tags:
@@ -1979,6 +2015,8 @@ paths:
         '409':
           $ref: '#/components/responses/Conflict'
   /email-messages:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Email Messages
@@ -2048,6 +2086,7 @@ paths:
         required: true
   '/email-messages/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -2140,6 +2179,8 @@ paths:
         description: Email message status
         required: true
   /email-notifications:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Email Notifications
@@ -2171,6 +2212,8 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
   /events:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Rules
@@ -2204,6 +2247,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
   '/events/{eventType}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/systemEventType'
     get:
       tags:
@@ -2232,6 +2276,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/systemEventType'
     get:
       tags:
@@ -2293,6 +2338,7 @@ paths:
         $ref: '#/components/requestBodies/RuleSet'
   '/events/{eventType}/rules/history':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/systemEventType'
     get:
       tags:
@@ -2340,6 +2386,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules/history/{version}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/systemEventType'
       - $ref: '#/components/parameters/rulesVersion'
     get:
@@ -2375,6 +2422,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/events/{eventType}/rules/versions/{version}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/systemEventType'
       - $ref: '#/components/parameters/rulesVersion'
     get:
@@ -2451,6 +2499,8 @@ paths:
                 echo $e->getMessage();
             }
   /gateway-accounts:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Gateway Accounts
@@ -2559,6 +2609,7 @@ paths:
             }
   '/gateway-accounts/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -2740,6 +2791,7 @@ paths:
             }
   '/gateway-accounts/{id}/close':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     post:
       tags:
@@ -2772,6 +2824,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/gateway-accounts/{id}/disable':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     post:
       tags:
@@ -2805,6 +2858,7 @@ paths:
           description: Gateway account is pending activation and cannot be disabled.
   '/gateway-accounts/{id}/downtime-schedules':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -2879,6 +2933,7 @@ paths:
         $ref: '#/components/requestBodies/GatewayAccountDowntimeSchedule'
   '/gateway-accounts/{id}/downtime-schedules/{downtimeId}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
       - name: downtimeId
         in: path
@@ -2975,6 +3030,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/gateway-accounts/{id}/enable':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     post:
       tags:
@@ -3008,6 +3064,7 @@ paths:
           description: Gateway account is pending activation and cannot be enabled.
   '/gateway-accounts/{id}/timeline':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -3086,6 +3143,7 @@ paths:
                 $ref: '#/components/schemas/InvalidError'
   '/gateway-accounts/{id}/timeline/{messageId}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
       - name: messageId
         in: path
@@ -3146,6 +3204,8 @@ paths:
         '409':
           $ref: '#/components/responses/Conflict'
   /grid-segments:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Segments
@@ -3206,6 +3266,7 @@ paths:
         $ref: '#/components/requestBodies/Segment'
   '/grid-segments/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -3300,6 +3361,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
   /integrations:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Integrations
@@ -3335,6 +3398,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
   '/integrations/{label}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/integrationLabel'
     get:
       tags:
@@ -3364,6 +3428,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
   /layouts:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Layouts
@@ -3456,6 +3522,7 @@ paths:
             }
   '/layouts/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -3579,6 +3646,8 @@ paths:
           source: |
             $client->layouts()->delete('layoutId');
   /lists:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Lists
@@ -3652,6 +3721,7 @@ paths:
         $ref: '#/components/requestBodies/List'
   '/lists/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -3751,6 +3821,7 @@ paths:
           description: List is used in Rules and cannot be deleted
   '/lists/{id}/{version}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
       - name: version
         in: path
@@ -3957,6 +4028,8 @@ paths:
         '409':
           $ref: '#/components/responses/Conflict'
   /notes:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Notes
@@ -4047,6 +4120,7 @@ paths:
             }
   '/notes/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -4362,6 +4436,7 @@ paths:
       description: |
         Retrieve a list of payment card issuing bank names
       parameters:
+        - $ref: '#/components/parameters/organizationId'
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionQuery'
       responses:
@@ -4395,6 +4470,8 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
   /payment-cards-migrations:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Payment Cards
@@ -4427,6 +4504,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/InvalidError'
   /previews/rule-actions/send-email:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Rules
@@ -4466,6 +4545,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/InvalidError'
   /previews/rule-actions/trigger-webhook:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Rules
@@ -4505,6 +4586,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/InvalidError'
   /previews/webhooks:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     post:
       tags:
         - Webhooks
@@ -4731,6 +4814,7 @@ paths:
   '/send-through-attribution/{eventType}':
     parameters:
       - $ref: '#/components/parameters/systemEventType'
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Email Notifications
@@ -4893,6 +4977,7 @@ paths:
       summary: Retrieve a list of tracking API logs
       operationId: GetTrackingApiCollection
       parameters:
+        - $ref: '#/components/parameters/organizationId'
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
         - name: Accept
@@ -4938,6 +5023,7 @@ paths:
             ]);
   '/tracking/api/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -4975,6 +5061,7 @@ paths:
       summary: Retrieve Lists changes history
       operationId: GetTrackingListCollection
       parameters:
+        - $ref: '#/components/parameters/organizationId'
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
       responses:
@@ -5010,6 +5097,7 @@ paths:
       summary: Retrieve a list of tracking subscription logs
       operationId: GetTrackingSubscriptionCollection
       parameters:
+        - $ref: '#/components/parameters/organizationId'
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
       responses:
@@ -5040,6 +5128,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
   '/tracking/subscriptions/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -5066,6 +5155,7 @@ paths:
       summary: Retrieve a list of tracking webhook notifications
       operationId: GetTrackingWebhookCollection
       parameters:
+        - $ref: '#/components/parameters/organizationId'
         - $ref: '#/components/parameters/collectionLimit'
         - $ref: '#/components/parameters/collectionOffset'
         - $ref: '#/components/parameters/collectionSort'
@@ -5098,6 +5188,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
   '/tracking/webhooks/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -5119,6 +5210,7 @@ paths:
           $ref: '#/components/responses/NotFound'
   '/tracking/webhooks/{id}/history':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -5147,6 +5239,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
   '/tracking/webhooks/{id}/resend':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     post:
       tags:
@@ -5170,6 +5263,8 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
   /users:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Users
@@ -5260,6 +5355,7 @@ paths:
             }
   '/users/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -5463,6 +5559,8 @@ paths:
           source: |
             $user = $client->users()->resetTotp('userId');
   /webhooks:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Webhooks
@@ -5534,6 +5632,7 @@ paths:
                 $ref: '#/components/schemas/InvalidError'
   '/webhooks/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -5609,6 +5708,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/InvalidError'
   /websites:
+    parameters:
+      - $ref: '#/components/parameters/organizationId'
     get:
       tags:
         - Websites
@@ -5714,6 +5815,7 @@ paths:
             }
   '/websites/{id}':
     parameters:
+      - $ref: '#/components/parameters/organizationId'
       - $ref: '#/components/parameters/resourceId'
     get:
       tags:
@@ -13961,6 +14063,13 @@ components:
           - text/csv
           - application/pdf
         default: application/json
+    organizationId:
+      name: Organization-Id
+      in: header
+      description: 'Organization identifier in scope of which need to perform request (if not specified, the default organization will be used)'
+      schema:
+        $ref: '#/components/schemas/ResourceId'
+      required: false
     resourceId:
       name: id
       in: path

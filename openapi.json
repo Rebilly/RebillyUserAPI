@@ -250,6 +250,11 @@
       }
     },
     "/api-keys": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "API Keys"
@@ -372,6 +377,9 @@
     },
     "/api-keys/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -546,6 +554,11 @@
       }
     },
     "/broadcast-messages": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Broadcast Messages"
@@ -649,6 +662,9 @@
     },
     "/broadcast-messages/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -770,6 +786,11 @@
       }
     },
     "/checkout-pages": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Checkout Pages"
@@ -884,6 +905,9 @@
     },
     "/checkout-pages/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -1047,6 +1071,11 @@
       }
     },
     "/credential-hashes/aws-ses": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Email Credentials"
@@ -1138,6 +1167,9 @@
     },
     "/credential-hashes/aws-ses/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -1238,6 +1270,11 @@
       }
     },
     "/credential-hashes/emails": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Email Credentials"
@@ -1329,6 +1366,9 @@
     },
     "/credential-hashes/emails/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -1429,6 +1469,11 @@
       }
     },
     "/credential-hashes/mailgun": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Email Credentials"
@@ -1520,6 +1565,9 @@
     },
     "/credential-hashes/mailgun/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -1620,6 +1668,11 @@
       }
     },
     "/credential-hashes/oauth2": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Webhook Credentials"
@@ -1715,6 +1768,9 @@
     },
     "/credential-hashes/oauth2/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -1812,6 +1868,9 @@
     "/credential-hashes/oauth2/{hash}/items": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/hash"
         }
       ],
@@ -1866,6 +1925,11 @@
       }
     },
     "/credential-hashes/postmark": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Email Credentials"
@@ -1957,6 +2021,9 @@
     },
     "/credential-hashes/postmark/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -2057,6 +2124,11 @@
       }
     },
     "/credential-hashes/sendgrid": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Email Credentials"
@@ -2148,6 +2220,9 @@
     },
     "/credential-hashes/sendgrid/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -2248,6 +2323,11 @@
       }
     },
     "/credential-hashes/webhooks": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Webhook Credentials"
@@ -2339,6 +2419,9 @@
     },
     "/credential-hashes/webhooks/{hash}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/hash"
         }
@@ -2441,6 +2524,9 @@
     "/email-delivery-setting-verifications/{token}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/token"
         }
       ],
@@ -2486,6 +2572,11 @@
       }
     },
     "/email-delivery-settings": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Email Delivery Settings"
@@ -2540,7 +2631,7 @@
         ],
         "summary": "Create an email delivery setting",
         "operationId": "PostEmailDeliverySetting",
-        "description": "Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails. \n",
+        "description": "Create an email delivery setting.  The email delivery setting is used in conjunction with email messages or templates to send emails.\n",
         "responses": {
           "201": {
             "description": "Email delivery setting was created",
@@ -2588,6 +2679,9 @@
     },
     "/email-delivery-settings/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -2717,6 +2811,9 @@
     "/email-delivery-settings/{id}/resend-email-verification": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -2765,6 +2862,11 @@
       }
     },
     "/email-messages": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Email Messages"
@@ -2868,6 +2970,9 @@
     },
     "/email-messages/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -3007,6 +3112,11 @@
       }
     },
     "/email-notifications": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Email Notifications"
@@ -3056,6 +3166,11 @@
       }
     },
     "/events": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Rules"
@@ -3108,6 +3223,9 @@
     "/events/{eventType}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/systemEventType"
         }
       ],
@@ -3153,6 +3271,9 @@
     },
     "/events/{eventType}/rules": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/systemEventType"
         }
@@ -3252,6 +3373,9 @@
     "/events/{eventType}/rules/history": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/systemEventType"
         }
       ],
@@ -3334,6 +3458,9 @@
     "/events/{eventType}/rules/history/{version}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/systemEventType"
         },
         {
@@ -3391,6 +3518,9 @@
     },
     "/events/{eventType}/rules/versions/{version}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/systemEventType"
         },
@@ -3501,6 +3631,11 @@
       }
     },
     "/gateway-accounts": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Gateway Accounts"
@@ -3623,6 +3758,9 @@
     },
     "/gateway-accounts/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -3852,6 +3990,9 @@
     "/gateway-accounts/{id}/close": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -3898,6 +4039,9 @@
     },
     "/gateway-accounts/{id}/disable": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -3948,6 +4092,9 @@
     },
     "/gateway-accounts/{id}/downtime-schedules": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -4065,6 +4212,9 @@
     },
     "/gateway-accounts/{id}/downtime-schedules/{downtimeId}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         },
@@ -4211,6 +4361,9 @@
     "/gateway-accounts/{id}/enable": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -4260,6 +4413,9 @@
     },
     "/gateway-accounts/{id}/timeline": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -4386,6 +4542,9 @@
     "/gateway-accounts/{id}/timeline/{messageId}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         },
         {
@@ -4476,6 +4635,11 @@
       }
     },
     "/grid-segments": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Segments"
@@ -4567,6 +4731,9 @@
     },
     "/grid-segments/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -4709,6 +4876,11 @@
       }
     },
     "/integrations": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Integrations"
@@ -4762,6 +4934,9 @@
     "/integrations/{label}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/integrationLabel"
         }
       ],
@@ -4807,6 +4982,11 @@
       }
     },
     "/layouts": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Layouts"
@@ -4922,6 +5102,9 @@
     },
     "/layouts/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -5086,6 +5269,11 @@
       }
     },
     "/lists": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Lists"
@@ -5202,6 +5390,9 @@
     },
     "/lists/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -5352,6 +5543,9 @@
     },
     "/lists/{id}/{version}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         },
@@ -5671,6 +5865,11 @@
       }
     },
     "/notes": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Notes"
@@ -5793,6 +5992,9 @@
     },
     "/notes/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -6234,6 +6436,9 @@
         "description": "Retrieve a list of payment card issuing bank names\n",
         "parameters": [
           {
+            "$ref": "#/components/parameters/organizationId"
+          },
+          {
             "$ref": "#/components/parameters/collectionLimit"
           },
           {
@@ -6290,6 +6495,11 @@
       }
     },
     "/payment-cards-migrations": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Payment Cards"
@@ -6339,6 +6549,11 @@
       }
     },
     "/previews/rule-actions/send-email": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Rules"
@@ -6399,6 +6614,11 @@
       }
     },
     "/previews/rule-actions/trigger-webhook": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Rules"
@@ -6459,6 +6679,11 @@
       }
     },
     "/previews/webhooks": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "post": {
         "tags": [
           "Webhooks"
@@ -6791,6 +7016,9 @@
       "parameters": [
         {
           "$ref": "#/components/parameters/systemEventType"
+        },
+        {
+          "$ref": "#/components/parameters/organizationId"
         }
       ],
       "get": {
@@ -7011,6 +7239,9 @@
         "operationId": "GetTrackingApiCollection",
         "parameters": [
           {
+            "$ref": "#/components/parameters/organizationId"
+          },
+          {
             "$ref": "#/components/parameters/collectionLimit"
           },
           {
@@ -7082,6 +7313,9 @@
     "/tracking/api/{id}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -7139,6 +7373,9 @@
         "summary": "Retrieve Lists changes history",
         "operationId": "GetTrackingListCollection",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/organizationId"
+          },
           {
             "$ref": "#/components/parameters/collectionLimit"
           },
@@ -7198,6 +7435,9 @@
         "operationId": "GetTrackingSubscriptionCollection",
         "parameters": [
           {
+            "$ref": "#/components/parameters/organizationId"
+          },
+          {
             "$ref": "#/components/parameters/collectionLimit"
           },
           {
@@ -7250,6 +7490,9 @@
     "/tracking/subscriptions/{id}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -7290,6 +7533,9 @@
         "summary": "Retrieve a list of tracking webhook notifications",
         "operationId": "GetTrackingWebhookCollection",
         "parameters": [
+          {
+            "$ref": "#/components/parameters/organizationId"
+          },
           {
             "$ref": "#/components/parameters/collectionLimit"
           },
@@ -7349,6 +7595,9 @@
     "/tracking/webhooks/{id}": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -7383,6 +7632,9 @@
     },
     "/tracking/webhooks/{id}/history": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -7430,6 +7682,9 @@
     "/tracking/webhooks/{id}/resend": {
       "parameters": [
         {
+          "$ref": "#/components/parameters/organizationId"
+        },
+        {
           "$ref": "#/components/parameters/resourceId"
         }
       ],
@@ -7467,6 +7722,11 @@
       }
     },
     "/users": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Users"
@@ -7589,6 +7849,9 @@
     },
     "/users/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -7869,6 +8132,11 @@
       }
     },
     "/webhooks": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Webhooks"
@@ -7979,6 +8247,9 @@
     },
     "/webhooks/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -8096,6 +8367,11 @@
       }
     },
     "/websites": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        }
+      ],
       "get": {
         "tags": [
           "Websites"
@@ -8239,6 +8515,9 @@
     },
     "/websites/{id}": {
       "parameters": [
+        {
+          "$ref": "#/components/parameters/organizationId"
+        },
         {
           "$ref": "#/components/parameters/resourceId"
         }
@@ -20644,6 +20923,15 @@
           ],
           "default": "application/json"
         }
+      },
+      "organizationId": {
+        "name": "Organization-Id",
+        "in": "header",
+        "description": "Organization identifier in scope of which need to perform request (if not specified, the default organization will be used)",
+        "schema": {
+          "$ref": "#/components/schemas/ResourceId"
+        },
+        "required": false
       },
       "resourceId": {
         "name": "id",
