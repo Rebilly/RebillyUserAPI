@@ -7456,7 +7456,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "https://rebilly.github.io/RebillyAPI/openapi.json/components/schemas/Customer"
+                    "$ref": "https://rebilly.github.io/RebillyAPI/openapi.json#/components/schemas/Customer"
                   }
                 }
               }
