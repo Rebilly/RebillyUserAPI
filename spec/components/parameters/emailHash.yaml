@@ -1,0 +1,6 @@
+name: emailHash
+in: path
+description: The email hash.
+required: true
+schema:
+  type: string

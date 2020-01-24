@@ -1,0 +1,6 @@
+name: emailHashToken
+in: path
+description: The email hash token.
+required: true
+schema:
+  type: string

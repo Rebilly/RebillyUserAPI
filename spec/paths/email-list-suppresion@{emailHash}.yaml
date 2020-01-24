@@ -1,0 +1,36 @@
+parameters:
+  - $ref: '#/components/parameters/emailHash'
+put:
+  tags:
+    - Email Suppression List
+  summary: Add an email address hash to email suppression list.
+  operationId: PutEmailSuppressionList
+  responses:
+    204:
+      description: The email address hash was added to email suppression list.
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"
+    401:
+      $ref: '#/components/responses/Unauthorized'
+delete:
+  tags:
+    - Email Suppression List
+  summary: Delete an email message hash from email suppression list.
+  operationId: DeleteEmailSuppressionList
+  description: |
+    Delete an email message hash from email suppression list.
+  responses:
+    204:
+      description: The email address hash was removed from email suppression list.
+      headers:
+        Rate-Limit-Limit:
+          $ref: "#/components/headers/Rate-Limit-Limit"
+        Rate-Limit-Remaining:
+          $ref: "#/components/headers/Rate-Limit-Remaining"
+        Rate-Limit-Reset:
+          $ref: "#/components/headers/Rate-Limit-Reset"

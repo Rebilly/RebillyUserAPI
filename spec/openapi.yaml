@@ -204,6 +204,7 @@ x-tagGroups:
       - Email Credentials
       - Email Delivery Settings
       - Email Messages
+      - Email Suppression List
   - name: Rules
     tags:
       - Rules
