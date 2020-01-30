@@ -18,7 +18,6 @@ properties:
       - thank-you
       - terms
   style:
-    description: Control the font and background colors.
     $ref: ./Style.yaml
   content:
     description: >-

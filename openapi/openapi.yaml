@@ -229,6 +229,7 @@ x-tagGroups:
       - Status
       - Tracking
       - Websites
+      - Integrations
   - name: Related docs
     tags:
       - Rebilly API
