@@ -1,9 +1,0 @@
-description: ""
-allOf:
-  - $ref: "#/components/schemas/RuleAction"
-  - type: object
-    properties:
-      pickInstruction:
-        $ref: "#/components/schemas/GatewayAccountPickInstruction"
-    required:
-      - pickInstruction

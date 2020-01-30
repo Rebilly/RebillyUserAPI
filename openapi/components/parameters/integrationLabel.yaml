@@ -1,0 +1,7 @@
+name: label
+in: path
+description: The integration label
+required: true
+schema:
+  allOf:
+    - $ref: ../schemas/OAuth2Credentials/OAuth2CredentialService.yaml

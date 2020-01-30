@@ -1,0 +1,14 @@
+description: Panamerican Mpis
+discriminator:
+  propertyName: name
+  mapping:
+    PanmericanMpi: ./PanmericanMpi.yaml
+type: object
+required:
+  - name
+properties:
+  name:
+    allOf:
+      - $ref: ../../Gateways/MpiName.yaml
+    enum:
+      - Panamerican

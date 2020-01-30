@@ -1,4 +1,0 @@
-description: ""
-allOf:
-  - $ref: "#/components/schemas/RuleAction"
-  - $ref: "#/components/schemas/Webhook"

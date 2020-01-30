@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: '#/components/schemas/ApiKey'
-description: ApiKey resource
-required: true

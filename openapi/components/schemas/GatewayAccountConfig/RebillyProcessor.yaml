@@ -1,0 +1,7 @@
+description: RebillyProcessor Gateway config
+allOf:
+  - $ref: ../GatewayAccount.yaml
+  - type: object
+    properties:
+      mpi:
+        $ref: ../Mpi/RebillyProcessorMpis/RebillyProcessorMpis.yaml

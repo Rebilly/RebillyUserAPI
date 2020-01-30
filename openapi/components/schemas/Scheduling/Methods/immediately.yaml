@@ -1,0 +1,4 @@
+allOf:
+  - $ref: ../CommonScheduleInstruction.yaml
+  - $ref: ../BillingScheduleInstruction.yaml
+  - $ref: ../ServicePeriodAnchorInstruction.yaml
