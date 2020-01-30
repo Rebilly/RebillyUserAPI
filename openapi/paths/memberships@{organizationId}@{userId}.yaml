@@ -4,13 +4,13 @@ parameters:
     required: true
     description: Organization identifier
     schema:
-      $ref: ../components/parameters/resourceId.yaml
+      $ref: ../components/parameters/resourceId.yaml#/schema
   - name: userId
     in: path
     required: true
     description: User identifier
     schema:
-      $ref: ../components/parameters/resourceId.yaml
+      $ref: ../components/parameters/resourceId.yaml#/schema
 get:
   tags:
     - Memberships
