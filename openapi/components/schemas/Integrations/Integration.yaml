@@ -25,9 +25,7 @@ properties:
           items:
             type: string
         eventType:
-          description: The configuration event type
-          allOf:
-            - $ref: '#/components/parameters/systemEventType/schema'
+          $ref: ../EventType.yaml
         title:
           type: string
           description: The configuration title
