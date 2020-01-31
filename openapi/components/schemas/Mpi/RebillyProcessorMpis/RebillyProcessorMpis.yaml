@@ -1,8 +1,7 @@
 description: RebillyProcessorMpis Mpis
 discriminator:
   propertyName: name
-  mapping:
-    RebillyProcessorMpi: ./RebillyProcessorMpi.yaml
+  mapping: {}
 type: object
 required:
   - name

@@ -1,8 +1,7 @@
 description: Panamerican Mpis
 discriminator:
   propertyName: name
-  mapping:
-    PanmericanMpi: ./PanmericanMpi.yaml
+  mapping: {}
 type: object
 required:
   - name

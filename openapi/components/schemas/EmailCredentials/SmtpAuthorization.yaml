@@ -3,7 +3,6 @@ discriminator:
   propertyName: type
   mapping:
     none: ./SmtpAuthorizations/SmtpAuthorizationNone.yaml
-    SmtpAuthorizationNone: ./SmtpAuthorizations/SmtpAuthorizationNone.yaml
     cram-md5: ./SmtpAuthorizations/cram-md5.yaml
     login: ./SmtpAuthorizations/login.yaml
     plain: ./SmtpAuthorizations/plain.yaml

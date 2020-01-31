@@ -3,7 +3,6 @@ discriminator:
   propertyName: method
   mapping:
     none: ./Policies/AmountAdjustmentNone.yaml
-    AmountAdjustmentNone: ./Policies/AmountAdjustmentNone.yaml
     discount: ./Policies/discount.yaml
     partial: ./Policies/partial.yaml
 properties:
