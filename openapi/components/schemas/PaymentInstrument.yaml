@@ -1,0 +1,13 @@
+type: object
+required:
+  - method
+discriminator:
+  propertyName: method
+  mapping:
+    ach: ./PaymentInstuments/ach.yaml
+    cash: ./PaymentInstuments/cash.yaml
+    payment-card: ./PaymentInstuments/payment-card.yaml
+    paypal: ./PaymentInstuments/paypal.yaml
+properties:
+  method:
+    $ref: ./Method.yaml

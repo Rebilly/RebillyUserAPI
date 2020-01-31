@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: '#/components/schemas/Website'
-description: Website resource
-required: true

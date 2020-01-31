@@ -1,4 +1,0 @@
-description: Panmerican Integrated
-allOf:
-  -
-    $ref: "#/components/schemas/PanamericanMpis"
