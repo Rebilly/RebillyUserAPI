@@ -1,3 +1,0 @@
-description: Panmerican Integrated
-allOf:
-  - $ref: ./PanamericanMpis.yaml

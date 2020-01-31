@@ -7,7 +7,7 @@
 - OpenAPI Raw Files: [openapi.json](https://rebilly.github.io/RebillyUserAPI/openapi.json), [openapi.yaml](https://rebilly.github.io/RebillyUserAPI/openapi.yaml)
 - Documentation preview for branch `[branch]`: https://rebilly.github.io/RebillyUserAPI/preview/[branch]
 
-**Warning:** All the links above are updated only after Travis CI finishes deployment
+**Warning:** All the links above are updated only after Redocly finishes deployment.
 
 ## Working on specification
 ### Install
