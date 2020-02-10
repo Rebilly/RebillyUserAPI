@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: ../schemas/Note.yaml
-description: Note resource
-required: true
