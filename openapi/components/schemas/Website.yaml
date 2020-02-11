@@ -46,5 +46,4 @@ properties:
     items:
       anyOf:
         - $ref: ./Links/SelfLink.yaml
-        - $ref: ./Links/NotesLink.yaml
         - $ref: ./Links/OrganizationLink.yaml

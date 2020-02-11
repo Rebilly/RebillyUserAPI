@@ -52,7 +52,6 @@ items:
         - mgs
         - momentum
         - nmi
-        - notes
         - oauth2-credentials
         - organizations
         - password-tokens
