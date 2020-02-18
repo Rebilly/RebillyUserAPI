@@ -91,6 +91,7 @@ discriminator:
     Redsys: ./GatewayAccountConfig/Redsys.yaml
     Rotessa: ./GatewayAccountConfig/Rotessa.yaml
     SMSVoucher: ./GatewayAccountConfig/SMSVoucher.yaml
+    Sofort: ./GatewayAccountConfig/Sofort.yaml
     Sagepay: ./GatewayAccountConfig/Sagepay.yaml
     SeamlessChex: ./GatewayAccountConfig/SeamlessChex.yaml
     SecureTrading: ./GatewayAccountConfig/SecureTrading.yaml
