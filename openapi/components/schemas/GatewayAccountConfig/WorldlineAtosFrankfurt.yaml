@@ -1,0 +1,4 @@
+description: WorldlineAtosFrankfurt Gateway config
+allOf:
+  - $ref: ../GatewayAccount.yaml
+  - type: object
