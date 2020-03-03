@@ -1,3 +1,0 @@
-description: RebillyProcessor Integrated
-allOf:
-  - $ref: ./RebillyProcessorMpis.yaml
