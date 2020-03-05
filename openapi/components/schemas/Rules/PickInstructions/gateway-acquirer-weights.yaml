@@ -23,7 +23,7 @@ allOf:
             - weight
         example: |
           [
-            {"gatewayName": "RebillyProcessor", "acquirerName": "AIB", "weight": 80},
-            {"gatewayName": "RebillyProcessor", "acquirerName": "B+S", "weight": 20}
+            {"gatewayName": "TestProcessor", "acquirerName": "AIB", "weight": 80},
+            {"gatewayName": "TestProcessor", "acquirerName": "B+S", "weight": 20}
     required:
       - weightedList
