@@ -5,7 +5,7 @@ allOf:
       - merchantId
       - merchantName
       - merchantAcquirerBINVisa
-      - merchantAcquirerBINMastercard
+      - merchantAcquirerBinMastercard
       - merchantCountry
       - merchantUrl
     properties:
