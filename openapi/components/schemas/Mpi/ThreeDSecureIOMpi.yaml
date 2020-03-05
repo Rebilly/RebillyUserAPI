@@ -1,0 +1,30 @@
+description: ThreeDSecureIOMpi
+allOf:
+  - type: object
+    required:
+      - merchantId
+      - merchantName
+      - merchantAcquirerBINVisa
+      - merchantAcquirerBINMastercard
+      - merchantCountry
+      - merchantUrl
+    properties:
+      merchantId:
+        type: string
+        description: Merchant Id
+      merchantName:
+        type: string
+        format: password
+        description: Merchant Name. Maximum length should be 25 characters.
+      merchantAcquirerBINVisa:
+        type: string
+        description: Merchant Visa Acquired BIN
+      merchantAcquirerBINMastercard:
+          type: string
+          description: Merchant Mastercard Acquired BIN
+      merchantCountry:
+        type: string
+        description: Merchant Country Code. Should be 2 characters long, e.g. US, GB.
+      merchantUrl:
+        type: string
+        description: Merchant URL
