@@ -18,7 +18,7 @@ allOf:
         description: Merchant Name. Maximum length should be 25 characters.
       merchantAcquirerBinVisa:
         type: string
-        description: Merchant Visa Acquired BIN
+        description: Visa Acquirer BIN
       merchantAcquirerBinMastercard:
           type: string
           description: Mastercard Acquirer BIN
