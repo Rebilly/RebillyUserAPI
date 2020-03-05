@@ -19,7 +19,7 @@ allOf:
       merchantAcquirerBINVisa:
         type: string
         description: Merchant Visa Acquired BIN
-      merchantAcquirerBINMastercard:
+      merchantAcquirerBinMastercard:
           type: string
           description: Mastercard Acquirer BIN
       merchantCountry:
