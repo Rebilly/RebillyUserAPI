@@ -16,7 +16,7 @@ allOf:
         type: string
         format: password
         description: Merchant Name. Maximum length should be 25 characters.
-      merchantAcquirerBINVisa:
+      merchantAcquirerBinVisa:
         type: string
         description: Merchant Visa Acquired BIN
       merchantAcquirerBinMastercard:
