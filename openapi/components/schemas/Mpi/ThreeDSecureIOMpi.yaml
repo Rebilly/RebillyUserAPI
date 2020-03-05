@@ -21,7 +21,7 @@ allOf:
         description: Merchant Visa Acquired BIN
       merchantAcquirerBINMastercard:
           type: string
-          description: Merchant Mastercard Acquired BIN
+          description: Mastercard Acquirer BIN
       merchantCountry:
         type: string
         description: Merchant Country Code. Should be 2 characters long, e.g. US, GB.
