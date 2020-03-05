@@ -4,7 +4,7 @@ allOf:
     required:
       - merchantId
       - merchantName
-      - merchantAcquirerBINVisa
+      - merchantAcquirerBinVisa
       - merchantAcquirerBinMastercard
       - merchantCountry
       - merchantUrl
