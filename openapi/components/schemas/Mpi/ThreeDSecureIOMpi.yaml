@@ -12,6 +12,7 @@ allOf:
       merchantId:
         type: string
         description: Merchant Id
+        maxLength: 24
       merchantName:
         type: string
         description: Merchant Name
@@ -19,9 +20,13 @@ allOf:
       merchantAcquirerBinVisa:
         type: string
         description: Visa Acquirer BIN
+        minLength: 6
+        maxLength: 11
       merchantAcquirerBinMastercard:
         type: string
         description: Mastercard Acquirer BIN
+        minLength: 6
+        maxLength: 11
       merchantCountry:
         type: string
         description: Merchant Country ISO Alpha-2 Code
@@ -30,3 +35,4 @@ allOf:
       merchantUrl:
         type: string
         description: Merchant URL
+        maxLength: 2048
