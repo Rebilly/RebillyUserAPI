@@ -14,17 +14,19 @@ allOf:
         description: Merchant Id
       merchantName:
         type: string
-        format: password
-        description: Merchant Name. Maximum length should be 25 characters.
+        description: Merchant Name
+        maxLength: 25
       merchantAcquirerBinVisa:
         type: string
         description: Visa Acquirer BIN
       merchantAcquirerBinMastercard:
-          type: string
-          description: Mastercard Acquirer BIN
+        type: string
+        description: Mastercard Acquirer BIN
       merchantCountry:
         type: string
-        description: Merchant Country Code. Should be 2 characters long, e.g. US, GB.
+        description: Merchant Country ISO Alpha-2 Code
+        maxLength: 2
+        example: US
       merchantUrl:
         type: string
         description: Merchant URL
