@@ -399,10 +399,6 @@ paths:
     $ref: './paths/tracking@api@{id}.yaml'
   /tracking/lists:
     $ref: ./paths/tracking@lists.yaml
-  /tracking/subscriptions:
-    $ref: ./paths/tracking@subscriptions.yaml
-  '/tracking/subscriptions/{id}':
-    $ref: './paths/tracking@subscriptions@{id}.yaml'
   /tracking/webhooks:
     $ref: ./paths/tracking@webhooks.yaml
   '/tracking/webhooks/{id}':
