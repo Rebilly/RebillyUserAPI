@@ -78,6 +78,7 @@ discriminator:
     PayPal: ./GatewayAccountConfig/PayPal.yaml
     Payeezy: ./GatewayAccountConfig/Payeezy.yaml
     Payflow: ./GatewayAccountConfig/Payflow.yaml
+    PaymenTechnologies: ./GatewayAccountConfig/PaymenTechnologies.yaml
     Payr: ./GatewayAccountConfig/Payr.yaml
     Paysafe: ./GatewayAccountConfig/Paysafe.yaml
     Paysafecash: ./GatewayAccountConfig/Paysafecash.yaml
