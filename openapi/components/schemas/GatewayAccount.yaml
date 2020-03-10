@@ -78,6 +78,7 @@ discriminator:
     PayPal: ./GatewayAccountConfig/PayPal.yaml
     Payeezy: ./GatewayAccountConfig/Payeezy.yaml
     Payflow: ./GatewayAccountConfig/Payflow.yaml
+    PaymenTechnologies: ./GatewayAccountConfig/PaymenTechnologies.yaml
     Payr: ./GatewayAccountConfig/Payr.yaml
     Paysafe: ./GatewayAccountConfig/Paysafe.yaml
     Paysafecash: ./GatewayAccountConfig/Paysafecash.yaml
@@ -87,7 +88,6 @@ discriminator:
     RPN: ./GatewayAccountConfig/RPN.yaml
     Realex: ./GatewayAccountConfig/Realex.yaml
     Realtime: ./GatewayAccountConfig/Realtime.yaml
-    RebillyProcessor: ./GatewayAccountConfig/RebillyProcessor.yaml
     Redsys: ./GatewayAccountConfig/Redsys.yaml
     Rotessa: ./GatewayAccountConfig/Rotessa.yaml
     SMSVoucher: ./GatewayAccountConfig/SMSVoucher.yaml
@@ -100,6 +100,7 @@ discriminator:
     SparkPay: ./GatewayAccountConfig/SparkPay.yaml
     StaticGateway: ./GatewayAccountConfig/StaticGateway.yaml
     Stripe: ./GatewayAccountConfig/Stripe.yaml
+    TestProcessor: ./GatewayAccountConfig/TestProcessor.yaml
     ToditoCash: ./GatewayAccountConfig/ToditoCash.yaml
     UPayCard: ./GatewayAccountConfig/UPayCard.yaml
     USAePay: ./GatewayAccountConfig/USAePay.yaml
