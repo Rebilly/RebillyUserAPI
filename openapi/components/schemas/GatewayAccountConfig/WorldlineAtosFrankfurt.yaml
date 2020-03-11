@@ -3,11 +3,11 @@ allOf:
   - $ref: ../GatewayAccount.yaml
   - type: object
     required:
-      - settings
+      - credentials
     properties:
-      settings:
+      credentials:
         type: object
-        description: WorldlineAtosFrankfurt settings
+        description: WorldlineAtosFrankfurt credentials
         properties:
           cardAcceptorName:
             type: string
