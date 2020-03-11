@@ -14,8 +14,8 @@ allOf:
             type: string
             description: Card Acceptor ID Code
           acquiringInstitutionIdentificationCode:
-              type: string
-              description: Acquiring Institution Identification Code
+            type: string
+            description: Acquiring Institution Identification Code
           required:
             - cardAcceptorIdCode
             - acquiringInstitutionIdentificationCode
