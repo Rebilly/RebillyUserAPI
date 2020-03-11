@@ -6,6 +6,8 @@ allOf:
       - credentials
       - settings
     properties:
+      mpi:
+        $ref: ../Mpi/WorldlineAtosFrankfurtMpis/WorldlineAtosFrankfurtMpis.yaml
       credentials:
         type: object
         description: WorldlineAtosFrankfurt credentials
