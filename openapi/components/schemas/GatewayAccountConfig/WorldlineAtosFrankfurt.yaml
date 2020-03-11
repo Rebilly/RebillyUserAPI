@@ -16,9 +16,9 @@ allOf:
           acquiringInstitutionIdentificationCode:
             type: string
             description: Acquiring Institution Identification Code
-          required:
-            - cardAcceptorIdCode
-            - acquiringInstitutionIdentificationCode
+        required:
+          - cardAcceptorIdCode
+          - acquiringInstitutionIdentificationCode
       settings:
         type: object
         description: WorldlineAtosFrankfurt settings
@@ -32,7 +32,7 @@ allOf:
           cardAcceptorCountryCode:
             type: string
             description: Card Acceptor Country Code
-          required:
-            - cardAcceptorName
-            - cardAcceptorLocation
-            - cardAcceptorCountryCode
+        required:
+          - cardAcceptorName
+          - cardAcceptorLocation
+          - cardAcceptorCountryCode
