@@ -109,6 +109,7 @@ discriminator:
     Wallet88: ./GatewayAccountConfig/Wallet88.yaml
     Walpay: ./GatewayAccountConfig/Walpay.yaml
     Wirecard: ./GatewayAccountConfig/Wirecard.yaml
+    WorldlineAtosFrankfurt: ./GatewayAccountConfig/WorldlineAtosFrankfurt.yaml
     Worldpay: ./GatewayAccountConfig/Worldpay.yaml
     Zotapay: ./GatewayAccountConfig/Zotapay.yaml
     eMerchantPay: ./GatewayAccountConfig/eMerchantPay.yaml
