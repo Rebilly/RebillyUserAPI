@@ -1,5 +1,6 @@
 description: ThreeDSecureIOMpi
 allOf:
+  - $ref: ./WorldlineAtosFrankfurtMpis/WorldlineAtosFrankfurtMpis.yaml
   - type: object
     required:
       - merchantId
