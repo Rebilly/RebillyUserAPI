@@ -15,3 +15,10 @@ allOf:
             format: password
         required:
           - apiKey
+      settings:
+        type: object
+        description: Tap settings object
+        properties:
+            use3DSecure:
+              type: boolean
+              description: Use 3D-Secure
