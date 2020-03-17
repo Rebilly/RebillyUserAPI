@@ -5,6 +5,7 @@ get:
   tags:
     - Email Notifications
   summary: Retrieve a list of email notification send through attributions
+  operationId: GetSendThroughAttributionCollection
   responses:
     '200':
       description: >-
@@ -28,8 +29,7 @@ get:
           schema:
             type: array
             items:
-              $ref: >-
-                ../components/schemas/EmailNotifications/SendThroughAttribution.yaml
+              $ref: ../components/schemas/EmailNotifications/SendThroughAttribution.yaml
     '401':
       $ref: ../components/responses/Unauthorized.yaml
     '403':
