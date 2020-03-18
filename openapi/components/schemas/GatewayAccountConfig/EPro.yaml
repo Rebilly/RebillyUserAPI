@@ -9,20 +9,8 @@ allOf:
         type: object
         description: EPro credentials object
         properties:
-          username:
-            type: string
-            description: EPro username
-          password:
-            type: string
-            description: EPro password
-          group:
-            type: string
-            description: EPro group
           apiSecretKey:
             type: string
             description: EPro API secret key
         required:
-          - username
-          - password
-          - group
           - apiSecretKey
