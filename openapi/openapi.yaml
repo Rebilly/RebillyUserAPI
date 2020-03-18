@@ -105,10 +105,6 @@ tags:
   - name: Payment Cards
     description: |
       Payment cards are a type of payment instrument used for credit and debit card sales.
-  - name: Notes
-    description: |
-      Leave notes on a customer record to have a handy location to share with
-      others who may interface with the customer.  It's great for customer service.
   - name: Organizations
     description: |
       Organizations include the name and address of the entities related to your
@@ -223,7 +219,6 @@ x-tagGroups:
       - Layouts
       - Payment Cards
       - Memberships
-      - Notes
       - Organizations
       - Segments
       - Status
@@ -368,10 +363,6 @@ paths:
     $ref: ./paths/memberships.yaml
   '/memberships/{organizationId}/{userId}':
     $ref: './paths/memberships@{organizationId}@{userId}.yaml'
-  /notes:
-    $ref: ./paths/notes.yaml
-  '/notes/{id}':
-    $ref: './paths/notes@{id}.yaml'
   /organizations:
     $ref: ./paths/organizations.yaml
   '/organizations/{id}':
@@ -408,10 +399,6 @@ paths:
     $ref: './paths/tracking@api@{id}.yaml'
   /tracking/lists:
     $ref: ./paths/tracking@lists.yaml
-  /tracking/subscriptions:
-    $ref: ./paths/tracking@subscriptions.yaml
-  '/tracking/subscriptions/{id}':
-    $ref: './paths/tracking@subscriptions@{id}.yaml'
   /tracking/webhooks:
     $ref: ./paths/tracking@webhooks.yaml
   '/tracking/webhooks/{id}':

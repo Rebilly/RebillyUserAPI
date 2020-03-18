@@ -1,4 +1,4 @@
-description: iCanPay Gateway config
+description: PaymenTechnologies Gateway config
 allOf:
   - $ref: ../GatewayAccount.yaml
   - type: object
@@ -10,17 +10,17 @@ allOf:
         properties:
           authenticateId:
             type: string
-            description: iCanPay Gateway authenticate ID
+            description: PaymenTechnologies Gateway authenticate ID
           authenticatePw:
             type: string
-            description: iCanPay Gateway authenticate password
+            description: PaymenTechnologies Gateway authenticate password
             format: password
           publicKey:
             type: string
-            description: iCanPay Gateway API public key
+            description: PaymenTechnologies Gateway API public key
           secretKey:
             type: string
-            description: iCanPay Gateway API secret key
+            description: PaymenTechnologies Gateway API secret key
             format: password
         required:
           - authenticateId

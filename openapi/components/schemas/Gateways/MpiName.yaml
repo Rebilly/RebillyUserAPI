@@ -15,3 +15,5 @@ enum:
   - SecureTradingMpi
   - ClearhausMpi
   - Other
+  - ThreeDSecureIOMpi
+  - WorldlineAtosFrankfurtMpi
