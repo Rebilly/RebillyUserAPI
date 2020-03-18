@@ -12,5 +12,6 @@ allOf:
           apiSecretKey:
             type: string
             description: EPro API secret key
+            format: password
         required:
           - apiSecretKey
