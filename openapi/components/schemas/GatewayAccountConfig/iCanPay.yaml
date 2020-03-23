@@ -27,3 +27,9 @@ allOf:
           - authenticatePw
           - publicKey
           - secretKey
+      settings:
+        type: object
+        properties:
+          use3DSEndpoint:
+            type: boolean
+            description: Use 3DS endpoint
