@@ -56,7 +56,6 @@ items:
         - organizations
         - password-tokens
         - payment-cards
-        - payment-cards-migrations
         - payment-instrument-validation
         - payments
         - paypal-accounts
