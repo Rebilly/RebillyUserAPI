@@ -24,7 +24,7 @@ allOf:
             format: password
           apiKey:
             type: string
-            description: PaymenTechnologies API key for query operations
+            description: PaymenTechnologies API key required for query operations
             format: password
         required:
           - authenticateId
