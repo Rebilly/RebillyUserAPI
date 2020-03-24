@@ -1,13 +1,13 @@
-# Rebilly REST OpenAPI Specification
-[![Build Status](https://travis-ci.org/Rebilly/RebillyUserAPI.svg?branch=master)](https://travis-ci.org/Rebilly/RebillyUserAPI)
+# Rebilly User API REST OpenAPI Definition
+
+TBD: Add validation status badge from Redocly.
 
 ## Links
 
-- [Documentation (ReDoc)](https://rebilly.github.io/RebillyUserAPI/)
-- OpenAPI Raw Files: [openapi.json](https://rebilly.github.io/RebillyUserAPI/openapi.json), [openapi.yaml](https://rebilly.github.io/RebillyUserAPI/openapi.yaml)
-- Documentation preview for branch `[branch]`: https://rebilly.github.io/RebillyUserAPI/preview/[branch]
+- [Reference Documentation](https://user-api-docs.rebilly.com/)
+- OpenAPI Raw Files: [openapi.json](https://user-api-docs.rebilly.com/openapi.json), [openapi.yaml](https://user-api-docs.rebilly.com/openapi.yaml)
 
-**Warning:** All the links above are updated only after Travis CI finishes deployment
+**Warning:** All the links above are updated only after Redocly finishes deployment.
 
 ## Working on specification
 ### Install
@@ -18,13 +18,10 @@
 ### Usage
 
 #### `yarn start`
-Starts the development server.
+Starts the development server to preview the docs.
 
 #### `yarn build`
-Bundles the spec and prepares web_deploy folder with static assets.
+Bundles to the `dist` folder.
 
 #### `yarn test`
-Validates the spec.
-
-#### `yarn gh-pages`
-Deploys docs to GitHub Pages. You don't need to run it manually if you have Travis CI configured.
+Validates.

@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: '#/components/schemas/Layout'
-description: Layout resource
-required: true

@@ -1,4 +1,0 @@
-description: SmartInvoice Integrated
-allOf:
-  -
-    $ref: "#/components/schemas/SmartInvoiceMpis"

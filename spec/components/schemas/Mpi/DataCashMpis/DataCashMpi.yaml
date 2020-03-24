@@ -1,4 +1,0 @@
-description: DataCash Integrated
-allOf:
-  -
-    $ref: "#/components/schemas/DataCashMpis"

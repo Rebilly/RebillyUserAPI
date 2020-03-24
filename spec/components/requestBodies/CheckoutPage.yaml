@@ -1,6 +1,0 @@
-content:
-  application/json:
-    schema:
-      $ref: '#/components/schemas/CheckoutPage'
-description: Checkout Page resource
-required: true
