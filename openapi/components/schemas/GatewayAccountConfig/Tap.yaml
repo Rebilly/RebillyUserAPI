@@ -15,3 +15,5 @@ allOf:
             format: password
         required:
           - apiKey
+      mpi:
+        $ref: ../Mpi/TapMpis/TapMpis.yaml
