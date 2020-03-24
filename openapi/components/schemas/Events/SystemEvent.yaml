@@ -8,6 +8,12 @@ properties:
     type: string
   description:
     type: string
+  category:
+    description: The event system category it belongs to
+    type: string
+    enum:
+      - billing
+      - payments
   rulesCount:
     type: integer
     readOnly: true
