@@ -34,7 +34,7 @@ properties:
         description: First and last name
         type: string
   permissions:
-    description: The user's permissions. See the format in example
+    description: The user's permissions. See the format in example. Use wildcard `*` for full access.
     allOf:
       - $ref: ./AclPermissions.yaml
   isOwner:

@@ -24,9 +24,7 @@ properties:
       - publishable
   permissions:
     description: >-
-      Specify individual permissions here if creating a restricted API key. Send
-      `null` to allow all permissions.
-    nullable: true
+      Specify individual permissions here if creating a restricted API key.
     deprecated: true
     allOf:
       - $ref: ./AclPermissions.yaml

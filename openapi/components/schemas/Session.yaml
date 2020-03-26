@@ -11,7 +11,7 @@ properties:
     description: The session's token used for authentication
     type: string
   permissions:
-    description: The session's permissions. See the format in example
+    description: The session's permissions. See the format in example. Use wildcard `*` for full access.
     allOf:
       - $ref: ./AclPermissions.yaml
   memberships:

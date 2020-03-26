@@ -17,7 +17,6 @@ items:
     permissions:
       description: >-
         Specify individual permission here if creating a restricted API key.
-        Send `null` to allow all permissions.
-      nullable: true
+        Use wildcard `*` for full access.
       allOf:
         - $ref: ./AclPermissions.yaml
