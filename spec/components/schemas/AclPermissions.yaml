@@ -1,8 +1,0 @@
-type: array
-items:
-  type: string
-  format: operationId
-example:
-  - 'GetTransactionCollection'
-  - 'GetTransaction'
-  - 'PostTransaction'
