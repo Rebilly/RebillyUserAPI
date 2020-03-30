@@ -19,7 +19,6 @@ allOf:
           rebillyPublishableKey:
             type: string
             description: Rebilly publishable api key. If provided a payment token will be created for each transaction.
-            format: password
         required:
           - organizationId
           - apiKey
