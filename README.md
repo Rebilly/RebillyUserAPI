@@ -5,7 +5,6 @@ TBD: Add validation status badge from Redocly.
 ## Links
 
 - [Reference Documentation](https://user-api-docs.rebilly.com/)
-- OpenAPI Raw Files: [openapi.json](https://user-api-docs.rebilly.com/openapi.json), [openapi.yaml](https://user-api-docs.rebilly.com/openapi.yaml)
 
 **Warning:** All the links above are updated only after Redocly finishes deployment.
 
