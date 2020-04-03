@@ -1,0 +1,20 @@
+description: EBANX config
+allOf:
+  - $ref: ../GatewayAccount.yaml
+  - type: object
+    required:
+      - credentials
+    properties:
+      credentials:
+        type: object
+        description: EBANX credentials object
+        properties:
+          merchantId:
+            type: string
+            description: EBANX merchant account UID
+          integrationKey:
+            type: string
+            description: EBANX integration key
+          required:
+            - merchantId
+            - integrationKey
